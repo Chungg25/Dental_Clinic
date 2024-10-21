@@ -139,7 +139,7 @@ namespace Dental_Clinic.GUI.Administrator
             // pictureBox7
             // 
             pictureBox7.Image = Resources.icons8_total_sales_50;
-            pictureBox7.Location = new Point(22, 556);
+            pictureBox7.Location = new Point(22, 579);
             pictureBox7.Name = "pictureBox7";
             pictureBox7.Size = new Size(54, 52);
             pictureBox7.TabIndex = 15;
@@ -148,7 +148,7 @@ namespace Dental_Clinic.GUI.Administrator
             // pictureBox6
             // 
             pictureBox6.Image = Resources.icons8_sales_performance_50;
-            pictureBox6.Location = new Point(22, 660);
+            pictureBox6.Location = new Point(22, 683);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(54, 52);
             pictureBox6.TabIndex = 14;
@@ -157,7 +157,7 @@ namespace Dental_Clinic.GUI.Administrator
             // pictureBox5
             // 
             pictureBox5.Image = Resources.icons8_medical_50;
-            pictureBox5.Location = new Point(22, 452);
+            pictureBox5.Location = new Point(22, 475);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(54, 48);
             pictureBox5.TabIndex = 13;
@@ -166,7 +166,7 @@ namespace Dental_Clinic.GUI.Administrator
             // pictureBox4
             // 
             pictureBox4.Image = Resources.icons8_schedule_50;
-            pictureBox4.Location = new Point(22, 357);
+            pictureBox4.Location = new Point(22, 380);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(54, 48);
             pictureBox4.TabIndex = 12;
@@ -175,7 +175,7 @@ namespace Dental_Clinic.GUI.Administrator
             // pictureBox3
             // 
             pictureBox3.Image = Resources.icons8_recovery_50;
-            pictureBox3.Location = new Point(22, 259);
+            pictureBox3.Location = new Point(22, 282);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(54, 48);
             pictureBox3.TabIndex = 11;
@@ -184,7 +184,7 @@ namespace Dental_Clinic.GUI.Administrator
             // pictureBox1
             // 
             pictureBox1.Image = Resources.icons8_group_50;
-            pictureBox1.Location = new Point(19, 158);
+            pictureBox1.Location = new Point(19, 181);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(57, 48);
             pictureBox1.TabIndex = 5;
@@ -194,7 +194,7 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             lbLuong.AutoSize = true;
             lbLuong.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
-            lbLuong.Location = new Point(85, 675);
+            lbLuong.Location = new Point(85, 698);
             lbLuong.Name = "lbLuong";
             lbLuong.Size = new Size(152, 25);
             lbLuong.TabIndex = 10;
@@ -205,7 +205,7 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             lbDoanhThu.AutoSize = true;
             lbDoanhThu.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
-            lbDoanhThu.Location = new Point(85, 569);
+            lbDoanhThu.Location = new Point(85, 592);
             lbDoanhThu.Name = "lbDoanhThu";
             lbDoanhThu.Size = new Size(205, 25);
             lbDoanhThu.TabIndex = 9;
@@ -216,7 +216,7 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             lbVatTu.AutoSize = true;
             lbVatTu.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
-            lbVatTu.Location = new Point(85, 465);
+            lbVatTu.Location = new Point(85, 488);
             lbVatTu.Name = "lbVatTu";
             lbVatTu.Size = new Size(146, 25);
             lbVatTu.TabIndex = 8;
@@ -227,7 +227,7 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             lbLichLamViec.AutoSize = true;
             lbLichLamViec.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
-            lbLichLamViec.Location = new Point(85, 370);
+            lbLichLamViec.Location = new Point(85, 393);
             lbLichLamViec.Name = "lbLichLamViec";
             lbLichLamViec.Size = new Size(211, 25);
             lbLichLamViec.TabIndex = 7;
@@ -238,7 +238,7 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             lbBenhNhan.AutoSize = true;
             lbBenhNhan.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
-            lbBenhNhan.Location = new Point(85, 269);
+            lbBenhNhan.Location = new Point(85, 292);
             lbBenhNhan.Name = "lbBenhNhan";
             lbBenhNhan.Size = new Size(195, 25);
             lbBenhNhan.TabIndex = 6;
@@ -249,7 +249,7 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             lbUser.AutoSize = true;
             lbUser.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
-            lbUser.Location = new Point(85, 172);
+            lbUser.Location = new Point(85, 195);
             lbUser.Name = "lbUser";
             lbUser.Size = new Size(187, 25);
             lbUser.TabIndex = 5;

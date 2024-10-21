@@ -35,7 +35,6 @@ namespace Dental_Clinic.GUI.Login
             pictureBox2 = new PictureBox();
             label1 = new Label();
             panel1 = new Panel();
-            btnDangNhap = new Button();
             pictureBox1 = new PictureBox();
             pictureBox3 = new PictureBox();
             panel3 = new Panel();
@@ -44,6 +43,7 @@ namespace Dental_Clinic.GUI.Login
             tbUser = new TextBox();
             tbPassword = new TextBox();
             imageList1 = new ImageList(components);
+            vbButton1 = new CustomButton.VBButton();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -77,20 +77,6 @@ namespace Dental_Clinic.GUI.Login
             panel1.Name = "panel1";
             panel1.Size = new Size(348, 3);
             panel1.TabIndex = 4;
-            // 
-            // btnDangNhap
-            // 
-            btnDangNhap.BackColor = SystemColors.Highlight;
-            btnDangNhap.Cursor = Cursors.Hand;
-            btnDangNhap.FlatStyle = FlatStyle.Flat;
-            btnDangNhap.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold);
-            btnDangNhap.ForeColor = SystemColors.Window;
-            btnDangNhap.Location = new Point(118, 432);
-            btnDangNhap.Name = "btnDangNhap";
-            btnDangNhap.Size = new Size(262, 47);
-            btnDangNhap.TabIndex = 0;
-            btnDangNhap.Text = "Đăng nhập";
-            btnDangNhap.UseVisualStyleBackColor = false;
             // 
             // pictureBox1
             // 
@@ -168,12 +154,32 @@ namespace Dental_Clinic.GUI.Login
             imageList1.ImageSize = new Size(16, 16);
             imageList1.TransparentColor = Color.Transparent;
             // 
+            // vbButton1
+            // 
+            vbButton1.BackColor = SystemColors.Highlight;
+            vbButton1.BackgroundColor = SystemColors.Highlight;
+            vbButton1.BorderColor = Color.PaleVioletRed;
+            vbButton1.BorderRadius = 20;
+            vbButton1.BorderSize = 0;
+            vbButton1.FlatAppearance.BorderSize = 0;
+            vbButton1.FlatStyle = FlatStyle.Flat;
+            vbButton1.Font = new Font("Microsoft Sans Serif", 19.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            vbButton1.ForeColor = Color.White;
+            vbButton1.Location = new Point(118, 445);
+            vbButton1.Name = "vbButton1";
+            vbButton1.Size = new Size(262, 47);
+            vbButton1.TabIndex = 15;
+            vbButton1.Text = "Đăng Nhập";
+            vbButton1.TextColor = Color.White;
+            vbButton1.UseVisualStyleBackColor = false;
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             ClientSize = new Size(514, 543);
+            Controls.Add(vbButton1);
             Controls.Add(tbPassword);
             Controls.Add(tbUser);
             Controls.Add(pictureBox4);
@@ -181,7 +187,6 @@ namespace Dental_Clinic.GUI.Login
             Controls.Add(panel3);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox1);
-            Controls.Add(btnDangNhap);
             Controls.Add(panel1);
             Controls.Add(label1);
             Controls.Add(pictureBox2);
@@ -200,7 +205,6 @@ namespace Dental_Clinic.GUI.Login
         private PictureBox pictureBox2;
         private Label label1;
         private Panel panel1;
-        private Button btnDangNhap;
         private PictureBox pictureBox1;
         private PictureBox pictureBox3;
         private Panel panel3;
@@ -209,5 +213,6 @@ namespace Dental_Clinic.GUI.Login
         private TextBox tbUser;
         private TextBox tbPassword;
         private ImageList imageList1;
+        private CustomButton.VBButton vbButton1;
     }
 }

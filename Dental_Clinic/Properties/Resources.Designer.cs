@@ -263,6 +263,16 @@ namespace Dental_Clinic.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_plus_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-plus-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_recovery_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8-recovery-50", resourceCulture);

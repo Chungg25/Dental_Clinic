@@ -1,4 +1,6 @@
-﻿namespace Dental_Clinic.GUI.Administrator
+﻿using Dental_Clinic.Properties;
+
+namespace Dental_Clinic.GUI.Administrator
 {
     partial class UserForm
     {
@@ -30,6 +32,8 @@
         {
             panel1 = new Panel();
             label1 = new Label();
+            vbButton1 = new CustomButton.VBButton();
+            panel2 = new Panel();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -52,12 +56,41 @@
             label1.TabIndex = 0;
             label1.Text = "Quản lý người dùng";
             // 
+            // vbButton1
+            // 
+            vbButton1.BackColor = Color.FromArgb(220, 53, 69);
+            vbButton1.BackgroundColor = Color.FromArgb(220, 53, 69);
+            vbButton1.BorderColor = Color.PaleVioletRed;
+            vbButton1.BorderRadius = 8;
+            vbButton1.BorderSize = 0;
+            vbButton1.FlatAppearance.BorderSize = 0;
+            vbButton1.FlatStyle = FlatStyle.Flat;
+            vbButton1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            vbButton1.ForeColor = Color.White;
+            vbButton1.Location = new Point(46, 95);
+            vbButton1.Name = "vbButton1";
+            vbButton1.Size = new Size(232, 47);
+            vbButton1.TabIndex = 2;
+            vbButton1.Text = "Thêm người dùng mới";
+            vbButton1.TextAlign = ContentAlignment.MiddleLeft;
+            vbButton1.TextColor = Color.White;
+            vbButton1.UseVisualStyleBackColor = false;
+            // 
+            // panel2
+            // 
+            panel2.Location = new Point(7, 202);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1012, 414);
+            panel2.TabIndex = 4;
+            // 
             // UserForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             ClientSize = new Size(1016, 644);
+            Controls.Add(panel2);
+            Controls.Add(vbButton1);
             Controls.Add(panel1);
             Name = "UserForm";
             Text = "UserForm";
@@ -70,5 +103,7 @@
 
         private Panel panel1;
         private Label label1;
+        private CustomButton.VBButton vbButton1;
+        private Panel panel2;
     }
 }

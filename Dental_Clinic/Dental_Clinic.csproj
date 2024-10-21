@@ -12,6 +12,9 @@
     <Folder Include="DAO\" />
     <Folder Include="DTO\" />
     <Folder Include="BUS\" />
+    <Folder Include="BUS\" />
+    <Folder Include="DAO\" />
+    <Folder Include="DTO\" />
   </ItemGroup>
 
   <ItemGroup>

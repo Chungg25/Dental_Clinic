@@ -41,9 +41,9 @@ namespace Dental_Clinic.GUI.Login
             textBox2 = new TextBox();
             pictureBox4 = new PictureBox();
             panel2 = new Panel();
-            btnXacNhan = new Button();
-            btnGuiMa = new Button();
             picBack = new PictureBox();
+            vbButton1 = new CustomButton.VBButton();
+            vbButton2 = new CustomButton.VBButton();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -153,34 +153,6 @@ namespace Dental_Clinic.GUI.Login
             panel2.Size = new Size(226, 3);
             panel2.TabIndex = 21;
             // 
-            // btnXacNhan
-            // 
-            btnXacNhan.BackColor = SystemColors.Highlight;
-            btnXacNhan.Cursor = Cursors.Hand;
-            btnXacNhan.FlatStyle = FlatStyle.Flat;
-            btnXacNhan.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold);
-            btnXacNhan.ForeColor = SystemColors.Window;
-            btnXacNhan.Location = new Point(118, 494);
-            btnXacNhan.Name = "btnXacNhan";
-            btnXacNhan.Size = new Size(262, 47);
-            btnXacNhan.TabIndex = 25;
-            btnXacNhan.Text = "Xác nhận";
-            btnXacNhan.UseVisualStyleBackColor = false;
-            btnXacNhan.Click += btnXacNhan_Click;
-            // 
-            // btnGuiMa
-            // 
-            btnGuiMa.BackColor = Color.FromArgb(0, 89, 253);
-            btnGuiMa.FlatStyle = FlatStyle.Flat;
-            btnGuiMa.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold);
-            btnGuiMa.ForeColor = SystemColors.Window;
-            btnGuiMa.Location = new Point(312, 414);
-            btnGuiMa.Name = "btnGuiMa";
-            btnGuiMa.Size = new Size(119, 38);
-            btnGuiMa.TabIndex = 24;
-            btnGuiMa.Text = "Gửi mã";
-            btnGuiMa.UseVisualStyleBackColor = false;
-            // 
             // picBack
             // 
             picBack.Image = Resources.icons8_back_50;
@@ -191,15 +163,53 @@ namespace Dental_Clinic.GUI.Login
             picBack.TabStop = false;
             picBack.Click += picBack_Click;
             // 
+            // vbButton1
+            // 
+            vbButton1.BackColor = SystemColors.Highlight;
+            vbButton1.BackgroundColor = SystemColors.Highlight;
+            vbButton1.BorderColor = Color.PaleVioletRed;
+            vbButton1.BorderRadius = 20;
+            vbButton1.BorderSize = 0;
+            vbButton1.FlatAppearance.BorderSize = 0;
+            vbButton1.FlatStyle = FlatStyle.Flat;
+            vbButton1.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            vbButton1.ForeColor = Color.White;
+            vbButton1.Location = new Point(315, 414);
+            vbButton1.Name = "vbButton1";
+            vbButton1.Size = new Size(119, 38);
+            vbButton1.TabIndex = 27;
+            vbButton1.Text = "Gửi Mã";
+            vbButton1.TextColor = Color.White;
+            vbButton1.UseVisualStyleBackColor = false;
+            // 
+            // vbButton2
+            // 
+            vbButton2.BackColor = SystemColors.Highlight;
+            vbButton2.BackgroundColor = SystemColors.Highlight;
+            vbButton2.BorderColor = Color.PaleVioletRed;
+            vbButton2.BorderRadius = 20;
+            vbButton2.BorderSize = 0;
+            vbButton2.FlatAppearance.BorderSize = 0;
+            vbButton2.FlatStyle = FlatStyle.Flat;
+            vbButton2.Font = new Font("Microsoft Sans Serif", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            vbButton2.ForeColor = Color.White;
+            vbButton2.Location = new Point(118, 493);
+            vbButton2.Name = "vbButton2";
+            vbButton2.Size = new Size(262, 47);
+            vbButton2.TabIndex = 28;
+            vbButton2.Text = "Xác Nhận";
+            vbButton2.TextColor = Color.White;
+            vbButton2.UseVisualStyleBackColor = false;
+            // 
             // ForgotPassword
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             ClientSize = new Size(514, 543);
+            Controls.Add(vbButton2);
+            Controls.Add(vbButton1);
             Controls.Add(picBack);
-            Controls.Add(btnXacNhan);
-            Controls.Add(btnGuiMa);
             Controls.Add(textBox2);
             Controls.Add(pictureBox4);
             Controls.Add(panel2);
@@ -235,8 +245,8 @@ namespace Dental_Clinic.GUI.Login
         private TextBox textBox2;
         private PictureBox pictureBox4;
         private Panel panel2;
-        private Button btnXacNhan;
-        private Button btnGuiMa;
         private PictureBox picBack;
+        private CustomButton.VBButton vbButton1;
+        private CustomButton.VBButton vbButton2;
     }
 }
