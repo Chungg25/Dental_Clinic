@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="GUI\Administrator\BusinessStatisticsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\Administrator\DashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\Administrator\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\Administrator\PatientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\Administrator\SalaryManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\Administrator\SuppliesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\Administrator\User\UserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\Administrator\WorkScheduleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\Login\ForgotPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\Login\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\Login\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="VBButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
