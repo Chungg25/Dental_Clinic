@@ -63,10 +63,10 @@ namespace Dental_Clinic.GUI.Login
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold);
-            label1.Location = new Point(178, 140);
+            label1.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(162, 146);
             label1.Name = "label1";
-            label1.Size = new Size(193, 39);
+            label1.Size = new Size(194, 46);
             label1.TabIndex = 3;
             label1.Text = "Đăng nhập";
             // 
@@ -81,18 +81,20 @@ namespace Dental_Clinic.GUI.Login
             // pictureBox1
             // 
             pictureBox1.Image = Resources.icons8_user_60;
-            pictureBox1.Location = new Point(81, 206);
+            pictureBox1.Location = new Point(81, 220);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(61, 60);
+            pictureBox1.Size = new Size(45, 44);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 6;
             pictureBox1.TabStop = false;
             // 
             // pictureBox3
             // 
             pictureBox3.Image = Resources.icons8_password_52;
-            pictureBox3.Location = new Point(81, 316);
+            pictureBox3.Location = new Point(81, 321);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(52, 52);
+            pictureBox3.Size = new Size(45, 44);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 7;
             pictureBox3.TabStop = false;
             // 
@@ -108,11 +110,11 @@ namespace Dental_Clinic.GUI.Login
             // 
             lbQuenMatKhau.AutoSize = true;
             lbQuenMatKhau.Cursor = Cursors.Hand;
-            lbQuenMatKhau.Font = new Font("Microsoft Sans Serif", 9F);
+            lbQuenMatKhau.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbQuenMatKhau.ForeColor = Color.Black;
             lbQuenMatKhau.Location = new Point(351, 393);
             lbQuenMatKhau.Name = "lbQuenMatKhau";
-            lbQuenMatKhau.Size = new Size(109, 18);
+            lbQuenMatKhau.Size = new Size(109, 20);
             lbQuenMatKhau.TabIndex = 10;
             lbQuenMatKhau.Text = "Quên mật khẩu";
             lbQuenMatKhau.TextAlign = ContentAlignment.MiddleCenter;
@@ -121,9 +123,10 @@ namespace Dental_Clinic.GUI.Login
             // pictureBox4
             // 
             pictureBox4.Image = Resources.icons8_invisible_48;
-            pictureBox4.Location = new Point(381, 316);
+            pictureBox4.Location = new Point(381, 332);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(48, 51);
+            pictureBox4.Size = new Size(48, 33);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 11;
             pictureBox4.TabStop = false;
             // 
@@ -163,11 +166,11 @@ namespace Dental_Clinic.GUI.Login
             vbButton1.BorderSize = 0;
             vbButton1.FlatAppearance.BorderSize = 0;
             vbButton1.FlatStyle = FlatStyle.Flat;
-            vbButton1.Font = new Font("Microsoft Sans Serif", 19.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            vbButton1.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
             vbButton1.ForeColor = Color.White;
-            vbButton1.Location = new Point(118, 445);
+            vbButton1.Location = new Point(100, 446);
             vbButton1.Name = "vbButton1";
-            vbButton1.Size = new Size(262, 47);
+            vbButton1.Size = new Size(299, 53);
             vbButton1.TabIndex = 15;
             vbButton1.Text = "Đăng Nhập";
             vbButton1.TextColor = Color.White;

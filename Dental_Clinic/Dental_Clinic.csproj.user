@@ -10,7 +10,13 @@
     <Compile Update="GUI\Administrator\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\Administrator\PatientForm.cs">
+    <Compile Update="GUI\Administrator\Patient\AddPatientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\Administrator\Patient\EditPatientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\Administrator\Patient\PatientForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="GUI\Administrator\SalaryManagementForm.cs">
@@ -19,7 +25,16 @@
     <Compile Update="GUI\Administrator\SuppliesForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="GUI\Administrator\User\AddReceptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="GUI\Administrator\User\AddUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\Administrator\User\EditReceptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\Administrator\User\EditUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="GUI\Administrator\User\ReceptionistForm.cs">
@@ -28,7 +43,10 @@
     <Compile Update="GUI\Administrator\User\UserForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\Administrator\WorkScheduleForm.cs">
+    <Compile Update="GUI\Administrator\WorkSchedule\EditWorkScheduleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\Administrator\WorkSchedule\WorkScheduleForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="GUI\Login\ForgotPassword.cs">

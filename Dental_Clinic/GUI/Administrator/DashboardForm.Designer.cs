@@ -48,8 +48,8 @@ namespace Dental_Clinic.GUI.Administrator
             label6 = new Label();
             label7 = new Label();
             panel8 = new Panel();
-            label8 = new Label();
             label9 = new Label();
+            label8 = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -105,10 +105,10 @@ namespace Dental_Clinic.GUI.Administrator
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(111, 25);
+            label2.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(104, 21);
             label2.Name = "label2";
-            label2.Size = new Size(129, 29);
+            label2.Size = new Size(137, 35);
             label2.TabIndex = 3;
             label2.Text = "Doanh thu";
             // 
@@ -173,10 +173,10 @@ namespace Dental_Clinic.GUI.Administrator
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(111, 25);
+            label5.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Location = new Point(104, 25);
             label5.Name = "label5";
-            label5.Size = new Size(135, 29);
+            label5.Size = new Size(138, 35);
             label5.TabIndex = 3;
             label5.Text = "Bệnh nhân";
             // 
@@ -222,10 +222,10 @@ namespace Dental_Clinic.GUI.Administrator
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.Location = new Point(129, 24);
             label7.Name = "label7";
-            label7.Size = new Size(83, 29);
+            label7.Size = new Size(80, 35);
             label7.TabIndex = 3;
             label7.Text = "Bác sĩ";
             // 
@@ -238,16 +238,6 @@ namespace Dental_Clinic.GUI.Administrator
             panel8.Size = new Size(893, 229);
             panel8.TabIndex = 8;
             // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Microsoft Sans Serif", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.Location = new Point(21, 19);
-            label8.Name = "label8";
-            label8.Size = new Size(226, 29);
-            label8.TabIndex = 0;
-            label8.Text = "Thống kê doanh thu";
-            // 
             // label9
             // 
             label9.AutoSize = true;
@@ -256,6 +246,16 @@ namespace Dental_Clinic.GUI.Administrator
             label9.Size = new Size(322, 20);
             label9.TabIndex = 1;
             label9.Text = "Làm được thì mừng không thì copy hình dán vô";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.Location = new Point(21, 19);
+            label8.Name = "label8";
+            label8.Size = new Size(248, 35);
+            label8.TabIndex = 0;
+            label8.Text = "Thống kê doanh thu";
             // 
             // DashboardForm
             // 

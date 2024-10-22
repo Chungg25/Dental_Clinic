@@ -18,6 +18,9 @@ namespace Dental_Clinic.GUI.Administrator.User
 
             vbHoTen.BorderSize = 1;
             vbHoTen.BorderColor = Color.Black;
+
+            vbEmail.BorderSize = 1;
+            vbEmail.BorderColor = Color.Black;
         }
     }
 }

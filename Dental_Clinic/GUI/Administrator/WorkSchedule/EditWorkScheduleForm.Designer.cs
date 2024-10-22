@@ -1,6 +1,6 @@
-﻿namespace Dental_Clinic.GUI.Administrator
+﻿namespace Dental_Clinic.GUI.Administrator.WorkSchedule
 {
-    partial class WorkScheduleForm
+    partial class EditWorkScheduleForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,14 @@
         {
             SuspendLayout();
             // 
-            // WorkScheduleForm
+            // EditWorkScheduleForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             ClientSize = new Size(1016, 644);
-            Name = "WorkScheduleForm";
-            Text = "WorkScheduleForm";
+            Name = "EditWorkScheduleForm";
+            Text = "EditWorkScheduleForm";
             ResumeLayout(false);
         }
 

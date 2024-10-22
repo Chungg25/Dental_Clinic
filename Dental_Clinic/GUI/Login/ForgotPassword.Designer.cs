@@ -42,7 +42,7 @@ namespace Dental_Clinic.GUI.Login
             pictureBox4 = new PictureBox();
             panel2 = new Panel();
             picBack = new PictureBox();
-            vbButton1 = new CustomButton.VBButton();
+            vbGuiMa = new CustomButton.VBButton();
             vbButton2 = new CustomButton.VBButton();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -64,10 +64,10 @@ namespace Dental_Clinic.GUI.Login
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 20F, FontStyle.Bold);
+            label1.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(144, 140);
             label1.Name = "label1";
-            label1.Size = new Size(261, 39);
+            label1.Size = new Size(264, 46);
             label1.TabIndex = 4;
             label1.Text = "Quên mật khẩu";
             // 
@@ -76,9 +76,8 @@ namespace Dental_Clinic.GUI.Login
             textBox1.BorderStyle = BorderStyle.None;
             textBox1.Cursor = Cursors.IBeam;
             textBox1.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold);
-            textBox1.Location = new Point(141, 314);
+            textBox1.Location = new Point(141, 310);
             textBox1.Name = "textBox1";
-            textBox1.PasswordChar = '*';
             textBox1.Size = new Size(290, 31);
             textBox1.TabIndex = 20;
             // 
@@ -87,7 +86,7 @@ namespace Dental_Clinic.GUI.Login
             tbUser.BorderStyle = BorderStyle.None;
             tbUser.Cursor = Cursors.IBeam;
             tbUser.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold);
-            tbUser.Location = new Point(150, 213);
+            tbUser.Location = new Point(150, 210);
             tbUser.Name = "tbUser";
             tbUser.Size = new Size(281, 31);
             tbUser.TabIndex = 19;
@@ -103,18 +102,20 @@ namespace Dental_Clinic.GUI.Login
             // pictureBox3
             // 
             pictureBox3.Image = Resources.icons8_email_50;
-            pictureBox3.Location = new Point(83, 296);
+            pictureBox3.Location = new Point(83, 301);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(52, 52);
+            pictureBox3.Size = new Size(45, 44);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 16;
             pictureBox3.TabStop = false;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Resources.icons8_user_60;
-            pictureBox1.Location = new Point(83, 186);
+            pictureBox1.Location = new Point(83, 200);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(61, 60);
+            pictureBox1.Size = new Size(45, 44);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 15;
             pictureBox1.TabStop = false;
             // 
@@ -131,7 +132,7 @@ namespace Dental_Clinic.GUI.Login
             textBox2.BorderStyle = BorderStyle.None;
             textBox2.Cursor = Cursors.IBeam;
             textBox2.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold);
-            textBox2.Location = new Point(150, 414);
+            textBox2.Location = new Point(150, 411);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(281, 31);
             textBox2.TabIndex = 23;
@@ -139,9 +140,10 @@ namespace Dental_Clinic.GUI.Login
             // pictureBox4
             // 
             pictureBox4.Image = Resources.icons8_authentication_60;
-            pictureBox4.Location = new Point(83, 387);
+            pictureBox4.Location = new Point(83, 401);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(61, 60);
+            pictureBox4.Size = new Size(45, 44);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 22;
             pictureBox4.TabStop = false;
             // 
@@ -163,35 +165,35 @@ namespace Dental_Clinic.GUI.Login
             picBack.TabStop = false;
             picBack.Click += picBack_Click;
             // 
-            // vbButton1
+            // vbGuiMa
             // 
-            vbButton1.BackColor = SystemColors.Highlight;
-            vbButton1.BackgroundColor = SystemColors.Highlight;
-            vbButton1.BorderColor = Color.PaleVioletRed;
-            vbButton1.BorderRadius = 20;
-            vbButton1.BorderSize = 0;
-            vbButton1.FlatAppearance.BorderSize = 0;
-            vbButton1.FlatStyle = FlatStyle.Flat;
-            vbButton1.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            vbButton1.ForeColor = Color.White;
-            vbButton1.Location = new Point(315, 414);
-            vbButton1.Name = "vbButton1";
-            vbButton1.Size = new Size(119, 38);
-            vbButton1.TabIndex = 27;
-            vbButton1.Text = "Gửi Mã";
-            vbButton1.TextColor = Color.White;
-            vbButton1.UseVisualStyleBackColor = false;
+            vbGuiMa.BackColor = SystemColors.Window;
+            vbGuiMa.BackgroundColor = SystemColors.Window;
+            vbGuiMa.BorderColor = Color.Black;
+            vbGuiMa.BorderRadius = 10;
+            vbGuiMa.BorderSize = 1;
+            vbGuiMa.FlatAppearance.BorderSize = 0;
+            vbGuiMa.FlatStyle = FlatStyle.Flat;
+            vbGuiMa.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            vbGuiMa.ForeColor = Color.Black;
+            vbGuiMa.Location = new Point(315, 405);
+            vbGuiMa.Name = "vbGuiMa";
+            vbGuiMa.Size = new Size(116, 46);
+            vbGuiMa.TabIndex = 27;
+            vbGuiMa.Text = "Gửi Mã";
+            vbGuiMa.TextColor = Color.Black;
+            vbGuiMa.UseVisualStyleBackColor = false;
             // 
             // vbButton2
             // 
             vbButton2.BackColor = SystemColors.Highlight;
             vbButton2.BackgroundColor = SystemColors.Highlight;
             vbButton2.BorderColor = Color.PaleVioletRed;
-            vbButton2.BorderRadius = 20;
+            vbButton2.BorderRadius = 10;
             vbButton2.BorderSize = 0;
             vbButton2.FlatAppearance.BorderSize = 0;
             vbButton2.FlatStyle = FlatStyle.Flat;
-            vbButton2.Font = new Font("Microsoft Sans Serif", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            vbButton2.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
             vbButton2.ForeColor = Color.White;
             vbButton2.Location = new Point(118, 493);
             vbButton2.Name = "vbButton2";
@@ -208,7 +210,7 @@ namespace Dental_Clinic.GUI.Login
             BackColor = SystemColors.Window;
             ClientSize = new Size(514, 543);
             Controls.Add(vbButton2);
-            Controls.Add(vbButton1);
+            Controls.Add(vbGuiMa);
             Controls.Add(picBack);
             Controls.Add(textBox2);
             Controls.Add(pictureBox4);
@@ -246,7 +248,7 @@ namespace Dental_Clinic.GUI.Login
         private PictureBox pictureBox4;
         private Panel panel2;
         private PictureBox picBack;
-        private CustomButton.VBButton vbButton1;
+        private CustomButton.VBButton vbGuiMa;
         private CustomButton.VBButton vbButton2;
     }
 }
