@@ -14,10 +14,46 @@ namespace Dental_Clinic.GUI.Administrator
 {
     public partial class UserForm : Form
     {
+        private MainForm _mainForm;
         public UserForm(MainForm mainForm)
         {
             InitializeComponent();
             CreateTableLayoutPanel();
+            _mainForm = mainForm;
+
+            vbThemBacSi.FlatStyle = FlatStyle.Flat;
+            vbThemBacSi.FlatAppearance.BorderSize = 0;
+            vbThemBacSi.FlatAppearance.MouseOverBackColor = vbThemBacSi.BackColor;
+            vbThemBacSi.FlatAppearance.MouseDownBackColor = vbThemBacSi.BackColor;
+
+            vbButton8.BorderSize = 1;
+            vbButton8.BorderColor = Color.Black;
+            vbButton8.FlatAppearance.MouseOverBackColor = vbButton8.BackColor;
+            vbButton8.FlatAppearance.MouseDownBackColor = vbButton8.BackColor;
+
+            tbTimKiem.Font = new Font("Segoe UI", 12F);
+            tbTimKiem.Text = "Tìm kiếm";
+            tbTimKiem.ForeColor = Color.Gray;
+            tbTimKiem.Enter += tbTimKiem_Enter;
+            tbTimKiem.Leave += tbTimKiem_Leave;
+        }
+
+        private void tbTimKiem_Enter(object? sender, EventArgs e)
+        {
+            if (tbTimKiem.Text == "Tìm kiếm")
+            {
+                tbTimKiem.Text = "";
+                tbTimKiem.ForeColor = Color.Black;
+            }
+        }
+
+        private void tbTimKiem_Leave(object? sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tbTimKiem.Text))
+            {
+                tbTimKiem.Text = "Tìm kiếm";
+                tbTimKiem.ForeColor = Color.Gray;
+            }
         }
 
         private void CreateTableLayoutPanel()
@@ -77,6 +113,22 @@ namespace Dental_Clinic.GUI.Administrator
                 Font = font,
                 Padding = new Padding(10, 5, 10, 5) // Tăng khoảng cách bên trái và bên phải
             };
+        }
+
+        private void vbThemBacSi_Click(object sender, EventArgs e)
+        {
+            ShowAddUserInPanel();
+        }
+
+        public void ShowAddUserInPanel()
+        {
+            User.AddUserForm addUserForm = new User.AddUserForm(_mainForm);
+            addUserForm.TopLevel = false; // Đặt userForm không phải là form cấp cao nhất (TopLevel)
+            addUserForm.FormBorderStyle = FormBorderStyle.None; // Xóa viền của userForm
+            addUserForm.Dock = DockStyle.Fill; // Đặt userForm khớp với kích thước panel
+            _mainForm.panelTrangChu.Controls.Add(addUserForm); // Thêm userForm vào panel
+            addUserForm.BringToFront();
+            addUserForm.Show(); // Hiển thị userForm
         }
     }
 }

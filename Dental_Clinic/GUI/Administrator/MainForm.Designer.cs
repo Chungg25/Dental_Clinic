@@ -251,9 +251,9 @@ namespace Dental_Clinic.GUI.Administrator
             lbUser.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             lbUser.Location = new Point(85, 195);
             lbUser.Name = "lbUser";
-            lbUser.Size = new Size(187, 25);
+            lbUser.Size = new Size(200, 25);
             lbUser.TabIndex = 5;
-            lbUser.Text = "Quản lý nhân viên";
+            lbUser.Text = "Quản lý người dùng";
             lbUser.Click += lbUser_Click;
             // 
             // panel3
@@ -585,7 +585,7 @@ namespace Dental_Clinic.GUI.Administrator
         private PictureBox pictureBox8;
         private Label lbChuDe;
         private Label label8;
-        private Panel panelTrangChu;
+        public Panel panelTrangChu;
         private PictureBox picUser;
         private Panel panelOption;
         private PictureBox pictureBox10;
