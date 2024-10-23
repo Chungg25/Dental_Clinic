@@ -1,4 +1,6 @@
-﻿namespace Dental_Clinic.GUI.Administrator
+﻿using Dental_Clinic.Properties;
+
+namespace Dental_Clinic.GUI.Administrator
 {
     partial class BusinessStatisticsForm
     {
@@ -33,8 +35,12 @@
             label1 = new Label();
             vbThongKeDoanhThu = new CustomButton.VBButton();
             pictureBox5 = new PictureBox();
+            pictureBox1 = new PictureBox();
+            vbButton1 = new CustomButton.VBButton();
+            panelBenhNhan = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -68,7 +74,7 @@
             vbThongKeDoanhThu.FlatStyle = FlatStyle.Flat;
             vbThongKeDoanhThu.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             vbThongKeDoanhThu.ForeColor = Color.White;
-            vbThongKeDoanhThu.Location = new Point(46, 103);
+            vbThongKeDoanhThu.Location = new Point(17, 103);
             vbThongKeDoanhThu.Name = "vbThongKeDoanhThu";
             vbThongKeDoanhThu.Size = new Size(271, 57);
             vbThongKeDoanhThu.TabIndex = 11;
@@ -81,12 +87,51 @@
             // 
             pictureBox5.BackColor = Color.FromArgb(163, 211, 229);
             pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(270, 116);
+            pictureBox5.Location = new Point(241, 116);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(37, 31);
             pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox5.TabIndex = 10;
             pictureBox5.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.FromArgb(163, 211, 229);
+            pictureBox1.Image = Resources.icons8_disease_32;
+            pictureBox1.Location = new Point(537, 116);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(37, 31);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 12;
+            pictureBox1.TabStop = false;
+            // 
+            // vbButton1
+            // 
+            vbButton1.BackColor = Color.FromArgb(163, 211, 229);
+            vbButton1.BackgroundColor = Color.FromArgb(163, 211, 229);
+            vbButton1.BorderColor = Color.PaleVioletRed;
+            vbButton1.BorderRadius = 10;
+            vbButton1.BorderSize = 0;
+            vbButton1.Cursor = Cursors.Hand;
+            vbButton1.FlatAppearance.BorderSize = 0;
+            vbButton1.FlatStyle = FlatStyle.Flat;
+            vbButton1.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            vbButton1.ForeColor = Color.White;
+            vbButton1.Location = new Point(322, 103);
+            vbButton1.Name = "vbButton1";
+            vbButton1.Size = new Size(261, 57);
+            vbButton1.TabIndex = 13;
+            vbButton1.Text = "Thống kê mặt bệnh";
+            vbButton1.TextAlign = ContentAlignment.MiddleLeft;
+            vbButton1.TextColor = Color.White;
+            vbButton1.UseVisualStyleBackColor = false;
+            // 
+            // panelBenhNhan
+            // 
+            panelBenhNhan.Location = new Point(7, 202);
+            panelBenhNhan.Name = "panelBenhNhan";
+            panelBenhNhan.Size = new Size(1012, 454);
+            panelBenhNhan.TabIndex = 18;
             // 
             // BusinessStatisticsForm
             // 
@@ -94,6 +139,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             ClientSize = new Size(1016, 644);
+            Controls.Add(panelBenhNhan);
+            Controls.Add(pictureBox1);
+            Controls.Add(vbButton1);
             Controls.Add(pictureBox5);
             Controls.Add(vbThongKeDoanhThu);
             Controls.Add(panel1);
@@ -102,6 +150,7 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -111,5 +160,8 @@
         private Label label1;
         private CustomButton.VBButton vbThongKeDoanhThu;
         private PictureBox pictureBox5;
+        private PictureBox pictureBox1;
+        private CustomButton.VBButton vbButton1;
+        private Panel panelBenhNhan;
     }
 }

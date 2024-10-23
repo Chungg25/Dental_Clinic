@@ -19,7 +19,7 @@
     <Compile Update="GUI\Administrator\Patient\PatientForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\Administrator\SalaryManagementForm.cs">
+    <Compile Update="GUI\Administrator\Salary\SalaryManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="GUI\Administrator\Supplies\AddMedicineForm.cs">
