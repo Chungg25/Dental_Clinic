@@ -207,9 +207,9 @@ namespace Dental_Clinic.GUI.Administrator
             lbDoanhThu.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbDoanhThu.Location = new Point(85, 592);
             lbDoanhThu.Name = "lbDoanhThu";
-            lbDoanhThu.Size = new Size(203, 28);
+            lbDoanhThu.Size = new Size(100, 28);
             lbDoanhThu.TabIndex = 9;
-            lbDoanhThu.Text = "Thống kê doanh thu";
+            lbDoanhThu.Text = "Thống kê";
             lbDoanhThu.Click += lbDoanhThu_Click;
             // 
             // lbVatTu
