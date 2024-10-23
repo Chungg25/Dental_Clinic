@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Dental_Clinic")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+755b9389e6785165167f0c8367dded4c009907ef")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+304aa91d8ad90ab3d4491e794e38f3b98c81da27")]
 [assembly: System.Reflection.AssemblyProductAttribute("Dental_Clinic")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Dental_Clinic")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
