@@ -102,7 +102,7 @@ namespace Dental_Clinic.GUI.Administrator
             vbTimKiem.BackColor = SystemColors.ButtonFace;
             vbTimKiem.BackgroundColor = SystemColors.ButtonFace;
             vbTimKiem.BorderColor = Color.PaleVioletRed;
-            vbTimKiem.BorderRadius = 10;
+            vbTimKiem.BorderRadius = 15;
             vbTimKiem.BorderSize = 0;
             vbTimKiem.FlatAppearance.BorderSize = 0;
             vbTimKiem.FlatStyle = FlatStyle.Flat;
@@ -192,7 +192,7 @@ namespace Dental_Clinic.GUI.Administrator
             vbBacSi.BackColor = Color.FromArgb(163, 211, 229);
             vbBacSi.BackgroundColor = Color.FromArgb(163, 211, 229);
             vbBacSi.BorderColor = Color.PaleVioletRed;
-            vbBacSi.BorderRadius = 10;
+            vbBacSi.BorderRadius = 12;
             vbBacSi.BorderSize = 0;
             vbBacSi.Cursor = Cursors.Hand;
             vbBacSi.FlatAppearance.BorderSize = 0;

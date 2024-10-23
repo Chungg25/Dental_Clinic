@@ -1,6 +1,6 @@
-﻿namespace Dental_Clinic.GUI.Administrator.WorkSchedule
+﻿namespace Dental_Clinic.GUI.Administrator.Supplies
 {
-    partial class EditWorkScheduleForm
+    partial class AddMedicineForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,8 +30,6 @@
         {
             panel1 = new Panel();
             label1 = new Label();
-            panelLichLamViec = new Panel();
-            dtpLichLamViec = new DateTimePicker();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -42,7 +40,7 @@
             panel1.Location = new Point(-9, -7);
             panel1.Name = "panel1";
             panel1.Size = new Size(1054, 71);
-            panel1.TabIndex = 38;
+            panel1.TabIndex = 5;
             // 
             // label1
             // 
@@ -50,35 +48,19 @@
             label1.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
             label1.Location = new Point(54, 13);
             label1.Name = "label1";
-            label1.Size = new Size(404, 46);
+            label1.Size = new Size(216, 46);
             label1.TabIndex = 0;
-            label1.Text = "Chỉnh Sửa Lịch Làm Việc";
+            label1.Text = "Thêm Thuốc";
             // 
-            // panelLichLamViec
-            // 
-            panelLichLamViec.Location = new Point(7, 166);
-            panelLichLamViec.Name = "panelLichLamViec";
-            panelLichLamViec.Size = new Size(1012, 502);
-            panelLichLamViec.TabIndex = 45;
-            // 
-            // dtpLichLamViec
-            // 
-            dtpLichLamViec.Location = new Point(693, 99);
-            dtpLichLamViec.Name = "dtpLichLamViec";
-            dtpLichLamViec.Size = new Size(250, 27);
-            dtpLichLamViec.TabIndex = 46;
-            // 
-            // EditWorkScheduleForm
+            // AddMedicineForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             ClientSize = new Size(1016, 644);
-            Controls.Add(dtpLichLamViec);
-            Controls.Add(panelLichLamViec);
             Controls.Add(panel1);
-            Name = "EditWorkScheduleForm";
-            Text = "EditWorkScheduleForm";
+            Name = "AddMedicineForm";
+            Text = "AddMedicineForm";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -88,7 +70,5 @@
 
         private Panel panel1;
         private Label label1;
-        private Panel panelLichLamViec;
-        private DateTimePicker dtpLichLamViec;
     }
 }

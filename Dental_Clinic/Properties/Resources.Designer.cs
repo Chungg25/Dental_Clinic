@@ -343,6 +343,16 @@ namespace Dental_Clinic.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_medicine_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-medicine-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_night_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8-night-50", resourceCulture);
@@ -436,6 +446,26 @@ namespace Dental_Clinic.Properties {
         internal static System.Drawing.Bitmap icons8_schedule_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8-schedule-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_service_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-service-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_supplies_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-supplies-50", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

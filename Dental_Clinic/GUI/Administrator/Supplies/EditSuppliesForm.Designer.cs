@@ -1,6 +1,6 @@
-﻿namespace Dental_Clinic.GUI.Administrator
+﻿namespace Dental_Clinic.GUI.Administrator.Supplies
 {
-    partial class SuppliesForm
+    partial class EditSuppliesForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,19 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
+            panel1 = new Panel();
+            label1 = new Label();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // SuppliesForm
+            // panel1
+            // 
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(label1);
+            panel1.Location = new Point(-9, -7);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1054, 71);
+            panel1.TabIndex = 3;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            label1.Location = new Point(54, 13);
+            label1.Name = "label1";
+            label1.Size = new Size(468, 46);
+            label1.TabIndex = 0;
+            label1.Text = "Chỉnh Sửa Thông Tin Vật Tư";
+            // 
+            // EditSuppliesForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             ClientSize = new Size(1016, 644);
-            Name = "SuppliesForm";
-            Text = "SuppliesForm";
+            Controls.Add(panel1);
+            Name = "EditSuppliesForm";
+            Text = "EditSuppliesForm";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Panel panel1;
+        private Label label1;
     }
 }

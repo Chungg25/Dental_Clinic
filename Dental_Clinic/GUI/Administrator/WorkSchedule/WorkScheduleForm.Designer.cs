@@ -115,18 +115,18 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             tbTimKiem.BackColor = SystemColors.ButtonFace;
             tbTimKiem.BorderStyle = BorderStyle.None;
-            tbTimKiem.Location = new Point(801, 116);
+            tbTimKiem.Location = new Point(511, 116);
             tbTimKiem.Name = "tbTimKiem";
-            tbTimKiem.Size = new Size(183, 20);
+            tbTimKiem.Size = new Size(476, 20);
             tbTimKiem.TabIndex = 35;
             // 
             // pictureBox8
             // 
             pictureBox8.BackColor = SystemColors.ButtonFace;
             pictureBox8.Image = Resources.icons8_find_50;
-            pictureBox8.Location = new Point(744, 110);
+            pictureBox8.Location = new Point(480, 112);
             pictureBox8.Name = "pictureBox8";
-            pictureBox8.Size = new Size(44, 45);
+            pictureBox8.Size = new Size(25, 38);
             pictureBox8.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox8.TabIndex = 36;
             pictureBox8.TabStop = false;
@@ -141,9 +141,9 @@ namespace Dental_Clinic.GUI.Administrator
             vbTimKiem.FlatAppearance.BorderSize = 0;
             vbTimKiem.FlatStyle = FlatStyle.Flat;
             vbTimKiem.ForeColor = Color.White;
-            vbTimKiem.Location = new Point(730, 103);
+            vbTimKiem.Location = new Point(468, 109);
             vbTimKiem.Name = "vbTimKiem";
-            vbTimKiem.Size = new Size(278, 57);
+            vbTimKiem.Size = new Size(532, 43);
             vbTimKiem.TabIndex = 39;
             vbTimKiem.TextColor = Color.White;
             vbTimKiem.UseVisualStyleBackColor = false;

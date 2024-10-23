@@ -169,5 +169,10 @@ namespace Dental_Clinic.GUI.Administrator
         {
             ShowDashboardInPanel();
         }
+
+        private void panelTrangChu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

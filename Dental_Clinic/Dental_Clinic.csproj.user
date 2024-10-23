@@ -22,7 +22,19 @@
     <Compile Update="GUI\Administrator\SalaryManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\Administrator\SuppliesForm.cs">
+    <Compile Update="GUI\Administrator\Supplies\AddMedicineForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\Administrator\Supplies\EditMedicineForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\Administrator\Supplies\AddSuppliesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\Administrator\Supplies\EditSuppliesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\Administrator\Supplies\SuppliesForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="GUI\Administrator\User\AddReceptionForm.cs">

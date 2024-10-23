@@ -129,7 +129,7 @@ namespace Dental_Clinic.GUI.Administrator
             Button btnEdit = CreateActionButton(editEditColor, editIcon);
 
             // Thêm sự kiện Click
-            btnEdit.Click += (s, e) => { ShowEditUserInPanel(); };
+            btnEdit.Click += (s, e) => { ShowEditWorkSchedulInPanel(); };
 
             // Tạo một Panel để chứa 2 nút
             FlowLayoutPanel panelActions = new FlowLayoutPanel
@@ -273,7 +273,7 @@ namespace Dental_Clinic.GUI.Administrator
         //Kết thúc
 
         //Phần điều hướng
-        public void ShowEditUserInPanel()
+        public void ShowEditWorkSchedulInPanel()
         {
             EditWorkScheduleForm editWorkSchedulForm = new EditWorkScheduleForm(_mainForm);
             editWorkSchedulForm.TopLevel = false; // Đặt editUserForm không phải là form cấp cao nhất (TopLevel)

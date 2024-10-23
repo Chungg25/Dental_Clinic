@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Dental_Clinic.GUI.Administrator
+namespace Dental_Clinic.GUI.Administrator.Supplies
 {
-    public partial class SuppliesForm : Form
+    public partial class EditSuppliesForm : Form
     {
-        public SuppliesForm(MainForm mainForm)
+        public EditSuppliesForm(MainForm _mainForm)
         {
             InitializeComponent();
         }

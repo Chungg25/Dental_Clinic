@@ -258,7 +258,8 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             // panel3
             // 
-            panel3.BackColor = Color.FromArgb(120, 213, 245);
+            panel3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            panel3.BackColor = Color.FromArgb(32, 155, 220);
             panel3.BorderStyle = BorderStyle.FixedSingle;
             panel3.Controls.Add(lbNgonNgu);
             panel3.Controls.Add(pictureBox13);
@@ -268,7 +269,7 @@ namespace Dental_Clinic.GUI.Administrator
             panel3.Controls.Add(pictureBox8);
             panel3.Location = new Point(286, -3);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1059, 83);
+            panel3.Size = new Size(1070, 83);
             panel3.TabIndex = 5;
             // 
             // lbNgonNgu
@@ -420,7 +421,7 @@ namespace Dental_Clinic.GUI.Administrator
             panelTrangChu.Controls.Add(panelNgonNgu1);
             panelTrangChu.Location = new Point(291, 86);
             panelTrangChu.Name = "panelTrangChu";
-            panelTrangChu.Size = new Size(1034, 691);
+            panelTrangChu.Size = new Size(1065, 691);
             panelTrangChu.TabIndex = 6;
             // 
             // panelChuDe
@@ -533,7 +534,7 @@ namespace Dental_Clinic.GUI.Administrator
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
-            ClientSize = new Size(1325, 774);
+            ClientSize = new Size(1336, 773);
             Controls.Add(panelTrangChu);
             Controls.Add(panel3);
             Controls.Add(panel1);
