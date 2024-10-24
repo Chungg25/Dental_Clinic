@@ -15,6 +15,7 @@
     <Folder Include="BUS\" />
     <Folder Include="DAO\" />
     <Folder Include="DTO\" />
+    <Folder Include="GUI\Receptionist\" />
   </ItemGroup>
 
   <ItemGroup>

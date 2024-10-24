@@ -539,6 +539,7 @@ namespace Dental_Clinic.GUI.Administrator
             Controls.Add(panel3);
             Controls.Add(panel1);
             Name = "MainForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Dental Clinic";
             ((System.ComponentModel.ISupportInitialize)picDash).EndInit();
             panel1.ResumeLayout(false);

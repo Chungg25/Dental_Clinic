@@ -94,3 +94,4 @@ D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\De
 D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.Supplies.EditSuppliesForm.resources
 D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.Supplies.EditMedicineForm.resources
 D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.Supplies.AddMedicineForm.resources
+D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Doctor.MainForm.resources

@@ -59,6 +59,7 @@
             Controls.Add(panel);
             Controls.Add(pictureBox1);
             Name = "Dental_Clinic";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Dental Clinic";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
