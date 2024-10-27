@@ -49,7 +49,7 @@ namespace Dental_Clinic.GUI.Administrator
             panel3 = new Panel();
             lbNgonNgu = new Label();
             pictureBox13 = new PictureBox();
-            label8 = new Label();
+            lbTen = new Label();
             picUser = new PictureBox();
             lbChuDe = new Label();
             pictureBox8 = new PictureBox();
@@ -263,7 +263,7 @@ namespace Dental_Clinic.GUI.Administrator
             panel3.BorderStyle = BorderStyle.FixedSingle;
             panel3.Controls.Add(lbNgonNgu);
             panel3.Controls.Add(pictureBox13);
-            panel3.Controls.Add(label8);
+            panel3.Controls.Add(lbTen);
             panel3.Controls.Add(picUser);
             panel3.Controls.Add(lbChuDe);
             panel3.Controls.Add(pictureBox8);
@@ -294,16 +294,16 @@ namespace Dental_Clinic.GUI.Administrator
             pictureBox13.TabIndex = 8;
             pictureBox13.TabStop = false;
             // 
-            // label8
+            // lbTen
             // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.ForeColor = SystemColors.ButtonHighlight;
-            label8.Location = new Point(950, 35);
-            label8.Name = "label8";
-            label8.Size = new Size(50, 25);
-            label8.TabIndex = 6;
-            label8.Text = "Kiệt";
+            lbTen.AutoSize = true;
+            lbTen.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbTen.ForeColor = SystemColors.ButtonHighlight;
+            lbTen.Location = new Point(950, 35);
+            lbTen.Name = "lbTen";
+            lbTen.Size = new Size(50, 25);
+            lbTen.TabIndex = 6;
+            lbTen.Text = "Kiệt";
             // 
             // picUser
             // 
@@ -592,7 +592,7 @@ namespace Dental_Clinic.GUI.Administrator
         private Panel panel3;
         private PictureBox pictureBox8;
         private Label lbChuDe;
-        private Label label8;
+        private Label lbTen;
         public Panel panelTrangChu;
         private PictureBox picUser;
         private Panel panelOption;

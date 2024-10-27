@@ -33,19 +33,19 @@ namespace Dental_Clinic.GUI.Administrator
             panel1 = new Panel();
             label1 = new Label();
             panel2 = new Panel();
-            label3 = new Label();
+            lbDoanhThu = new Label();
             label2 = new Label();
             pictureBox1 = new PictureBox();
             panel3 = new Panel();
             panel4 = new Panel();
             pictureBox2 = new PictureBox();
             panel5 = new Panel();
-            label4 = new Label();
+            lbBenhNhan = new Label();
             label5 = new Label();
             panel6 = new Panel();
             pictureBox3 = new PictureBox();
             panel7 = new Panel();
-            label6 = new Label();
+            lbBacSi = new Label();
             label7 = new Label();
             panel8 = new Panel();
             label9 = new Label();
@@ -85,22 +85,22 @@ namespace Dental_Clinic.GUI.Administrator
             // panel2
             // 
             panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(label3);
+            panel2.Controls.Add(lbDoanhThu);
             panel2.Controls.Add(label2);
             panel2.Location = new Point(46, 90);
             panel2.Name = "panel2";
             panel2.Size = new Size(250, 125);
             panel2.TabIndex = 1;
             // 
-            // label3
+            // lbDoanhThu
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 15F);
-            label3.Location = new Point(145, 68);
-            label3.Name = "label3";
-            label3.Size = new Size(41, 35);
-            label3.TabIndex = 3;
-            label3.Text = "10";
+            lbDoanhThu.AutoSize = true;
+            lbDoanhThu.Font = new Font("Segoe UI", 15F);
+            lbDoanhThu.Location = new Point(116, 68);
+            lbDoanhThu.Name = "lbDoanhThu";
+            lbDoanhThu.Size = new Size(41, 35);
+            lbDoanhThu.TabIndex = 3;
+            lbDoanhThu.Text = "10";
             // 
             // label2
             // 
@@ -153,22 +153,22 @@ namespace Dental_Clinic.GUI.Administrator
             // panel5
             // 
             panel5.BorderStyle = BorderStyle.FixedSingle;
-            panel5.Controls.Add(label4);
+            panel5.Controls.Add(lbBenhNhan);
             panel5.Controls.Add(label5);
             panel5.Location = new Point(377, 90);
             panel5.Name = "panel5";
             panel5.Size = new Size(250, 125);
             panel5.TabIndex = 4;
             // 
-            // label4
+            // lbBenhNhan
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 15F);
-            label4.Location = new Point(145, 68);
-            label4.Name = "label4";
-            label4.Size = new Size(41, 35);
-            label4.TabIndex = 3;
-            label4.Text = "10";
+            lbBenhNhan.AutoSize = true;
+            lbBenhNhan.Font = new Font("Segoe UI", 15F);
+            lbBenhNhan.Location = new Point(145, 68);
+            lbBenhNhan.Name = "lbBenhNhan";
+            lbBenhNhan.Size = new Size(41, 35);
+            lbBenhNhan.TabIndex = 3;
+            lbBenhNhan.Text = "10";
             // 
             // label5
             // 
@@ -202,22 +202,22 @@ namespace Dental_Clinic.GUI.Administrator
             // panel7
             // 
             panel7.BorderStyle = BorderStyle.FixedSingle;
-            panel7.Controls.Add(label6);
+            panel7.Controls.Add(lbBacSi);
             panel7.Controls.Add(label7);
             panel7.Location = new Point(692, 90);
             panel7.Name = "panel7";
             panel7.Size = new Size(250, 125);
             panel7.TabIndex = 6;
             // 
-            // label6
+            // lbBacSi
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 15F);
-            label6.Location = new Point(145, 68);
-            label6.Name = "label6";
-            label6.Size = new Size(41, 35);
-            label6.TabIndex = 3;
-            label6.Text = "10";
+            lbBacSi.AutoSize = true;
+            lbBacSi.Font = new Font("Segoe UI", 15F);
+            lbBacSi.Location = new Point(145, 68);
+            lbBacSi.Name = "lbBacSi";
+            lbBacSi.Size = new Size(41, 35);
+            lbBacSi.TabIndex = 3;
+            lbBacSi.Text = "10";
             // 
             // label7
             // 
@@ -299,17 +299,17 @@ namespace Dental_Clinic.GUI.Administrator
         private Panel panel2;
         private PictureBox pictureBox1;
         private Panel panel3;
-        private Label label3;
+        private Label lbDoanhThu;
         private Label label2;
         private Panel panel4;
         private PictureBox pictureBox2;
         private Panel panel5;
-        private Label label4;
+        private Label lbBenhNhan;
         private Label label5;
         private Panel panel6;
         private PictureBox pictureBox3;
         private Panel panel7;
-        private Label label6;
+        private Label lbBacSi;
         private Label label7;
         private Panel panel8;
         private Label label9;

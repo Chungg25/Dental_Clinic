@@ -94,7 +94,7 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             panelBacSi.Location = new Point(7, 202);
             panelBacSi.Name = "panelBacSi";
-            panelBacSi.Size = new Size(1012, 454);
+            panelBacSi.Size = new Size(1012, 474);
             panelBacSi.TabIndex = 4;
             // 
             // vbTimKiem

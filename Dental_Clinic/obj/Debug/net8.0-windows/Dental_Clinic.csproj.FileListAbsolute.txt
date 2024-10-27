@@ -95,3 +95,13 @@ D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\De
 D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.Supplies.EditMedicineForm.resources
 D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.Supplies.AddMedicineForm.resources
 D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Doctor.MainForm.resources
+D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
+D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
+D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
+D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
+D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.csproj.AssemblyReference.cache
+D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_C.6425C90A.Up2Date
+D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Receptionist.MainForm.resources
+D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.User.Form1.resources

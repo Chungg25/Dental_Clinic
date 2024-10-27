@@ -9,6 +9,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CustomButton;
+using Dental_Clinic.BUS.Login;
+using Dental_Clinic.DTO.Admin;
+using Dental_Clinic.DTO.Login;
+using Dental_Clinic.GUI.Administrator;
 
 
 namespace Dental_Clinic.GUI.Login
@@ -20,6 +24,8 @@ namespace Dental_Clinic.GUI.Login
         {
             InitializeComponent();
             this.mainForm = mainForm;
+
+            lbSai.Visible = false;
 
             // Thiết lập tbUser với placeholder "User Name"
             tbUser.Font = new Font("Calibri", 12);
@@ -79,6 +85,87 @@ namespace Dental_Clinic.GUI.Login
         private void lbQuenMatKhau_Click(object? sender, EventArgs e)
         {
             mainForm.ShowForgotPasswordInPanel(); // Gọi hàm để hiển thị ForgotPassword
+        }
+
+        private void vbDangNhap_Click(object sender, EventArgs e)
+        {
+            LoginDTO loginDTO = new LoginDTO
+            {
+                Username = tbUser.Text,
+                Password = tbPassword.Text
+            };
+
+            LoginBUS loginBUS = new LoginBUS();
+
+            DataRow userInfo = loginBUS.CheckLogin(loginDTO);
+
+            if (userInfo != null) // Nếu không null tức là đăng nhập thành công
+            {
+                // Lấy userId và userRole từ DataRow
+                int userId = (int)userInfo["id"]; // Giả sử cột id tồn tại trong bảng users
+                string userRole = userInfo["role"].ToString(); // Giả sử cột role tồn tại
+
+                UserDTO userDTO = new UserDTO
+                {
+                    Id = (int)userInfo["id"],
+                    Full_name = userInfo["full_name"].ToString(),
+                    Citizen_id = userInfo["citizen_id"].ToString(),
+                    Phone = userInfo["phone_number"].ToString(),
+                    Address = userInfo["address"].ToString(),
+                    Gender = (bool)userInfo["gender"],
+                    Dob = (DateTime)userInfo["dob"],
+                    Role = userInfo["role"].ToString(),
+                    Username = userInfo["username"].ToString(),
+                    Password = userInfo["PASSWORD"].ToString(),
+                    Email = userInfo["email"].ToString(),
+                    Salary_coefficient = Convert.ToSingle(userInfo["salary_coefficient"]),
+                    Salary_id = (int)userInfo["salary_id"]
+                };
+
+                //Điều hướng người dùng dựa vào role
+                if (userRole == "Admin")
+                {
+                    // Mở giao diện cho admin
+                    GUI.Administrator.MainForm adminForm = new GUI.Administrator.MainForm(userDTO);
+                    adminForm.Show();
+                    this.Close();
+
+                }
+                //else if (userRole == "Doctor")
+                //{
+                //    // Mở giao diện cho bác sĩ
+                //    GUI.Doctor.MainForm doctorForm = new GUI.Doctor.MainForm(userDTO);
+                //    doctorForm.Show();
+                //    this.Close();
+                //    mainForm.Close();
+                //}
+                //else
+                //{
+                //    // Mở giao diện cho các vai trò khác
+                //    GUI.Receptionist.MainForm receptionist = new GUI.Receptionist.MainForm(userDTO);
+                //    receptionist.Show();
+                //    this.Close();
+                //    mainForm.Close();
+                //}
+            }
+            else
+            {
+                lbSai.Visible = true; // Hiển thị thông báo lỗi
+            }
+        }
+
+        private void pbHienMatKhau_Click(object sender, EventArgs e)
+        {
+            if (tbPassword.UseSystemPasswordChar)
+            {
+                // Hiển thị mật khẩu
+                tbPassword.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                // Ẩn mật khẩu
+                tbPassword.UseSystemPasswordChar = true;
+            }
         }
     }
 }

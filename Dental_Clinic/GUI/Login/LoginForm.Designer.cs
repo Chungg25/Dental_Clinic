@@ -39,15 +39,16 @@ namespace Dental_Clinic.GUI.Login
             pictureBox3 = new PictureBox();
             panel3 = new Panel();
             lbQuenMatKhau = new Label();
-            pictureBox4 = new PictureBox();
+            pbHienMatKhau = new PictureBox();
             tbUser = new TextBox();
             tbPassword = new TextBox();
             imageList1 = new ImageList(components);
-            vbButton1 = new CustomButton.VBButton();
+            vbDangNhap = new CustomButton.VBButton();
+            lbSai = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbHienMatKhau).BeginInit();
             SuspendLayout();
             // 
             // pictureBox2
@@ -120,15 +121,16 @@ namespace Dental_Clinic.GUI.Login
             lbQuenMatKhau.TextAlign = ContentAlignment.MiddleCenter;
             lbQuenMatKhau.Click += lbQuenMatKhau_Click;
             // 
-            // pictureBox4
+            // pbHienMatKhau
             // 
-            pictureBox4.Image = Resources.icons8_invisible_48;
-            pictureBox4.Location = new Point(381, 332);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(48, 33);
-            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox4.TabIndex = 11;
-            pictureBox4.TabStop = false;
+            pbHienMatKhau.Image = Resources.icons8_invisible_48;
+            pbHienMatKhau.Location = new Point(381, 332);
+            pbHienMatKhau.Name = "pbHienMatKhau";
+            pbHienMatKhau.Size = new Size(48, 33);
+            pbHienMatKhau.SizeMode = PictureBoxSizeMode.Zoom;
+            pbHienMatKhau.TabIndex = 11;
+            pbHienMatKhau.TabStop = false;
+            pbHienMatKhau.Click += pbHienMatKhau_Click;
             // 
             // tbUser
             // 
@@ -147,7 +149,6 @@ namespace Dental_Clinic.GUI.Login
             tbPassword.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold);
             tbPassword.Location = new Point(139, 334);
             tbPassword.Name = "tbPassword";
-            tbPassword.PasswordChar = '*';
             tbPassword.Size = new Size(236, 31);
             tbPassword.TabIndex = 13;
             // 
@@ -157,24 +158,35 @@ namespace Dental_Clinic.GUI.Login
             imageList1.ImageSize = new Size(16, 16);
             imageList1.TransparentColor = Color.Transparent;
             // 
-            // vbButton1
+            // vbDangNhap
             // 
-            vbButton1.BackColor = SystemColors.Highlight;
-            vbButton1.BackgroundColor = SystemColors.Highlight;
-            vbButton1.BorderColor = Color.PaleVioletRed;
-            vbButton1.BorderRadius = 20;
-            vbButton1.BorderSize = 0;
-            vbButton1.FlatAppearance.BorderSize = 0;
-            vbButton1.FlatStyle = FlatStyle.Flat;
-            vbButton1.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            vbButton1.ForeColor = Color.White;
-            vbButton1.Location = new Point(100, 446);
-            vbButton1.Name = "vbButton1";
-            vbButton1.Size = new Size(299, 53);
-            vbButton1.TabIndex = 15;
-            vbButton1.Text = "Đăng Nhập";
-            vbButton1.TextColor = Color.White;
-            vbButton1.UseVisualStyleBackColor = false;
+            vbDangNhap.BackColor = SystemColors.Highlight;
+            vbDangNhap.BackgroundColor = SystemColors.Highlight;
+            vbDangNhap.BorderColor = Color.PaleVioletRed;
+            vbDangNhap.BorderRadius = 20;
+            vbDangNhap.BorderSize = 0;
+            vbDangNhap.FlatAppearance.BorderSize = 0;
+            vbDangNhap.FlatStyle = FlatStyle.Flat;
+            vbDangNhap.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            vbDangNhap.ForeColor = Color.White;
+            vbDangNhap.Location = new Point(100, 446);
+            vbDangNhap.Name = "vbDangNhap";
+            vbDangNhap.Size = new Size(299, 53);
+            vbDangNhap.TabIndex = 15;
+            vbDangNhap.Text = "Đăng Nhập";
+            vbDangNhap.TextColor = Color.White;
+            vbDangNhap.UseVisualStyleBackColor = false;
+            vbDangNhap.Click += vbDangNhap_Click;
+            // 
+            // lbSai
+            // 
+            lbSai.AutoSize = true;
+            lbSai.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbSai.Location = new Point(117, 511);
+            lbSai.Name = "lbSai";
+            lbSai.Size = new Size(263, 23);
+            lbSai.TabIndex = 16;
+            lbSai.Text = "Sai tài khoản hoặc sai mật khẩu";
             // 
             // LoginForm
             // 
@@ -182,10 +194,11 @@ namespace Dental_Clinic.GUI.Login
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             ClientSize = new Size(514, 543);
-            Controls.Add(vbButton1);
+            Controls.Add(lbSai);
+            Controls.Add(vbDangNhap);
             Controls.Add(tbPassword);
             Controls.Add(tbUser);
-            Controls.Add(pictureBox4);
+            Controls.Add(pbHienMatKhau);
             Controls.Add(lbQuenMatKhau);
             Controls.Add(panel3);
             Controls.Add(pictureBox3);
@@ -199,7 +212,7 @@ namespace Dental_Clinic.GUI.Login
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbHienMatKhau).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -213,10 +226,11 @@ namespace Dental_Clinic.GUI.Login
         private PictureBox pictureBox3;
         private Panel panel3;
         private Label lbQuenMatKhau;
-        private PictureBox pictureBox4;
+        private PictureBox pbHienMatKhau;
         private TextBox tbUser;
         private TextBox tbPassword;
         private ImageList imageList1;
-        private CustomButton.VBButton vbButton1;
+        private CustomButton.VBButton vbDangNhap;
+        private Label lbSai;
     }
 }

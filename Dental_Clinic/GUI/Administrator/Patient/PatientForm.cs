@@ -141,11 +141,11 @@ namespace Dental_Clinic.GUI.Administrator
             panelActions.Controls.Add(btnDelete);
 
             // Thêm Panel vào cột thao tác của hàng hiện tại
-            tlpUser.Controls.Add(panelActions, 5, rowIndex);
+            tlpUser.Controls.Add(panelActions, 6, rowIndex);
         }
 
         // Hàm để thêm hàng mới vào TableLayoutPanel
-        private void AddRowToTableLayoutPanel(TableLayoutPanel tlpUser, string stt, string tenNguoiDung, string gioiTinh, string email, string sdt)
+        private void AddRowToTableLayoutPanel(TableLayoutPanel tlpUser, string stt, string tenNguoiDung, string gioiTinh, string age, string phone, string address)
         {
             int currentRow = tlpUser.RowCount++; // Tăng số lượng hàng
 
@@ -153,8 +153,9 @@ namespace Dental_Clinic.GUI.Administrator
             tlpUser.Controls.Add(CreateLabel(stt, headerFont), 0, currentRow);
             tlpUser.Controls.Add(CreateLabel(tenNguoiDung, headerFont), 1, currentRow);
             tlpUser.Controls.Add(CreateLabel(gioiTinh, headerFont), 2, currentRow);
-            tlpUser.Controls.Add(CreateLabel(email, headerFont), 3, currentRow);
-            tlpUser.Controls.Add(CreateLabel(sdt, headerFont), 4, currentRow); // Thêm CheckBox
+            tlpUser.Controls.Add(CreateLabel(age, headerFont), 3, currentRow);
+            tlpUser.Controls.Add(CreateLabel(phone, headerFont), 4, currentRow); // Thêm CheckBox
+            tlpUser.Controls.Add(CreateLabel(address, headerFont), 5, currentRow); // Thêm CheckBox
             AddActionButtonsToTableLayoutPanel(tlpUser, currentRow);
         }
 
@@ -169,7 +170,7 @@ namespace Dental_Clinic.GUI.Administrator
             };
 
             // Thiết lập số cột
-            tlpUser.ColumnCount = 7;
+            tlpUser.ColumnCount = 8;
             for (int i = 0; i < tlpUser.ColumnCount; i++)
             {
                 tlpUser.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
@@ -181,15 +182,16 @@ namespace Dental_Clinic.GUI.Administrator
             tlpUser.Controls.Add(CreateLabel("STT", headerFont), 0, 0);
             tlpUser.Controls.Add(CreateLabel("Tên người dùng", headerFont), 1, 0);
             tlpUser.Controls.Add(CreateLabel("Giới tính", headerFont), 2, 0);
-            tlpUser.Controls.Add(CreateLabel("Email", headerFont), 3, 0);
+            tlpUser.Controls.Add(CreateLabel("Tuổi", headerFont), 3, 0);
             tlpUser.Controls.Add(CreateLabel("SĐT", headerFont), 4, 0);
-            tlpUser.Controls.Add(CreateLabel("Thao tác", headerFont), 5, 0);
+            tlpUser.Controls.Add(CreateLabel("Địa chỉ", headerFont), 5, 0);
+            tlpUser.Controls.Add(CreateLabel("Thao tác", headerFont), 6, 0);
 
             // Thêm TableLayoutPanel vào form
             panelBenhNhan.Controls.Add(tlpUser);
 
             // Thêm một hàng mẫu
-            AddRowToTableLayoutPanel(tlpUser, "1", "Nguyễn Văn A", "Nam", "example@example.com", "012345");
+            AddRowToTableLayoutPanel(tlpUser, "1", "Nguyễn Văn A", "Nam", "20", "012345", "56 Cách Mạng Tháng Tám, Quận 10");
         }
 
         private string ToTitleCase(string text)
