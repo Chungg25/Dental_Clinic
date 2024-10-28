@@ -475,11 +475,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nguyen\\Desktop\\Dental_Clinic\\Dental_Clinic\\Dental_Clinic.csproj",
+      "projectUniqueName": "C:\\Users\\Nguyen\\Desktop\\Dental_Clinic_Pro\\Dental_Clinic\\Dental_Clinic.csproj",
       "projectName": "Dental_Clinic",
-      "projectPath": "C:\\Users\\Nguyen\\Desktop\\Dental_Clinic\\Dental_Clinic\\Dental_Clinic.csproj",
+      "projectPath": "C:\\Users\\Nguyen\\Desktop\\Dental_Clinic_Pro\\Dental_Clinic\\Dental_Clinic.csproj",
       "packagesPath": "C:\\Users\\Nguyen\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nguyen\\Desktop\\Dental_Clinic\\Dental_Clinic\\obj\\",
+      "outputPath": "C:\\Users\\Nguyen\\Desktop\\Dental_Clinic_Pro\\Dental_Clinic\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Nguyen\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -16,10 +16,5 @@ namespace Dental_Clinic.GUI.Doctor
         {
             InitializeComponent();
         }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

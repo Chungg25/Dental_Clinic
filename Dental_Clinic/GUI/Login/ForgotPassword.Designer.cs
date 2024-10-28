@@ -55,10 +55,10 @@ namespace Dental_Clinic.GUI.Login
             // 
             pictureBox2.BackColor = SystemColors.Window;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(214, 15);
+            pictureBox2.Location = new Point(211, 15);
             pictureBox2.Margin = new Padding(4);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(215, 156);
+            pictureBox2.Size = new Size(221, 134);
             pictureBox2.TabIndex = 3;
             pictureBox2.TabStop = false;
             // 
@@ -172,7 +172,7 @@ namespace Dental_Clinic.GUI.Login
             picBack.Location = new Point(15, 15);
             picBack.Margin = new Padding(4);
             picBack.Name = "picBack";
-            picBack.Size = new Size(49, 49);
+            picBack.Size = new Size(61, 49);
             picBack.TabIndex = 26;
             picBack.TabStop = false;
             picBack.Click += picBack_Click;
@@ -184,6 +184,7 @@ namespace Dental_Clinic.GUI.Login
             vbSendCode.BorderColor = Color.Black;
             vbSendCode.BorderRadius = 10;
             vbSendCode.BorderSize = 1;
+            vbSendCode.Cursor = Cursors.Hand;
             vbSendCode.FlatAppearance.BorderSize = 0;
             vbSendCode.FlatStyle = FlatStyle.Flat;
             vbSendCode.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -209,7 +210,7 @@ namespace Dental_Clinic.GUI.Login
             vbButton2.FlatStyle = FlatStyle.Flat;
             vbButton2.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
             vbButton2.ForeColor = Color.White;
-            vbButton2.Location = new Point(157, 616);
+            vbButton2.Location = new Point(157, 607);
             vbButton2.Margin = new Padding(4);
             vbButton2.Name = "vbButton2";
             vbButton2.Size = new Size(328, 59);
@@ -242,7 +243,6 @@ namespace Dental_Clinic.GUI.Login
             Margin = new Padding(4);
             Name = "ForgotPassword";
             Text = "ForgotPassword";
-            Load += ForgotPassword_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

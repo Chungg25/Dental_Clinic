@@ -68,18 +68,20 @@
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(-9, -7);
+            panel1.Location = new Point(-11, -9);
+            panel1.Margin = new Padding(4, 4, 4, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1054, 71);
+            panel1.Size = new Size(1317, 88);
             panel1.TabIndex = 2;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
-            label1.Location = new Point(54, 13);
+            label1.Location = new Point(68, 16);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(353, 46);
+            label1.Size = new Size(413, 54);
             label1.TabIndex = 0;
             label1.Text = "Chỉnh Sửa Thông Tin";
             // 
@@ -93,9 +95,10 @@
             vbButton1.FlatAppearance.BorderSize = 0;
             vbButton1.FlatStyle = FlatStyle.Flat;
             vbButton1.ForeColor = Color.White;
-            vbButton1.Location = new Point(46, 51);
+            vbButton1.Location = new Point(58, 64);
+            vbButton1.Margin = new Padding(4, 4, 4, 4);
             vbButton1.Name = "vbButton1";
-            vbButton1.Size = new Size(154, 38);
+            vbButton1.Size = new Size(192, 48);
             vbButton1.TabIndex = 3;
             vbButton1.Text = "vbButton1";
             vbButton1.TextColor = Color.White;
@@ -104,72 +107,80 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(46, 18);
+            label2.Location = new Point(58, 22);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(73, 20);
+            label2.Size = new Size(89, 25);
             label2.TabIndex = 4;
             label2.Text = "Họ và tên";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(362, 18);
+            label3.Location = new Point(452, 22);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(46, 20);
+            label3.Size = new Size(54, 25);
             label3.TabIndex = 5;
             label3.Text = "Email";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(362, 109);
+            label4.Location = new Point(452, 136);
+            label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(136, 20);
+            label4.Size = new Size(165, 25);
             label4.TabIndex = 6;
             label4.Text = "Căn cước công dân";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(46, 109);
+            label5.Location = new Point(58, 136);
+            label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(102, 20);
+            label5.Size = new Size(122, 25);
             label5.TabIndex = 7;
             label5.Text = "Số Điện Thoại";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(627, 109);
+            label6.Location = new Point(784, 136);
+            label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
-            label6.Size = new Size(65, 20);
+            label6.Size = new Size(78, 25);
             label6.TabIndex = 8;
             label6.Text = "Giới tính";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(362, 205);
+            label7.Location = new Point(452, 256);
+            label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
-            label7.Size = new Size(74, 20);
+            label7.Size = new Size(91, 25);
             label7.TabIndex = 9;
             label7.Text = "Ngày sinh";
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(46, 299);
+            label8.Location = new Point(58, 374);
+            label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
-            label8.Size = new Size(73, 20);
+            label8.Size = new Size(90, 25);
             label8.TabIndex = 10;
             label8.Text = "Quê quán";
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(46, 205);
+            label9.Location = new Point(58, 256);
+            label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
-            label9.Size = new Size(90, 20);
+            label9.Size = new Size(110, 25);
             label9.TabIndex = 11;
             label9.Text = "Hệ số lương";
             // 
@@ -205,9 +216,10 @@
             panelDuLieu.Controls.Add(label4);
             panelDuLieu.Controls.Add(vbButton2);
             panelDuLieu.Controls.Add(vbButton5);
-            panelDuLieu.Location = new Point(100, 87);
+            panelDuLieu.Location = new Point(125, 109);
+            panelDuLieu.Margin = new Padding(4, 4, 4, 4);
             panelDuLieu.Name = "panelDuLieu";
-            panelDuLieu.Size = new Size(841, 555);
+            panelDuLieu.Size = new Size(1051, 694);
             panelDuLieu.TabIndex = 12;
             // 
             // vbHuy
@@ -217,13 +229,15 @@
             vbHuy.BorderColor = Color.PaleVioletRed;
             vbHuy.BorderRadius = 10;
             vbHuy.BorderSize = 0;
+            vbHuy.Cursor = Cursors.Hand;
             vbHuy.FlatAppearance.BorderSize = 0;
             vbHuy.FlatStyle = FlatStyle.Flat;
             vbHuy.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             vbHuy.ForeColor = Color.White;
-            vbHuy.Location = new Point(212, 486);
+            vbHuy.Location = new Point(265, 608);
+            vbHuy.Margin = new Padding(4, 4, 4, 4);
             vbHuy.Name = "vbHuy";
-            vbHuy.Size = new Size(87, 50);
+            vbHuy.Size = new Size(109, 62);
             vbHuy.TabIndex = 24;
             vbHuy.Text = "Hủy";
             vbHuy.TextColor = Color.White;
@@ -237,13 +251,15 @@
             vbLuuThayDoi.BorderColor = Color.PaleVioletRed;
             vbLuuThayDoi.BorderRadius = 10;
             vbLuuThayDoi.BorderSize = 0;
+            vbLuuThayDoi.Cursor = Cursors.Hand;
             vbLuuThayDoi.FlatAppearance.BorderSize = 0;
             vbLuuThayDoi.FlatStyle = FlatStyle.Flat;
             vbLuuThayDoi.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             vbLuuThayDoi.ForeColor = Color.White;
-            vbLuuThayDoi.Location = new Point(47, 486);
+            vbLuuThayDoi.Location = new Point(59, 608);
+            vbLuuThayDoi.Margin = new Padding(4, 4, 4, 4);
             vbLuuThayDoi.Name = "vbLuuThayDoi";
-            vbLuuThayDoi.Size = new Size(144, 50);
+            vbLuuThayDoi.Size = new Size(180, 62);
             vbLuuThayDoi.TabIndex = 23;
             vbLuuThayDoi.Text = "Lưu Thay Đổi";
             vbLuuThayDoi.TextColor = Color.White;
@@ -253,18 +269,20 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(46, 391);
+            label10.Location = new Point(58, 489);
+            label10.Margin = new Padding(4, 0, 4, 0);
             label10.Name = "label10";
-            label10.Size = new Size(61, 20);
+            label10.Size = new Size(76, 25);
             label10.TabIndex = 22;
             label10.Text = "Chức vụ";
             // 
             // cbChucVu
             // 
             cbChucVu.FormattingEnabled = true;
-            cbChucVu.Location = new Point(56, 426);
+            cbChucVu.Location = new Point(70, 532);
+            cbChucVu.Margin = new Padding(4, 4, 4, 4);
             cbChucVu.Name = "cbChucVu";
-            cbChucVu.Size = new Size(725, 28);
+            cbChucVu.Size = new Size(905, 33);
             cbChucVu.TabIndex = 20;
             // 
             // vbButton9
@@ -277,9 +295,10 @@
             vbButton9.FlatAppearance.BorderSize = 0;
             vbButton9.FlatStyle = FlatStyle.Flat;
             vbButton9.ForeColor = Color.White;
-            vbButton9.Location = new Point(47, 421);
+            vbButton9.Location = new Point(59, 526);
+            vbButton9.Margin = new Padding(4, 4, 4, 4);
             vbButton9.Name = "vbButton9";
-            vbButton9.Size = new Size(743, 38);
+            vbButton9.Size = new Size(929, 48);
             vbButton9.TabIndex = 21;
             vbButton9.Text = "vbButton9";
             vbButton9.TextColor = Color.White;
@@ -287,9 +306,10 @@
             // 
             // tbQueQuan
             // 
-            tbQueQuan.Location = new Point(56, 339);
+            tbQueQuan.Location = new Point(70, 424);
+            tbQueQuan.Margin = new Padding(4, 4, 4, 4);
             tbQueQuan.Name = "tbQueQuan";
-            tbQueQuan.Size = new Size(725, 27);
+            tbQueQuan.Size = new Size(905, 31);
             tbQueQuan.TabIndex = 19;
             // 
             // vbButton8
@@ -302,9 +322,10 @@
             vbButton8.FlatAppearance.BorderSize = 0;
             vbButton8.FlatStyle = FlatStyle.Flat;
             vbButton8.ForeColor = Color.White;
-            vbButton8.Location = new Point(45, 331);
+            vbButton8.Location = new Point(56, 414);
+            vbButton8.Margin = new Padding(4, 4, 4, 4);
             vbButton8.Name = "vbButton8";
-            vbButton8.Size = new Size(745, 38);
+            vbButton8.Size = new Size(931, 48);
             vbButton8.TabIndex = 18;
             vbButton8.Text = "vbButton8";
             vbButton8.TextColor = Color.White;
@@ -312,9 +333,10 @@
             // 
             // tbHeSoLuong
             // 
-            tbHeSoLuong.Location = new Point(56, 249);
+            tbHeSoLuong.Location = new Point(70, 311);
+            tbHeSoLuong.Margin = new Padding(4, 4, 4, 4);
             tbHeSoLuong.Name = "tbHeSoLuong";
-            tbHeSoLuong.Size = new Size(135, 27);
+            tbHeSoLuong.Size = new Size(168, 31);
             tbHeSoLuong.TabIndex = 17;
             // 
             // vbButton7
@@ -327,9 +349,10 @@
             vbButton7.FlatAppearance.BorderSize = 0;
             vbButton7.FlatStyle = FlatStyle.Flat;
             vbButton7.ForeColor = Color.White;
-            vbButton7.Location = new Point(45, 241);
+            vbButton7.Location = new Point(56, 301);
+            vbButton7.Margin = new Padding(4, 4, 4, 4);
             vbButton7.Name = "vbButton7";
-            vbButton7.Size = new Size(155, 38);
+            vbButton7.Size = new Size(194, 48);
             vbButton7.TabIndex = 16;
             vbButton7.Text = "vbButton7";
             vbButton7.TextColor = Color.White;
@@ -337,9 +360,10 @@
             // 
             // dtpNgaySinh
             // 
-            dtpNgaySinh.Location = new Point(373, 253);
+            dtpNgaySinh.Location = new Point(466, 316);
+            dtpNgaySinh.Margin = new Padding(4, 4, 4, 4);
             dtpNgaySinh.Name = "dtpNgaySinh";
-            dtpNgaySinh.Size = new Size(239, 27);
+            dtpNgaySinh.Size = new Size(298, 31);
             dtpNgaySinh.TabIndex = 15;
             // 
             // vbButton6
@@ -352,9 +376,10 @@
             vbButton6.FlatAppearance.BorderSize = 0;
             vbButton6.FlatStyle = FlatStyle.Flat;
             vbButton6.ForeColor = Color.White;
-            vbButton6.Location = new Point(363, 247);
+            vbButton6.Location = new Point(454, 309);
+            vbButton6.Margin = new Padding(4, 4, 4, 4);
             vbButton6.Name = "vbButton6";
-            vbButton6.Size = new Size(261, 38);
+            vbButton6.Size = new Size(326, 48);
             vbButton6.TabIndex = 14;
             vbButton6.Text = "vbButton6";
             vbButton6.TextColor = Color.White;
@@ -363,16 +388,18 @@
             // cbGioiTinh
             // 
             cbGioiTinh.FormattingEnabled = true;
-            cbGioiTinh.Location = new Point(636, 151);
+            cbGioiTinh.Location = new Point(795, 189);
+            cbGioiTinh.Margin = new Padding(4, 4, 4, 4);
             cbGioiTinh.Name = "cbGioiTinh";
-            cbGioiTinh.Size = new Size(137, 28);
+            cbGioiTinh.Size = new Size(170, 33);
             cbGioiTinh.TabIndex = 12;
             // 
             // tbCCCD
             // 
-            tbCCCD.Location = new Point(373, 154);
+            tbCCCD.Location = new Point(466, 192);
+            tbCCCD.Margin = new Padding(4, 4, 4, 4);
             tbCCCD.Name = "tbCCCD";
-            tbCCCD.Size = new Size(135, 27);
+            tbCCCD.Size = new Size(168, 31);
             tbCCCD.TabIndex = 11;
             // 
             // vbButton4
@@ -385,9 +412,10 @@
             vbButton4.FlatAppearance.BorderSize = 0;
             vbButton4.FlatStyle = FlatStyle.Flat;
             vbButton4.ForeColor = Color.White;
-            vbButton4.Location = new Point(362, 146);
+            vbButton4.Location = new Point(452, 182);
+            vbButton4.Margin = new Padding(4, 4, 4, 4);
             vbButton4.Name = "vbButton4";
-            vbButton4.Size = new Size(155, 38);
+            vbButton4.Size = new Size(194, 48);
             vbButton4.TabIndex = 10;
             vbButton4.Text = "vbButton4";
             vbButton4.TextColor = Color.White;
@@ -395,9 +423,10 @@
             // 
             // tbSĐT
             // 
-            tbSĐT.Location = new Point(56, 154);
+            tbSĐT.Location = new Point(70, 192);
+            tbSĐT.Margin = new Padding(4, 4, 4, 4);
             tbSĐT.Name = "tbSĐT";
-            tbSĐT.Size = new Size(135, 27);
+            tbSĐT.Size = new Size(168, 31);
             tbSĐT.TabIndex = 9;
             // 
             // vbButton3
@@ -410,9 +439,10 @@
             vbButton3.FlatAppearance.BorderSize = 0;
             vbButton3.FlatStyle = FlatStyle.Flat;
             vbButton3.ForeColor = Color.White;
-            vbButton3.Location = new Point(46, 146);
+            vbButton3.Location = new Point(58, 182);
+            vbButton3.Margin = new Padding(4, 4, 4, 4);
             vbButton3.Name = "vbButton3";
-            vbButton3.Size = new Size(154, 38);
+            vbButton3.Size = new Size(192, 48);
             vbButton3.TabIndex = 8;
             vbButton3.Text = "vbButton3";
             vbButton3.TextColor = Color.White;
@@ -420,16 +450,18 @@
             // 
             // tbEmail
             // 
-            tbEmail.Location = new Point(373, 59);
+            tbEmail.Location = new Point(466, 74);
+            tbEmail.Margin = new Padding(4, 4, 4, 4);
             tbEmail.Name = "tbEmail";
-            tbEmail.Size = new Size(279, 27);
+            tbEmail.Size = new Size(348, 31);
             tbEmail.TabIndex = 6;
             // 
             // tbHoTen
             // 
-            tbHoTen.Location = new Point(56, 59);
+            tbHoTen.Location = new Point(70, 74);
+            tbHoTen.Margin = new Padding(4, 4, 4, 4);
             tbHoTen.Name = "tbHoTen";
-            tbHoTen.Size = new Size(135, 27);
+            tbHoTen.Size = new Size(168, 31);
             tbHoTen.TabIndex = 5;
             // 
             // vbButton2
@@ -442,9 +474,10 @@
             vbButton2.FlatAppearance.BorderSize = 0;
             vbButton2.FlatStyle = FlatStyle.Flat;
             vbButton2.ForeColor = Color.White;
-            vbButton2.Location = new Point(362, 51);
+            vbButton2.Location = new Point(452, 64);
+            vbButton2.Margin = new Padding(4, 4, 4, 4);
             vbButton2.Name = "vbButton2";
-            vbButton2.Size = new Size(300, 38);
+            vbButton2.Size = new Size(375, 48);
             vbButton2.TabIndex = 7;
             vbButton2.Text = "vbButton2";
             vbButton2.TextColor = Color.White;
@@ -460,9 +493,10 @@
             vbButton5.FlatAppearance.BorderSize = 0;
             vbButton5.FlatStyle = FlatStyle.Flat;
             vbButton5.ForeColor = Color.White;
-            vbButton5.Location = new Point(627, 146);
+            vbButton5.Location = new Point(784, 182);
+            vbButton5.Margin = new Padding(4, 4, 4, 4);
             vbButton5.Name = "vbButton5";
-            vbButton5.Size = new Size(154, 38);
+            vbButton5.Size = new Size(192, 48);
             vbButton5.TabIndex = 13;
             vbButton5.Text = "vbButton5";
             vbButton5.TextColor = Color.White;
@@ -470,12 +504,13 @@
             // 
             // EditUserForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
-            ClientSize = new Size(1016, 644);
+            ClientSize = new Size(1270, 805);
             Controls.Add(panel1);
             Controls.Add(panelDuLieu);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "EditUserForm";
             Text = "EditUserForm";
             panel1.ResumeLayout(false);

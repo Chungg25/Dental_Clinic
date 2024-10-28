@@ -20,10 +20,12 @@ namespace Dental_Clinic.GUI.Login
     public partial class LoginForm : Form
     {
         private Dental_Clinic mainForm;
+        private LoginBUS loginBUS;
         public LoginForm(Dental_Clinic mainForm)
         {
             InitializeComponent();
             this.mainForm = mainForm;
+            this.loginBUS = new LoginBUS();
 
             lbSai.Visible = false;
 
@@ -41,9 +43,7 @@ namespace Dental_Clinic.GUI.Login
             tbPassword.UseSystemPasswordChar = false; // Không ẩn ký tự khi đang hiển thị placeholder
             tbPassword.Enter += TbPassword_Enter;
             tbPassword.Leave += TbPassword_Leave;
-
         }
-
         private void TbUser_Enter(object? sender, EventArgs e)
         {
             if (tbUser.Text == "User Name")
@@ -52,7 +52,6 @@ namespace Dental_Clinic.GUI.Login
                 tbUser.ForeColor = Color.Black;
             }
         }
-
         private void TbUser_Leave(object? sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(tbUser.Text))
@@ -60,6 +59,24 @@ namespace Dental_Clinic.GUI.Login
                 tbUser.Text = "User Name";
                 tbUser.ForeColor = Color.Gray;
             }
+        }
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+            HideErrorLabel();
+            tbUser.Focus();
+
+        }
+        // Hiển thị label thông báo lỗi
+        private void ShowErrorLabel(string text)
+        {
+            lbSai.Visible = true;
+            lbSai.Text = text;
+        }
+        // Ẩn label thông báo lỗi
+        private void HideErrorLabel()
+        {
+            lbSai.Visible = false;
+            lbSai.Text = "";
         }
 
         // Sự kiện cho tbPassword
@@ -82,31 +99,36 @@ namespace Dental_Clinic.GUI.Login
                 tbPassword.UseSystemPasswordChar = false; // Hiển thị lại placeholder không ẩn ký tự
             }
         }
+        // Sự kiện cho lbQuenMatKhau
         private void lbQuenMatKhau_Click(object? sender, EventArgs e)
         {
             mainForm.ShowForgotPasswordInPanel(); // Gọi hàm để hiển thị ForgotPassword
         }
-
+        // Sự kiện cho vbDangNhap
         private void vbDangNhap_Click(object sender, EventArgs e)
         {
+            if (!ValidateInput())
+            {
+                return;
+            }
+            // Tạo đối tượng LoginDTO từ dữ liệu người dùng nhập vào
             LoginDTO loginDTO = new LoginDTO
             {
                 Username = tbUser.Text,
                 Password = tbPassword.Text
             };
 
-            LoginBUS loginBUS = new LoginBUS();
-
             DataRow userInfo = loginBUS.CheckLogin(loginDTO);
 
             if (userInfo != null) // Nếu không null tức là đăng nhập thành công
             {
                 // Lấy userId và userRole từ DataRow
-                int userId = (int)userInfo["user_id"]; // Giả sử cột id tồn tại trong bảng users
+                int userId = (int)userInfo["id"]; // Giả sử cột id tồn tại trong bảng users
                 string userRole = userInfo["role"].ToString(); // Giả sử cột role tồn tại
+
                 UserDTO userDTO = new UserDTO
                 {
-                    Id = (int)userInfo["user_id"],
+                    Id = (int)userInfo["id"],
                     Full_name = userInfo["full_name"].ToString(),
                     Citizen_id = userInfo["citizen_id"].ToString(),
                     Phone = userInfo["phone_number"].ToString(),
@@ -152,7 +174,21 @@ namespace Dental_Clinic.GUI.Login
                 lbSai.Visible = true; // Hiển thị thông báo lỗi
             }
         }
-
+        // Kiểm tra dữ liệu đầu vào
+        private bool ValidateInput()
+        {
+            if (string.IsNullOrWhiteSpace(tbUser.Text) || tbUser.Text == "User Name")
+            {
+                ShowErrorLabel("Vui lòng nhập tên đăng nhập");
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(tbPassword.Text) || tbPassword.Text == "Password")
+            {
+                ShowErrorLabel("Vui lòng nhập mật khẩu");
+                return false;
+            }
+            return true;
+        }
         private void pbHienMatKhau_Click(object sender, EventArgs e)
         {
             if (tbPassword.UseSystemPasswordChar)
@@ -165,10 +201,6 @@ namespace Dental_Clinic.GUI.Login
                 // Ẩn mật khẩu
                 tbPassword.UseSystemPasswordChar = true;
             }
-        }
-
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
         }
     }
 }

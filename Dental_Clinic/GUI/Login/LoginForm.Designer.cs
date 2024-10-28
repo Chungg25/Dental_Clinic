@@ -55,10 +55,10 @@ namespace Dental_Clinic.GUI.Login
             // 
             pictureBox2.BackColor = SystemColors.Window;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(215, 15);
+            pictureBox2.Location = new Point(211, 15);
             pictureBox2.Margin = new Padding(4);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(212, 156);
+            pictureBox2.Size = new Size(221, 134);
             pictureBox2.TabIndex = 2;
             pictureBox2.TabStop = false;
             // 
@@ -76,7 +76,7 @@ namespace Dental_Clinic.GUI.Login
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(0, 89, 253);
-            panel1.Location = new Point(101, 344);
+            panel1.Location = new Point(85, 344);
             panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
             panel1.Size = new Size(435, 4);
@@ -85,7 +85,7 @@ namespace Dental_Clinic.GUI.Login
             // pictureBox1
             // 
             pictureBox1.Image = Resources.icons8_user_60;
-            pictureBox1.Location = new Point(101, 275);
+            pictureBox1.Location = new Point(85, 275);
             pictureBox1.Margin = new Padding(4);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(56, 55);
@@ -96,7 +96,7 @@ namespace Dental_Clinic.GUI.Login
             // pictureBox3
             // 
             pictureBox3.Image = Resources.icons8_password_52;
-            pictureBox3.Location = new Point(101, 401);
+            pictureBox3.Location = new Point(85, 401);
             pictureBox3.Margin = new Padding(4);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(56, 55);
@@ -107,7 +107,7 @@ namespace Dental_Clinic.GUI.Login
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(0, 89, 253);
-            panel3.Location = new Point(101, 468);
+            panel3.Location = new Point(85, 468);
             panel3.Margin = new Padding(4);
             panel3.Name = "panel3";
             panel3.Size = new Size(435, 4);
@@ -119,7 +119,7 @@ namespace Dental_Clinic.GUI.Login
             lbQuenMatKhau.Cursor = Cursors.Hand;
             lbQuenMatKhau.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbQuenMatKhau.ForeColor = Color.Black;
-            lbQuenMatKhau.Location = new Point(439, 491);
+            lbQuenMatKhau.Location = new Point(423, 491);
             lbQuenMatKhau.Margin = new Padding(4, 0, 4, 0);
             lbQuenMatKhau.Name = "lbQuenMatKhau";
             lbQuenMatKhau.Size = new Size(134, 25);
@@ -131,7 +131,7 @@ namespace Dental_Clinic.GUI.Login
             // pbHienMatKhau
             // 
             pbHienMatKhau.Image = Resources.icons8_invisible_48;
-            pbHienMatKhau.Location = new Point(476, 415);
+            pbHienMatKhau.Location = new Point(460, 415);
             pbHienMatKhau.Margin = new Padding(4);
             pbHienMatKhau.Name = "pbHienMatKhau";
             pbHienMatKhau.Size = new Size(60, 41);
@@ -145,7 +145,7 @@ namespace Dental_Clinic.GUI.Login
             tbUser.BorderStyle = BorderStyle.None;
             tbUser.Cursor = Cursors.IBeam;
             tbUser.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold);
-            tbUser.Location = new Point(185, 291);
+            tbUser.Location = new Point(169, 291);
             tbUser.Margin = new Padding(4);
             tbUser.Name = "tbUser";
             tbUser.Size = new Size(351, 37);
@@ -156,7 +156,7 @@ namespace Dental_Clinic.GUI.Login
             tbPassword.BorderStyle = BorderStyle.None;
             tbPassword.Cursor = Cursors.IBeam;
             tbPassword.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold);
-            tbPassword.Location = new Point(174, 418);
+            tbPassword.Location = new Point(158, 418);
             tbPassword.Margin = new Padding(4);
             tbPassword.Name = "tbPassword";
             tbPassword.Size = new Size(295, 37);
@@ -179,7 +179,7 @@ namespace Dental_Clinic.GUI.Login
             vbDangNhap.FlatStyle = FlatStyle.Flat;
             vbDangNhap.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
             vbDangNhap.ForeColor = Color.White;
-            vbDangNhap.Location = new Point(125, 558);
+            vbDangNhap.Location = new Point(134, 558);
             vbDangNhap.Margin = new Padding(4);
             vbDangNhap.Name = "vbDangNhap";
             vbDangNhap.Size = new Size(374, 66);
@@ -193,7 +193,7 @@ namespace Dental_Clinic.GUI.Login
             // 
             lbSai.AutoSize = true;
             lbSai.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbSai.Location = new Point(146, 639);
+            lbSai.Location = new Point(159, 639);
             lbSai.Margin = new Padding(4, 0, 4, 0);
             lbSai.Name = "lbSai";
             lbSai.Size = new Size(325, 30);

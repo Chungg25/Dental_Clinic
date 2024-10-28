@@ -29,7 +29,7 @@ namespace Dental_Clinic.GUI.Login
         }
         private void ForgotPassword_Load(object sender, EventArgs e)
         {
-
+            tbUsername.Focus();
         }
         // Sự kiện Enter để xác nhận
         private void txtEmail_KeyDown(object sender, KeyEventArgs e)
