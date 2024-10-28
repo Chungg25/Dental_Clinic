@@ -3,28 +3,36 @@
   "WorkspaceRootPath": "D:\\\u0110\u1EA1i h\u1ECDc\\HK5\\CNPM\\Dental_Clinic\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|d:\\\u0111\u1EA1i h\u1ECDc\\hk5\\cnpm\\dental_clinic\\dental_clinic\\dao\\admin\\doctordao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|solutionrelative:dental_clinic\\dao\\admin\\doctordao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|d:\\\u0111\u1EA1i h\u1ECDc\\hk5\\cnpm\\dental_clinic\\dental_clinic\\bus\\admin\\doctorbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|solutionrelative:dental_clinic\\bus\\admin\\doctorbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|d:\\\u0111\u1EA1i h\u1ECDc\\hk5\\cnpm\\dental_clinic\\dental_clinic\\gui\\administrator\\user\\adduserform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|solutionrelative:dental_clinic\\gui\\administrator\\user\\adduserform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|d:\\\u0111\u1EA1i h\u1ECDc\\hk5\\cnpm\\dental_clinic\\dental_clinic\\gui\\login\\forgotpassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|solutionrelative:dental_clinic\\gui\\login\\forgotpassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|D:\\\u0110\u1EA1i h\u1ECDc\\HK5\\CNPM\\Dental_Clinic\\dental_clinic\\gui\\login\\forgotpassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|solutionrelative:dental_clinic\\gui\\login\\forgotpassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|d:\\\u0111\u1EA1i h\u1ECDc\\hk5\\cnpm\\dental_clinic\\dental_clinic\\dao\\admin\\doctordao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|solutionrelative:dental_clinic\\dao\\admin\\doctordao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|D:\\\u0110\u1EA1i h\u1ECDc\\HK5\\CNPM\\Dental_Clinic\\dental_clinic\\gui\\administrator\\user\\adduserform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|solutionrelative:dental_clinic\\gui\\administrator\\user\\adduserform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|d:\\\u0111\u1EA1i h\u1ECDc\\hk5\\cnpm\\dental_clinic\\dental_clinic\\bus\\admin\\doctorbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|solutionrelative:dental_clinic\\bus\\admin\\doctorbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|d:\\\u0111\u1EA1i h\u1ECDc\\hk5\\cnpm\\dental_clinic\\dental_clinic\\gui\\administrator\\user\\edituserform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|solutionrelative:dental_clinic\\gui\\administrator\\user\\edituserform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|d:\\\u0111\u1EA1i h\u1ECDc\\hk5\\cnpm\\dental_clinic\\dental_clinic\\gui\\administrator\\user\\adduserform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|solutionrelative:dental_clinic\\gui\\administrator\\user\\adduserform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|d:\\\u0111\u1EA1i h\u1ECDc\\hk5\\cnpm\\dental_clinic\\dental_clinic\\dto\\admin\\doctordto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|solutionrelative:dental_clinic\\dto\\admin\\doctordto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|d:\\\u0111\u1EA1i h\u1ECDc\\hk5\\cnpm\\dental_clinic\\dental_clinic\\gui\\administrator\\user\\edituserform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|solutionrelative:dental_clinic\\gui\\administrator\\user\\edituserform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|d:\\\u0111\u1EA1i h\u1ECDc\\hk5\\cnpm\\dental_clinic\\dental_clinic\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
@@ -53,29 +61,55 @@
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DoctorDAO.cs",
-              "DocumentMoniker": "D:\\\u0110\u1EA1i h\u1ECDc\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\DAO\\Admin\\DoctorDAO.cs",
-              "RelativeDocumentMoniker": "Dental_Clinic\\DAO\\Admin\\DoctorDAO.cs",
-              "ToolTip": "D:\\\u0110\u1EA1i h\u1ECDc\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\DAO\\Admin\\DoctorDAO.cs",
-              "RelativeToolTip": "Dental_Clinic\\DAO\\Admin\\DoctorDAO.cs",
-              "ViewState": "AgIAAIoAAAAAAAAAAAAlwJ0AAABdAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "ForgotPassword.cs",
+              "DocumentMoniker": "D:\\\u0110\u1EA1i h\u1ECDc\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\GUI\\Login\\ForgotPassword.cs",
+              "RelativeDocumentMoniker": "Dental_Clinic\\GUI\\Login\\ForgotPassword.cs",
+              "ToolTip": "D:\\\u0110\u1EA1i h\u1ECDc\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\GUI\\Login\\ForgotPassword.cs",
+              "RelativeToolTip": "Dental_Clinic\\GUI\\Login\\ForgotPassword.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAYwBwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T07:11:05.139Z",
+              "WhenOpened": "2024-10-28T11:34:46.956Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "ForgotPassword.cs [Design]",
+              "DocumentMoniker": "D:\\\u0110\u1EA1i h\u1ECDc\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\GUI\\Login\\ForgotPassword.cs",
+              "RelativeDocumentMoniker": "Dental_Clinic\\GUI\\Login\\ForgotPassword.cs",
+              "ToolTip": "D:\\\u0110\u1EA1i h\u1ECDc\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\GUI\\Login\\ForgotPassword.cs [Design]",
+              "RelativeToolTip": "Dental_Clinic\\GUI\\Login\\ForgotPassword.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-28T11:34:00.94Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DoctorDAO.cs",
+              "DocumentMoniker": "D:\\\u0110\u1EA1i h\u1ECDc\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\DAO\\Admin\\DoctorDAO.cs",
+              "RelativeDocumentMoniker": "Dental_Clinic\\DAO\\Admin\\DoctorDAO.cs",
+              "ToolTip": "D:\\\u0110\u1EA1i h\u1ECDc\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\DAO\\Admin\\DoctorDAO.cs",
+              "RelativeToolTip": "Dental_Clinic\\DAO\\Admin\\DoctorDAO.cs",
+              "ViewState": "AgIAAIEAAAAAAAAAAIA5wIUAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-27T07:11:05.139Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "AddUserForm.cs [Design]",
               "DocumentMoniker": "D:\\\u0110\u1EA1i h\u1ECDc\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\GUI\\Administrator\\User\\AddUserForm.cs",
               "RelativeDocumentMoniker": "Dental_Clinic\\GUI\\Administrator\\User\\AddUserForm.cs",
               "ToolTip": "D:\\\u0110\u1EA1i h\u1ECDc\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\GUI\\Administrator\\User\\AddUserForm.cs [Design]",
               "RelativeToolTip": "Dental_Clinic\\GUI\\Administrator\\User\\AddUserForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T06:37:48.385Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-10-27T06:37:48.385Z"
             },
             {
               "$type": "Document",
@@ -87,12 +121,11 @@
               "RelativeToolTip": "Dental_Clinic\\GUI\\Administrator\\User\\EditUserForm.cs",
               "ViewState": "AgIAADAAAAAAAAAAAAAYwCwAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T06:19:58.64Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-27T06:19:58.64Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "AddUserForm.cs",
               "DocumentMoniker": "D:\\\u0110\u1EA1i h\u1ECDc\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\GUI\\Administrator\\User\\AddUserForm.cs",
               "RelativeDocumentMoniker": "Dental_Clinic\\GUI\\Administrator\\User\\AddUserForm.cs",
@@ -100,12 +133,11 @@
               "RelativeToolTip": "Dental_Clinic\\GUI\\Administrator\\User\\AddUserForm.cs",
               "ViewState": "AgIAAE0AAAAAAAAAAAAYwF8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T05:02:31.126Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-27T05:02:31.126Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "DoctorDTO.cs",
               "DocumentMoniker": "D:\\\u0110\u1EA1i h\u1ECDc\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\DTO\\Admin\\DoctorDTO.cs",
               "RelativeDocumentMoniker": "Dental_Clinic\\DTO\\Admin\\DoctorDTO.cs",
@@ -113,31 +145,30 @@
               "RelativeToolTip": "Dental_Clinic\\DTO\\Admin\\DoctorDTO.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAIA2wBcAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T01:49:52.739Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-27T01:49:52.739Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "DoctorBUS.cs",
               "DocumentMoniker": "D:\\\u0110\u1EA1i h\u1ECDc\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\BUS\\Admin\\DoctorBUS.cs",
               "RelativeDocumentMoniker": "Dental_Clinic\\BUS\\Admin\\DoctorBUS.cs",
               "ToolTip": "D:\\\u0110\u1EA1i h\u1ECDc\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\BUS\\Admin\\DoctorBUS.cs",
               "RelativeToolTip": "Dental_Clinic\\BUS\\Admin\\DoctorBUS.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAmwCMAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-26T18:04:03.368Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\\u0110\u1EA1i h\u1ECDc\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\Program.cs",
               "RelativeDocumentMoniker": "Dental_Clinic\\Program.cs",
               "ToolTip": "D:\\\u0110\u1EA1i h\u1ECDc\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\Program.cs",
               "RelativeToolTip": "Dental_Clinic\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-24T03:04:29.592Z"
             }
