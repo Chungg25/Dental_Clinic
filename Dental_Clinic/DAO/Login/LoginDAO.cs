@@ -71,21 +71,19 @@ namespace Dental_Clinic.DAO.Login
                             }
                         }
                     }
-                    // Trả về null nếu không tìm thấy người dùng
-                    return null;
                 }
             }
             catch (Exception ex)
             {
                 // Xử lý ngoại lệ nếu có lỗi
-                Console.WriteLine("Lỗi: " + ex.Message);
-                return null;
+                throw ex;
             }
             finally
             {
                 // Đóng kết nối
                 dbConnection.CloseConnection();
             }
+            return null;
         }
     }
 }

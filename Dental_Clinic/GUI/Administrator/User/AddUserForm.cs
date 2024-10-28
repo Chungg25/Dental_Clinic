@@ -3,11 +3,8 @@ using Dental_Clinic.DTO.Admin;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using Dental_Clinic.BUS.Admin;
-using Dental_Clinic.DTO.Admin;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -88,7 +85,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             doctorDTO.Email = tbEmail.Text;
             doctorDTO.Phone = tbSĐT.Text;
             doctorDTO.Citizen_id = tbCCCD.Text;
-            doctorDTO.Gender = cbGioiTinh.SelectedItem.ToString() == "Nam"; // Cập nhật giới tính
+            doctorDTO.Gender = cbGioiTinh.SelectedItem.ToString() == "Nam" ? true : false;
             doctorDTO.Dob = dtpNgaySinh.Value; // Ngày sinh
             doctorDTO.Address = tbQueQuan.Text;
             doctorDTO.Role = cbChucVu.SelectedItem.ToString();

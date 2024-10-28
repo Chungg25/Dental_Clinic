@@ -102,12 +102,11 @@ namespace Dental_Clinic.GUI.Login
             if (userInfo != null) // Nếu không null tức là đăng nhập thành công
             {
                 // Lấy userId và userRole từ DataRow
-                int userId = (int)userInfo["id"]; // Giả sử cột id tồn tại trong bảng users
+                int userId = (int)userInfo["user_id"]; // Giả sử cột id tồn tại trong bảng users
                 string userRole = userInfo["role"].ToString(); // Giả sử cột role tồn tại
-
                 UserDTO userDTO = new UserDTO
                 {
-                    Id = (int)userInfo["id"],
+                    Id = (int)userInfo["user_id"],
                     Full_name = userInfo["full_name"].ToString(),
                     Citizen_id = userInfo["citizen_id"].ToString(),
                     Phone = userInfo["phone_number"].ToString(),
@@ -166,6 +165,10 @@ namespace Dental_Clinic.GUI.Login
                 // Ẩn mật khẩu
                 tbPassword.UseSystemPasswordChar = true;
             }
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
         }
     }
 }
