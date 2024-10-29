@@ -9,29 +9,29 @@ namespace Dental_Clinic.DTO.Admin
     public class UserDTO
     {
         private int id;
-        private string full_name;
-        private string citizen_id;
-        private string phone;
-        private string address;
-        private bool gender;
-        private DateTime dob;
-        private string role;
-        private string username;
-        private string password;
+        private string hoVaTen;
+        private string cCCD;
+        private string sDT;
+        private string diaChi;
+        private bool gioiTinh;
+        private DateTime ngaySinh;
+        private string chucVu;
+        private string tenDangNhap;
+        private string matKhau;
         private string email;
-        private float salary_coefficient;
+        private float heSoLuong;
 
         public int Id { get => id; set => id = value; }
-        public string Full_name { get => full_name; set => full_name = value; }
-        public string Citizen_id { get => citizen_id; set => citizen_id = value; }
-        public string Phone { get => phone; set => phone = value; }
-        public string Address { get => address; set => address = value; }
-        public bool Gender { get => gender; set => gender = value; }
-        public DateTime Dob { get => dob; set => dob = value; }
-        public string Role { get => role; set => role = value; }
-        public string Username { get => username; set => username = value; }
-        public string Password { get => password; set => password = value; }
+        public string HoVaTen { get => hoVaTen; set => hoVaTen = value; }
+        public string CCCD { get => cCCD; set => cCCD = value; }
+        public string SDT { get => sDT; set => sDT = value; }
+        public string DiaChi { get => diaChi; set => diaChi = value; }
+        public bool GioiTinh { get => gioiTinh; set => gioiTinh = value; }
+        public DateTime NgaySinh { get => ngaySinh; set => ngaySinh = value; }
+        public string ChucVu { get => chucVu; set => chucVu = value; }
+        public string TenDangNhap { get => tenDangNhap; set => tenDangNhap = value; }
+        public string MatKhau { get => matKhau; set => matKhau = value; }
         public string Email { get => email; set => email = value; }
-        public float Salary_coefficient { get => salary_coefficient; set => salary_coefficient = value; }
+        public float HeSoLuong { get => heSoLuong; set => heSoLuong = value; }
     }
 }

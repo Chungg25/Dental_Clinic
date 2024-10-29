@@ -30,17 +30,17 @@ namespace Dental_Clinic.GUI.Administrator.User
         public void LoadForm()
         {
             Custom();
-            tbHoTen.Text = receptionistDTO.Full_name;
+            tbHoTen.Text = receptionistDTO.HoVaTen;
             tbEmail.Text = receptionistDTO.Email;
-            tbSĐT.Text = receptionistDTO.Phone;
-            tbCCCD.Text = receptionistDTO.Citizen_id;
+            tbSĐT.Text = receptionistDTO.SDT;
+            tbCCCD.Text = receptionistDTO.CCCD;
             cbGioiTinh.Items.Add("Nam");
             cbGioiTinh.Items.Add("Nữ");
-            cbGioiTinh.SelectedItem = receptionistDTO.Gender ? "Nam" : "Nữ";
-            tbHeSoLuong.Text = receptionistDTO.Salary_coefficient.ToString();
+            cbGioiTinh.SelectedItem = receptionistDTO.GioiTinh ? "Nam" : "Nữ";
+            tbHeSoLuong.Text = receptionistDTO.HeSoLuong.ToString();
             dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
-            dtpNgaySinh.Value = receptionistDTO.Dob;
-            tbQueQuan.Text = receptionistDTO.Address;
+            dtpNgaySinh.Value = receptionistDTO.NgaySinh;
+            tbQueQuan.Text = receptionistDTO.DiaChi;
         }
 
         public void Custom()
@@ -81,17 +81,17 @@ namespace Dental_Clinic.GUI.Administrator.User
         private void vbLuuThayDoi_Click(object sender, EventArgs e)
         {
             receptionistDTO.Id = receptionistDTO.Id;
-            receptionistDTO.Full_name = tbHoTen.Text;
+            receptionistDTO.HoVaTen = tbHoTen.Text;
             receptionistDTO.Email = tbEmail.Text;
-            receptionistDTO.Phone = tbSĐT.Text;
-            receptionistDTO.Citizen_id = tbCCCD.Text;
-            receptionistDTO.Gender = cbGioiTinh.SelectedItem.ToString() == "Nam"; // Cập nhật giới tính
-            receptionistDTO.Salary_coefficient = float.Parse(tbHeSoLuong.Text);
-            receptionistDTO.Dob = dtpNgaySinh.Value; // Ngày sinh
-            receptionistDTO.Address = tbQueQuan.Text;
+            receptionistDTO.SDT = tbSĐT.Text;
+            receptionistDTO.CCCD = tbCCCD.Text;
+            receptionistDTO.GioiTinh = cbGioiTinh.SelectedItem.ToString() == "Nam"; // Cập nhật giới tính
+            receptionistDTO.HeSoLuong = float.Parse(tbHeSoLuong.Text);
+            receptionistDTO.NgaySinh = dtpNgaySinh.Value; // Ngày sinh
+            receptionistDTO.DiaChi = tbQueQuan.Text;
 
-            receptionistBUS.UpdateReceptionist(receptionistDTO);
-            receptionistDTO = receptionistBUS.GetReceptionistInfo(receptionistDTO.Id);
+            receptionistBUS.CapNhatLeTan(receptionistDTO);
+            receptionistDTO = receptionistBUS.LayThongTinLeTan(receptionistDTO.Id);
             LoadForm();
         }
     }

@@ -16,7 +16,7 @@ namespace Dental_Clinic.GUI.Administrator
             InitializeComponent();
             _mainForm = mainForm;
             _patientBUS = new PatientBUS();
-            List<PatientDTO> patients = _patientBUS.GetPatientList();
+            List<PatientDTO> patients = _patientBUS.LayDanhSachBenhNhan();
             CreateTableLayoutPanel(patients);
 
             vbBenhNhan.FlatStyle = FlatStyle.Flat;
@@ -206,8 +206,8 @@ namespace Dental_Clinic.GUI.Administrator
             int sequenceNumber = 1;
             foreach (var patient in patients)
             {
-                string genderText = patient.Gender ? "Nam" : "Nữ";
-                AddRowToTableLayoutPanel(tlpUser, sequenceNumber.ToString(), patient.Full_name, genderText, patient.Age.ToString(), patient.Phone, patient.Address, patient.Id);
+                string genderText = patient.GioiTinh ? "Nam" : "Nữ";
+                AddRowToTableLayoutPanel(tlpUser, sequenceNumber.ToString(), patient.HoVaTen, genderText, patient.Tuoi.ToString(), patient.SDT, patient.DiaChi, patient.Id);
                 sequenceNumber++;
             }
         }
@@ -222,7 +222,7 @@ namespace Dental_Clinic.GUI.Administrator
             string searchText = tbTimKiem.Text.ToLower();
 
             // Lấy danh sách bác sĩ từ doctorBUS
-            var patientList = _patientBUS.GetPatientList();
+            var patientList = _patientBUS.LayDanhSachBenhNhan();
 
             if (string.IsNullOrWhiteSpace(searchText))
             {
@@ -232,7 +232,7 @@ namespace Dental_Clinic.GUI.Administrator
 
             // Lọc danh sách theo họ tên
             var filteredList = patientList
-                .Where(d => d.Full_name.ToLower().Contains(searchText))
+                .Where(d => d.HoVaTen.ToLower().Contains(searchText))
                 .ToList();
             if (filteredList.Any())
             {
@@ -260,7 +260,7 @@ namespace Dental_Clinic.GUI.Administrator
 
         public void ShowEditPatientInPanel(int id)
         {
-            EditPatientForm editPatientForm = new EditPatientForm(_mainForm, _patientBUS.GetPatientInfo(id));
+            EditPatientForm editPatientForm = new EditPatientForm(_mainForm, _patientBUS.LayThongTinBenhNhan(id));
             editPatientForm.TopLevel = false;
             editPatientForm.FormBorderStyle = FormBorderStyle.None;
             editPatientForm.Dock = DockStyle.Fill;

@@ -12,7 +12,7 @@ namespace Dental_Clinic.DAO.Patient
 {
     internal class PatientDAO
     {
-        public List<PatientDTO> GetPatientList()
+        public List<PatientDTO> LayDanhSachBenhNhan()
         {
             List<PatientDTO> patientList = new List<PatientDTO>();
             DatabaseConnection dbConnection = new DatabaseConnection();
@@ -30,11 +30,11 @@ namespace Dental_Clinic.DAO.Patient
                             PatientDTO patient = new PatientDTO
                             {
                                 Id = Convert.ToInt32(reader["id"]),
-                                Full_name = reader["full_name"].ToString(),
-                                Phone = reader["phone_number"]?.ToString(),
-                                Address = reader["address"]?.ToString(),
-                                Gender = Convert.ToBoolean(reader["gender"]),
-                                Age = Convert.ToInt32(reader["age"])
+                                HoVaTen = reader["full_name"].ToString(),
+                                SDT = reader["phone_number"]?.ToString(),
+                                DiaChi = reader["address"]?.ToString(),
+                                GioiTinh = Convert.ToBoolean(reader["gender"]),
+                                Tuoi = Convert.ToInt32(reader["age"])
                             };
                             patientList.Add(patient);
                         }
@@ -62,7 +62,7 @@ namespace Dental_Clinic.DAO.Patient
             return patientList;
         }
 
-        public PatientDTO GetPatientInfo(int id)
+        public PatientDTO LayThongTinBenhNhan(int id)
         {
             PatientDTO patient = new PatientDTO();
             DatabaseConnection dbConnection = new DatabaseConnection();
@@ -78,11 +78,11 @@ namespace Dental_Clinic.DAO.Patient
                         patient = new PatientDTO
                         {
                             Id = Convert.ToInt32(reader["id"]),
-                            Full_name = reader["full_name"].ToString(),
-                            Phone = reader["phone_number"]?.ToString(),
-                            Address = reader["address"]?.ToString(),
-                            Gender = Convert.ToBoolean(reader["gender"]),
-                            Age = Convert.ToInt32(reader["age"])
+                            HoVaTen = reader["full_name"].ToString(),
+                            SDT = reader["phone_number"]?.ToString(),
+                            DiaChi = reader["address"]?.ToString(),
+                            GioiTinh = Convert.ToBoolean(reader["gender"]),
+                            Tuoi = Convert.ToInt32(reader["age"])
                         };
                     }
                 }
@@ -90,7 +90,7 @@ namespace Dental_Clinic.DAO.Patient
             return patient;
         }
 
-        public void UpdatePatient(PatientDTO patient)
+        public void CapNhatBenhNhan(PatientDTO patient)
         {
             DatabaseConnection dbConnection = new DatabaseConnection();
             using (SqlCommand cmd = new SqlCommand("UpdatePatientInfo", dbConnection.Conn))
@@ -99,15 +99,32 @@ namespace Dental_Clinic.DAO.Patient
 
                 // Thêm các tham số cho thủ tục lưu trữ
                 cmd.Parameters.AddWithValue("@userId", patient.Id);
-                cmd.Parameters.AddWithValue("@fullName", patient.Full_name);
-                cmd.Parameters.AddWithValue("@phoneNumber", patient.Phone);
-                cmd.Parameters.AddWithValue("@address", patient.Address);
-                cmd.Parameters.AddWithValue("@gender", patient.Gender);
-                cmd.Parameters.AddWithValue("@age", patient.Age);
+                cmd.Parameters.AddWithValue("@fullName", patient.HoVaTen);
+                cmd.Parameters.AddWithValue("@phoneNumber", patient.SDT);
+                cmd.Parameters.AddWithValue("@address", patient.DiaChi);
+                cmd.Parameters.AddWithValue("@gender", patient.GioiTinh);
+                cmd.Parameters.AddWithValue("@age", patient.Tuoi);
 
                 cmd.ExecuteNonQuery();
                 dbConnection.Conn.Close();
             }
         }
-    }
+        public void ThemBenhNhan(PatientDTO patient)
+        {
+            DatabaseConnection dbConnection = new DatabaseConnection();
+            using (SqlCommand cmd = new SqlCommand("AddPatient", dbConnection.Conn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                // Thêm các tham số cho thủ tục lưu trữ
+                cmd.Parameters.AddWithValue("@fullName", patient.HoVaTen);
+                cmd.Parameters.AddWithValue("@phoneNumber", patient.SDT);
+                cmd.Parameters.AddWithValue("@address", patient.DiaChi);
+                cmd.Parameters.AddWithValue("@gender", patient.GioiTinh);
+                cmd.Parameters.AddWithValue("@age", patient.Tuoi);
+                cmd.ExecuteNonQuery();
+                dbConnection.Conn.Close();
+            }
+        }
+    } 
 }

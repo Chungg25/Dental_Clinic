@@ -29,17 +29,17 @@ namespace Dental_Clinic.GUI.Administrator
         {
             StringBuilder userInfo = new StringBuilder();
             userInfo.AppendLine($"ID: {_userDTO.Id}");
-            userInfo.AppendLine($"Tên: {_userDTO.Full_name}");
-            userInfo.AppendLine($"CMND: {_userDTO.Citizen_id}");
-            userInfo.AppendLine($"Điện thoại: {_userDTO.Phone}");
-            userInfo.AppendLine($"Địa chỉ: {_userDTO.Address}");
-            userInfo.AppendLine($"Giới tính: {(_userDTO.Gender ? "Nam" : "Nữ")}");
-            userInfo.AppendLine($"Ngày sinh: {_userDTO.Dob.ToShortDateString()}");
-            userInfo.AppendLine($"Vai trò: {_userDTO.Role}");
-            userInfo.AppendLine($"Tên đăng nhập: {_userDTO.Username}");
-            userInfo.AppendLine($"Mật khẩu: {_userDTO.Password}"); // Nếu cần thiết
+            userInfo.AppendLine($"Tên: {_userDTO.HoVaTen}");
+            userInfo.AppendLine($"CMND: {_userDTO.CCCD}");
+            userInfo.AppendLine($"Điện thoại: {_userDTO.SDT}");
+            userInfo.AppendLine($"Địa chỉ: {_userDTO.DiaChi}");
+            userInfo.AppendLine($"Giới tính: {(_userDTO.GioiTinh ? "Nam" : "Nữ")}");
+            userInfo.AppendLine($"Ngày sinh: {_userDTO.NgaySinh.ToShortDateString()}");
+            userInfo.AppendLine($"Vai trò: {_userDTO.ChucVu}");
+            userInfo.AppendLine($"Tên đăng nhập: {_userDTO.TenDangNhap}");
+            userInfo.AppendLine($"Mật khẩu: {_userDTO.MatKhau}"); // Nếu cần thiết
             userInfo.AppendLine($"Email: {_userDTO.Email}");
-            userInfo.AppendLine($"Hệ số lương: {_userDTO.Salary_coefficient}");
+            userInfo.AppendLine($"Hệ số lương: {_userDTO.HeSoLuong}");
 
             // Hiển thị thông tin trong một MessageBox
             MessageBox.Show(userInfo.ToString(), "Thông tin người dùng", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -50,7 +50,7 @@ namespace Dental_Clinic.GUI.Administrator
             panelOption.Visible = false;
             panelNgonNgu1.Visible = false;
             panelChuDe.Visible = false;
-            string lastName = _userDTO.Full_name.Substring(_userDTO.Full_name.LastIndexOf(' ') + 1);
+            string lastName = _userDTO.HoVaTen.Substring(_userDTO.HoVaTen.LastIndexOf(' ') + 1);
             lbTen.Text = lastName;
         }
 
@@ -208,6 +208,11 @@ namespace Dental_Clinic.GUI.Administrator
             GUI.Dental_Clinic main = new GUI.Dental_Clinic();
             main.ShowDialog();
             this.Close();
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

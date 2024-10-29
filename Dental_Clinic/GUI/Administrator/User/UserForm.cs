@@ -15,7 +15,7 @@ namespace Dental_Clinic.GUI.Administrator
             InitializeComponent();
             _mainForm = mainForm;
             doctorBUS = new DoctorBUS();
-            List<DoctorDTO> doctors = doctorBUS.GetDoctorList();
+            List<DoctorDTO> doctors = doctorBUS.LayDanhSachBacSi();
             CreateTableLayoutPanel(doctors);
 
             vbThemBacSi.FlatStyle = FlatStyle.Flat;
@@ -108,7 +108,7 @@ namespace Dental_Clinic.GUI.Administrator
                     int userId = (int)cb.Tag;
                     int isChecked = cb.Checked ? 0 : 1;
 
-                    doctorBUS.UpdateStatus(userId);
+                    doctorBUS.CapNhatTrangThai(userId);
                 }
             };
 
@@ -232,9 +232,9 @@ namespace Dental_Clinic.GUI.Administrator
             int sequenceNumber = 1;
             foreach (var doctor in doctors)
             {
-                string genderText = doctor.Gender ? "Nam" : "Nữ";
-                int status = doctor.Status;
-                AddRowToTableLayoutPanel(tlpUser, sequenceNumber.ToString(), doctor.Full_name, genderText, doctor.Email, doctor.Specialization_name, status, doctor.Id);
+                string genderText = doctor.GioiTinh ? "Nam" : "Nữ";
+                int status = doctor.TrangThai;
+                AddRowToTableLayoutPanel(tlpUser, sequenceNumber.ToString(), doctor.HoVaTen, genderText, doctor.Email, doctor.ChuyenNganh, status, doctor.Id);
                 sequenceNumber++;
             }
         }
@@ -250,7 +250,7 @@ namespace Dental_Clinic.GUI.Administrator
             string searchText = tbTimKiem.Text.ToLower();
 
             // Lấy danh sách bác sĩ từ doctorBUS
-            var doctorList = doctorBUS.GetDoctorList();
+            var doctorList = doctorBUS.LayDanhSachBacSi();
 
             if (string.IsNullOrWhiteSpace(searchText))
             {
@@ -260,7 +260,7 @@ namespace Dental_Clinic.GUI.Administrator
 
             // Lọc danh sách theo họ tên
             var filteredList = doctorList
-                .Where(d => d.Full_name.ToLower().Contains(searchText))
+                .Where(d => d.HoVaTen.ToLower().Contains(searchText))
                 .ToList();
             if (filteredList.Any())
             {
@@ -306,7 +306,7 @@ namespace Dental_Clinic.GUI.Administrator
 
         public void ShowEditUserInPanel(int id)
         {
-            EditUserForm editUserForm = new EditUserForm(_mainForm, doctorBUS.GetDoctorInfo(id));
+            EditUserForm editUserForm = new EditUserForm(_mainForm, doctorBUS.LayThongTinBacSi(id));
             editUserForm.TopLevel = false; // Đặt editUserForm không phải là form cấp cao nhất (TopLevel)
             editUserForm.FormBorderStyle = FormBorderStyle.None; // Xóa viền của editUserForm
             editUserForm.Dock = DockStyle.Fill; // Đặt editUserForm khớp với kích thước panel

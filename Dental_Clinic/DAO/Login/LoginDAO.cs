@@ -11,7 +11,7 @@ namespace Dental_Clinic.DAO.Login
 {
     internal class LoginDAO
     {
-        public DataRow CheckLogin(LoginDTO loginDTO)
+        public DataRow KiemTraDangNhap(LoginDTO loginDTO)
         {
             // Tạo đối tượng kết nối
             DatabaseConnection dbConnection = new DatabaseConnection();
@@ -27,8 +27,8 @@ namespace Dental_Clinic.DAO.Login
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     // Thêm các tham số đầu vào cho stored procedure
-                    cmd.Parameters.AddWithValue("@username", loginDTO.Username);
-                    cmd.Parameters.AddWithValue("@password", loginDTO.Password);
+                    cmd.Parameters.AddWithValue("@username", loginDTO.TenDangNhap);
+                    cmd.Parameters.AddWithValue("@password", loginDTO.Matkhau);
 
                     // Khai báo các tham số đầu ra
                     SqlParameter idParam = new SqlParameter("@id", SqlDbType.Int);

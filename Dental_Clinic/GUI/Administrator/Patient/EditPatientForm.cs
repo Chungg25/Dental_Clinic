@@ -33,13 +33,13 @@ namespace Dental_Clinic.GUI.Administrator.Patient
         public void LoadForm()
         {
             Custom();
-            tbHoTen.Text = patientDTO.Full_name;
-            tbSĐT.Text = patientDTO.Phone;
-            tbTuoi.Text = patientDTO.Age.ToString();
+            tbHoTen.Text = patientDTO.HoVaTen;
+            tbSĐT.Text = patientDTO.SDT;
+            tbTuoi.Text = patientDTO.Tuoi.ToString();
             cbGioiTinh.Items.Add("Nam");
             cbGioiTinh.Items.Add("Nữ");
-            cbGioiTinh.SelectedItem = patientDTO.Gender ? "Nam" : "Nữ";
-            tbQueQuan.Text = patientDTO.Address;
+            cbGioiTinh.SelectedItem = patientDTO.GioiTinh ? "Nam" : "Nữ";
+            tbQueQuan.Text = patientDTO.DiaChi;
         }
 
         public void Custom()
@@ -80,14 +80,14 @@ namespace Dental_Clinic.GUI.Administrator.Patient
         private void vbLuuThayDoi_Click(object sender, EventArgs e)
         {
             patientDTO.Id = patientDTO.Id;
-            patientDTO.Full_name = tbHoTen.Text;
-            patientDTO.Phone = tbSĐT.Text;
-            patientDTO.Gender = cbGioiTinh.SelectedItem.ToString() == "Nam"; // Cập nhật giới tính
-            patientDTO.Age = Convert.ToInt32(tbTuoi.Text);
-            patientDTO.Address = tbQueQuan.Text;
+            patientDTO.HoVaTen = tbHoTen.Text;
+            patientDTO.SDT = tbSĐT.Text;
+            patientDTO.GioiTinh = cbGioiTinh.SelectedItem.ToString() == "Nam"; // Cập nhật giới tính
+            patientDTO.Tuoi = Convert.ToInt32(tbTuoi.Text);
+            patientDTO.DiaChi = tbQueQuan.Text;
 
-            patientBUS.UpdatePatient(patientDTO);
-            patientBUS.GetPatientInfo(patientDTO.Id);
+            patientBUS.CapNhatBenhNhan(patientDTO);
+            patientBUS.LayThongTinBenhNhan(patientDTO.Id);
             LoadForm();
         }
     }

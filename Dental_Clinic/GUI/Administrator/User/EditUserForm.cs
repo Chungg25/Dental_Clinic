@@ -29,17 +29,17 @@ namespace Dental_Clinic.GUI.Administrator.User
         public void LoadForm()
         {
             Custom();
-            tbHoTen.Text = doctorDTO.Full_name;
+            tbHoTen.Text = doctorDTO.HoVaTen;
             tbEmail.Text = doctorDTO.Email;
-            tbSĐT.Text = doctorDTO.Phone;
-            tbCCCD.Text = doctorDTO.Citizen_id;
+            tbSĐT.Text = doctorDTO.SDT;
+            tbCCCD.Text = doctorDTO.CCCD;
             cbGioiTinh.Items.Add("Nam");
             cbGioiTinh.Items.Add("Nữ");
-            cbGioiTinh.SelectedItem = doctorDTO.Gender ? "Nam" : "Nữ";
-            tbHeSoLuong.Text = doctorDTO.Salary_coefficient.ToString();
+            cbGioiTinh.SelectedItem = doctorDTO.GioiTinh ? "Nam" : "Nữ";
+            tbHeSoLuong.Text = doctorDTO.HeSoLuong.ToString();
             dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
-            dtpNgaySinh.Value = doctorDTO.Dob;
-            tbQueQuan.Text = doctorDTO.Address;
+            dtpNgaySinh.Value = doctorDTO.NgaySinh;
+            tbQueQuan.Text = doctorDTO.DiaChi;
 
             cbChuyenNganh.Items.Add("Nha chu");
             cbChuyenNganh.Items.Add("Nhổ răng và tiểu phẫu");
@@ -47,7 +47,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             cbChuyenNganh.Items.Add("Chữa răng và nội nha");
             cbChuyenNganh.Items.Add("Răng trẻ em");
             cbChuyenNganh.Items.Add("Tổng quát");
-            cbChuyenNganh.SelectedItem = doctorDTO.Specialization_name;
+            cbChuyenNganh.SelectedItem = doctorDTO.ChuyenNganh;
         }
 
         public void Custom()
@@ -82,25 +82,25 @@ namespace Dental_Clinic.GUI.Administrator.User
 
         private void vbHuy_Click(object sender, EventArgs e)
         {
-            doctorDTO = doctorBUS.GetDoctorInfo(doctorDTO.Id);
+            doctorDTO = doctorBUS.LayThongTinBacSi(doctorDTO.Id);
             LoadForm();
         }
 
         private void vbLuuThayDoi_Click(object sender, EventArgs e)
         {
             doctorDTO.Id = doctorDTO.Id;
-            doctorDTO.Full_name = tbHoTen.Text;
+            doctorDTO.HoVaTen = tbHoTen.Text;
             doctorDTO.Email = tbEmail.Text;
-            doctorDTO.Phone = tbSĐT.Text;
-            doctorDTO.Citizen_id = tbCCCD.Text;
-            doctorDTO.Gender = cbGioiTinh.SelectedItem.ToString() == "Nam"; // Cập nhật giới tính
-            doctorDTO.Salary_coefficient = float.Parse(tbHeSoLuong.Text);
-            doctorDTO.Dob = dtpNgaySinh.Value; // Ngày sinh
-            doctorDTO.Address = tbQueQuan.Text;
-            doctorDTO.Specialization_name = cbChuyenNganh.SelectedItem.ToString();
+            doctorDTO.SDT = tbSĐT.Text;
+            doctorDTO.CCCD = tbCCCD.Text;
+            doctorDTO.GioiTinh = cbGioiTinh.SelectedItem.ToString() == "Nam"; // Cập nhật giới tính
+            doctorDTO.HeSoLuong = float.Parse(tbHeSoLuong.Text);
+            doctorDTO.NgaySinh = dtpNgaySinh.Value; // Ngày sinh
+            doctorDTO.DiaChi = tbQueQuan.Text;
+            doctorDTO.ChuyenNganh = cbChuyenNganh.SelectedItem.ToString();
 
-            doctorBUS.UpdateDoctorInfo(doctorDTO);
-            doctorBUS.GetDoctorInfo(doctorDTO.Id);
+            doctorBUS.CapNhatBacSi(doctorDTO);
+            doctorBUS.LayThongTinBacSi(doctorDTO.Id);
             LoadForm();
         }
     }

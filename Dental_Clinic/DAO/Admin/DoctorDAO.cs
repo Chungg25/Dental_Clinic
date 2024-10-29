@@ -13,7 +13,7 @@ namespace Dental_Clinic.DAO.Admin
 {
     internal class DoctorDAO
     {
-        public List<DoctorDTO> GetDoctorList()
+        public List<DoctorDTO> LayDanhSachBacSi()
         {
             List<DoctorDTO> doctorList = new List<DoctorDTO>();
             DatabaseConnection dbConnection = new DatabaseConnection();
@@ -31,18 +31,18 @@ namespace Dental_Clinic.DAO.Admin
                             DoctorDTO doctor = new DoctorDTO
                             {
                                 Id = Convert.ToInt32(reader["user_id"]),
-                                Full_name = reader["full_name"].ToString(),
-                                Citizen_id = reader["citizen_id"]?.ToString(),
-                                Phone = reader["phone_number"]?.ToString(),
-                                Address = reader["address"]?.ToString(),
-                                Gender = Convert.ToBoolean(reader["gender"]),
-                                Dob = Convert.ToDateTime(reader["dob"]),
-                                Username = reader["username"]?.ToString(),
-                                Password = reader["password"]?.ToString(),
+                                HoVaTen = reader["full_name"].ToString(),
+                                CCCD = reader["citizen_id"]?.ToString(),
+                                SDT = reader["phone_number"]?.ToString(),
+                                DiaChi = reader["address"]?.ToString(),
+                                GioiTinh = Convert.ToBoolean(reader["gender"]),
+                                NgaySinh = Convert.ToDateTime(reader["dob"]),
+                                TenDangNhap = reader["username"]?.ToString(),
+                                MatKhau = reader["password"]?.ToString(),
                                 Email = reader["email"]?.ToString(),
-                                Salary_coefficient = Convert.ToSingle(reader["salary_coefficient"]),
-                                Specialization_name = reader["specialization_name"]?.ToString(),
-                                Status = Convert.ToInt32(reader["status"])
+                                HeSoLuong = Convert.ToSingle(reader["salary_coefficient"]),
+                                ChuyenNganh = reader["specialization_name"]?.ToString(),
+                                TrangThai = Convert.ToInt32(reader["status"])
                             };
                             doctorList.Add(doctor);
                         }
@@ -71,7 +71,7 @@ namespace Dental_Clinic.DAO.Admin
         }
 
 
-        public void UpdateStatus(int userID)
+        public void CapNhatTrangThai(int userID)
         {
             DatabaseConnection dbConnection = new DatabaseConnection();
             using (SqlCommand cmd = new SqlCommand("UpdateStatus", dbConnection.Conn))
@@ -83,7 +83,7 @@ namespace Dental_Clinic.DAO.Admin
             }
         }
 
-        public DoctorDTO GetDoctorInfo(int id)
+        public DoctorDTO LayThongTinBacSi(int id)
         {
             DoctorDTO doctor = new DoctorDTO();
             DatabaseConnection dbConnection = new DatabaseConnection();
@@ -101,18 +101,18 @@ namespace Dental_Clinic.DAO.Admin
                         doctor = new DoctorDTO
                         {
                             Id = Convert.ToInt32(reader["user_id"]),
-                            Full_name = reader["full_name"].ToString(),
-                            Citizen_id = reader["citizen_id"]?.ToString(),
-                            Phone = reader["phone_number"]?.ToString(),
-                            Address = reader["address"]?.ToString(),
-                            Gender = Convert.ToBoolean(reader["gender"]),
-                            Dob = Convert.ToDateTime(reader["dob"]),
-                            Username = reader["username"]?.ToString(),
-                            Password = reader["password"]?.ToString(),
+                            HoVaTen = reader["full_name"].ToString(),
+                            CCCD = reader["citizen_id"]?.ToString(),
+                            SDT = reader["phone_number"]?.ToString(),
+                            DiaChi = reader["address"]?.ToString(),
+                            GioiTinh = Convert.ToBoolean(reader["gender"]),
+                            NgaySinh = Convert.ToDateTime(reader["dob"]),
+                            TenDangNhap = reader["username"]?.ToString(),
+                            MatKhau = reader["password"]?.ToString(),
                             Email = reader["email"]?.ToString(),
-                            Salary_coefficient = Convert.ToSingle(reader["salary_coefficient"]),
-                            Status = Convert.ToInt32(reader["status"]),
-                            Specialization_name = reader["specialization_name"]?.ToString()
+                            HeSoLuong = Convert.ToSingle(reader["salary_coefficient"]),
+                            TrangThai = Convert.ToInt32(reader["status"]),
+                            ChuyenNganh = reader["specialization_name"]?.ToString()
                         };
                     }
                     else
@@ -125,7 +125,7 @@ namespace Dental_Clinic.DAO.Admin
             return doctor;
         }
 
-        public void UpdateDoctor(DoctorDTO doctor)
+        public void CapNhatBacSi(DoctorDTO doctor)
         {
             DatabaseConnection dbConnection = new DatabaseConnection();
             using (SqlCommand cmd = new SqlCommand("UpdateUserInfo", dbConnection.Conn))
@@ -134,15 +134,15 @@ namespace Dental_Clinic.DAO.Admin
 
                 // Thêm các tham số cho thủ tục lưu trữ
                 cmd.Parameters.AddWithValue("@userId", doctor.Id);
-                cmd.Parameters.AddWithValue("@fullName", doctor.Full_name);
-                cmd.Parameters.AddWithValue("@citizenId", doctor.Citizen_id);
-                cmd.Parameters.AddWithValue("@phoneNumber", doctor.Phone);
-                cmd.Parameters.AddWithValue("@address", doctor.Address);
-                cmd.Parameters.AddWithValue("@gender", doctor.Gender);
-                cmd.Parameters.AddWithValue("@dob", doctor.Dob);
+                cmd.Parameters.AddWithValue("@fullName", doctor.HoVaTen);
+                cmd.Parameters.AddWithValue("@citizenId", doctor.CCCD);
+                cmd.Parameters.AddWithValue("@phoneNumber", doctor.SDT);
+                cmd.Parameters.AddWithValue("@address", doctor.DiaChi);
+                cmd.Parameters.AddWithValue("@gender", doctor.GioiTinh);
+                cmd.Parameters.AddWithValue("@dob", doctor.NgaySinh);
                 cmd.Parameters.AddWithValue("@email", doctor.Email);
-                cmd.Parameters.AddWithValue("@salaryCoefficient", doctor.Salary_coefficient);
-                cmd.Parameters.AddWithValue("@specializationID", ConvertSpecializationToId(doctor.Specialization_name));
+                cmd.Parameters.AddWithValue("@salaryCoefficient", doctor.HeSoLuong);
+                cmd.Parameters.AddWithValue("@specializationID", ConvertSpecializationToId(doctor.ChuyenNganh));
 
                 cmd.ExecuteNonQuery();
                 dbConnection.Conn.Close();
@@ -175,7 +175,7 @@ namespace Dental_Clinic.DAO.Admin
         }
 
 
-        public void AddDoctor(DoctorDTO doctor)
+        public void ThemBacSi(DoctorDTO doctor)
         {
             DatabaseConnection dbConnection = new DatabaseConnection();
             using (SqlCommand cmd = new SqlCommand("AddDoctor", dbConnection.Conn))
@@ -183,16 +183,15 @@ namespace Dental_Clinic.DAO.Admin
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 // Thêm các tham số cho thủ tục lưu trữ
-                cmd.Parameters.AddWithValue("@fullName", doctor.Full_name);
-                cmd.Parameters.AddWithValue("@citizenId", doctor.Citizen_id);
-                cmd.Parameters.AddWithValue("@phoneNumber", doctor.Phone);
-                cmd.Parameters.AddWithValue("@address", doctor.Address);
-                cmd.Parameters.AddWithValue("@gender", doctor.Gender);
-                cmd.Parameters.AddWithValue("@dob", doctor.Dob);
+                cmd.Parameters.AddWithValue("@fullName", doctor.HoVaTen);
+                cmd.Parameters.AddWithValue("@citizenId", doctor.CCCD);
+                cmd.Parameters.AddWithValue("@phoneNumber", doctor.SDT);
+                cmd.Parameters.AddWithValue("@address", doctor.DiaChi);
+                cmd.Parameters.AddWithValue("@gender", doctor.GioiTinh);
+                cmd.Parameters.AddWithValue("@dob", doctor.NgaySinh);
                 cmd.Parameters.AddWithValue("@email", doctor.Email);
-                cmd.Parameters.AddWithValue("@salaryCoefficient", doctor.Salary_coefficient);
-
-                cmd.Parameters.AddWithValue("@specializationId", ConvertSpecializationNameToAdjustedId(doctor.Specialization_name));
+                cmd.Parameters.AddWithValue("@salaryCoefficient", doctor.HeSoLuong);
+                cmd.Parameters.AddWithValue("@specializationID", ConvertSpecializationNameToAdjustedId(doctor.ChuyenNganh));
                 cmd.ExecuteNonQuery();
                 dbConnection.Conn.Close();
             }

@@ -42,7 +42,7 @@ namespace Dental_Clinic.GUI.Login
         // Sự kiện click vào nút Xác nhận
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
-            if (!CheckInput()) return;
+            if (!KiemTraDauVao()) return;
             // Kiểm tra đã nhấn nút Gửi mã chưa
             if (!checkSendCode)
             {
@@ -57,16 +57,16 @@ namespace Dental_Clinic.GUI.Login
             }
 
             MessageBox.Show("Xác nhận thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            Login();
+            DangNhap();
         }
         // Sự kiện click vào nút Gửi mã
         private void vbSendCode_Click(object sender, EventArgs e)
         {
-            if (!CheckInput()) return;
+            if (!KiemTraDauVao()) return;
             checkSendCode = true;
 
-            tempCode = forgotPasswordBUS.GenerateCode();
-            if (forgotPasswordBUS.SendVerificationEmail(tbEmail.Text, tempCode))
+            tempCode = forgotPasswordBUS.TaoCode();
+            if (forgotPasswordBUS.GuiXacThucDenMail(tbEmail.Text, tempCode))
             {
                 vbSendCode.Enabled = true;
                 MessageBox.Show("Mã xác nhận đã được gửi đến email của bạn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -79,7 +79,7 @@ namespace Dental_Clinic.GUI.Login
 
         }
         // Hàm kiểm tra đầu vào 
-        public bool CheckInput()
+        public bool KiemTraDauVao()
         {
             // Hiển thị lỗi nếu username hoặc email rỗng 
             if (tbUsername.Text == "" || tbEmail.Text == "")
@@ -88,13 +88,13 @@ namespace Dental_Clinic.GUI.Login
                 return false;
             }
             // Kiểm tra username có tồn tại trong database không
-            if (!forgotPasswordBUS.CheckUsername(tbUsername.Text))
+            if (!forgotPasswordBUS.KiemTraTenDangNhap(tbUsername.Text))
             {
                 MessageBox.Show("Username không tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             // Kiểm tra email có tồn tại trong database không
-            if (!forgotPasswordBUS.CheckEmail(tbEmail.Text))
+            if (!forgotPasswordBUS.KiemTraMail(tbEmail.Text))
             {
                 MessageBox.Show("Email không tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
@@ -102,18 +102,18 @@ namespace Dental_Clinic.GUI.Login
             return true;
         }
         // Hàm đăng nhập 
-        public void Login()
+        public void DangNhap()
         {
-            string password = forgotPasswordBUS.GetPassword(tbEmail.Text, tbUsername.Text);
+            string password = forgotPasswordBUS.LayMatKhau(tbEmail.Text, tbUsername.Text);
             LoginDTO loginDTO = new LoginDTO
             {
-                Username = tbUsername.Text,
-                Password = password,
+                TenDangNhap = tbUsername.Text,
+                Matkhau = password,
             };
 
             LoginBUS loginBUS = new LoginBUS();
 
-            DataRow userInfo = loginBUS.CheckLogin(loginDTO);
+            DataRow userInfo = loginBUS.KiemTraDangNhap(loginDTO);
 
             if (userInfo != null) // Nếu không null tức là đăng nhập thành công
             {
@@ -123,17 +123,17 @@ namespace Dental_Clinic.GUI.Login
                 UserDTO userDTO = new UserDTO
                 {
                     Id = (int)userInfo["user_id"],
-                    Full_name = userInfo["full_name"].ToString(),
-                    Citizen_id = userInfo["citizen_id"].ToString(),
-                    Phone = userInfo["phone_number"].ToString(),
-                    Address = userInfo["address"].ToString(),
-                    Gender = (bool)userInfo["gender"],
-                    Dob = (DateTime)userInfo["dob"],
-                    Role = userInfo["role"].ToString(),
-                    Username = userInfo["username"].ToString(),
-                    Password = userInfo["PASSWORD"].ToString(),
+                    HoVaTen = userInfo["full_name"].ToString(),
+                    CCCD = userInfo["citizen_id"].ToString(),
+                    SDT = userInfo["phone_number"].ToString(),
+                    DiaChi = userInfo["address"].ToString(),
+                    GioiTinh = (bool)userInfo["gender"],
+                    NgaySinh = (DateTime)userInfo["dob"],
+                    ChucVu = userInfo["role"].ToString(),
+                    TenDangNhap = userInfo["username"].ToString(),
+                    MatKhau = userInfo["PASSWORD"].ToString(),
                     Email = userInfo["email"].ToString(),
-                    Salary_coefficient = Convert.ToSingle(userInfo["salary_coefficient"]),
+                    HeSoLuong = Convert.ToSingle(userInfo["salary_coefficient"]),
                 };
 
                 //Điều hướng người dùng dựa vào role
@@ -145,22 +145,20 @@ namespace Dental_Clinic.GUI.Login
                     adminForm.ShowDialog();
                     this.Close();
                 }
-                //else if (userRole == "Doctor")
-                //{
-                //    // Mở giao diện cho bác sĩ
-                //    GUI.Doctor.MainForm doctorForm = new GUI.Doctor.MainForm(userDTO);
-                //    doctorForm.Show();
-                //    this.Close();
-                //    mainForm.Close();
-                //}
-                //else
-                //{
-                //    // Mở giao diện cho các vai trò khác
-                //    GUI.Receptionist.MainForm receptionist = new GUI.Receptionist.MainForm(userDTO);
-                //    receptionist.Show();
-                //    this.Close();
-                //    mainForm.Close();
-                //}
+                else if (userRole == "Doctor")
+                {
+                    // Mở giao diện cho bác sĩ
+                    GUI.Doctor.MainForm doctorForm = new GUI.Doctor.MainForm(userDTO);
+                    doctorForm.Show();
+                    this.Close();
+                }
+                else
+                {
+                    // Mở giao diện cho các vai trò khác
+                    GUI.Receptionist.MainForm receptionist = new GUI.Receptionist.MainForm(userDTO);
+                    receptionist.Show();
+                    this.Close();
+                }
 
                 // Nếu tắt form main thì cả ứng dụng sẽ tắt
                 Environment.Exit(0);

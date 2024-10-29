@@ -18,17 +18,17 @@ namespace Dental_Clinic.BUS.Login
             this.forgotPasswordDAO = new ForgotPasswordDAO();
         }
         // Kiểm tra username có tồn tại trong database không
-        public bool CheckUsername(string username)
+        public bool KiemTraTenDangNhap(string username)
         {
-            return forgotPasswordDAO.CheckUsername(username);
+            return forgotPasswordDAO.KiemTraTenDangNhap(username);
         }
         // Kiểm tra email có tồn tại trong database không
-        public bool CheckEmail(string email)
+        public bool KiemTraMail(string email)
         {
-            return forgotPasswordDAO.CheckEmail(email);
+            return forgotPasswordDAO.KiemTraMail(email);
         }
         // Hàm tạo mã code
-        public string GenerateCode()
+        public string TaoCode()
         {
             Random random = new Random();
             string code = "";
@@ -39,7 +39,7 @@ namespace Dental_Clinic.BUS.Login
             return code;
         }
         // Hàm gửi mã code đến email
-        public bool SendVerificationEmail(string recipientEmail, string verificationCode)
+        public bool GuiXacThucDenMail(string recipientEmail, string verificationCode)
         {
             var fromAddress = new MailAddress("huygianhoang2007@gmail.com", "TechCraft N05");
             var toAddress = new MailAddress(recipientEmail);
@@ -91,9 +91,9 @@ namespace Dental_Clinic.BUS.Login
             }
         }
         // Lấy mật khẩu từ mail và username
-        public string GetPassword(string email, string username)
+        public string LayMatKhau(string email, string username)
         {
-            return forgotPasswordDAO.GetPassword(email, username);
+            return forgotPasswordDAO.MatKhau(email, username);
         }
     }
 }

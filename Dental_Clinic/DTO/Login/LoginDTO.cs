@@ -8,11 +8,11 @@ namespace Dental_Clinic.DTO.Login
 {
     internal class LoginDTO
     {
-        private string username;
-        private string password;
+        private string tenDangNhap;
+        private string matKhau;
 
-        public string Username { get => username; set => username = value; }
-        public string Password { get => password; set => password = value; }
+        public string TenDangNhap { get => tenDangNhap; set => tenDangNhap = value; }
+        public string Matkhau { get => matKhau; set => matKhau = value; }
 
     }
 }

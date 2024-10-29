@@ -12,7 +12,7 @@ namespace Dental_Clinic.DAO.Admin
     internal class AdminDAO
     {
        
-        public int DoctorCount()
+        public int SoLuongBacSi()
         {
             
             int doctorCount = 0;
@@ -26,7 +26,7 @@ namespace Dental_Clinic.DAO.Admin
             return doctorCount; // Trả về số lượng bác sĩ
         }
 
-        public int PatientCount()
+        public int SoLuongBenhNhan()
         {
             int patientCount = 0;
             DatabaseConnection dbConnection = new DatabaseConnection();
@@ -38,7 +38,7 @@ namespace Dental_Clinic.DAO.Admin
             return patientCount; // Trả về số lượng bệnh nhân
         }
 
-        public int RevenueCount()
+        public int TongLuong()
         {
             int revenueCount = 0;
             DatabaseConnection dbConnection = new DatabaseConnection();

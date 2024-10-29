@@ -11,7 +11,7 @@ namespace Dental_Clinic.DAO.Admin
 {
     internal class ReceptionistDAO
     {
-        public List<ReceptionistDTO> GetReceptionistList()
+        public List<ReceptionistDTO> LayDanhSachLeTan()
         {
             List<ReceptionistDTO> receptionistList = new List<ReceptionistDTO>();
             DatabaseConnection dbConnection = new DatabaseConnection();
@@ -27,17 +27,17 @@ namespace Dental_Clinic.DAO.Admin
                         ReceptionistDTO doctor = new ReceptionistDTO
                         {
                             Id = Convert.ToInt32(reader["user_id"]),
-                            Full_name = reader["full_name"].ToString(),
-                            Citizen_id = reader["citizen_id"]?.ToString(),
-                            Phone = reader["phone_number"]?.ToString(),
-                            Address = reader["address"]?.ToString(),
-                            Gender = Convert.ToBoolean(reader["gender"]),
-                            Dob = Convert.ToDateTime(reader["dob"]),
-                            Username = reader["username"]?.ToString(),
-                            Password = reader["password"]?.ToString(),
+                            HoVaTen = reader["full_name"].ToString(),
+                            CCCD = reader["citizen_id"]?.ToString(),
+                            SDT = reader["phone_number"]?.ToString(),
+                            DiaChi = reader["address"]?.ToString(),
+                            GioiTinh = Convert.ToBoolean(reader["gender"]),
+                            NgaySinh = Convert.ToDateTime(reader["dob"]),
+                            TenDangNhap = reader["username"]?.ToString(),
+                            MatKhau = reader["password"]?.ToString(),
                             Email = reader["email"]?.ToString(),
-                            Salary_coefficient = Convert.ToSingle(reader["salary_coefficient"]),
-                            Status = Convert.ToInt32(reader["status"])
+                            HeSoLuong = Convert.ToSingle(reader["salary_coefficient"]),
+                            TrangThai = Convert.ToInt32(reader["status"])
                         };
                         receptionistList.Add(doctor);
                     }
@@ -47,7 +47,7 @@ namespace Dental_Clinic.DAO.Admin
             return receptionistList;
         }
 
-        public ReceptionistDTO GetReceptionistInfo(int id)
+        public ReceptionistDTO LayThongTinLeTan(int id)
         {
             ReceptionistDTO receptionist = new ReceptionistDTO();
             DatabaseConnection dbConnection = new DatabaseConnection();
@@ -65,17 +65,17 @@ namespace Dental_Clinic.DAO.Admin
                         receptionist = new ReceptionistDTO
                         {
                             Id = Convert.ToInt32(reader["user_id"]),
-                            Full_name = reader["full_name"].ToString(),
-                            Citizen_id = reader["citizen_id"]?.ToString(),
-                            Phone = reader["phone_number"]?.ToString(),
-                            Address = reader["address"]?.ToString(),
-                            Gender = Convert.ToBoolean(reader["gender"]),
-                            Dob = Convert.ToDateTime(reader["dob"]),
-                            Username = reader["username"]?.ToString(),
-                            Password = reader["password"]?.ToString(),
+                            HoVaTen = reader["full_name"].ToString(),
+                            CCCD = reader["citizen_id"]?.ToString(),
+                            SDT = reader["phone_number"]?.ToString(),
+                            DiaChi = reader["address"]?.ToString(),
+                            GioiTinh = Convert.ToBoolean(reader["gender"]),
+                            NgaySinh = Convert.ToDateTime(reader["dob"]),
+                            TenDangNhap = reader["username"]?.ToString(),
+                            MatKhau = reader["password"]?.ToString(),
                             Email = reader["email"]?.ToString(),
-                            Salary_coefficient = Convert.ToSingle(reader["salary_coefficient"]),
-                            Status = Convert.ToInt32(reader["status"]),
+                            HeSoLuong = Convert.ToSingle(reader["salary_coefficient"]),
+                            TrangThai = Convert.ToInt32(reader["status"])
                         };
                     }
                     else
@@ -88,7 +88,7 @@ namespace Dental_Clinic.DAO.Admin
             return receptionist;
         }
 
-        public void UpdateStatus(int userID)
+        public void CapNhatTrangThai(int userID)
         {
             DatabaseConnection dbConnection = new DatabaseConnection();
             using (SqlCommand cmd = new SqlCommand("UpdateStatus", dbConnection.Conn))
@@ -100,7 +100,7 @@ namespace Dental_Clinic.DAO.Admin
             }
         }
 
-        public void UpdateReceptionist(ReceptionistDTO receptionist)
+        public void CapNhatLeTan(ReceptionistDTO receptionist)
         {
             DatabaseConnection dbConnection = new DatabaseConnection();
             using (SqlCommand cmd = new SqlCommand("UpdateReceptionistInfo", dbConnection.Conn))
@@ -109,21 +109,21 @@ namespace Dental_Clinic.DAO.Admin
 
                 // Thêm các tham số cho thủ tục lưu trữ
                 cmd.Parameters.AddWithValue("@userId", receptionist.Id);
-                cmd.Parameters.AddWithValue("@fullName", receptionist.Full_name);
-                cmd.Parameters.AddWithValue("@citizenId", receptionist.Citizen_id);
-                cmd.Parameters.AddWithValue("@phoneNumber", receptionist.Phone);
-                cmd.Parameters.AddWithValue("@address", receptionist.Address);
-                cmd.Parameters.AddWithValue("@gender", receptionist.Gender);
-                cmd.Parameters.AddWithValue("@dob", receptionist.Dob);
+                cmd.Parameters.AddWithValue("@fullName", receptionist.HoVaTen);
+                cmd.Parameters.AddWithValue("@citizenId", receptionist.CCCD);
+                cmd.Parameters.AddWithValue("@phoneNumber", receptionist.SDT);
+                cmd.Parameters.AddWithValue("@address", receptionist.DiaChi);
+                cmd.Parameters.AddWithValue("@gender", receptionist.GioiTinh);
+                cmd.Parameters.AddWithValue("@dob", receptionist.NgaySinh);
                 cmd.Parameters.AddWithValue("@email", receptionist.Email);
-                cmd.Parameters.AddWithValue("@salaryCoefficient", receptionist.Salary_coefficient);
+                cmd.Parameters.AddWithValue("@salaryCoefficient", receptionist.HeSoLuong);
 
                 cmd.ExecuteNonQuery();
                 dbConnection.Conn.Close();
             }
         }
 
-        public void AddReceptionist(ReceptionistDTO receptionist)
+        public void ThemLeTan(ReceptionistDTO receptionist)
         {
             DatabaseConnection dbConnection = new DatabaseConnection();
             using (SqlCommand cmd = new SqlCommand("AddReceptionist", dbConnection.Conn))
@@ -131,14 +131,14 @@ namespace Dental_Clinic.DAO.Admin
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 // Thêm các tham số cho thủ tục lưu trữ
-                cmd.Parameters.AddWithValue("@fullName", receptionist.Full_name);
-                cmd.Parameters.AddWithValue("@citizenId", receptionist.Citizen_id);
-                cmd.Parameters.AddWithValue("@phoneNumber", receptionist.Phone);
-                cmd.Parameters.AddWithValue("@address", receptionist.Address);
-                cmd.Parameters.AddWithValue("@gender", receptionist.Gender);
-                cmd.Parameters.AddWithValue("@dob", receptionist.Dob);
+                cmd.Parameters.AddWithValue("@fullName", receptionist.HoVaTen);
+                cmd.Parameters.AddWithValue("@citizenId", receptionist.CCCD);
+                cmd.Parameters.AddWithValue("@phoneNumber", receptionist.SDT);
+                cmd.Parameters.AddWithValue("@address", receptionist.DiaChi);
+                cmd.Parameters.AddWithValue("@gender", receptionist.GioiTinh);
+                cmd.Parameters.AddWithValue("@dob", receptionist.NgaySinh);
                 cmd.Parameters.AddWithValue("@email", receptionist.Email);
-                cmd.Parameters.AddWithValue("@salaryCoefficient", receptionist.Salary_coefficient);
+                cmd.Parameters.AddWithValue("@salaryCoefficient", receptionist.HeSoLuong);
 
                 cmd.ExecuteNonQuery();
                 dbConnection.Conn.Close();

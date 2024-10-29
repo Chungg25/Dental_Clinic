@@ -100,18 +100,23 @@ namespace Dental_Clinic.GUI.Login
         // Sự kiện cho vbDangNhap
         private void vbDangNhap_Click(object sender, EventArgs e)
         {
-            if (!ValidateInput())
+            DangNhap();
+        }
+
+        private void DangNhap()
+        {
+            if (!KiemTraDauVao())
             {
                 return;
             }
             // Tạo đối tượng LoginDTO từ dữ liệu người dùng nhập vào
             LoginDTO loginDTO = new LoginDTO
             {
-                Username = tbUser.Text,
-                Password = tbPassword.Text
+                TenDangNhap = tbUser.Text,
+                Matkhau = tbPassword.Text
             };
 
-            DataRow userInfo = loginBUS.CheckLogin(loginDTO);
+            DataRow userInfo = loginBUS.KiemTraDangNhap(loginDTO);
 
             if (userInfo != null) // Nếu không null tức là đăng nhập thành công
             {
@@ -122,17 +127,17 @@ namespace Dental_Clinic.GUI.Login
                 UserDTO userDTO = new UserDTO
                 {
                     Id = (int)userInfo["id"],
-                    Full_name = userInfo["full_name"].ToString(),
-                    Citizen_id = userInfo["citizen_id"].ToString(),
-                    Phone = userInfo["phone_number"].ToString(),
-                    Address = userInfo["address"].ToString(),
-                    Gender = (bool)userInfo["gender"],
-                    Dob = (DateTime)userInfo["dob"],
-                    Role = userInfo["role"].ToString(),
-                    Username = userInfo["username"].ToString(),
-                    Password = userInfo["PASSWORD"].ToString(),
+                    HoVaTen = userInfo["full_name"].ToString(),
+                    CCCD = userInfo["citizen_id"].ToString(),
+                    SDT = userInfo["phone_number"].ToString(),
+                    DiaChi = userInfo["address"].ToString(),
+                    GioiTinh = (bool)userInfo["gender"],
+                    NgaySinh = (DateTime)userInfo["dob"],
+                    ChucVu = userInfo["role"].ToString(),
+                    TenDangNhap = userInfo["username"].ToString(),
+                    MatKhau = userInfo["PASSWORD"].ToString(),
                     Email = userInfo["email"].ToString(),
-                    Salary_coefficient = Convert.ToSingle(userInfo["salary_coefficient"]),
+                    HeSoLuong = Convert.ToSingle(userInfo["salary_coefficient"]),
                 };
 
                 //Điều hướng người dùng dựa vào role
@@ -165,7 +170,7 @@ namespace Dental_Clinic.GUI.Login
             }
         }
         // Kiểm tra dữ liệu đầu vào
-        private bool ValidateInput()
+        private bool KiemTraDauVao()
         {
             if (string.IsNullOrWhiteSpace(tbUser.Text) || tbUser.Text == "User Name")
             {

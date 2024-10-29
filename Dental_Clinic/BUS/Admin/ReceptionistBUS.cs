@@ -17,26 +17,26 @@ namespace Dental_Clinic.BUS.Admin
             receptionistDAO = new ReceptionistDAO();
         }
 
-        public List<ReceptionistDTO> GetReceptionistList()
+        public List<ReceptionistDTO> LayDanhSachLeTan()
         {
-            return receptionistDAO.GetReceptionistList();
+            return receptionistDAO.LayDanhSachLeTan();
         }
 
-        public ReceptionistDTO GetReceptionistInfo(int id)
+        public ReceptionistDTO LayThongTinLeTan(int id)
         {
-            return receptionistDAO.GetReceptionistInfo(id);
+            return receptionistDAO.LayThongTinLeTan(id);
         }
-        public void UpdateStatus(int userID)
+        public void CapNhatTrangThai(int userID)
         {
-            receptionistDAO.UpdateStatus(userID);
+            receptionistDAO.CapNhatTrangThai(userID);
         }
-        public void UpdateReceptionist(ReceptionistDTO receptionistDTO)
+        public void CapNhatLeTan(ReceptionistDTO receptionistDTO)
         {
-            receptionistDAO.UpdateReceptionist(receptionistDTO);
+            receptionistDAO.CapNhatLeTan(receptionistDTO);
         }
-        public void AddReceptionist(ReceptionistDTO receptionistDTO)
+        public void ThemLeTan(ReceptionistDTO receptionistDTO)
         {
-            receptionistDAO.AddReceptionist(receptionistDTO);
+            receptionistDAO.ThemLeTan(receptionistDTO);
         }
     }
 }

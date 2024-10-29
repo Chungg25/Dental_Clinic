@@ -20,9 +20,9 @@ namespace Dental_Clinic.GUI.Administrator
             InitializeComponent();
             _adminBUS = new AdminBUS();
 
-            lbBacSi.Text = _adminBUS.DoctorCount().ToString();
-            lbBenhNhan.Text = _adminBUS.PatientCount().ToString();
-            lbDoanhThu.Text = _adminBUS.RevenueCount().ToString();
+            lbBacSi.Text = _adminBUS.SoLuongBacSi().ToString();
+            lbBenhNhan.Text = _adminBUS.SoLuongBenhNhan().ToString();
+            lbDoanhThu.Text = _adminBUS.TongLuong().ToString();
         }
     }
 }

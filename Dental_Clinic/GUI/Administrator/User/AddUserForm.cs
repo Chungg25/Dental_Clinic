@@ -80,16 +80,16 @@ namespace Dental_Clinic.GUI.Administrator.User
                 return;
             }
 
-            doctorDTO.Full_name = tbHoTen.Text;
+            doctorDTO.HoVaTen = tbHoTen.Text;
             doctorDTO.Email = tbEmail.Text;
-            doctorDTO.Phone = tbSĐT.Text;
-            doctorDTO.Citizen_id = tbCCCD.Text;
-            doctorDTO.Gender = cbGioiTinh.SelectedItem.ToString() == "Nam"; // Cập nhật giới tính
-            doctorDTO.Dob = dtpNgaySinh.Value; // Ngày sinh
-            doctorDTO.Address = tbQueQuan.Text;
-            doctorDTO.Specialization_name = cbChuyenNganh.SelectedIndex.ToString();
+            doctorDTO.SDT = tbSĐT.Text;
+            doctorDTO.CCCD = tbCCCD.Text;
+            doctorDTO.GioiTinh = cbGioiTinh.SelectedItem.ToString() == "Nam"; // Cập nhật giới tính
+            doctorDTO.NgaySinh = dtpNgaySinh.Value; // Ngày sinh
+            doctorDTO.DiaChi = tbQueQuan.Text;
+            doctorDTO.ChuyenNganh = cbChuyenNganh.SelectedIndex.ToString();
 
-            doctorBUS.AddDoctor(doctorDTO);
+            doctorBUS.ThemBacSi(doctorDTO);
         }
 
         public bool CheckAdd()

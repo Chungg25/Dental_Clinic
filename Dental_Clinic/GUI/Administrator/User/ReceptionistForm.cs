@@ -15,7 +15,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             InitializeComponent();
             _mainForm = mainForm;
             _receptionistBUS = new ReceptionistBUS();
-            List<ReceptionistDTO> receptionists = _receptionistBUS.GetReceptionistList();
+            List<ReceptionistDTO> receptionists = _receptionistBUS.LayDanhSachLeTan();
             CreateTableLayoutPanel(receptionists);
             
             vbBacSi.FlatStyle = FlatStyle.Flat;
@@ -107,7 +107,7 @@ namespace Dental_Clinic.GUI.Administrator.User
                     int userId = (int)cb.Tag;
                     int isChecked = cb.Checked ? 0 : 1;
 
-                    _receptionistBUS.UpdateStatus(userId);
+                    _receptionistBUS.CapNhatTrangThai(userId);
                 }
             };
             return checkBox;
@@ -229,9 +229,9 @@ namespace Dental_Clinic.GUI.Administrator.User
             int sequenceNumber = 1;
             foreach (var receptionist in receptionists)
             {
-                string genderText = receptionist.Gender ? "Nam" : "Nữ";
-                int status = receptionist.Status;
-                AddRowToTableLayoutPanel(tlpUser, sequenceNumber.ToString(), receptionist.Full_name, genderText, receptionist.Email, status, receptionist.Id);
+                string genderText = receptionist.GioiTinh ? "Nam" : "Nữ";
+                int status = receptionist.TrangThai;
+                AddRowToTableLayoutPanel(tlpUser, sequenceNumber.ToString(), receptionist.HoVaTen, genderText, receptionist.Email, status, receptionist.Id);
                 sequenceNumber++;
             }
         }
@@ -247,7 +247,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             string searchText = tbTimKiem.Text.ToLower();
 
             // Lấy danh sách bác sĩ từ doctorBUS
-            var receptionistList = _receptionistBUS.GetReceptionistList();
+            var receptionistList = _receptionistBUS.LayDanhSachLeTan();
 
             if (string.IsNullOrWhiteSpace(searchText))
             {
@@ -257,7 +257,7 @@ namespace Dental_Clinic.GUI.Administrator.User
 
             // Lọc danh sách theo họ tên
             var filteredList = receptionistList
-                .Where(d => d.Full_name.ToLower().Contains(searchText))
+                .Where(d => d.HoVaTen.ToLower().Contains(searchText))
                 .ToList();
             if (filteredList.Any())
             {
@@ -300,7 +300,7 @@ namespace Dental_Clinic.GUI.Administrator.User
         }
         public void ShowEditReceptionInPanel(int id)
         {
-            EditReceptionForm editReceptionForm = new EditReceptionForm(_mainForm, _receptionistBUS.GetReceptionistInfo(id));
+            EditReceptionForm editReceptionForm = new EditReceptionForm(_mainForm, _receptionistBUS.LayThongTinLeTan(id));
             editReceptionForm.TopLevel = false; // Đặt userForm không phải là form cấp cao nhất (TopLevel)
             editReceptionForm.FormBorderStyle = FormBorderStyle.None; // Xóa viền của userForm
             editReceptionForm.Dock = DockStyle.Fill; // Đặt userForm khớp với kích thước panel

@@ -15,27 +15,27 @@ namespace Dental_Clinic.BUS.Admin
         {
             doctorDAO = new DoctorDAO();
         }
-        public List<DoctorDTO> GetDoctorList()
+        public List<DoctorDTO> LayDanhSachBacSi()
         {
             DoctorDAO doctorDAO = new DoctorDAO();
-            return doctorDAO.GetDoctorList();
+            return doctorDAO.LayDanhSachBacSi();
         }
 
-        public void UpdateStatus(int userID)
+        public void CapNhatTrangThai(int userID)
         {
-            doctorDAO.UpdateStatus(userID);
+            doctorDAO.CapNhatTrangThai(userID);
         }
-        public DoctorDTO GetDoctorInfo(int userID)
+        public DoctorDTO LayThongTinBacSi(int userID)
         {
-            return doctorDAO.GetDoctorInfo(userID);
+            return doctorDAO.LayThongTinBacSi(userID);
         }
-        public void UpdateDoctorInfo(DoctorDTO doctorDTO)
+        public void CapNhatBacSi(DoctorDTO doctorDTO)
         {
-            doctorDAO.UpdateDoctor(doctorDTO);
+            doctorDAO.CapNhatBacSi(doctorDTO);
         }
-        public void AddDoctor(DoctorDTO doctorDTO)
+        public void ThemBacSi(DoctorDTO doctorDTO)
         {
-            doctorDAO.AddDoctor(doctorDTO);
+            doctorDAO.ThemBacSi(doctorDTO);
         }
     }
 }

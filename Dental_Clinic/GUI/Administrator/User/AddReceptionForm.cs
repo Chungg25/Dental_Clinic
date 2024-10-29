@@ -69,15 +69,15 @@ namespace Dental_Clinic.GUI.Administrator.User
                 return;
             }
 
-            receptionistDTO.Full_name = tbHoTen.Text;
+            receptionistDTO.HoVaTen = tbHoTen.Text;
             receptionistDTO.Email = tbEmail.Text;
-            receptionistDTO.Phone = tbSĐT.Text;
-            receptionistDTO.Citizen_id = tbCCCD.Text;
-            receptionistDTO.Gender = cbGioiTinh.SelectedItem.ToString() == "Nam"; // Cập nhật giới tính
-            receptionistDTO.Dob = dtpNgaySinh.Value; // Ngày sinh
-            receptionistDTO.Address = tbQueQuan.Text;
+            receptionistDTO.SDT = tbSĐT.Text;
+            receptionistDTO.CCCD = tbCCCD.Text;
+            receptionistDTO.GioiTinh = cbGioiTinh.SelectedItem.ToString() == "Nam"; // Cập nhật giới tính
+            receptionistDTO.NgaySinh = dtpNgaySinh.Value; // Ngày sinh
+            receptionistDTO.DiaChi = tbQueQuan.Text;
 
-            receptionistBUS.AddReceptionist(receptionistDTO);
+            receptionistBUS.ThemLeTan(receptionistDTO);
 
         }
 

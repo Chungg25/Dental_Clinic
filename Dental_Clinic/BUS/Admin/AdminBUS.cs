@@ -14,17 +14,17 @@ namespace Dental_Clinic.BUS.Admin
         {
             adminDAO = new AdminDAO();
         }
-        public int DoctorCount()
+        public int SoLuongBacSi()
         {
-            return adminDAO.DoctorCount();
+            return adminDAO.SoLuongBacSi();
         }
-        public int PatientCount()
+        public int SoLuongBenhNhan()
         {
-            return adminDAO.PatientCount();
+            return adminDAO.SoLuongBenhNhan();
         }
-        public int RevenueCount()
+        public int TongLuong()
         {
-            return adminDAO.RevenueCount();
+            return adminDAO.TongLuong();
         }
     }
 }

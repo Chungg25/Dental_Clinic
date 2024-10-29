@@ -82,7 +82,7 @@ CREATE TABLE [salaries] (
 GO
 
 CREATE TABLE [patients] (
-  [id] INT NOT NULL IDENTITY(1, 1),
+  [id] INT,
   [full_name] NVARCHAR(50) NOT NULL,
   [gender] BIT NOT NULL,
   [age] INT NOT NULL,
@@ -336,27 +336,27 @@ INSERT INTO doctors (user_id, specialization_id) VALUES
 DBCC CHECKIDENT ('doctors', RESEED, 0);*/
 
 --Bệnh nhân
-INSERT INTO patients (full_name, gender, age, phone_number, address) VALUES 
-(N'Phạm Văn Cường', 1, 29, '0903456789', N'789 Lê Lợi, Quận 5'),
-(N'Trần Văn Tùng', 1, 37, '0906789012', N'56 Võ Thị Sáu, Quận 2'),
-(N'Lê Thị Hoa', 0, 30, '0907890123', N'78 Nam Kỳ Khởi Nghĩa, Quận 3'),
-(N'Phạm Văn Bảo', 1, 33, '0900123456', N'23 Trường Chinh, Quận Tân Bình'),
-(N'Trần Văn Đức', 1, 32, '0903334455', N'67 Trường Sa, Phú Nhuận'),
-(N'Lê Thị Lan', 0, 31, '0904445566', N'78 Lê Văn Sỹ, Quận 3'),
-(N'Nguyễn Hoàng Long', 1, 33, '0905556677', N'89 Nguyễn Văn Trỗi, Quận Tân Phú'),
-(N'Phạm Thanh Bình', 1, 37, '0906667788', N'23 Lê Lợi, Quận 1'),
-(N'Võ Thị Quỳnh', 0, 31, '0907778899', N'34 Hai Bà Trưng, Quận 3'),
-(N'Nguyễn Văn Minh', 1, 32, '0905678901', N'34 Hai Bà Trưng, Quận 3'),
-(N'Trần Thị Hoa', 0, 39, '0902345678', N'456 Điện Biên Phủ, Quận 3'),
-(N'Lê Văn Tâm', 1, 50, '0903456567', N'56 Cách Mạng Tháng Tám, Quận 10'),
-(N'Trần Anh Dũng', 1, 28, '0908765432', N'101 Lý Chính Thắng, Quận 3'),
-(N'Lê Thị Bích', 0, 34, '0901234876', N'567 Nguyễn Tri Phương, Quận 10'),
-(N'Vũ Thị Minh Châu', 0, 40, '0906785432', N'200 Lê Hồng Phong, Quận 5'),
-(N'Nguyễn Hoàng Khôi', 1, 26, '0909087654', N'90 Nguyễn Trãi, Quận 1'),
-(N'Ngô Thị Hà', 0, 29, '0912345678', N'333 Hai Bà Trưng, Quận 1'),
-(N'Phạm Thị Thanh', 0, 35, '0903456789', N'222 Phan Xích Long, Quận Phú Nhuận'),
-(N'Lê Hữu Phước', 1, 32, '0909998877', N'345 Cộng Hòa, Quận Tân Bình'),
-(N'Nguyễn Thị Mai', 0, 27, '0901234567', N'567 Lý Thường Kiệt, Quận 10');
+INSERT INTO patients (id, full_name, gender, age, phone_number, address) VALUES
+(1, N'Phạm Văn Cường', 1, 29, '0903456789', N'789 Lê Lợi, Quận 5'),
+(2, N'Trần Văn Tùng', 1, 37, '0906789012', N'56 Võ Thị Sáu, Quận 2'),
+(3, N'Lê Thị Hoa', 0, 30, '0907890123', N'78 Nam Kỳ Khởi Nghĩa, Quận 3'),
+(4, N'Phạm Văn Bảo', 1, 33, '0900123456', N'23 Trường Chinh, Quận Tân Bình'),
+(5, N'Trần Văn Đức', 1, 32, '0903334455', N'67 Trường Sa, Phú Nhuận'),
+(6, N'Lê Thị Lan', 0, 31, '0904445566', N'78 Lê Văn Sỹ, Quận 3'),
+(7, N'Nguyễn Hoàng Long', 1, 33, '0905556677', N'89 Nguyễn Văn Trỗi, Quận Tân Phú'),
+(8, N'Phạm Thanh Bình', 1, 37, '0906667788', N'23 Lê Lợi, Quận 1'),
+(9, N'Võ Thị Quỳnh', 0, 31, '0907778899', N'34 Hai Bà Trưng, Quận 3'),
+(10, N'Nguyễn Văn Minh', 1, 32, '0905678901', N'34 Hai Bà Trưng, Quận 3'),
+(11, N'Trần Thị Hoa', 0, 39, '0902345678', N'456 Điện Biên Phủ, Quận 3'),
+(12, N'Lê Văn Tâm', 1, 50, '0903456567', N'56 Cách Mạng Tháng Tám, Quận 10'),
+(13, N'Trần Anh Dũng', 1, 28, '0908765432', N'101 Lý Chính Thắng, Quận 3'),
+(14, N'Lê Thị Bích', 0, 34, '0901234876', N'567 Nguyễn Tri Phương, Quận 10'),
+(15, N'Vũ Thị Minh Châu', 0, 40, '0906785432', N'200 Lê Hồng Phong, Quận 5'),
+(16, N'Nguyễn Hoàng Khôi', 1, 26, '0909087654', N'90 Nguyễn Trãi, Quận 1'),
+(17, N'Ngô Thị Hà', 0, 29, '0912345678', N'333 Hai Bà Trưng, Quận 1'),
+(18, N'Phạm Thị Thanh', 0, 35, '0903456789', N'222 Phan Xích Long, Quận Phú Nhuận'),
+(19, N'Lê Hữu Phước', 1, 32, '0909998877', N'345 Cộng Hòa, Quận Tân Bình'),
+(20, N'Nguyễn Thị Mai', 0, 27, '0901234567', N'567 Lý Thường Kiệt, Quận 10');
 /*DELETE FROM patients;
 DBCC CHECKIDENT ('patients', RESEED, 0);*/
 
@@ -1117,7 +1117,6 @@ BEGIN
 END;
 
 GO
-EXEC GetPatienttListForAdmin
 
 --Function đếm số lượng dữ liệu
 CREATE FUNCTION CountDoctors()
@@ -1399,5 +1398,27 @@ BEGIN
         age = @age
     WHERE id = @userId;
 END;
+
+GO
+
+--Procedure thêm lễ tân
+CREATE PROCEDURE AddPatient
+    @fullName NVARCHAR(255),    -- Họ tên
+    @phoneNumber NVARCHAR(10),   -- Số điện thoại
+    @address NVARCHAR(50),       -- Địa chỉ
+    @gender BIT,                 -- Giới tính (0 cho nữ, 1 cho nam)
+    @age INT                   -- Tuổi
+AS
+BEGIN
+    DECLARE @newId INT;
+	DECLARE @doctorCount INT;
+
+    SELECT @newId = ISNULL(MAX(id), 0) + 1 FROM patients;
+
+    INSERT INTO patients(id, full_name, gender, age, phone_number, address)
+    VALUES (@newId, @fullName, @gender, @age, @phoneNumber, @address);
+END;
+GO
+select * from patients
 
 

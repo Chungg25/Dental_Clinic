@@ -15,18 +15,22 @@ namespace Dental_Clinic.BUS.Patient
         {
             patientDAO = new PatientDAO();
         }
-        public List<PatientDTO> GetPatientList()
+        public List<PatientDTO> LayDanhSachBenhNhan()
         {
-            return patientDAO.GetPatientList();
+            return patientDAO.LayDanhSachBenhNhan();
         }
-        public PatientDTO GetPatientInfo(int id)
+        public PatientDTO LayThongTinBenhNhan(int id)
         {
-            return patientDAO.GetPatientInfo(id);
+            return patientDAO.LayThongTinBenhNhan(id);
         }
 
-        public void UpdatePatient(PatientDTO patientDTO)
+        public void CapNhatBenhNhan(PatientDTO patientDTO)
         {
-            patientDAO.UpdatePatient(patientDTO);
+            patientDAO.CapNhatBenhNhan(patientDTO);
+        }
+        public void ThemBenhNhan(PatientDTO patientDTO)
+        {
+            patientDAO.ThemBenhNhan(patientDTO);
         }
     }
 }
