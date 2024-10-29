@@ -11,7 +11,7 @@ namespace Dental_Clinic.DAO.Admin
 {
     internal class QuanTriVienDAO
     {
-       
+        // Hàm lấy số lượng bác sĩ
         public int SoLuongBacSi()
         {
             
@@ -25,7 +25,7 @@ namespace Dental_Clinic.DAO.Admin
             }
             return doctorCount; // Trả về số lượng bác sĩ
         }
-
+        // Hàm lấy số lượng bệnh nhân
         public int SoLuongBenhNhan()
         {
             int patientCount = 0;
@@ -37,7 +37,7 @@ namespace Dental_Clinic.DAO.Admin
             }
             return patientCount; // Trả về số lượng bệnh nhân
         }
-
+        // Tổng lương
         public int TongLuong()
         {
             int revenueCount = 0;

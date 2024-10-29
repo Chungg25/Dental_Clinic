@@ -11,8 +11,9 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace Dental_Clinic.DAO.Admin
 {
-    internal class BacSiDAO
+    public class BacSiDAO
     {
+        // Lấy danh sách bác sĩ
         public List<BacSiDTO> LayDanhSachBacSi()
         {
             List<BacSiDTO> doctorList = new List<BacSiDTO>();
@@ -30,19 +31,19 @@ namespace Dental_Clinic.DAO.Admin
                         {
                             BacSiDTO doctor = new BacSiDTO
                             {
-                                Id = Convert.ToInt32(reader["user_id"]),
-                                HoVaTen = reader["full_name"].ToString(),
-                                CCCD = reader["citizen_id"]?.ToString(),
-                                SDT = reader["phone_number"]?.ToString(),
-                                DiaChi = reader["address"]?.ToString(),
-                                GioiTinh = Convert.ToBoolean(reader["gender"]),
-                                NgaySinh = Convert.ToDateTime(reader["dob"]),
-                                TenDangNhap = reader["username"]?.ToString(),
-                                MatKhau = reader["password"]?.ToString(),
-                                Email = reader["email"]?.ToString(),
-                                HeSoLuong = Convert.ToSingle(reader["salary_coefficient"]),
-                                ChuyenNganh = reader["specialization_name"]?.ToString(),
-                                TrangThai = Convert.ToInt32(reader["status"])
+                                Id = Convert.ToInt32(reader["ma_nguoi_dung"]),
+                                HoVaTen = reader["ho_ten"].ToString() ?? "",
+                                CCCD = reader["cccd"]?.ToString() ?? "",
+                                SDT = reader["so_dien_thoai"]?.ToString() ?? "",
+                                DiaChi = reader["dia_chi"]?.ToString() ?? "",
+                                GioiTinh = Convert.ToBoolean(reader["gioi_tinh"]),
+                                NgaySinh = Convert.ToDateTime(reader["ngay_sinh"]),
+                                TenDangNhap = reader["ten_dang_nhap"]?.ToString() ?? "",
+                                MatKhau = reader["mat_khau"]?.ToString() ?? "",
+                                Email = reader["email"]?.ToString() ?? "",
+                                HeSoLuong = Convert.ToSingle(reader["he_so_luong"]),
+                                ChuyenNganh = reader["ten_chuyen_mon"]?.ToString() ?? "",
+                                TrangThai = Convert.ToInt32(reader["trang_thai"])
                             };
                             doctorList.Add(doctor);
                         }
@@ -69,8 +70,7 @@ namespace Dental_Clinic.DAO.Admin
 
             return doctorList;
         }
-
-
+        // Cập nhật trạng thái
         public void CapNhatTrangThai(int userID)
         {
             DatabaseConnection dbConnection = new DatabaseConnection();
@@ -82,7 +82,7 @@ namespace Dental_Clinic.DAO.Admin
                 dbConnection.CloseConnection();
             }
         }
-
+        // Lấy thông tin bác sĩ
         public BacSiDTO LayThongTinBacSi(int id)
         {
             BacSiDTO doctor = new BacSiDTO();
@@ -100,19 +100,19 @@ namespace Dental_Clinic.DAO.Admin
                     {
                         doctor = new BacSiDTO
                         {
-                            Id = Convert.ToInt32(reader["user_id"]),
-                            HoVaTen = reader["full_name"].ToString(),
-                            CCCD = reader["citizen_id"]?.ToString(),
-                            SDT = reader["phone_number"]?.ToString(),
-                            DiaChi = reader["address"]?.ToString(),
-                            GioiTinh = Convert.ToBoolean(reader["gender"]),
-                            NgaySinh = Convert.ToDateTime(reader["dob"]),
-                            TenDangNhap = reader["username"]?.ToString(),
-                            MatKhau = reader["password"]?.ToString(),
-                            Email = reader["email"]?.ToString(),
-                            HeSoLuong = Convert.ToSingle(reader["salary_coefficient"]),
-                            TrangThai = Convert.ToInt32(reader["status"]),
-                            ChuyenNganh = reader["specialization_name"]?.ToString()
+                            Id = Convert.ToInt32(reader["ma_nguoi_dung"]),
+                            HoVaTen = reader["ho_ten"].ToString() ?? "",
+                            CCCD = reader["cccd"]?.ToString() ?? "",
+                            SDT = reader["so_dien_thoai"]?.ToString() ?? "",
+                            DiaChi = reader["dia_chi"]?.ToString() ?? "",
+                            GioiTinh = Convert.ToBoolean(reader["gioi_tinh"]),
+                            NgaySinh = Convert.ToDateTime(reader["ngay_sinh"]),
+                            TenDangNhap = reader["ten_dang_nhap"]?.ToString() ?? "",
+                            MatKhau = reader["mat_khau"]?.ToString() ?? "",
+                            Email = reader["email"]?.ToString() ?? "",
+                            HeSoLuong = Convert.ToSingle(reader["he_so_luong"]),
+                            ChuyenNganh = reader["ten_chuyen_mon"]?.ToString() ?? "",
+                            TrangThai = Convert.ToInt32(reader["trang_thai"])
                         };
                     }
                     else
@@ -124,7 +124,7 @@ namespace Dental_Clinic.DAO.Admin
             }
             return doctor;
         }
-
+        // Cập nhật thông tin bác sĩ
         public void CapNhatBacSi(BacSiDTO doctor)
         {
             DatabaseConnection dbConnection = new DatabaseConnection();
@@ -148,7 +148,7 @@ namespace Dental_Clinic.DAO.Admin
                 dbConnection.Conn.Close();
             }
         }
-
+        // Chuyển tên chuyên ngành thành ID
         public int ConvertSpecializationToId(string specializationName)
         {
             // Danh sách các chuyên ngành
@@ -173,8 +173,7 @@ namespace Dental_Clinic.DAO.Admin
 
             return -1;
         }
-
-
+        // Thêm bác sĩ
         public void ThemBacSi(BacSiDTO doctor)
         {
             DatabaseConnection dbConnection = new DatabaseConnection();
@@ -196,7 +195,7 @@ namespace Dental_Clinic.DAO.Admin
                 dbConnection.Conn.Close();
             }
         }
-
+        // Chuyển tên chuyên ngành thành ID
         public int ConvertSpecializationNameToAdjustedId(string specialization_name)
         {
             int specializationId;

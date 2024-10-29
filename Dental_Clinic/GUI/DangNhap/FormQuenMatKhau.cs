@@ -113,29 +113,29 @@ namespace Dental_Clinic.GUI.Login
 
             DangNhapBUS loginBUS = new DangNhapBUS();
 
-            DataRow userInfo = loginBUS.KiemTraDangNhap(loginDTO);
+            DataRow thongTinNguoiDung = loginBUS.KiemTraDangNhap(loginDTO);
 
-            if (userInfo != null) // Nếu không null tức là đăng nhập thành công
+            if (thongTinNguoiDung != null) // Nếu không null tức là đăng nhập thành công
             {
                 // Lấy userId và userRole từ DataRow
-                int userId = (int)userInfo["user_id"]; // Giả sử cột id tồn tại trong bảng users
-                string userRole = userInfo["role"].ToString(); // Giả sử cột role tồn tại
+                               int userId = (int)thongTinNguoiDung["ma_nguoi_dung"]; // Giả sử cột id tồn tại trong bảng users
+                string userRole = thongTinNguoiDung["vai_tro"].ToString() ?? ""; // Giả sử cột role tồn tại trong bảng users
+
                 QuanTriVienDTO userDTO = new QuanTriVienDTO
                 {
-                    Id = (int)userInfo["user_id"],
-                    HoVaTen = userInfo["full_name"].ToString(),
-                    CCCD = userInfo["citizen_id"].ToString(),
-                    SDT = userInfo["phone_number"].ToString(),
-                    DiaChi = userInfo["address"].ToString(),
-                    GioiTinh = (bool)userInfo["gender"],
-                    NgaySinh = (DateTime)userInfo["dob"],
-                    ChucVu = userInfo["role"].ToString(),
-                    TenDangNhap = userInfo["username"].ToString(),
-                    MatKhau = userInfo["PASSWORD"].ToString(),
-                    Email = userInfo["email"].ToString(),
-                    HeSoLuong = Convert.ToSingle(userInfo["salary_coefficient"]),
+                    Id = (int)thongTinNguoiDung["ma"],
+                    HoVaTen = thongTinNguoiDung["ho_ten"].ToString() ?? "",
+                    CCCD = thongTinNguoiDung["cccd"].ToString() ?? "",
+                    SDT = thongTinNguoiDung["so_dien_thoai"].ToString() ?? "",
+                    DiaChi = thongTinNguoiDung["dia_chi"].ToString() ?? "",
+                    GioiTinh = (bool)thongTinNguoiDung["gioi_tinh"],
+                    NgaySinh = (DateTime)thongTinNguoiDung["ngay_sinh"],
+                    ChucVu = thongTinNguoiDung["vai_tro"].ToString() ?? "",
+                    TenDangNhap = thongTinNguoiDung["ten_dang_nhap"].ToString() ?? "",
+                    MatKhau = thongTinNguoiDung["mat_khau"].ToString() ?? "",
+                    Email = thongTinNguoiDung["email"].ToString() ?? "",
+                    HeSoLuong = Convert.ToSingle(thongTinNguoiDung["he_so_luong"]),
                 };
-
                 //Điều hướng người dùng dựa vào role
                 if (userRole == "Admin")
                 {

@@ -121,33 +121,35 @@ namespace Dental_Clinic.GUI.Login
             if (thongTinNguoiDung != null) // Nếu không null tức là đăng nhập thành công
             {
                 // Lấy userId và userRole từ DataRow
-                int userId = (int)thongTinNguoiDung["id"]; // Giả sử cột id tồn tại trong bảng users
-                string userRole = thongTinNguoiDung["role"].ToString(); // Giả sử cột role tồn tại
+                int userId = (int)thongTinNguoiDung["ma_nguoi_dung"]; // Giả sử cột id tồn tại trong bảng users
+                string userRole = thongTinNguoiDung["vai_tro"].ToString() ?? ""; // Giả sử cột role tồn tại trong bảng users
 
                 QuanTriVienDTO QuanTriVienDTO = new QuanTriVienDTO
                 {
-                    Id = (int)thongTinNguoiDung["id"],
-                    HoVaTen = thongTinNguoiDung["full_name"].ToString(),
-                    CCCD = thongTinNguoiDung["citizen_id"].ToString(),
-                    SDT = thongTinNguoiDung["phone_number"].ToString(),
-                    DiaChi = thongTinNguoiDung["address"].ToString(),
-                    GioiTinh = (bool)thongTinNguoiDung["gender"],
-                    NgaySinh = (DateTime)thongTinNguoiDung["dob"],
-                    ChucVu = thongTinNguoiDung["role"].ToString(),
-                    TenDangNhap = thongTinNguoiDung["username"].ToString(),
-                    MatKhau = thongTinNguoiDung["PASSWORD"].ToString(),
-                    Email = thongTinNguoiDung["email"].ToString(),
-                    HeSoLuong = Convert.ToSingle(thongTinNguoiDung["salary_coefficient"]),
+                    Id = (int)thongTinNguoiDung["ma"],
+                    HoVaTen = thongTinNguoiDung["ho_ten"].ToString() ?? "",
+                    CCCD = thongTinNguoiDung["cccd"].ToString() ?? "",
+                    SDT = thongTinNguoiDung["so_dien_thoai"].ToString() ?? "",
+                    DiaChi = thongTinNguoiDung["dia_chi"].ToString() ?? "",
+                    GioiTinh = (bool)thongTinNguoiDung["gioi_tinh"],
+                    NgaySinh = (DateTime)thongTinNguoiDung["ngay_sinh"],
+                    ChucVu = thongTinNguoiDung["vai_tro"].ToString() ?? "",
+                    TenDangNhap = thongTinNguoiDung["ten_dang_nhap"].ToString() ?? "",
+                    MatKhau = thongTinNguoiDung["mat_khau"].ToString() ?? "",
+                    Email = thongTinNguoiDung["email"].ToString() ?? "",
+                    HeSoLuong = Convert.ToSingle(thongTinNguoiDung["he_so_luong"]),
                 };
 
                 //Điều hướng người dùng dựa vào role
                 if (userRole == "Admin")
                 {
                     // Mở giao diện cho admin
+                    this.Hide();
                     GUI.Administrator.MainForm adminForm = new GUI.Administrator.MainForm(QuanTriVienDTO);
-                    adminForm.Show();
+                    adminForm.ShowDialog();
                     this.Close();
 
+                    Environment.Exit(0);
                 }
                 else if (userRole == "Doctor")
                 {

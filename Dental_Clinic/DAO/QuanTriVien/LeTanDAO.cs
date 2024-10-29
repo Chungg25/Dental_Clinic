@@ -11,12 +11,13 @@ namespace Dental_Clinic.DAO.Admin
 {
     internal class LeTanDAO
     {
+        // Hàm lấy danh sách lễ tân
         public List<LeTanDTO> LayDanhSachLeTan()
         {
             List<LeTanDTO> receptionistList = new List<LeTanDTO>();
             DatabaseConnection dbConnection = new DatabaseConnection();
 
-            using (SqlCommand cmd = new SqlCommand("GetRepceptionistList", dbConnection.Conn))
+            using (SqlCommand cmd = new SqlCommand("GetReceptionistList", dbConnection.Conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -24,29 +25,29 @@ namespace Dental_Clinic.DAO.Admin
                 {
                     while (reader.Read())
                     {
-                        LeTanDTO doctor = new LeTanDTO
-                        {
-                            Id = Convert.ToInt32(reader["user_id"]),
-                            HoVaTen = reader["full_name"].ToString(),
-                            CCCD = reader["citizen_id"]?.ToString(),
-                            SDT = reader["phone_number"]?.ToString(),
-                            DiaChi = reader["address"]?.ToString(),
-                            GioiTinh = Convert.ToBoolean(reader["gender"]),
-                            NgaySinh = Convert.ToDateTime(reader["dob"]),
-                            TenDangNhap = reader["username"]?.ToString(),
-                            MatKhau = reader["password"]?.ToString(),
-                            Email = reader["email"]?.ToString(),
-                            HeSoLuong = Convert.ToSingle(reader["salary_coefficient"]),
-                            TrangThai = Convert.ToInt32(reader["status"])
+                        LeTanDTO letan = new LeTanDTO
+                        {  
+                            Id = Convert.ToInt32(reader["ma_nguoi_dung"]),
+                            HoVaTen = reader["ho_ten"].ToString() ?? "",
+                            CCCD = reader["cccd"]?.ToString() ?? "",
+                            SDT = reader["so_dien_thoai"]?.ToString() ?? "",
+                            DiaChi = reader["dia_chi"]?.ToString() ?? "",
+                            GioiTinh = Convert.ToBoolean(reader["gioi_tinh"]),
+                            NgaySinh = Convert.ToDateTime(reader["ngay_sinh"]),
+                            TenDangNhap = reader["ten_dang_nhap"]?.ToString() ?? "",
+                            MatKhau = reader["mat_khau"]?.ToString() ?? "",
+                            Email = reader["email"]?.ToString() ?? "",
+                            HeSoLuong = Convert.ToSingle(reader["he_so_luong"]),
+                            TrangThai = Convert.ToInt32(reader["trang_thai"])
                         };
-                        receptionistList.Add(doctor);
+                        receptionistList.Add(letan);
                     }
                 }
                 dbConnection.CloseConnection();
             }
             return receptionistList;
         }
-
+        // Hàm lấy thông tin lễ tân
         public LeTanDTO LayThongTinLeTan(int id)
         {
             LeTanDTO receptionist = new LeTanDTO();
@@ -64,18 +65,18 @@ namespace Dental_Clinic.DAO.Admin
                     {
                         receptionist = new LeTanDTO
                         {
-                            Id = Convert.ToInt32(reader["user_id"]),
-                            HoVaTen = reader["full_name"].ToString(),
-                            CCCD = reader["citizen_id"]?.ToString(),
-                            SDT = reader["phone_number"]?.ToString(),
-                            DiaChi = reader["address"]?.ToString(),
-                            GioiTinh = Convert.ToBoolean(reader["gender"]),
-                            NgaySinh = Convert.ToDateTime(reader["dob"]),
-                            TenDangNhap = reader["username"]?.ToString(),
-                            MatKhau = reader["password"]?.ToString(),
-                            Email = reader["email"]?.ToString(),
-                            HeSoLuong = Convert.ToSingle(reader["salary_coefficient"]),
-                            TrangThai = Convert.ToInt32(reader["status"])
+                            Id = Convert.ToInt32(reader["ma_nguoi_dung"]),
+                            HoVaTen = reader["ho_ten"].ToString() ?? "",
+                            CCCD = reader["cccd"]?.ToString() ?? "",
+                            SDT = reader["so_dien_thoai"]?.ToString() ?? "",
+                            DiaChi = reader["dia_chi"]?.ToString() ?? "",
+                            GioiTinh = Convert.ToBoolean(reader["gioi_tinh"]),
+                            NgaySinh = Convert.ToDateTime(reader["ngay_sinh"]),
+                            TenDangNhap = reader["ten_dang_nhap"]?.ToString() ?? "",
+                            MatKhau = reader["mat_khau"]?.ToString() ?? "",
+                            Email = reader["email"]?.ToString() ?? "",
+                            HeSoLuong = Convert.ToSingle(reader["he_so_luong"]),
+                            TrangThai = Convert.ToInt32(reader["trang_thai"])
                         };
                     }
                     else
@@ -87,7 +88,7 @@ namespace Dental_Clinic.DAO.Admin
             }
             return receptionist;
         }
-
+        // Cập nhật trạng thái lễ tân
         public void CapNhatTrangThai(int userID)
         {
             DatabaseConnection dbConnection = new DatabaseConnection();
@@ -99,7 +100,7 @@ namespace Dental_Clinic.DAO.Admin
                 dbConnection.CloseConnection();
             }
         }
-
+        // Cập nhật thông tin lễ tân
         public void CapNhatLeTan(LeTanDTO receptionist)
         {
             DatabaseConnection dbConnection = new DatabaseConnection();
@@ -108,21 +109,21 @@ namespace Dental_Clinic.DAO.Admin
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 // Thêm các tham số cho thủ tục lưu trữ
-                cmd.Parameters.AddWithValue("@userId", receptionist.Id);
-                cmd.Parameters.AddWithValue("@fullName", receptionist.HoVaTen);
-                cmd.Parameters.AddWithValue("@citizenId", receptionist.CCCD);
-                cmd.Parameters.AddWithValue("@phoneNumber", receptionist.SDT);
-                cmd.Parameters.AddWithValue("@address", receptionist.DiaChi);
-                cmd.Parameters.AddWithValue("@gender", receptionist.GioiTinh);
-                cmd.Parameters.AddWithValue("@dob", receptionist.NgaySinh);
+                cmd.Parameters.AddWithValue("@maNguoiDung", receptionist.Id);
+                cmd.Parameters.AddWithValue("@hoTen", receptionist.HoVaTen);
+                cmd.Parameters.AddWithValue("@cccd", receptionist.CCCD);
+                cmd.Parameters.AddWithValue("@soDienThoai", receptionist.SDT);
+                cmd.Parameters.AddWithValue("@diaChi", receptionist.DiaChi);
+                cmd.Parameters.AddWithValue("@gioiTinh", receptionist.GioiTinh);
+                cmd.Parameters.AddWithValue("@ngaySinh", receptionist.NgaySinh);
                 cmd.Parameters.AddWithValue("@email", receptionist.Email);
-                cmd.Parameters.AddWithValue("@salaryCoefficient", receptionist.HeSoLuong);
+                cmd.Parameters.AddWithValue("@heSoLuong", receptionist.HeSoLuong);
 
                 cmd.ExecuteNonQuery();
                 dbConnection.Conn.Close();
             }
         }
-
+        // Thêm lễ tân
         public void ThemLeTan(LeTanDTO receptionist)
         {
             DatabaseConnection dbConnection = new DatabaseConnection();
@@ -131,14 +132,14 @@ namespace Dental_Clinic.DAO.Admin
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 // Thêm các tham số cho thủ tục lưu trữ
-                cmd.Parameters.AddWithValue("@fullName", receptionist.HoVaTen);
-                cmd.Parameters.AddWithValue("@citizenId", receptionist.CCCD);
-                cmd.Parameters.AddWithValue("@phoneNumber", receptionist.SDT);
-                cmd.Parameters.AddWithValue("@address", receptionist.DiaChi);
-                cmd.Parameters.AddWithValue("@gender", receptionist.GioiTinh);
-                cmd.Parameters.AddWithValue("@dob", receptionist.NgaySinh);
+                cmd.Parameters.AddWithValue("@hoTen", receptionist.HoVaTen);
+                cmd.Parameters.AddWithValue("@cccd", receptionist.CCCD);
+                cmd.Parameters.AddWithValue("@soDienThoai", receptionist.SDT);
+                cmd.Parameters.AddWithValue("@diaChi", receptionist.DiaChi);
+                cmd.Parameters.AddWithValue("@gioiTinh", receptionist.GioiTinh);
+                cmd.Parameters.AddWithValue("@ngaySinh", receptionist.NgaySinh);
                 cmd.Parameters.AddWithValue("@email", receptionist.Email);
-                cmd.Parameters.AddWithValue("@salaryCoefficient", receptionist.HeSoLuong);
+                cmd.Parameters.AddWithValue("@heSoLuong", receptionist.HeSoLuong);
 
                 cmd.ExecuteNonQuery();
                 dbConnection.Conn.Close();
