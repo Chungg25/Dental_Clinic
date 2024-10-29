@@ -15,7 +15,8 @@ namespace Dental_Clinic.GUI.Administrator
             InitializeComponent();
             _mainForm = mainForm;
             doctorBUS = new DoctorBUS();
-            CreateTableLayoutPanel();
+            List<DoctorDTO> doctors = doctorBUS.GetDoctorList();
+            CreateTableLayoutPanel(doctors);
 
             vbThemBacSi.FlatStyle = FlatStyle.Flat;
             vbThemBacSi.FlatAppearance.BorderSize = 0;
@@ -42,6 +43,7 @@ namespace Dental_Clinic.GUI.Administrator
             tbTimKiem.ForeColor = Color.Gray;
             tbTimKiem.Enter += tbTimKiem_Enter;
             tbTimKiem.Leave += tbTimKiem_Leave;
+            tbTimKiem.TextChanged += tbTimKiem_TextChanged;
         }
 
         //Phần này để chỉnh sửa các control
@@ -140,20 +142,14 @@ namespace Dental_Clinic.GUI.Administrator
                 return new Bitmap(img, new Size(width, height));
             }
 
-            // Đặt icon cho nút chỉnh sửa và xóa từ Resources
+            // Đặt icon cho nút chỉnh sửatừ Resources
             Image editIcon = ResizeImage(Properties.Resources.icons8_edit_64__2_, 30, 30);
-            Image deleteIcon = ResizeImage(Properties.Resources.trash_bin, 25, 25);
-
             // Tạo các nút
             Color editEditColor = ColorTranslator.FromHtml("#0d6efd");
             Button btnEdit = CreateActionButton(editEditColor, editIcon);
-            Color editDeleteColor = ColorTranslator.FromHtml("#dc3545");
-            Button btnDelete = CreateActionButton(editDeleteColor, deleteIcon);
 
             // Thêm sự kiện Click
             btnEdit.Click += (s, e) => { ShowEditUserInPanel(id); };
-            btnDelete.Click += (s, e) => { DeleteUser(id); };
-
             // Tạo một Panel để chứa 2 nút
             FlowLayoutPanel panelActions = new FlowLayoutPanel
             {
@@ -167,8 +163,6 @@ namespace Dental_Clinic.GUI.Administrator
 
             // Thêm các nút vào panel
             panelActions.Controls.Add(btnEdit);
-            panelActions.Controls.Add(btnDelete);
-
             // Thêm Panel vào cột thao tác của hàng hiện tại
             tlpUser.Controls.Add(panelActions, 6, rowIndex);
         }
@@ -189,8 +183,14 @@ namespace Dental_Clinic.GUI.Administrator
         }
 
         // Hàm tạo TableLayoutPanel và gọi hàm AddRowToTableLayoutPanel để thêm dữ liệu
-        private void CreateTableLayoutPanel()
+        private void CreateTableLayoutPanel(List<DoctorDTO> doctors)
         {
+            if (panelBacSi.Controls.Count > 0)
+            {
+                // Xóa các control trong panelBacSi, bao gồm TableLayoutPanel cũ
+                panelBacSi.Controls.Clear();
+            }
+
             // Tạo TableLayoutPanel
             TableLayoutPanel tlpUser = new TableLayoutPanel
             {
@@ -229,7 +229,6 @@ namespace Dental_Clinic.GUI.Administrator
             panelBacSi.Controls.Add(scrollablePanel);
 
             // Thêm một hàng mẫu
-            List<DoctorDTO> doctors = doctorBUS.GetDoctorList();
             int sequenceNumber = 1;
             foreach (var doctor in doctors)
             {
@@ -243,6 +242,30 @@ namespace Dental_Clinic.GUI.Administrator
         private string ToTitleCase(string text)
         {
             return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(text.ToLower());
+        }
+
+        private void tbTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            // Lấy nội dung tìm kiếm từ tbTimKiem
+            string searchText = tbTimKiem.Text.ToLower();
+
+            // Lấy danh sách bác sĩ từ doctorBUS
+            var doctorList = doctorBUS.GetDoctorList();
+
+            if (string.IsNullOrWhiteSpace(searchText))
+            {
+                // Nếu ô tìm kiếm trống, không tạo bảng mới
+                return;
+            }
+
+            // Lọc danh sách theo họ tên
+            var filteredList = doctorList
+                .Where(d => d.Full_name.ToLower().Contains(searchText))
+                .ToList();
+            if (filteredList.Any())
+            {
+                CreateTableLayoutPanel(filteredList);
+            }
         }
 
         //Kết thúc
@@ -291,11 +314,6 @@ namespace Dental_Clinic.GUI.Administrator
             editUserForm.BringToFront();
             editUserForm.Show(); // Hiển thị editUserForm
         }
-
         //Kết thúc
-        public void DeleteUser(int id)
-        {
-            doctorBUS.DeleteDoctor(id);
-        }
     }
 }

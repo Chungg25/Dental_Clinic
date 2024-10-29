@@ -1,26 +1,23 @@
 ﻿using CustomButton;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+using Dental_Clinic.BUS.Admin;
+using Dental_Clinic.DTO.Admin;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Numerics;
 
 namespace Dental_Clinic.GUI.Administrator.User
 {
     public partial class ReceptionistForm : Form
     {
         private MainForm _mainForm;
+        private ReceptionistBUS _receptionistBUS;
         public ReceptionistForm(MainForm mainForm)
         {
             InitializeComponent();
-            CreateTableLayoutPanel();
             _mainForm = mainForm;
-
+            _receptionistBUS = new ReceptionistBUS();
+            List<ReceptionistDTO> receptionists = _receptionistBUS.GetReceptionistList();
+            CreateTableLayoutPanel(receptionists);
+            
             vbBacSi.FlatStyle = FlatStyle.Flat;
             vbBacSi.FlatAppearance.BorderSize = 0;
             vbBacSi.FlatAppearance.MouseOverBackColor = vbBacSi.BackColor;
@@ -46,6 +43,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             tbTimKiem.ForeColor = Color.Gray;
             tbTimKiem.Enter += tbTimKiem_Enter;
             tbTimKiem.Leave += tbTimKiem_Leave;
+            tbTimKiem.TextChanged += tbTimKiem_TextChanged;
         }
 
         //Phần này để chỉnh sửa các control
@@ -84,20 +82,35 @@ namespace Dental_Clinic.GUI.Administrator.User
                 Font = font,
                 AutoSize = true,
                 Padding = new Padding(10, 5, 10, 5), // Tăng khoảng cách bên trái và bên phải
-                Anchor = AnchorStyles.Left | AnchorStyles.Top
+                Anchor = AnchorStyles.Left | AnchorStyles.Top,
             };
         }
 
         // Hàm để tạo CheckBox
-        private CheckBox CreateCheckBox(bool isChecked)
+        private CheckBox CreateCheckBox(int status, int id)
         {
-            return new CheckBox
+            CheckBox checkBox = new CheckBox
             {
-                Checked = isChecked,
+                Checked = (status == 0),
                 AutoSize = true,
                 Padding = new Padding(15, 0, 0, 0),
                 Anchor = AnchorStyles.Left | AnchorStyles.Top,
+                Tag = id
             };
+
+            // Bắt sự kiện CheckedChanged để cập nhật vào database
+            checkBox.CheckedChanged += (sender, e) =>
+            {
+                CheckBox cb = sender as CheckBox;
+                if (cb != null)
+                {
+                    int userId = (int)cb.Tag;
+                    int isChecked = cb.Checked ? 0 : 1;
+
+                    _receptionistBUS.UpdateStatus(userId);
+                }
+            };
+            return checkBox;
         }
 
         // Hàm tạo nút hành động (chỉnh sửa và xóa)
@@ -120,26 +133,22 @@ namespace Dental_Clinic.GUI.Administrator.User
 
 
         // Hàm thêm các nút hành động (chỉnh sửa và xóa)
-        private void AddActionButtonsToTableLayoutPanel(TableLayoutPanel tlpUser, int rowIndex)
+        private void AddActionButtonsToTableLayoutPanel(TableLayoutPanel tlpUser, int rowIndex, int id)
         {
             Image ResizeImage(Image img, int width, int height)
             {
                 return new Bitmap(img, new Size(width, height));
             }
 
-            // Đặt icon cho nút chỉnh sửa và xóa từ Resources
+            // Đặt icon cho nút chỉnh sửa từ Resources
             Image editIcon = ResizeImage(Properties.Resources.icons8_edit_64__2_, 30, 30);
-            Image deleteIcon = ResizeImage(Properties.Resources.trash_bin, 25, 25);
 
             // Tạo các nút
             Color editEditColor = ColorTranslator.FromHtml("#0d6efd");
             Button btnEdit = CreateActionButton(editEditColor, editIcon);
-            Color editDeleteColor = ColorTranslator.FromHtml("#dc3545");
-            Button btnDelete = CreateActionButton(editDeleteColor, deleteIcon);
 
             // Thêm sự kiện Click
-            btnEdit.Click += (s, e) => { ShowEditReceptionInPanel(); };
-            btnDelete.Click += (s, e) => { MessageBox.Show("Xóa"); };
+            btnEdit.Click += (s, e) => { ShowEditReceptionInPanel(id); };
 
             // Tạo một Panel để chứa 2 nút
             FlowLayoutPanel panelActions = new FlowLayoutPanel
@@ -154,14 +163,13 @@ namespace Dental_Clinic.GUI.Administrator.User
 
             // Thêm các nút vào panel
             panelActions.Controls.Add(btnEdit);
-            panelActions.Controls.Add(btnDelete);
 
             // Thêm Panel vào cột thao tác của hàng hiện tại
             tlpUser.Controls.Add(panelActions, 5, rowIndex);
         }
 
         // Hàm để thêm hàng mới vào TableLayoutPanel
-        private void AddRowToTableLayoutPanel(TableLayoutPanel tlpUser, string stt, string tenNguoiDung, string gioiTinh, string email, bool khoa)
+        private void AddRowToTableLayoutPanel(TableLayoutPanel tlpUser, string stt, string tenNguoiDung, string gioiTinh, string email, int status, int id)
         {
             int currentRow = tlpUser.RowCount++; // Tăng số lượng hàng
 
@@ -170,13 +178,19 @@ namespace Dental_Clinic.GUI.Administrator.User
             tlpUser.Controls.Add(CreateLabel(tenNguoiDung, headerFont), 1, currentRow);
             tlpUser.Controls.Add(CreateLabel(gioiTinh, headerFont), 2, currentRow);
             tlpUser.Controls.Add(CreateLabel(email, headerFont), 3, currentRow);
-            tlpUser.Controls.Add(CreateCheckBox(khoa), 4, currentRow); // Thêm CheckBox
-            AddActionButtonsToTableLayoutPanel(tlpUser, currentRow);
+            tlpUser.Controls.Add(CreateCheckBox(status, id), 4, currentRow); // Thêm CheckBox
+            AddActionButtonsToTableLayoutPanel(tlpUser, currentRow, id);
         }
 
         // Hàm tạo TableLayoutPanel và gọi hàm AddRowToTableLayoutPanel để thêm dữ liệu
-        private void CreateTableLayoutPanel()
+        private void CreateTableLayoutPanel(List<ReceptionistDTO> receptionists)
         {
+            if (panelLeTan.Controls.Count > 0)
+            {
+                // Xóa các control trong panelBacSi, bao gồm TableLayoutPanel cũ
+                panelLeTan.Controls.Clear();
+            }
+
             // Tạo TableLayoutPanel
             TableLayoutPanel tlpUser = new TableLayoutPanel
             {
@@ -201,16 +215,54 @@ namespace Dental_Clinic.GUI.Administrator.User
             tlpUser.Controls.Add(CreateLabel("Khóa", headerFont), 4, 0);
             tlpUser.Controls.Add(CreateLabel("Thao tác", headerFont), 5, 0);
 
-            // Thêm TableLayoutPanel vào form
-            panelLeTan.Controls.Add(tlpUser);
+            // Tạo Panel chứa TableLayoutPanel và bật AutoScroll
+            Panel scrollablePanel = new Panel
+            {
+                Dock = DockStyle.Fill,
+                AutoScroll = true,
+            };
 
-            // Thêm một hàng mẫu
-            AddRowToTableLayoutPanel(tlpUser, "1", "Nguyễn Văn A", "Nam", "example@example.com", false);
+            scrollablePanel.Controls.Add(tlpUser);
+            // Thêm TableLayoutPanel vào form
+            panelLeTan.Controls.Add(scrollablePanel);
+
+            int sequenceNumber = 1;
+            foreach (var receptionist in receptionists)
+            {
+                string genderText = receptionist.Gender ? "Nam" : "Nữ";
+                int status = receptionist.Status;
+                AddRowToTableLayoutPanel(tlpUser, sequenceNumber.ToString(), receptionist.Full_name, genderText, receptionist.Email, status, receptionist.Id);
+                sequenceNumber++;
+            }
         }
 
         private string ToTitleCase(string text)
         {
             return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(text.ToLower());
+        }
+
+        private void tbTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            // Lấy nội dung tìm kiếm từ tbTimKiem
+            string searchText = tbTimKiem.Text.ToLower();
+
+            // Lấy danh sách bác sĩ từ doctorBUS
+            var receptionistList = _receptionistBUS.GetReceptionistList();
+
+            if (string.IsNullOrWhiteSpace(searchText))
+            {
+                // Nếu ô tìm kiếm trống, không tạo bảng mới
+                return;
+            }
+
+            // Lọc danh sách theo họ tên
+            var filteredList = receptionistList
+                .Where(d => d.Full_name.ToLower().Contains(searchText))
+                .ToList();
+            if (filteredList.Any())
+            {
+                CreateTableLayoutPanel(filteredList);
+            }
         }
 
 
@@ -246,9 +298,9 @@ namespace Dental_Clinic.GUI.Administrator.User
             userForm.BringToFront();
             userForm.Show(); // Hiển thị userForm
         }
-        public void ShowEditReceptionInPanel()
+        public void ShowEditReceptionInPanel(int id)
         {
-            EditReceptionForm editReceptionForm = new EditReceptionForm(_mainForm);
+            EditReceptionForm editReceptionForm = new EditReceptionForm(_mainForm, _receptionistBUS.GetReceptionistInfo(id));
             editReceptionForm.TopLevel = false; // Đặt userForm không phải là form cấp cao nhất (TopLevel)
             editReceptionForm.FormBorderStyle = FormBorderStyle.None; // Xóa viền của userForm
             editReceptionForm.Dock = DockStyle.Fill; // Đặt userForm khớp với kích thước panel

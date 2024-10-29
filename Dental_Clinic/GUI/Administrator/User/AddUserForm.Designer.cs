@@ -35,9 +35,6 @@
             label11 = new Label();
             vbChuyenNganh = new CustomButton.VBButton();
             vbThemBacSi = new CustomButton.VBButton();
-            label10 = new Label();
-            cbChucVu = new ComboBox();
-            vbChucVu = new CustomButton.VBButton();
             tbQueQuan = new TextBox();
             vbQueQuan = new CustomButton.VBButton();
             tbHeSoLuong = new TextBox();
@@ -91,9 +88,6 @@
             panelDuLieu.Controls.Add(label11);
             panelDuLieu.Controls.Add(vbChuyenNganh);
             panelDuLieu.Controls.Add(vbThemBacSi);
-            panelDuLieu.Controls.Add(label10);
-            panelDuLieu.Controls.Add(cbChucVu);
-            panelDuLieu.Controls.Add(vbChucVu);
             panelDuLieu.Controls.Add(tbQueQuan);
             panelDuLieu.Controls.Add(vbQueQuan);
             panelDuLieu.Controls.Add(tbHeSoLuong);
@@ -126,7 +120,7 @@
             // cbChuyenNganh
             // 
             cbChuyenNganh.FormattingEnabled = true;
-            cbChuyenNganh.Location = new Point(528, 421);
+            cbChuyenNganh.Location = new Point(59, 424);
             cbChuyenNganh.Name = "cbChuyenNganh";
             cbChuyenNganh.Size = new Size(137, 28);
             cbChuyenNganh.TabIndex = 54;
@@ -134,7 +128,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(527, 391);
+            label11.Location = new Point(50, 388);
             label11.Name = "label11";
             label11.Size = new Size(102, 20);
             label11.TabIndex = 53;
@@ -150,7 +144,7 @@
             vbChuyenNganh.FlatAppearance.BorderSize = 0;
             vbChuyenNganh.FlatStyle = FlatStyle.Flat;
             vbChuyenNganh.ForeColor = Color.White;
-            vbChuyenNganh.Location = new Point(519, 416);
+            vbChuyenNganh.Location = new Point(50, 419);
             vbChuyenNganh.Name = "vbChuyenNganh";
             vbChuyenNganh.Size = new Size(154, 38);
             vbChuyenNganh.TabIndex = 55;
@@ -165,6 +159,7 @@
             vbThemBacSi.BorderColor = Color.PaleVioletRed;
             vbThemBacSi.BorderRadius = 10;
             vbThemBacSi.BorderSize = 0;
+            vbThemBacSi.Cursor = Cursors.Hand;
             vbThemBacSi.FlatAppearance.BorderSize = 0;
             vbThemBacSi.FlatStyle = FlatStyle.Flat;
             vbThemBacSi.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -177,41 +172,6 @@
             vbThemBacSi.TextColor = Color.White;
             vbThemBacSi.UseVisualStyleBackColor = false;
             vbThemBacSi.Click += vbThemBacSi_Click;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Location = new Point(49, 391);
-            label10.Name = "label10";
-            label10.Size = new Size(61, 20);
-            label10.TabIndex = 51;
-            label10.Text = "Chức vụ";
-            // 
-            // cbChucVu
-            // 
-            cbChucVu.FormattingEnabled = true;
-            cbChucVu.Location = new Point(59, 421);
-            cbChucVu.Name = "cbChucVu";
-            cbChucVu.Size = new Size(304, 28);
-            cbChucVu.TabIndex = 49;
-            // 
-            // vbChucVu
-            // 
-            vbChucVu.BackColor = Color.White;
-            vbChucVu.BackgroundColor = Color.White;
-            vbChucVu.BorderColor = Color.Black;
-            vbChucVu.BorderRadius = 10;
-            vbChucVu.BorderSize = 1;
-            vbChucVu.FlatAppearance.BorderSize = 0;
-            vbChucVu.FlatStyle = FlatStyle.Flat;
-            vbChucVu.ForeColor = Color.White;
-            vbChucVu.Location = new Point(50, 416);
-            vbChucVu.Name = "vbChucVu";
-            vbChucVu.Size = new Size(321, 38);
-            vbChucVu.TabIndex = 50;
-            vbChucVu.Text = "vbChucVu";
-            vbChucVu.TextColor = Color.White;
-            vbChucVu.UseVisualStyleBackColor = false;
             // 
             // tbQueQuan
             // 
@@ -239,7 +199,7 @@
             // 
             // tbHeSoLuong
             // 
-            tbHeSoLuong.Location = new Point(59, 240);
+            tbHeSoLuong.Location = new Point(59, 242);
             tbHeSoLuong.Name = "tbHeSoLuong";
             tbHeSoLuong.Size = new Size(135, 27);
             tbHeSoLuong.TabIndex = 46;
@@ -507,9 +467,6 @@
         private Label label1;
         private Panel panelDuLieu;
         private CustomButton.VBButton vbThemBacSi;
-        private Label label10;
-        private ComboBox cbChucVu;
-        private CustomButton.VBButton vbChucVu;
         private TextBox tbQueQuan;
         private CustomButton.VBButton vbQueQuan;
         private TextBox tbHeSoLuong;

@@ -40,10 +40,14 @@ namespace Dental_Clinic.GUI.Administrator.User
             dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
             dtpNgaySinh.Value = doctorDTO.Dob;
             tbQueQuan.Text = doctorDTO.Address;
-            cbChucVu.Items.Add("Doctor");
-            cbChucVu.Items.Add("Reception");
-            cbChucVu.Items.Add("Admin");
-            cbChucVu.SelectedItem = doctorDTO.Role;
+
+            cbChuyenNganh.Items.Add("Nha chu");
+            cbChuyenNganh.Items.Add("Nhổ răng và tiểu phẫu");
+            cbChuyenNganh.Items.Add("Phục hình");
+            cbChuyenNganh.Items.Add("Chữa răng và nội nha");
+            cbChuyenNganh.Items.Add("Răng trẻ em");
+            cbChuyenNganh.Items.Add("Tổng quát");
+            cbChuyenNganh.SelectedItem = doctorDTO.Specialization_name;
         }
 
         public void Custom()
@@ -93,7 +97,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             doctorDTO.Salary_coefficient = float.Parse(tbHeSoLuong.Text);
             doctorDTO.Dob = dtpNgaySinh.Value; // Ngày sinh
             doctorDTO.Address = tbQueQuan.Text;
-            doctorDTO.Role = cbChucVu.SelectedItem.ToString();
+            doctorDTO.Specialization_name = cbChuyenNganh.SelectedItem.ToString();
 
             doctorBUS.UpdateDoctorInfo(doctorDTO);
             doctorBUS.GetDoctorInfo(doctorDTO.Id);

@@ -17,7 +17,7 @@ namespace Dental_Clinic.BUS.Login
         {
             loginDAO = new LoginDAO();
         }
-        // Kiểm tra thông tin đăng nhập
+
         public DataRow CheckLogin(LoginDTO loginDTO)
         {
             return loginDAO.CheckLogin(loginDTO);

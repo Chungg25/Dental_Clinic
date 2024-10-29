@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dental_Clinic.GUI.Login;
 
 namespace Dental_Clinic.GUI.Administrator
 {
@@ -39,7 +40,6 @@ namespace Dental_Clinic.GUI.Administrator
             userInfo.AppendLine($"Mật khẩu: {_userDTO.Password}"); // Nếu cần thiết
             userInfo.AppendLine($"Email: {_userDTO.Email}");
             userInfo.AppendLine($"Hệ số lương: {_userDTO.Salary_coefficient}");
-            userInfo.AppendLine($"ID lương: {_userDTO.Salary_id}");
 
             // Hiển thị thông tin trong một MessageBox
             MessageBox.Show(userInfo.ToString(), "Thông tin người dùng", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -200,6 +200,14 @@ namespace Dental_Clinic.GUI.Administrator
         private void panelTrangChu_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void lbDangXuat_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            GUI.Dental_Clinic main = new GUI.Dental_Clinic();
+            main.ShowDialog();
+            this.Close();
         }
     }
 }

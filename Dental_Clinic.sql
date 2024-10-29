@@ -1,328 +1,308 @@
-﻿USE master;
-GO
+﻿use master
 
 -- Drop the database if it exists
-IF DB_ID('DentalClinic') IS NOT NULL
+IF EXISTS (SELECT 1 FROM sys.databases WHERE name = 'DentalClinic')
+BEGIN
+    ALTER DATABASE DentalClinic SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
     DROP DATABASE DentalClinic;
+END
 GO
 
--- Create the DentalClinic database
-CREATE DATABASE DentalClinic;
-GO
 
--- Use the new database
-USE DentalClinic;
-GO
+create database DentalClinic
+go 
 
--- Create salaries table
-CREATE TABLE [salaries] (
-    [id] INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
-    [basic_salary] DECIMAL(18, 2) NOT NULL,
-    [bonus] DECIMAL(18, 2) NOT NULL,
-    [fine] DECIMAL(18, 2) NOT NULL,
-    [allowance] DECIMAL(18, 2) NOT NULL
-);
-GO
+use DentalClinic
+go
 
--- Create users table
+
 CREATE TABLE [users] (
-    [user_id] INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
-    [full_name] NVARCHAR(255) NOT NULL,
-    [citizen_id] VARCHAR(12) NOT NULL UNIQUE,
-    [phone_number] VARCHAR(10) NOT NULL,
-    [address] NVARCHAR(50) NOT NULL,
-    [gender] BIT NOT NULL,
-    [dob] DATE NOT NULL,
-    [role] NVARCHAR(10) NOT NULL,
-    [username] NVARCHAR(50) NOT NULL UNIQUE,
-    [password] NVARCHAR(255) NOT NULL,
-    [email] NVARCHAR(50) NOT NULL UNIQUE,
-    [salary_coefficient] FLOAT NOT NULL,
-    [salary_id] INT NULL,
-    [status] INT NOT NULL,
-    CONSTRAINT FK_Users_Salary FOREIGN KEY ([salary_id])
-        REFERENCES [salaries] ([id])
-        ON DELETE SET NULL ON UPDATE CASCADE
-);
+  [id] INT NOT NULL IDENTITY(1, 1),
+  [user_id] INT NOT NULL,
+  [full_name] NVARCHAR(255) NOT NULL,
+  [citizen_id] VARCHAR(12) NOT NULL,
+  [phone_number] VARCHAR(10) NOT NULL,
+  [address] NVARCHAR(50) NOT NULL,
+  [gender] BIT NOT NULL,
+  [dob] DATE NOT NULL,
+  [role] NVARCHAR(10) NOT NULL,
+  [username] NVARCHAR(50) NOT NULL,
+  [PASSWORD] NVARCHAR(255) NOT NULL,
+  [email] NVARCHAR(50) NOT NULL,
+  [salary_coefficient] FLOAT NOT NULL,
+  [status] INT NOT NULL,
+  PRIMARY KEY ([user_id])
+)
 GO
 
--- Create work_schedules table
-CREATE TABLE [work_schedules] (
-    [id] INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
-    [day] DATE NOT NULL,
-    [shift] INT NOT NULL,
-    [user_id] INT NOT NULL,
-    CONSTRAINT FK_WorkSchedules_User FOREIGN KEY ([user_id])
-        REFERENCES [users] ([user_id])
-        ON DELETE CASCADE ON UPDATE CASCADE
-);
-GO
-
--- Create receptionists table
 CREATE TABLE [receptionists] (
-    [user_id] INT NOT NULL PRIMARY KEY,
-    CONSTRAINT FK_Receptionists_User FOREIGN KEY ([user_id])
-        REFERENCES [users] ([user_id])
-);
+  [user_id] INT NOT NULL,
+  PRIMARY KEY ([user_id])
+)
 GO
 
--- Create administrators table
 CREATE TABLE [administrators] (
-    [user_id] INT NOT NULL PRIMARY KEY,
-    CONSTRAINT FK_Administrators_User FOREIGN KEY ([user_id])
-        REFERENCES [users] ([user_id])
-);
+  [user_id] INT NOT NULL,
+  PRIMARY KEY ([user_id])
+)
 GO
 
--- Create doctor_specializations table
 CREATE TABLE [doctor_specializations] (
-    [specialization_id] INT PRIMARY KEY IDENTITY(1, 1),
-    [specialization_name] NVARCHAR(100) UNIQUE NOT NULL
-);
+  [specialization_id] INT PRIMARY KEY IDENTITY(1, 1),
+  [specialization_name] NVARCHAR(100) UNIQUE NOT NULL
+)
 GO
 
--- Create doctors table
 CREATE TABLE [doctors] (
-    [user_id] INT NOT NULL PRIMARY KEY,
-    [specialization_id] INT,
-    CONSTRAINT FK_Doctors_User FOREIGN KEY ([user_id])
-        REFERENCES [users] ([user_id]),
-    CONSTRAINT FK_Doctors_Specialization FOREIGN KEY ([specialization_id])
-        REFERENCES [doctor_specializations] ([specialization_id])
-);
+  [user_id] INT NOT NULL,
+  [specialization_id] INT,
+  PRIMARY KEY ([user_id])
+)
 GO
 
--- Create patients table
+CREATE TABLE [work_schedules] (
+  [id] INT NOT NULL IDENTITY(1, 1),
+  [DAY] DATE NOT NULL,
+  [shift] INT NOT NULL,
+  [user_id] INT not null,
+  PRIMARY KEY ([id])
+)
+GO
+
+CREATE TABLE [salaries] (
+  [salary_id] INT,
+  [user_id] INT NOT NULL,
+  [basic_salary] FLOAT NOT NULL,
+  [bonus] FLOAT NOT NULL,
+  [fine] FLOAT NOT NULL,
+  [allowance] FLOAT NOT NULL,
+  [day] DATE,
+  PRIMARY KEY ([salary_id])
+)
+GO
+
 CREATE TABLE [patients] (
-    [id] INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
-    [full_name] NVARCHAR(50) NOT NULL,
-    [gender] BIT NOT NULL,
-    [age] INT NOT NULL,
-    [phone_number] NVARCHAR(10) NOT NULL,
-    [address] NVARCHAR(50) NOT NULL
-);
+  [id] INT NOT NULL IDENTITY(1, 1),
+  [full_name] NVARCHAR(50) NOT NULL,
+  [gender] BIT NOT NULL,
+  [age] INT NOT NULL,
+  [phone_number] NVARCHAR(10) NOT NULL,
+  [address] NVARCHAR(50) NOT NULL,
+  PRIMARY KEY ([id])
+)
 GO
 
--- Create receptions table
 CREATE TABLE [receptions] (
-    [user_id] INT NOT NULL,
-    [patient_id] INT NOT NULL,
-    PRIMARY KEY ([user_id], [patient_id]),
-    CONSTRAINT FK_Receptions_Receptionist FOREIGN KEY ([user_id])
-        REFERENCES [receptionists] ([user_id]),
-    CONSTRAINT FK_Receptions_Patient FOREIGN KEY ([patient_id])
-        REFERENCES [patients] ([id])
-);
+  [user_id] INT NOT NULL,
+  [patient_id] INT NOT NULL,
+  PRIMARY KEY ([user_id], [patient_id])
+)
 GO
 
--- Create appointments table
 CREATE TABLE [appointments] (
-    [id] INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
-    [notes] NVARCHAR(50) NOT NULL,
-    [status] BIT NOT NULL,
-    [appointment_date] DATE NOT NULL,
-    [user_id] INT NOT NULL,
-    [patient_id] INT NOT NULL,
-    CONSTRAINT FK_Appointments_Doctor FOREIGN KEY ([user_id])
-        REFERENCES [doctors] ([user_id]),
-    CONSTRAINT FK_Appointments_Patient FOREIGN KEY ([patient_id])
-        REFERENCES [patients] ([id])
-);
+  [id] INT NOT NULL IDENTITY(1, 1),
+  [notes] NVARCHAR(50) NOT NULL,
+  [STATUS] BIT NOT NULL,
+  [appointment_date] DATE NOT NULL,
+  [user_id] INT NOT NULL,
+  [patient_id] INT NOT NULL,
+  PRIMARY KEY ([id])
+)
 GO
 
--- Create medical_records table
 CREATE TABLE [medical_records] (
-    [id] INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
-    [diagnosis] NVARCHAR(50) NOT NULL,
-    [treatment] NVARCHAR(50) NOT NULL,
-    [symptoms] NVARCHAR(50) NOT NULL,
-    [patient_id] INT NOT NULL,
-    CONSTRAINT FK_MedicalRecords_Patient FOREIGN KEY ([patient_id])
-        REFERENCES [patients] ([id])
-        ON DELETE CASCADE
-);
+  [id] INT NOT NULL IDENTITY(1, 1),
+  [diagnosis] NVARCHAR(50) NOT NULL,
+  [treatment] NVARCHAR(50) NOT NULL,
+  [symptoms] NVARCHAR(50) NOT NULL,
+  [patient_id] INT NOT NULL,
+  PRIMARY KEY ([id])
+)
 GO
 
--- Create type_inventory table
 CREATE TABLE [type_inventory] (
-    [id] INT PRIMARY KEY IDENTITY(1, 1),
-    [name] NVARCHAR(255) NOT NULL
-);
+	[id] INT PRIMARY KEY,
+	[name] NVARCHAR(255) NOT NULL,
+)
 GO
 
--- Create inventory table
 CREATE TABLE [inventory] (
-    [id] INT PRIMARY KEY IDENTITY(1, 1),
-    [name] NVARCHAR(255) NOT NULL,
-    [category] NVARCHAR(255) NOT NULL,
-    [quantity] INT NOT NULL,
-    [unit] NVARCHAR(255) NOT NULL,
-    [dosage] NVARCHAR(255),
-    [production_date] DATE NOT NULL,
-    [expiration_date] DATE NOT NULL,
-    [import_date] DATE NOT NULL,
-    [price] DECIMAL(18, 2) NOT NULL,
-    [type_id] INT NOT NULL,
-    CONSTRAINT FK_Inventory_Type FOREIGN KEY ([type_id])
-        REFERENCES [type_inventory] ([id])
-        ON DELETE CASCADE
-);
+  [id] INT PRIMARY KEY,
+  [name] NVARCHAR(255) NOT NULL,
+  [category] NVARCHAR(255) NOT NULL,
+  [quantity] INT NOT NULL,
+  [unit] NVARCHAR(255) NOT NULL,
+  [dosage] NVARCHAR(255),
+  [production_date] DATE NOT NULL,
+  [expiration_date] DATE NOT NULL,
+  [import_date] DATE NOT NULL,
+  [price] DECIMAL(18,2) NOT NULL,
+  [type_id] INT NOT NULL
+)
 GO
 
--- Create prescriptions table
 CREATE TABLE [prescriptions] (
-    [id] INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
-    [day] DATE NOT NULL,
-    [patient_id] INT NOT NULL,
-    [user_id] INT NOT NULL,
-    CONSTRAINT FK_Prescriptions_Patient FOREIGN KEY ([patient_id])
-        REFERENCES [patients] ([id]),
-    CONSTRAINT FK_Prescriptions_Doctor FOREIGN KEY ([user_id])
-        REFERENCES [doctors] ([user_id])
-);
+  [id] INT,
+  [DAY] DATE NOT NULL,
+  [patient_id] INT NOT NULL,
+  [user_id] INT NOT NULL,
+  PRIMARY KEY ([id])
+)
 GO
 
--- Create prescription_details table
 CREATE TABLE [prescription_details] (
-    [id] INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
-    [inventory_id] INT NOT NULL,
-    [quantity] INT NOT NULL,
-    [duration] INT NOT NULL,
-    [dosage] INT NOT NULL,
-    [frequency] INT NOT NULL,
-    [notes] NVARCHAR(50) NOT NULL,
-    [prescription_id] INT NOT NULL,
-    CONSTRAINT FK_PrescriptionDetails_Prescription FOREIGN KEY ([prescription_id])
-        REFERENCES [prescriptions] ([id]),
-    CONSTRAINT FK_PrescriptionDetails_Inventory FOREIGN KEY ([inventory_id])
-        REFERENCES [inventory] ([id])
-        ON DELETE CASCADE
-);
+  [id] INT NOT NULL IDENTITY(1, 1),
+  [inventory_id] int, 
+  [quantity] INT NOT NULL,
+  [duration] INT NOT NULL,
+  [dosage] INT NOT NULL,
+  [frequency] INT NOT NULL,
+  [notes] NVARCHAR(50) NOT NULL,
+  [prescription_id] INT NOT NULL,
+  PRIMARY KEY ([id])
+)
 GO
 
--- Create service_categories table
 CREATE TABLE [service_categories] (
-    [id] INT PRIMARY KEY IDENTITY(1, 1),
-    [name] NVARCHAR(255) UNIQUE NOT NULL
-);
+  [id] INT PRIMARY KEY IDENTITY(1, 1),
+  [name] NVARCHAR(255) UNIQUE NOT NULL
+)
 GO
 
--- Create services table
 CREATE TABLE [services] (
-    [id] INT PRIMARY KEY IDENTITY(1, 1),
-    [category_id] INT NOT NULL,
-    [name] NVARCHAR(255) NOT NULL,
-    [unit] NVARCHAR(255) NOT NULL,
-    [price] DECIMAL(18, 2) NOT NULL,
-    CONSTRAINT FK_Services_Category FOREIGN KEY ([category_id])
-        REFERENCES [service_categories] ([id])
-);
+  [id] INT PRIMARY KEY IDENTITY(1, 1),
+  [category_id] INT NOT NULL,
+  [name] NVARCHAR(255) NOT NULL,
+  [unit] NVARCHAR(255) NOT NULL,
+  [price] DECIMAL(18,2) NOT NULL
+)
 GO
 
--- Create treatments table
 CREATE TABLE [treatments] (
-    [id] INT PRIMARY KEY IDENTITY(1, 1),
-    [substitute_doctor_name] NVARCHAR(50) NOT NULL,
-    [doctor_id] INT NOT NULL,
-    [patient_id] INT NOT NULL,
-    [treatment_date] DATE NOT NULL,
-    [notes] NVARCHAR(255),
-    CONSTRAINT FK_Treatments_Doctor FOREIGN KEY ([doctor_id])
-        REFERENCES [doctors] ([user_id])
-        ON DELETE CASCADE,
-    CONSTRAINT FK_Treatments_Patient FOREIGN KEY ([patient_id])
-        REFERENCES [patients] ([id])
-        ON DELETE CASCADE
-);
+  [id] INT PRIMARY KEY IDENTITY(1, 1),
+  [substitute_doctor_name] NVARCHAR(50) NOT NULL,
+  [doctor_id] INT NOT NULL,
+  [patient_id] INT NOT NULL,
+  [treatment_date] DATE NOT NULL,
+  [notes] NVARCHAR(255)
+)
 GO
 
--- Create invoices table
 CREATE TABLE [invoices] (
-    [id] INT PRIMARY KEY IDENTITY(1, 1),
-    [payment_method] BIT NOT NULL,
-    [total_price] DECIMAL(18, 2) NOT NULL,
-    [prescription_id] INT NOT NULL,
-    [patient_id] INT NOT NULL,
-    [date] DATE NOT NULL,
-    CONSTRAINT FK_Invoices_Prescription FOREIGN KEY ([prescription_id])
-        REFERENCES [prescriptions] ([id]),
-    CONSTRAINT FK_Invoices_Patient FOREIGN KEY ([patient_id])
-        REFERENCES [patients] ([id])
-);
+  [id] INT,
+  [payment_method] BIT NOT NULL,
+  [total_price] FLOAT NOT NULL,
+  [prescription_id] INT NOT NULL,
+  [patient_id] INT NOT NULL,
+  [date] date,
+  PRIMARY KEY ([id])
+)
 GO
 
--- Create invoice_details table
 CREATE TABLE [invoice_details] (
-    [id] INT PRIMARY KEY IDENTITY(1, 1),
-    [invoice_id] INT NOT NULL,
-    [service_id] INT NOT NULL,
-    [quantity] INT NOT NULL,
-    [unit_price] DECIMAL(18, 2) NOT NULL,
-    CONSTRAINT FK_InvoiceDetails_Invoice FOREIGN KEY ([invoice_id])
-        REFERENCES [invoices] ([id])
-        ON DELETE CASCADE,
-    CONSTRAINT FK_InvoiceDetails_Service FOREIGN KEY ([service_id])
-        REFERENCES [services] ([id])
-        ON DELETE CASCADE
-);
+  [id] INT PRIMARY KEY IDENTITY(1, 1),
+  [invoice_id] INT NOT NULL,
+  [service_id] INT NOT NULL,
+  [quantity] INT NOT NULL,
+  [unit_price] DECIMAL(18,2) NOT NULL
+)
 GO
 
+
+ALTER TABLE [work_schedules] ADD FOREIGN KEY ([user_id]) REFERENCES [users] ([user_id])
+GO
+
+ALTER TABLE [salaries] ADD FOREIGN KEY ([user_id]) REFERENCES [users] ([user_id])
+GO
+
+ALTER TABLE [receptionists] ADD FOREIGN KEY ([user_id]) REFERENCES [users] ([user_id])
+GO
+
+ALTER TABLE [administrators] ADD FOREIGN KEY ([user_id]) REFERENCES [users] ([user_id])
+GO
+
+ALTER TABLE [doctors] ADD FOREIGN KEY ([user_id]) REFERENCES [users] ([user_id])
+GO
+
+ALTER TABLE [doctors] ADD FOREIGN KEY ([specialization_id]) REFERENCES [doctor_specializations] ([specialization_id])
+GO
+
+ALTER TABLE [receptions] ADD FOREIGN KEY ([user_id]) REFERENCES [receptionists] ([user_id])
+GO
+
+ALTER TABLE [receptions] ADD FOREIGN KEY ([patient_id]) REFERENCES [patients] ([id])
+GO
+
+ALTER TABLE [appointments] ADD FOREIGN KEY ([user_id]) REFERENCES [doctors] ([user_id])
+GO
+
+ALTER TABLE [appointments] ADD FOREIGN KEY ([patient_id]) REFERENCES [patients] ([id])
+GO
+
+ALTER TABLE [medical_records] ADD FOREIGN KEY ([patient_id]) REFERENCES [patients] ([id]) ON DELETE CASCADE
+GO
+
+ALTER TABLE [prescriptions] ADD FOREIGN KEY ([patient_id]) REFERENCES [patients] ([id])
+GO
+
+ALTER TABLE [prescriptions] ADD FOREIGN KEY ([user_id]) REFERENCES [doctors] ([user_id])
+GO
+
+ALTER TABLE [prescription_details] ADD FOREIGN KEY ([prescription_id]) REFERENCES [prescriptions] ([id])
+GO
+
+ALTER TABLE [services] ADD FOREIGN KEY ([category_id]) REFERENCES [service_categories] ([id])
+GO
+
+ALTER TABLE [treatments] ADD FOREIGN KEY ([doctor_id]) REFERENCES [doctors] ([user_id]) ON DELETE CASCADE
+GO
+
+ALTER TABLE [treatments] ADD FOREIGN KEY ([patient_id]) REFERENCES [patients] ([id]) ON DELETE CASCADE
+GO
+
+ALTER TABLE [inventory] ADD FOREIGN KEY([type_id]) REFERENCES [type_inventory] ([id]) ON DELETE CASCADE
+GO
+
+ALTER TABLE [prescription_details] ADD FOREIGN KEY([inventory_id]) REFERENCES [inventory] ([id]) ON DELETE CASCADE
+GO
+
+ALTER TABLE [invoices] ADD FOREIGN KEY ([prescription_id]) REFERENCES [prescriptions] ([id])
+GO
+
+ALTER TABLE [invoices] ADD FOREIGN KEY ([patient_id]) REFERENCES [patients] ([id])
+GO
+
+ALTER TABLE [invoice_details] ADD FOREIGN KEY ([invoice_id]) REFERENCES [invoices] ([id]) ON DELETE CASCADE
+GO
+
+ALTER TABLE [invoice_details] ADD FOREIGN KEY ([service_id]) REFERENCES [services] ([id]) ON DELETE CASCADE
+GO
 
 
 --Insert dữ liệu
 
-
---Lương
-INSERT INTO salaries (basic_salary, bonus, fine, allowance) VALUES
-(10000000, 1000000, 0, 500000),
-(10000000, 800000, 200000, 500000),
-(12000000, 1500000, 0, 800000),
-(12000000, 1000000, 300000, 800000),
-(15000000, 2000000, 0, 1000000),
-(15000000, 1800000, 200000, 1000000),
-(20000000, 3000000, 0, 1500000),
-(20000000, 2500000, 500000, 1500000),
-(25000000, 3500000, 0, 2000000),
-(25000000, 3000000, 200000, 2000000),
-(18000000, 2000000, 0, 1200000),
-(18000000, 1800000, 300000, 1200000),
-(22000000, 2500000, 0, 1800000),
-(22000000, 2200000, 400000, 1800000),
-(30000000, 4000000, 0, 2500000),
-(30000000, 3500000, 300000, 2500000),
-(35000000, 5000000, 0, 3000000),
-(35000000, 4500000, 500000, 3000000),
-(40000000, 6000000, 0, 3500000),
-(40000000, 5500000, 400000, 3500000);
-/*DELETE FROM [salaries];
-DBCC CHECKIDENT ('salaries', RESEED, 0);*/
-
 --Người dùng
-SET IDENTITY_INSERT [users] ON;
-
-INSERT INTO users (user_id, full_name, citizen_id, phone_number, address, gender, dob, role, username, PASSWORD, email, salary_coefficient, salary_id, status) VALUES
-(1, N'Nguyễn Văn An', '123456789001', '0901234561', N'123 Lê Lợi, Q1, TP.HCM', 1, '1990-01-15', 'Admin', '1', '1', 'admin1@gmail.com', 1.5, 1, 1),
-(2, N'Trần Thị Bình', '123456789002', '0901234562', N'456 Nguyễn Huệ, Q1, TP.HCM', 0, '1991-02-20', 'Admin', 'admin2', 'pass123', 'admin2@gmail.com', 1.5, 2, 1),
-(3, N'Lê Văn Cường', '123456789003', '0901234563', N'789 Lê Duẩn, Q1, TP.HCM', 1, '1992-03-25', 'Reception', 'recep1', 'pass123', 'recep1@gmail.com', 1.2, 3, 1),
-(4, N'Phạm Thị Dung', '123456789004', '0901234564', N'147 Nam Kỳ, Q3, TP.HCM', 0, '1993-04-30', 'Reception', 'recep2', 'pass123', 'recep2@gmail.com', 1.2, 4, 1),
-(5, N'Hoàng Văn Em', '123456789005', '0901234565', N'258 Hai Bà Trưng, Q1, TP.HCM', 1, '1994-05-05', 'Reception', 'recep3', 'pass123', 'recep3@gmail.com', 1.2, 5, 1),
-(6, N'Đỗ Thị Phương', '123456789006', '0901234566', N'369 Lê Văn Sỹ, Q3, TP.HCM', 0, '1985-06-10', 'Doctor', 'doctor1', 'pass123', 'doctor1@gmail.com', 2.0, 6, 1),
-(7, N'Vũ Văn Giang', '123456789007', '0901234567', N'147 Nguyễn Đình Chiểu, Q3, TP.HCM', 1, '1986-07-15', 'Doctor', 'doctor2', 'pass123', 'doctor2@gmail.com', 2.0, 7, 1),
-(8, N'Mai Thị Hoa', '123456789008', '0901234568', N'258 Võ Văn Tần, Q3, TP.HCM', 0, '1987-08-20', 'Doctor', 'doctor3', 'pass123', 'doctor3@gmail.com', 2.0, 8, 1),
-(9, N'Trịnh Văn Inh', '123456789009', '0901234569', N'369 Cách Mạng T8, Q3, TP.HCM', 1, '1988-09-25', 'Doctor', 'doctor4', 'pass123', 'doctor4@gmail.com', 2.0, 9, 1),
-(10, N'Lý Thị Kim', '123456789010', '0901234570', N'147 Điện Biên Phủ, Q1, TP.HCM', 0, '1989-10-30', 'Doctor', 'doctor5', 'pass123', 'doctor5@gmail.com', 2.0, 10, 1),
-(11, N'Ngô Văn Linh', '123456789011', '0901234571', N'258 Nguyễn Trãi, Q5, TP.HCM', 1, '1990-11-05', 'Doctor', 'doctor6', 'pass123', 'doctor6@gmail.com', 2.0, 11, 1),
-(12, N'Phan Thị Mai', '123456789012', '0901234572', N'369 Lý Thường Kiệt, Q10, TP.HCM', 0, '1991-12-10', 'Doctor', 'doctor7', 'pass123', 'doctor7@gmail.com', 2.0, 12, 1),
-(13, N'Đặng Văn Nam', '123456789013', '0901234573', N'147 Bà Hom, Q6, TP.HCM', 1, '1992-01-15', 'Doctor', 'doctor8', 'pass123', 'doctor8@gmail.com', 2.0, 13, 1),
-(14, N'Bùi Thị Oanh', '123456789014', '0901234574', N'258 Hùng Vương, Q5, TP.HCM', 0, '1993-02-20', 'Doctor', 'doctor9', 'pass123', 'doctor9@gmail.com', 2.0, 14, 1),
-(15, N'Hồ Văn Phát', '123456789015', '0901234575', N'369 Tân Kỳ Tân Quý, Q.TB, TP.HCM', 1, '1994-03-25', 'Doctor', 'doctor10', 'pass123', 'doctor10@gmail.com', 2.0, 15, 1),
-(16, N'Trương Thị Quỳnh', '123456789016', '0901234576', N'147 Âu Cơ, Q.TB, TP.HCM', 0, '1995-04-30', 'Reception', 'recep4', 'pass123', 'recep4@gmail.com', 1.2, 16, 1),
-(17, N'Lương Văn Rồng', '123456789017', '0901234577', N'258 Lạc Long Quân, Q11, TP.HCM', 1, '1996-05-05', 'Reception', 'recep5', 'pass123', 'recep5@gmail.com', 1.2, 17, 1),
-(18, N'Dương Thị Sen', '123456789018', '0901234578', N'369 Hòa Bình, Q.TB, TP.HCM', 0, '1997-06-10', 'Reception', 'recep6', 'pass123', 'recep6@gmail.com', 1.2, 18, 1),
-(19, N'Lại Văn Tâm', '123456789019', '0901234579', N'147 Trường Chinh, Q12, TP.HCM', 1, '1998-07-15', 'Admin', 'admin3', 'pass123', 'admin3@gmail.com', 1.5, 19, 1),
-(20, N'Châu Thị Uyên', '123456789020', '0901234580', N'258 Quang Trung, Q.GV, TP.HCM', 0, '1999-08-20', 'Admin', 'admin4', 'pass123', 'admin4@gmail.com', 1.5, 20, 1);
-
-SET IDENTITY_INSERT [users] OFF;
+INSERT INTO users (user_id, full_name, citizen_id, phone_number, address, gender, dob, role, username, PASSWORD, email, salary_coefficient, status) VALUES
+(1, N'Nguyễn Văn An', '123456789001', '0901234561', N'123 Lê Lợi, Q1, TP.HCM', 1, '1990-01-15', 'Admin', 'admin1', 'pass123', 'admin1@gmail.com', 1.5, 1),
+(2, N'Trần Thị Bình', '123456789002', '0901234562', N'456 Nguyễn Huệ, Q1, TP.HCM', 0, '1991-02-20', 'Admin', 'admin2', 'pass123', 'admin2@gmail.com', 1.5, 1),
+(3, N'Lê Văn Cường', '123456789003', '0901234563', N'789 Lê Duẩn, Q1, TP.HCM', 1, '1992-03-25', 'Reception', 'recep1', 'pass123', 'recep1@gmail.com', 1.2, 1),
+(4, N'Phạm Thị Dung', '123456789004', '0901234564', N'147 Nam Kỳ, Q3, TP.HCM', 0, '1993-04-30', 'Reception', 'recep2', 'pass123', 'recep2@gmail.com', 1.2, 1),
+(5, N'Hoàng Văn Em', '123456789005', '0901234565', N'258 Hai Bà Trưng, Q1, TP.HCM', 1, '1994-05-05', 'Reception', 'recep3', 'pass123', 'recep3@gmail.com', 1.2, 1),
+(6, N'Đỗ Thị Phương', '123456789006', '0901234566', N'369 Lê Văn Sỹ, Q3, TP.HCM', 0, '1985-06-10', 'Doctor', 'doctor1', 'pass123', 'doctor1@gmail.com', 2.0, 1),
+(7, N'Vũ Văn Giang', '123456789007', '0901234567', N'147 Nguyễn Đình Chiểu, Q3, TP.HCM', 1, '1986-07-15', 'Doctor', 'doctor2', 'pass123', 'doctor2@gmail.com', 2.0, 1),
+(8, N'Mai Thị Hoa', '123456789008', '0901234568', N'258 Võ Văn Tần, Q3, TP.HCM', 0, '1987-08-20', 'Doctor', 'doctor3', 'pass123', 'doctor3@gmail.com', 2.0, 1),
+(9, N'Trịnh Văn Inh', '123456789009', '0901234569', N'369 Cách Mạng T8, Q3, TP.HCM', 1, '1988-09-25', 'Doctor', 'doctor4', 'pass123', 'doctor4@gmail.com', 2.0, 1),
+(10, N'Lý Thị Kim', '123456789010', '0901234570', N'147 Điện Biên Phủ, Q1, TP.HCM', 0, '1989-10-30', 'Doctor', 'doctor5', 'pass123', 'doctor5@gmail.com', 2.0, 1),
+(11, N'Ngô Văn Linh', '123456789011', '0901234571', N'258 Nguyễn Trãi, Q5, TP.HCM', 1, '1990-11-05', 'Doctor', 'doctor6', 'pass123', 'doctor6@gmail.com', 2.0, 1),
+(12, N'Phan Thị Mai', '123456789012', '0901234572', N'369 Lý Thường Kiệt, Q10, TP.HCM', 0, '1991-12-10', 'Doctor', 'doctor7', 'pass123', 'doctor7@gmail.com', 2.0, 11),
+(13, N'Đặng Văn Nam', '123456789013', '0901234573', N'147 Bà Hom, Q6, TP.HCM', 1, '1992-01-15', 'Doctor', 'doctor8', 'pass123', 'doctor8@gmail.com', 2.0, 1),
+(14, N'Bùi Thị Oanh', '123456789014', '0901234574', N'258 Hùng Vương, Q5, TP.HCM', 0, '1993-02-20', 'Doctor', 'doctor9', 'pass123', 'doctor9@gmail.com', 2.0, 11),
+(15, N'Hồ Văn Phát', '123456789015', '0901234575', N'369 Tân Kỳ Tân Quý, Q.TB, TP.HCM', 1, '1994-03-25', 'Doctor', 'doctor10', 'pass123', 'doctor10@gmail.com', 2.0, 1),
+(16, N'Trương Thị Quỳnh', '123456789016', '0901234576', N'147 Âu Cơ, Q.TB, TP.HCM', 0, '1995-04-30', 'Reception', 'recep4', 'pass123', 'recep4@gmail.com', 1.2, 1),
+(17, N'Lương Văn Rồng', '123456789017', '0901234577', N'258 Lạc Long Quân, Q11, TP.HCM', 1, '1996-05-05', 'Reception', 'recep5', 'pass123', 'recep5@gmail.com', 1.2, 1),
+(18, N'Dương Thị Sen', '123456789018', '0901234578', N'369 Hòa Bình, Q.TB, TP.HCM', 0, '1997-06-10', 'Reception', 'recep6', 'pass123', 'recep6@gmail.com', 1.2, 1),
+(19, N'Lại Văn Tâm', '123456789019', '0901234579', N'147 Trường Chinh, Q12, TP.HCM', 1, '1998-07-15', 'Admin', 'admin3', 'pass123', 'admin3@gmail.com', 1.5, 1),
+(20, N'Châu Thị Uyên', '123456789020', '0901234580', N'258 Quang Trung, Q.GV, TP.HCM', 0, '1999-08-20', 'Admin', 'admin4', 'pass123', 'admin4@gmail.com', 1.5, 1);
 /*DELETE FROM [users];
 DBCC CHECKIDENT ('users', RESEED, 0);*/
 
@@ -379,6 +359,33 @@ INSERT INTO patients (full_name, gender, age, phone_number, address) VALUES
 (N'Nguyễn Thị Mai', 0, 27, '0901234567', N'567 Lý Thường Kiệt, Quận 10');
 /*DELETE FROM patients;
 DBCC CHECKIDENT ('patients', RESEED, 0);*/
+
+--Lương
+INSERT INTO salaries (salary_id, user_id, basic_salary, bonus, fine, allowance, day) VALUES
+(1, 1, 5000000, 0, 500000, 0, '2024-09-01'),
+(2, 2, 4000000, 200000, 500000, 0, '2024-09-01'),
+(3, 3, 6000000, 0, 800000, 0, '2024-09-01'),
+(4, 4, 5500000, 300000, 800000, 0, '2024-09-01'),
+(5, 5, 7000000, 0, 1000000, 0, '2024-09-01'),
+(6, 6, 6500000, 200000, 1000000, 0, '2024-09-01'),
+(7, 7, 9000000, 0, 1500000, 0, '2024-09-01'),
+(8, 8, 8500000, 500000, 1500000, 0, '2024-09-01'),
+(9, 9, 12000000, 0, 2000000, 0, '2024-09-01'),
+(10, 10, 11500000, 200000, 2000000, 0, '2024-09-01'),
+(11, 11, 8000000, 0, 1200000, 0, '2024-09-01'),
+(12, 12, 7500000, 300000, 1200000, 0, '2024-09-01'),
+(13, 13, 10000000, 0, 1800000, 0, '2024-09-01'),
+(14, 14, 9500000, 400000, 1800000, 0, '2024-09-01'),
+(15, 15, 13000000, 0, 2500000, 0, '2024-09-01'),
+(16, 16, 12500000, 300000, 2500000, 0, '2024-09-01'),
+(17, 17, 15000000, 0, 3000000, 0, '2024-09-01'),
+(18, 18, 14500000, 500000, 3000000, 0, '2024-09-01'),
+(19, 19, 17000000, 0, 3500000, 0, '2024-09-01'),
+(20, 20, 16500000, 400000, 3500000, 0, '2024-09-01');
+
+/*DELETE FROM [salaries];
+DBCC CHECKIDENT ('salaries', RESEED, 0);*/
+
 
 --Lịch làm việc
 -- Tháng 9
@@ -584,21 +591,15 @@ INSERT INTO medical_records (diagnosis, treatment, symptoms, patient_id) VALUES
 DBCC CHECKIDENT ('medical_records', RESEED, 0);*/
 
 --Loại hàng tồn kho
-SET IDENTITY_INSERT [type_inventory] ON;
-
 INSERT INTO type_inventory (id, name) VALUES
 (1, N'Thuốc'),
 (2, N'Vật tư'),
 (3, N'Dụng cụ'),
 (4, N'Thiết bị');
-
-SET IDENTITY_INSERT [type_inventory] OFF;
 /*DELETE FROM type_inventory;
 DBCC CHECKIDENT ('type_inventory', RESEED, 0);*/
 
 --Hàng tồn kho
-SET IDENTITY_INSERT [inventory] ON;
-
 INSERT INTO inventory (id, name, category, quantity, unit, dosage, production_date, expiration_date, import_date, price, type_id) VALUES
 (1, N'Amocixillin', N'Kháng sinh', 50, N'Viên', N'500mg', '2024-06-01', '2025-12-01', '2024-06-15',10000, 1),
 (2, N'Amocixillin', N'Kháng sinh', 100, N'Viên', N'500mg', '2024-06-15', '2026-06-15', '2024-06-20',10000, 1),
@@ -642,13 +643,10 @@ INSERT INTO inventory (id, name, category, quantity, unit, dosage, production_da
 (37, N'Máy điều trị tủy', N'Thiết bị điều trị', 3, N'Máy', '', '2024-09-01', '2034-09-01', '2024-10-15', 20000000, 4),
 (38, N'Máy tẩy trắng răng', N'Thiết bị thẩm mỹ', 3, N'Máy', '', '2024-09-01', '2029-09-01', '2024-12-01', 12000000, 4);
 
-SET IDENTITY_INSERT [inventory] OFF;
 /*DELETE FROM inventory;
 DBCC CHECKIDENT ('inventory', RESEED, 0);*/
 
 --Đơn thuốc
-SET IDENTITY_INSERT [prescriptions] ON;	
-
 INSERT INTO prescriptions (id, day, patient_id, user_id) VALUES
 (1, '2024-10-01', 1, 6),
 (2, '2024-10-01', 2, 7),
@@ -671,7 +669,6 @@ INSERT INTO prescriptions (id, day, patient_id, user_id) VALUES
 (19, '2024-10-10', 19, 14),
 (20, '2024-10-10', 20, 15);
 
-SET IDENTITY_INSERT [prescriptions] OFF;
 /*DELETE FROM prescriptions;
 DBCC CHECKIDENT ('prescriptions', RESEED, 0);*/
 
@@ -925,8 +922,6 @@ DBCC CHECKIDENT ('treatments', RESEED, 0);*/
 
 
 --Hóa đơn
-SET IDENTITY_INSERT [invoices] ON;
-
 INSERT INTO invoices (id, payment_method, total_price, prescription_id, patient_id, date) VALUES
 (1, 0, 400000, 1, 1, '2024-09-01'),  -- Ngày tháng 9
 (2, 0, 480000, 17, 17, '2024-09-02'),  -- Ngày tháng 9
@@ -949,7 +944,6 @@ INSERT INTO invoices (id, payment_method, total_price, prescription_id, patient_
 (19, 1, 240000, 19, 19, '2024-10-24'),  -- Ngày tháng 10
 (20, 1, 195000, 20, 20, '2024-10-25'); -- Ngày tháng 10
 
-SET IDENTITY_INSERT [invoices] OFF;
 /*DELETE FROM invoices;
 DBCC CHECKIDENT ('invoices', RESEED, 0);*/
 
@@ -975,11 +969,10 @@ INSERT INTO invoice_details (invoice_id, service_id, quantity, unit_price) VALUE
 (18, 2, 5, 180000),
 (19, 2, 2, 100000),
 (20, 2, 1, 120000);
---*/
 GO
 
---Dành cho đăng nhập, quên mật khẩu
 
+--Dành cho đăng nhập, quên mật khẩu
 --Procedure kiểm tra đăng nhập
 CREATE PROCEDURE CheckLogin 
     @username VARCHAR(100), -- Tên người dùng
@@ -999,7 +992,7 @@ BEGIN
     -- Nếu người dùng tồn tại, lấy id và role
     IF @userCount > 0
     BEGIN
-        SELECT @id = user_id, @role = role 
+        SELECT @id = id, @role = role 
         FROM users 
         WHERE username = @username AND PASSWORD = @password;
     END
@@ -1029,9 +1022,11 @@ BEGIN
 	on users.user_id = doctors.user_id
 	left join doctor_specializations
 	on doctors.specialization_id = doctor_specializations.specialization_id
-    WHERE users.user_id = @userId;	
+    WHERE users.user_id = @userId;
 END;
 GO
+
+
 
 -- Procedurre lấy mật khẩu từ email và username
 CREATE PROCEDURE GetPasswordByEmailAndUsername
@@ -1100,30 +1095,29 @@ BEGIN
 	join doctor_specializations on doctors.specialization_id = doctor_specializations.specialization_id
     ORDER BY users.user_id;
 END;
-
 GO
 
 --Procedure danh sách lễ tân
 CREATE PROCEDURE GetRepceptionistList
 AS
 BEGIN
-    SELECT full_name, gender, email
+    SELECT *
     FROM users
 	join receptionists on users.user_id = receptionists.user_id
     ORDER BY users.user_id;
 END;
-
 GO
 
 --Procedure danh sách bệnh nhân
 CREATE PROCEDURE GetPatienttListForAdmin
 AS
 BEGIN
-    SELECT full_name, gender, age, phone_number, address
+    SELECT *
     FROM patients
 END;
 
 GO
+EXEC GetPatienttListForAdmin
 
 --Function đếm số lượng dữ liệu
 CREATE FUNCTION CountDoctors()
@@ -1178,6 +1172,7 @@ END;
 
 GO
 
+--Procedure cập nhật trạng thái
 CREATE PROCEDURE UpdateStatus
     @userId INT
 AS
@@ -1189,6 +1184,7 @@ END;
 
 GO
 
+--Procedure cập nhật thông tin bác sĩ
 CREATE PROCEDURE UpdateUserInfo
     @userId INT,
     @fullName NVARCHAR(255),
@@ -1197,9 +1193,9 @@ CREATE PROCEDURE UpdateUserInfo
     @address NVARCHAR(50),
     @gender BIT,
     @dob DATE,
-    @role NVARCHAR(10),
     @email NVARCHAR(50),
-    @salaryCoefficient FLOAT
+    @salaryCoefficient FLOAT,
+	@specializationID INT
 AS
 BEGIN
     UPDATE users 
@@ -1210,27 +1206,19 @@ BEGIN
         address = @address,
         gender = @gender,
         dob = @dob,
-        role = @role,
-        email = @email,
+        email = @email,	
         salary_coefficient = @salaryCoefficient
     WHERE user_id = @userId;
-END;
 
-GO
-
-CREATE PROCEDURE DeleteDoctor
-    @userId INT
-AS
-BEGIN
-	DELETE FROM doctors
-    WHERE user_id = @userId;
-
-    DELETE FROM users
+	UPDATE doctors
+    SET 
+        specialization_id = @specializationID
     WHERE user_id = @userId;
 END;
 
 GO
 
+--Hàm tự tạo tên đăng nhập
 CREATE FUNCTION GenerateDoctorUsername()
 RETURNS NVARCHAR(50)
 AS
@@ -1249,6 +1237,7 @@ END;
 
 GO
 
+--Hàm thêm bác sĩ
 CREATE PROCEDURE AddDoctor
     @fullName NVARCHAR(255),    -- Họ tên
     @citizenId NVARCHAR(12),    -- Số CCCD
@@ -1256,7 +1245,6 @@ CREATE PROCEDURE AddDoctor
     @address NVARCHAR(50),       -- Địa chỉ
     @gender BIT,                 -- Giới tính (0 cho nữ, 1 cho nam)
     @dob DATE,                   -- Ngày sinh
-    @role NVARCHAR(10),          -- Chức vụ
     @email NVARCHAR(50),         -- Email
     @salaryCoefficient FLOAT,     -- Hệ số lương
 	@specializationId INT
@@ -1270,31 +1258,146 @@ BEGIN
     SELECT @newId = ISNULL(MAX(user_id), 0) + 1 FROM users;
 	SET @username = dbo.GenerateDoctorUsername();
 
-    INSERT INTO users (user_id, full_name, citizen_id, phone_number, address, gender, dob, role, username, password, email, salary_coefficient, salary_id, status)
-    VALUES (@newId, @fullName, @citizenId, @phoneNumber, @address, @gender, @dob, @role, @username, @password, @email, @salaryCoefficient, @newId, 1);
+    INSERT INTO users (user_id, full_name, citizen_id, phone_number, address, gender, dob, role, username, password, email, salary_coefficient, status)
+    VALUES (@newId, @fullName, @citizenId, @phoneNumber, @address, @gender, @dob, 'Doctor', @username, @password, @email, @salaryCoefficient, 1);
 
 	INSERT INTO doctors (user_id, specialization_id)
     VALUES (@newId, @specializationId);
 END;
+GO
+
+--Procedure lấy thông tin lễ tân
+CREATE PROCEDURE GetEeceptionistInfo
+    @userId INT -- Tham số đầu vào là ID của người dùng
+AS
+BEGIN
+    -- Kiểm tra xem ID có hợp lệ không
+    IF @userId IS NULL
+    BEGIN
+        RAISERROR('User ID cannot be NULL', 16, 1);
+        RETURN;
+    END
+
+    -- Lấy thông tin người dùng từ bảng users
+    SELECT * 
+    FROM users join receptionists
+	on users.user_id = receptionists.user_id
+    WHERE users.user_id = @userId;
+END;
+GO
+
+--Procedure cập nhật thông tin lễ tân
+CREATE PROCEDURE UpdateReceptionistInfo
+    @userId INT,
+    @fullName NVARCHAR(255),
+    @citizenId NVARCHAR(12),
+    @phoneNumber NVARCHAR(10),
+    @address NVARCHAR(50),
+    @gender BIT,
+    @dob DATE,
+    @email NVARCHAR(50),
+    @salaryCoefficient FLOAT
+AS
+BEGIN
+    UPDATE users 
+    SET 
+        full_name = @fullName,
+        citizen_id = @citizenId,
+        phone_number = @phoneNumber,
+        address = @address,
+        gender = @gender,
+        dob = @dob,
+        email = @email,	
+        salary_coefficient = @salaryCoefficient
+    WHERE user_id = @userId;
+END;
 
 GO
 
+--Hàm tự tạo tên đăng nhập
+CREATE FUNCTION GenerateReceptionistUsername()
+RETURNS NVARCHAR(50)
+AS
+BEGIN
+    DECLARE @receptionistCount INT;
+    DECLARE @username NVARCHAR(50);
 
+    -- Tính toán số lượng bác sĩ hiện tại
+    SELECT @receptionistCount = COUNT(*) FROM receptionists;
 
+    -- Tạo tên đăng nhập
+    SET @username = 'recep' + CAST(@receptionistCount + 1 AS NVARCHAR(10));
 
+    RETURN @username;
+END;
 
+GO
 
+--Procedure thêm lễ tân
+CREATE PROCEDURE AddReceptionist
+    @fullName NVARCHAR(255),    -- Họ tên
+    @citizenId NVARCHAR(12),    -- Số CCCD
+    @phoneNumber NVARCHAR(10),   -- Số điện thoại
+    @address NVARCHAR(50),       -- Địa chỉ
+    @gender BIT,                 -- Giới tính (0 cho nữ, 1 cho nam)
+    @dob DATE,                   -- Ngày sinh
+    @email NVARCHAR(50),         -- Email
+    @salaryCoefficient FLOAT     -- Hệ số lương
+AS
+BEGIN
+    DECLARE @newId INT;
+	DECLARE @doctorCount INT;
+    DECLARE @username NVARCHAR(50);
+    DECLARE @password NVARCHAR(50) = 'pass123';
 
+    SELECT @newId = ISNULL(MAX(user_id), 0) + 1 FROM users;
+	SET @username = dbo.GenerateReceptionistUsername();
 
+    INSERT INTO users (user_id, full_name, citizen_id, phone_number, address, gender, dob, role, username, password, email, salary_coefficient, status)
+    VALUES (@newId, @fullName, @citizenId, @phoneNumber, @address, @gender, @dob, 'Reception', @username, @password, @email, @salaryCoefficient, 1);
 
+	INSERT INTO receptionists(user_id)
+	VALUES (@newId);
+END;
+GO
 
+--Procedure lấy thông tin bệnh nhân
+CREATE PROCEDURE GetPatientInfo
+    @userId INT -- Tham số đầu vào là ID của người dùng
+AS
+BEGIN
+    -- Kiểm tra xem ID có hợp lệ không
+    IF @userId IS NULL
+    BEGIN
+        RAISERROR('User ID cannot be NULL', 16, 1);
+        RETURN;
+    END
 
+    -- Lấy thông tin người dùng từ bảng users
+    SELECT * 
+    FROM patients
+    WHERE patients.id = @userId;
+END;
+GO
 
-
-
-
-
-
-
+--Procedure cập nhật thông tin bệnh nhân
+CREATE PROCEDURE UpdatePatientInfo
+    @userId INT,
+    @fullName NVARCHAR(255),
+    @phoneNumber NVARCHAR(10),
+    @address NVARCHAR(50),
+    @gender BIT,
+    @age INT
+AS
+BEGIN
+    UPDATE patients 
+    SET 
+        full_name = @fullName,
+        phone_number = @phoneNumber,
+        address = @address,
+        gender = @gender,
+        age = @age
+    WHERE id = @userId;
+END;
 
 

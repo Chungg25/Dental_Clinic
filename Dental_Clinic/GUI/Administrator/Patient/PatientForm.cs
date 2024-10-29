@@ -1,26 +1,23 @@
 ﻿using CustomButton;
+using Dental_Clinic.BUS.Admin;
+using Dental_Clinic.BUS.Patient;
+using Dental_Clinic.DTO.Patient;
 using Dental_Clinic.GUI.Administrator.Patient;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Dental_Clinic.GUI.Administrator
 {
     public partial class PatientForm : Form
     {
         private MainForm _mainForm;
+        private PatientBUS _patientBUS;
         public PatientForm(MainForm mainForm)
         {
             InitializeComponent();
-            CreateTableLayoutPanel();
             _mainForm = mainForm;
+            _patientBUS = new PatientBUS();
+            List<PatientDTO> patients = _patientBUS.GetPatientList();
+            CreateTableLayoutPanel(patients);
 
             vbBenhNhan.FlatStyle = FlatStyle.Flat;
             vbBenhNhan.FlatAppearance.BorderSize = 0;
@@ -42,6 +39,7 @@ namespace Dental_Clinic.GUI.Administrator
             tbTimKiem.ForeColor = Color.Gray;
             tbTimKiem.Enter += tbTimKiem_Enter;
             tbTimKiem.Leave += tbTimKiem_Leave;
+            tbTimKiem.TextChanged += tbTimKiem_TextChanged;
         }
 
         //Phần này để chỉnh sửa các control
@@ -104,7 +102,7 @@ namespace Dental_Clinic.GUI.Administrator
 
 
         // Hàm thêm các nút hành động (chỉnh sửa và xóa)
-        private void AddActionButtonsToTableLayoutPanel(TableLayoutPanel tlpUser, int rowIndex)
+        private void AddActionButtonsToTableLayoutPanel(TableLayoutPanel tlpUser, int rowIndex, int id)
         {
             Image ResizeImage(Image img, int width, int height)
             {
@@ -113,24 +111,24 @@ namespace Dental_Clinic.GUI.Administrator
 
             // Đặt icon cho nút chỉnh sửa và xóa từ Resources
             Image editIcon = ResizeImage(Properties.Resources.icons8_edit_64__2_, 30, 30);
-            Image deleteIcon = ResizeImage(Properties.Resources.trash_bin, 25, 25);
+            //Image deleteIcon = ResizeImage(Properties.Resources.trash_bin, 25, 25);
 
             // Tạo các nút
             Color editEditColor = ColorTranslator.FromHtml("#0d6efd");
             Button btnEdit = CreateActionButton(editEditColor, editIcon);
-            Color editDeleteColor = ColorTranslator.FromHtml("#dc3545");
-            Button btnDelete = CreateActionButton(editDeleteColor, deleteIcon);
+            //Color editDeleteColor = ColorTranslator.FromHtml("#dc3545");
+            //Button btnDelete = CreateActionButton(editDeleteColor, deleteIcon);
 
             // Thêm sự kiện Click
-            btnEdit.Click += (s, e) => { ShowEditPatientInPanel(); };
-            btnDelete.Click += (s, e) => { MessageBox.Show("Xóa"); };
+            btnEdit.Click += (s, e) => { ShowEditPatientInPanel(id); };
+            //btnDelete.Click += (s, e) => { MessageBox.Show("Xóa"); };
 
             // Tạo một Panel để chứa 2 nút
             FlowLayoutPanel panelActions = new FlowLayoutPanel
             {
                 Dock = DockStyle.Fill,
                 Margin = new Padding(0),
-                Padding = new Padding(15, 0, 0, 0),
+                Padding = new Padding(5, 0, 0, 0),
                 AutoSize = true,
                 FlowDirection = FlowDirection.LeftToRight, // Sắp xếp các điều khiển theo chiều ngang
                 WrapContents = false
@@ -138,14 +136,14 @@ namespace Dental_Clinic.GUI.Administrator
 
             // Thêm các nút vào panel
             panelActions.Controls.Add(btnEdit);
-            panelActions.Controls.Add(btnDelete);
+            //panelActions.Controls.Add(btnDelete);
 
             // Thêm Panel vào cột thao tác của hàng hiện tại
             tlpUser.Controls.Add(panelActions, 6, rowIndex);
         }
 
         // Hàm để thêm hàng mới vào TableLayoutPanel
-        private void AddRowToTableLayoutPanel(TableLayoutPanel tlpUser, string stt, string tenNguoiDung, string gioiTinh, string age, string phone, string address)
+        private void AddRowToTableLayoutPanel(TableLayoutPanel tlpUser, string stt, string tenNguoiDung, string gioiTinh, string age, string phone, string address, int id)
         {
             int currentRow = tlpUser.RowCount++; // Tăng số lượng hàng
 
@@ -156,17 +154,24 @@ namespace Dental_Clinic.GUI.Administrator
             tlpUser.Controls.Add(CreateLabel(age, headerFont), 3, currentRow);
             tlpUser.Controls.Add(CreateLabel(phone, headerFont), 4, currentRow); // Thêm CheckBox
             tlpUser.Controls.Add(CreateLabel(address, headerFont), 5, currentRow); // Thêm CheckBox
-            AddActionButtonsToTableLayoutPanel(tlpUser, currentRow);
+            AddActionButtonsToTableLayoutPanel(tlpUser, currentRow, id);
         }
 
         // Hàm tạo TableLayoutPanel và gọi hàm AddRowToTableLayoutPanel để thêm dữ liệu
-        private void CreateTableLayoutPanel()
+        private void CreateTableLayoutPanel(List<PatientDTO> patients)
         {
+            if (panelBenhNhan.Controls.Count > 0)
+            {
+                // Xóa các control trong panelBacSi, bao gồm TableLayoutPanel cũ
+                panelBenhNhan.Controls.Clear();
+            }
+            
             // Tạo TableLayoutPanel
             TableLayoutPanel tlpUser = new TableLayoutPanel
             {
-                Dock = DockStyle.Fill,
-                AutoSize = false,
+                Dock = DockStyle.Top,
+                AutoSize = true,
+                AutoSizeMode = AutoSizeMode.GrowAndShrink
             };
 
             // Thiết lập số cột
@@ -178,7 +183,7 @@ namespace Dental_Clinic.GUI.Administrator
 
             // Thiết lập số hàng và thêm các Label tiêu đề vào hàng đầu tiên
             tlpUser.RowCount = 1;
-            Font headerFont = new Font("Arial", 12, FontStyle.Bold);
+            Font headerFont = new Font("Arial", 10, FontStyle.Bold);
             tlpUser.Controls.Add(CreateLabel("STT", headerFont), 0, 0);
             tlpUser.Controls.Add(CreateLabel("Tên người dùng", headerFont), 1, 0);
             tlpUser.Controls.Add(CreateLabel("Giới tính", headerFont), 2, 0);
@@ -187,16 +192,52 @@ namespace Dental_Clinic.GUI.Administrator
             tlpUser.Controls.Add(CreateLabel("Địa chỉ", headerFont), 5, 0);
             tlpUser.Controls.Add(CreateLabel("Thao tác", headerFont), 6, 0);
 
-            // Thêm TableLayoutPanel vào form
-            panelBenhNhan.Controls.Add(tlpUser);
+            Panel scrollablePanel = new Panel
+            {
+                Dock = DockStyle.Fill,
+                AutoScroll = true,
+            };
+            scrollablePanel.Controls.Add(tlpUser);
 
-            // Thêm một hàng mẫu
-            AddRowToTableLayoutPanel(tlpUser, "1", "Nguyễn Văn A", "Nam", "20", "012345", "56 Cách Mạng Tháng Tám, Quận 10");
+            // Thêm Panel vào form
+            panelBenhNhan.Controls.Add(scrollablePanel);
+
+            //// Thêm một hàng mẫu
+            int sequenceNumber = 1;
+            foreach (var patient in patients)
+            {
+                string genderText = patient.Gender ? "Nam" : "Nữ";
+                AddRowToTableLayoutPanel(tlpUser, sequenceNumber.ToString(), patient.Full_name, genderText, patient.Age.ToString(), patient.Phone, patient.Address, patient.Id);
+                sequenceNumber++;
+            }
         }
 
         private string ToTitleCase(string text)
         {
             return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(text.ToLower());
+        }
+        private void tbTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            // Lấy nội dung tìm kiếm từ tbTimKiem
+            string searchText = tbTimKiem.Text.ToLower();
+
+            // Lấy danh sách bác sĩ từ doctorBUS
+            var patientList = _patientBUS.GetPatientList();
+
+            if (string.IsNullOrWhiteSpace(searchText))
+            {
+                // Nếu ô tìm kiếm trống, không tạo bảng mới
+                return;
+            }
+
+            // Lọc danh sách theo họ tên
+            var filteredList = patientList
+                .Where(d => d.Full_name.ToLower().Contains(searchText))
+                .ToList();
+            if (filteredList.Any())
+            {
+                CreateTableLayoutPanel(filteredList);
+            }    
         }
 
 
@@ -217,9 +258,9 @@ namespace Dental_Clinic.GUI.Administrator
             addPatientForm.Show();
         }
 
-        public void ShowEditPatientInPanel()
+        public void ShowEditPatientInPanel(int id)
         {
-            EditPatientForm editPatientForm = new EditPatientForm(_mainForm);
+            EditPatientForm editPatientForm = new EditPatientForm(_mainForm, _patientBUS.GetPatientInfo(id));
             editPatientForm.TopLevel = false;
             editPatientForm.FormBorderStyle = FormBorderStyle.None;
             editPatientForm.Dock = DockStyle.Fill;
@@ -227,9 +268,6 @@ namespace Dental_Clinic.GUI.Administrator
             editPatientForm.BringToFront();
             editPatientForm.Show();
         }
-
-
-
         //Kết thúc
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dental_Clinic.DTO.Admin
 {
-    public class DoctorDTO
+    public class ReceptionistDTO
     {
         public int Id { get; set; }
         public string Full_name { get; set; }
@@ -19,7 +19,6 @@ namespace Dental_Clinic.DTO.Admin
         public string Password { get; set; }
         public string Email { get; set; }
         public float Salary_coefficient { get; set; }
-        public string Specialization_name { get; set; }
         public int Status { get; set; }
     }
 }

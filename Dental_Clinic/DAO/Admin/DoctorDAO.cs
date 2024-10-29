@@ -18,41 +18,60 @@ namespace Dental_Clinic.DAO.Admin
             List<DoctorDTO> doctorList = new List<DoctorDTO>();
             DatabaseConnection dbConnection = new DatabaseConnection();
 
-            using (SqlCommand cmd = new SqlCommand("GetDoctorList", dbConnection.Conn))
+            try
             {
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                using (SqlDataReader reader = cmd.ExecuteReader())
+                using (SqlCommand cmd = new SqlCommand("GetDoctorList", dbConnection.Conn))
                 {
-                    while (reader.Read())
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        DoctorDTO doctor = new DoctorDTO
+                        while (reader.Read())
                         {
-                            Id = Convert.ToInt32(reader["user_id"]),
-                            Full_name = reader["full_name"].ToString(),
-                            Citizen_id = reader["citizen_id"]?.ToString(),
-                            Phone = reader["phone_number"]?.ToString(),
-                            Address = reader["address"]?.ToString(),
-                            Gender = Convert.ToBoolean(reader["gender"]),
-                            Dob = Convert.ToDateTime(reader["dob"]),
-                            Role = reader["role"]?.ToString(),
-                            Username = reader["username"]?.ToString(),
-                            Password = reader["password"]?.ToString(),
-                            Email = reader["email"]?.ToString(),
-                            Salary_coefficient = Convert.ToSingle(reader["salary_coefficient"]),
-                            Salary_id = Convert.ToInt32(reader["salary_id"]),
-                            Specialization_name = reader["specialization_name"]?.ToString(),
-                            Status = Convert.ToInt32(reader["status"])
-                        };
-                        doctorList.Add(doctor);
+                            DoctorDTO doctor = new DoctorDTO
+                            {
+                                Id = Convert.ToInt32(reader["user_id"]),
+                                Full_name = reader["full_name"].ToString(),
+                                Citizen_id = reader["citizen_id"]?.ToString(),
+                                Phone = reader["phone_number"]?.ToString(),
+                                Address = reader["address"]?.ToString(),
+                                Gender = Convert.ToBoolean(reader["gender"]),
+                                Dob = Convert.ToDateTime(reader["dob"]),
+                                Username = reader["username"]?.ToString(),
+                                Password = reader["password"]?.ToString(),
+                                Email = reader["email"]?.ToString(),
+                                Salary_coefficient = Convert.ToSingle(reader["salary_coefficient"]),
+                                Specialization_name = reader["specialization_name"]?.ToString(),
+                                Status = Convert.ToInt32(reader["status"])
+                            };
+                            doctorList.Add(doctor);
+                        }
                     }
                 }
+            }
+            catch (SqlException sqlEx)
+            {
+                // Xử lý lỗi SQL
+                Console.WriteLine($"SQL Error: {sqlEx.Message}");
+                // Có thể ném ngoại lệ hoặc ghi log lỗi ở đây
+            }
+            catch (Exception ex)
+            {
+                // Xử lý các lỗi khác
+                Console.WriteLine($"Error: {ex.Message}");
+                // Có thể ném ngoại lệ hoặc ghi log lỗi ở đây
+            }
+            finally
+            {
+                // Đảm bảo đóng kết nối trong mọi trường hợp
                 dbConnection.CloseConnection();
             }
+
             return doctorList;
         }
 
-        public static void UpdateStatus(int userID)
+
+        public void UpdateStatus(int userID)
         {
             DatabaseConnection dbConnection = new DatabaseConnection();
             using (SqlCommand cmd = new SqlCommand("UpdateStatus", dbConnection.Conn))
@@ -66,7 +85,7 @@ namespace Dental_Clinic.DAO.Admin
 
         public DoctorDTO GetDoctorInfo(int id)
         {
-            DoctorDTO doctor = null;
+            DoctorDTO doctor = new DoctorDTO();
             DatabaseConnection dbConnection = new DatabaseConnection();
 
             using (SqlCommand cmd = new SqlCommand("GetUserInfo", dbConnection.Conn))
@@ -77,7 +96,7 @@ namespace Dental_Clinic.DAO.Admin
 
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
-                    while (reader.Read())
+                    if (reader.Read())
                     {
                         doctor = new DoctorDTO
                         {
@@ -88,14 +107,17 @@ namespace Dental_Clinic.DAO.Admin
                             Address = reader["address"]?.ToString(),
                             Gender = Convert.ToBoolean(reader["gender"]),
                             Dob = Convert.ToDateTime(reader["dob"]),
-                            Role = reader["role"]?.ToString(),
                             Username = reader["username"]?.ToString(),
                             Password = reader["password"]?.ToString(),
                             Email = reader["email"]?.ToString(),
                             Salary_coefficient = Convert.ToSingle(reader["salary_coefficient"]),
-                            Salary_id = Convert.ToInt32(reader["salary_id"]),
-                            Status = Convert.ToInt32(reader["status"])
+                            Status = Convert.ToInt32(reader["status"]),
+                            Specialization_name = reader["specialization_name"]?.ToString()
                         };
+                    }
+                    else
+                    {
+                        throw new Exception($"Doctor with ID {id} not found."); // Ném ngoại lệ
                     }
                 }
                 dbConnection.CloseConnection();
@@ -118,26 +140,40 @@ namespace Dental_Clinic.DAO.Admin
                 cmd.Parameters.AddWithValue("@address", doctor.Address);
                 cmd.Parameters.AddWithValue("@gender", doctor.Gender);
                 cmd.Parameters.AddWithValue("@dob", doctor.Dob);
-                cmd.Parameters.AddWithValue("@role", doctor.Role);
                 cmd.Parameters.AddWithValue("@email", doctor.Email);
                 cmd.Parameters.AddWithValue("@salaryCoefficient", doctor.Salary_coefficient);
+                cmd.Parameters.AddWithValue("@specializationID", ConvertSpecializationToId(doctor.Specialization_name));
 
                 cmd.ExecuteNonQuery();
                 dbConnection.Conn.Close();
             }
         }
 
-        public void DeleteDoctor(int id)
+        public int ConvertSpecializationToId(string specializationName)
         {
-            DatabaseConnection dbConnection = new DatabaseConnection();
-            using (SqlCommand cmd = new SqlCommand("DeleteDoctor", dbConnection.Conn))
+            // Danh sách các chuyên ngành
+            string[] specializations = new string[]
             {
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@userId", id);
-                cmd.ExecuteNonQuery();
-                dbConnection.Conn.Close();
+                "Nha chu",
+                "Nhổ răng và tiểu phẫu",
+                "Phục hình",
+                "Chữa răng và nội nha",
+                "Răng trẻ em",
+                "Tổng quát"
+            };
+
+            // Tìm chỉ số của chuyên ngành trong danh sách
+            for (int i = 0; i < specializations.Length; i++)
+            {
+                if (specializations[i] == specializationName)
+                {
+                    return i + 1;
+                }
             }
+
+            return -1;
         }
+
 
         public void AddDoctor(DoctorDTO doctor)
         {
@@ -153,44 +189,48 @@ namespace Dental_Clinic.DAO.Admin
                 cmd.Parameters.AddWithValue("@address", doctor.Address);
                 cmd.Parameters.AddWithValue("@gender", doctor.Gender);
                 cmd.Parameters.AddWithValue("@dob", doctor.Dob);
-                cmd.Parameters.AddWithValue("@role", doctor.Role);
                 cmd.Parameters.AddWithValue("@email", doctor.Email);
                 cmd.Parameters.AddWithValue("@salaryCoefficient", doctor.Salary_coefficient);
-                cmd.Parameters.AddWithValue("@specializationId", GetSpecializationValue(doctor.Specialization_name));
 
+                cmd.Parameters.AddWithValue("@specializationId", ConvertSpecializationNameToAdjustedId(doctor.Specialization_name));
                 cmd.ExecuteNonQuery();
                 dbConnection.Conn.Close();
             }
         }
 
-        public int GetSpecializationValue(string specializationId)
+        public int ConvertSpecializationNameToAdjustedId(string specialization_name)
         {
-            int selectedValue;
-            switch (specializationId)
+            int specializationId;
+            if (specialization_name == "0")
             {
-                case "Chữa răng và nội nha":
-                    selectedValue = 1;
-                    break;
-                case "Nha chu":
-                    selectedValue = 2;
-                    break;
-                case "Nhổ răng và tiểu phẫu":
-                    selectedValue = 3;
-                    break;
-                case "Phục hình":
-                    selectedValue = 4;
-                    break;
-                case "Răng trẻ em":
-                    selectedValue = 5;
-                    break;
-                case "Tổng quát":
-                    selectedValue = 6;
-                    break;
-                default:
-                    selectedValue = 0; // Không có mục nào được chọn
-                    break;
+                specializationId = 1; // Chuyển "0" thành 1
             }
-            return selectedValue;
+            else if (specialization_name == "1")
+            {
+                specializationId = 2; // Chuyển "1" thành 2
+            }
+            else if (specialization_name == "2")
+            {
+                specializationId = 3; // Chuyển "2" thành 3
+            }
+            else if (specialization_name == "3")
+            {
+                specializationId = 4; // Chuyển "3" thành 4
+            }
+            else if (specialization_name == "4")
+            {
+                specializationId = 5; // Chuyển "4" thành 5
+            }
+            else if (specialization_name == "5")
+            {
+                specializationId = 6; // Chuyển "5" thành 6
+            }
+            else
+            {
+                specializationId = -1; 
+            }
+            return specializationId;
         }
+
     }
 }

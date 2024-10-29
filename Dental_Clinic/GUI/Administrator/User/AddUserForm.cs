@@ -3,8 +3,11 @@ using Dental_Clinic.DTO.Admin;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using Dental_Clinic.BUS.Admin;
+using Dental_Clinic.DTO.Admin;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -62,14 +65,10 @@ namespace Dental_Clinic.GUI.Administrator.User
 
             dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
 
-            cbChucVu.Items.Add("Doctor");
-            cbChucVu.Items.Add("Reception");
-            cbChucVu.Items.Add("Admin");
-
-            cbChuyenNganh.Items.Add("Chữa răng và nội nha");
             cbChuyenNganh.Items.Add("Nha chu");
             cbChuyenNganh.Items.Add("Nhổ răng và tiểu phẫu");
             cbChuyenNganh.Items.Add("Phục hình");
+            cbChuyenNganh.Items.Add("Chữa răng và nội nha");
             cbChuyenNganh.Items.Add("Răng trẻ em");
             cbChuyenNganh.Items.Add("Tổng quát");
         }
@@ -85,10 +84,9 @@ namespace Dental_Clinic.GUI.Administrator.User
             doctorDTO.Email = tbEmail.Text;
             doctorDTO.Phone = tbSĐT.Text;
             doctorDTO.Citizen_id = tbCCCD.Text;
-            doctorDTO.Gender = cbGioiTinh.SelectedItem.ToString() == "Nam" ? true : false;
+            doctorDTO.Gender = cbGioiTinh.SelectedItem.ToString() == "Nam"; // Cập nhật giới tính
             doctorDTO.Dob = dtpNgaySinh.Value; // Ngày sinh
             doctorDTO.Address = tbQueQuan.Text;
-            doctorDTO.Role = cbChucVu.SelectedItem.ToString();
             doctorDTO.Specialization_name = cbChuyenNganh.SelectedIndex.ToString();
 
             doctorBUS.AddDoctor(doctorDTO);
@@ -166,16 +164,6 @@ namespace Dental_Clinic.GUI.Administrator.User
             else
             {
                 vbGioiTinh.BorderColor = Color.White; // Đặt màu nền mặc định
-            }
-
-            if (cbChucVu.SelectedItem == null)
-            {
-                vbChucVu.BorderColor = Color.Red; // Đặt màu nền cho ComboBox khi không chọn
-                isValid = false;
-            }
-            else
-            {
-                vbChucVu.BorderColor = Color.Black; // Đặt màu nền mặc định
             }
 
             if (cbChuyenNganh.SelectedItem == null)

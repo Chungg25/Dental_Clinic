@@ -12,7 +12,7 @@ namespace Dental_Clinic.GUI.Receptionist
 {
     public partial class MainForm : Form
     {
-        public MainForm()
+        public MainForm(DTO.Admin.UserDTO userDTO)
         {
             InitializeComponent();
         }

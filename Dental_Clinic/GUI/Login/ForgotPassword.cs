@@ -29,7 +29,7 @@ namespace Dental_Clinic.GUI.Login
         }
         private void ForgotPassword_Load(object sender, EventArgs e)
         {
-
+            tbUsername.Focus();
         }
         // Sự kiện Enter để xác nhận
         private void txtEmail_KeyDown(object sender, KeyEventArgs e)
@@ -134,7 +134,6 @@ namespace Dental_Clinic.GUI.Login
                     Password = userInfo["PASSWORD"].ToString(),
                     Email = userInfo["email"].ToString(),
                     Salary_coefficient = Convert.ToSingle(userInfo["salary_coefficient"]),
-                    Salary_id = (int)userInfo["salary_id"]
                 };
 
                 //Điều hướng người dùng dựa vào role

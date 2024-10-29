@@ -12,14 +12,9 @@ namespace Dental_Clinic.GUI.Doctor
 {
     public partial class MainForm : Form
     {
-        public MainForm()
+        public MainForm(DTO.Admin.UserDTO userDTO)
         {
             InitializeComponent();
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

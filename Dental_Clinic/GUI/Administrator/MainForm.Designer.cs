@@ -56,7 +56,7 @@ namespace Dental_Clinic.GUI.Administrator
             panelOption = new Panel();
             label11 = new Label();
             pictureBox12 = new PictureBox();
-            label10 = new Label();
+            lbDangXuat = new Label();
             label9 = new Label();
             pictureBox10 = new PictureBox();
             pictureBox11 = new PictureBox();
@@ -100,9 +100,10 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             picDash.BackColor = SystemColors.Window;
             picDash.Image = (Image)resources.GetObject("picDash.Image");
-            picDash.Location = new Point(36, 3);
+            picDash.Location = new Point(60, 19);
             picDash.Name = "picDash";
-            picDash.Size = new Size(236, 125);
+            picDash.Size = new Size(177, 107);
+            picDash.SizeMode = PictureBoxSizeMode.Zoom;
             picDash.TabIndex = 3;
             picDash.TabStop = false;
             picDash.Click += picDash_Click;
@@ -138,61 +139,74 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             // pictureBox7
             // 
+            pictureBox7.Cursor = Cursors.Hand;
             pictureBox7.Image = Resources.icons8_total_sales_50;
             pictureBox7.Location = new Point(22, 579);
             pictureBox7.Name = "pictureBox7";
             pictureBox7.Size = new Size(54, 52);
+            pictureBox7.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox7.TabIndex = 15;
             pictureBox7.TabStop = false;
             // 
             // pictureBox6
             // 
+            pictureBox6.Cursor = Cursors.Hand;
             pictureBox6.Image = Resources.icons8_sales_performance_50;
             pictureBox6.Location = new Point(22, 683);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(54, 52);
+            pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox6.TabIndex = 14;
             pictureBox6.TabStop = false;
             // 
             // pictureBox5
             // 
+            pictureBox5.Cursor = Cursors.Hand;
             pictureBox5.Image = Resources.icons8_medical_50;
             pictureBox5.Location = new Point(22, 475);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(54, 48);
+            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox5.TabIndex = 13;
             pictureBox5.TabStop = false;
             // 
             // pictureBox4
             // 
+            pictureBox4.Cursor = Cursors.Hand;
             pictureBox4.Image = Resources.icons8_schedule_50;
             pictureBox4.Location = new Point(22, 380);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(54, 48);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox4.TabIndex = 12;
             pictureBox4.TabStop = false;
             // 
             // pictureBox3
             // 
+            pictureBox3.Cursor = Cursors.Hand;
             pictureBox3.Image = Resources.icons8_recovery_50;
             pictureBox3.Location = new Point(22, 282);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(54, 48);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 11;
             pictureBox3.TabStop = false;
             // 
             // pictureBox1
             // 
+            pictureBox1.Cursor = Cursors.Hand;
             pictureBox1.Image = Resources.icons8_group_50;
             pictureBox1.Location = new Point(19, 181);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(57, 48);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
             // 
             // lbLuong
             // 
             lbLuong.AutoSize = true;
+            lbLuong.Cursor = Cursors.Hand;
             lbLuong.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbLuong.Location = new Point(85, 698);
             lbLuong.Name = "lbLuong";
@@ -204,6 +218,7 @@ namespace Dental_Clinic.GUI.Administrator
             // lbDoanhThu
             // 
             lbDoanhThu.AutoSize = true;
+            lbDoanhThu.Cursor = Cursors.Hand;
             lbDoanhThu.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbDoanhThu.Location = new Point(85, 592);
             lbDoanhThu.Name = "lbDoanhThu";
@@ -215,6 +230,7 @@ namespace Dental_Clinic.GUI.Administrator
             // lbVatTu
             // 
             lbVatTu.AutoSize = true;
+            lbVatTu.Cursor = Cursors.Hand;
             lbVatTu.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbVatTu.Location = new Point(85, 488);
             lbVatTu.Name = "lbVatTu";
@@ -226,6 +242,7 @@ namespace Dental_Clinic.GUI.Administrator
             // lbLichLamViec
             // 
             lbLichLamViec.AutoSize = true;
+            lbLichLamViec.Cursor = Cursors.Hand;
             lbLichLamViec.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbLichLamViec.Location = new Point(85, 393);
             lbLichLamViec.Name = "lbLichLamViec";
@@ -237,6 +254,7 @@ namespace Dental_Clinic.GUI.Administrator
             // lbBenhNhan
             // 
             lbBenhNhan.AutoSize = true;
+            lbBenhNhan.Cursor = Cursors.Hand;
             lbBenhNhan.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbBenhNhan.Location = new Point(85, 292);
             lbBenhNhan.Name = "lbBenhNhan";
@@ -248,6 +266,7 @@ namespace Dental_Clinic.GUI.Administrator
             // lbUser
             // 
             lbUser.AutoSize = true;
+            lbUser.Cursor = Cursors.Hand;
             lbUser.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbUser.Location = new Point(85, 195);
             lbUser.Name = "lbUser";
@@ -275,6 +294,7 @@ namespace Dental_Clinic.GUI.Administrator
             // lbNgonNgu
             // 
             lbNgonNgu.AutoSize = true;
+            lbNgonNgu.Cursor = Cursors.Hand;
             lbNgonNgu.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbNgonNgu.ForeColor = SystemColors.ButtonHighlight;
             lbNgonNgu.Location = new Point(507, 34);
@@ -286,6 +306,7 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             // pictureBox13
             // 
+            pictureBox13.Cursor = Cursors.Hand;
             pictureBox13.Image = Resources.icons8_language_50;
             pictureBox13.Location = new Point(456, 23);
             pictureBox13.Name = "pictureBox13";
@@ -297,6 +318,7 @@ namespace Dental_Clinic.GUI.Administrator
             // lbTen
             // 
             lbTen.AutoSize = true;
+            lbTen.Cursor = Cursors.Hand;
             lbTen.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbTen.ForeColor = SystemColors.ButtonHighlight;
             lbTen.Location = new Point(950, 35);
@@ -307,6 +329,7 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             // picUser
             // 
+            picUser.Cursor = Cursors.Hand;
             picUser.Image = Resources.icons8_admin_40;
             picUser.Location = new Point(899, 23);
             picUser.Name = "picUser";
@@ -319,6 +342,7 @@ namespace Dental_Clinic.GUI.Administrator
             // lbChuDe
             // 
             lbChuDe.AutoSize = true;
+            lbChuDe.Cursor = Cursors.Hand;
             lbChuDe.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbChuDe.ForeColor = SystemColors.ButtonHighlight;
             lbChuDe.Location = new Point(725, 35);
@@ -330,6 +354,7 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             // pictureBox8
             // 
+            pictureBox8.Cursor = Cursors.Hand;
             pictureBox8.Image = Resources.icons8_draw_50;
             pictureBox8.Location = new Point(674, 23);
             pictureBox8.Name = "pictureBox8";
@@ -342,7 +367,7 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             panelOption.Controls.Add(label11);
             panelOption.Controls.Add(pictureBox12);
-            panelOption.Controls.Add(label10);
+            panelOption.Controls.Add(lbDangXuat);
             panelOption.Controls.Add(label9);
             panelOption.Controls.Add(pictureBox10);
             panelOption.Controls.Add(pictureBox11);
@@ -354,6 +379,7 @@ namespace Dental_Clinic.GUI.Administrator
             // label11
             // 
             label11.AutoSize = true;
+            label11.Cursor = Cursors.Hand;
             label11.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label11.ForeColor = Color.FromArgb(37, 150, 190);
             label11.Location = new Point(59, 55);
@@ -364,6 +390,7 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             // pictureBox12
             // 
+            pictureBox12.Cursor = Cursors.Hand;
             pictureBox12.Image = Resources.icons8_face_scan_50;
             pictureBox12.Location = new Point(3, 46);
             pictureBox12.Name = "pictureBox12";
@@ -372,20 +399,23 @@ namespace Dental_Clinic.GUI.Administrator
             pictureBox12.TabIndex = 1;
             pictureBox12.TabStop = false;
             // 
-            // label10
+            // lbDangXuat
             // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label10.ForeColor = Color.FromArgb(37, 150, 190);
-            label10.Location = new Point(59, 100);
-            label10.Name = "label10";
-            label10.Size = new Size(81, 20);
-            label10.TabIndex = 2;
-            label10.Text = "Đăng xuất";
+            lbDangXuat.AutoSize = true;
+            lbDangXuat.Cursor = Cursors.Hand;
+            lbDangXuat.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbDangXuat.ForeColor = Color.FromArgb(37, 150, 190);
+            lbDangXuat.Location = new Point(59, 100);
+            lbDangXuat.Name = "lbDangXuat";
+            lbDangXuat.Size = new Size(81, 20);
+            lbDangXuat.TabIndex = 2;
+            lbDangXuat.Text = "Đăng xuất";
+            lbDangXuat.Click += lbDangXuat_Click;
             // 
             // label9
             // 
             label9.AutoSize = true;
+            label9.Cursor = Cursors.Hand;
             label9.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label9.ForeColor = Color.FromArgb(37, 150, 190);
             label9.Location = new Point(59, 10);
@@ -396,6 +426,7 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             // pictureBox10
             // 
+            pictureBox10.Cursor = Cursors.Hand;
             pictureBox10.Image = Resources.icons8_change_50;
             pictureBox10.Location = new Point(3, 0);
             pictureBox10.Name = "pictureBox10";
@@ -406,6 +437,7 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             // pictureBox11
             // 
+            pictureBox11.Cursor = Cursors.Hand;
             pictureBox11.Image = Resources.icons8_log_out_50;
             pictureBox11.Location = new Point(3, 92);
             pictureBox11.Name = "pictureBox11";
@@ -419,6 +451,7 @@ namespace Dental_Clinic.GUI.Administrator
             panelTrangChu.Controls.Add(panelOption);
             panelTrangChu.Controls.Add(panelChuDe);
             panelTrangChu.Controls.Add(panelNgonNgu1);
+            panelTrangChu.Cursor = Cursors.Hand;
             panelTrangChu.Location = new Point(291, 86);
             panelTrangChu.Name = "panelTrangChu";
             panelTrangChu.Size = new Size(1065, 691);
@@ -438,6 +471,7 @@ namespace Dental_Clinic.GUI.Administrator
             // label12
             // 
             label12.AutoSize = true;
+            label12.Cursor = Cursors.Hand;
             label12.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label12.ForeColor = Color.FromArgb(37, 150, 190);
             label12.Location = new Point(59, 64);
@@ -449,6 +483,7 @@ namespace Dental_Clinic.GUI.Administrator
             // label7
             // 
             label7.AutoSize = true;
+            label7.Cursor = Cursors.Hand;
             label7.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.FromArgb(37, 150, 190);
             label7.Location = new Point(59, 17);
@@ -459,6 +494,7 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             // pictureBox17
             // 
+            pictureBox17.Cursor = Cursors.Hand;
             pictureBox17.Image = Resources.icons8_night_50;
             pictureBox17.Location = new Point(4, 51);
             pictureBox17.Name = "pictureBox17";
@@ -469,6 +505,7 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             // pictureBox9
             // 
+            pictureBox9.Cursor = Cursors.Hand;
             pictureBox9.Image = Resources.icons8_light_50;
             pictureBox9.Location = new Point(3, 8);
             pictureBox9.Name = "pictureBox9";
@@ -492,6 +529,7 @@ namespace Dental_Clinic.GUI.Administrator
             // label15
             // 
             label15.AutoSize = true;
+            label15.Cursor = Cursors.Hand;
             label15.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label15.ForeColor = Color.FromArgb(37, 150, 190);
             label15.Location = new Point(47, 65);
@@ -502,16 +540,19 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             // pictureBox20
             // 
+            pictureBox20.Cursor = Cursors.Hand;
             pictureBox20.Image = Resources.united_kingdom__1_;
             pictureBox20.Location = new Point(3, 60);
             pictureBox20.Name = "pictureBox20";
-            pictureBox20.Size = new Size(38, 34);
+            pictureBox20.Size = new Size(34, 36);
+            pictureBox20.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox20.TabIndex = 1;
             pictureBox20.TabStop = false;
             // 
             // label18
             // 
             label18.AutoSize = true;
+            label18.Cursor = Cursors.Hand;
             label18.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label18.ForeColor = Color.FromArgb(37, 150, 190);
             label18.Location = new Point(47, 16);
@@ -522,10 +563,12 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             // pictureBox21
             // 
+            pictureBox21.Cursor = Cursors.Hand;
             pictureBox21.Image = Resources.vietnam__3_;
             pictureBox21.Location = new Point(3, 9);
             pictureBox21.Name = "pictureBox21";
-            pictureBox21.Size = new Size(38, 37);
+            pictureBox21.Size = new Size(34, 36);
+            pictureBox21.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox21.TabIndex = 1;
             pictureBox21.TabStop = false;
             // 
@@ -599,7 +642,7 @@ namespace Dental_Clinic.GUI.Administrator
         private PictureBox pictureBox10;
         private Label label9;
         private PictureBox pictureBox11;
-        private Label label10;
+        private Label lbDangXuat;
         private PictureBox pictureBox12;
         private Label label11;
         private Label lbNgonNgu;

@@ -43,7 +43,7 @@
             vbHuy = new CustomButton.VBButton();
             vbLuuThayDoi = new CustomButton.VBButton();
             label10 = new Label();
-            cbChucVu = new ComboBox();
+            cbChuyenNganh = new ComboBox();
             vbButton9 = new CustomButton.VBButton();
             tbQueQuan = new TextBox();
             vbButton8 = new CustomButton.VBButton();
@@ -179,7 +179,7 @@
             panelDuLieu.Controls.Add(vbHuy);
             panelDuLieu.Controls.Add(vbLuuThayDoi);
             panelDuLieu.Controls.Add(label10);
-            panelDuLieu.Controls.Add(cbChucVu);
+            panelDuLieu.Controls.Add(cbChuyenNganh);
             panelDuLieu.Controls.Add(vbButton9);
             panelDuLieu.Controls.Add(tbQueQuan);
             panelDuLieu.Controls.Add(vbButton8);
@@ -217,6 +217,7 @@
             vbHuy.BorderColor = Color.PaleVioletRed;
             vbHuy.BorderRadius = 10;
             vbHuy.BorderSize = 0;
+            vbHuy.Cursor = Cursors.Hand;
             vbHuy.FlatAppearance.BorderSize = 0;
             vbHuy.FlatStyle = FlatStyle.Flat;
             vbHuy.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -237,6 +238,7 @@
             vbLuuThayDoi.BorderColor = Color.PaleVioletRed;
             vbLuuThayDoi.BorderRadius = 10;
             vbLuuThayDoi.BorderSize = 0;
+            vbLuuThayDoi.Cursor = Cursors.Hand;
             vbLuuThayDoi.FlatAppearance.BorderSize = 0;
             vbLuuThayDoi.FlatStyle = FlatStyle.Flat;
             vbLuuThayDoi.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -255,17 +257,17 @@
             label10.AutoSize = true;
             label10.Location = new Point(46, 391);
             label10.Name = "label10";
-            label10.Size = new Size(61, 20);
+            label10.Size = new Size(102, 20);
             label10.TabIndex = 22;
-            label10.Text = "Chức vụ";
+            label10.Text = "Chuyên ngành";
             // 
-            // cbChucVu
+            // cbChuyenNganh
             // 
-            cbChucVu.FormattingEnabled = true;
-            cbChucVu.Location = new Point(56, 426);
-            cbChucVu.Name = "cbChucVu";
-            cbChucVu.Size = new Size(725, 28);
-            cbChucVu.TabIndex = 20;
+            cbChuyenNganh.FormattingEnabled = true;
+            cbChuyenNganh.Location = new Point(56, 426);
+            cbChuyenNganh.Name = "cbChuyenNganh";
+            cbChuyenNganh.Size = new Size(725, 28);
+            cbChuyenNganh.TabIndex = 20;
             // 
             // vbButton9
             // 
@@ -517,7 +519,7 @@
         private CustomButton.VBButton vbHuy;
         private CustomButton.VBButton vbLuuThayDoi;
         private Label label10;
-        private ComboBox cbChucVu;
+        private ComboBox cbChuyenNganh;
         private CustomButton.VBButton vbButton9;
     }
 }

@@ -23,7 +23,7 @@ namespace Dental_Clinic.BUS.Admin
 
         public void UpdateStatus(int userID)
         {
-            DoctorDAO.UpdateStatus(userID);
+            doctorDAO.UpdateStatus(userID);
         }
         public DoctorDTO GetDoctorInfo(int userID)
         {
@@ -32,10 +32,6 @@ namespace Dental_Clinic.BUS.Admin
         public void UpdateDoctorInfo(DoctorDTO doctorDTO)
         {
             doctorDAO.UpdateDoctor(doctorDTO);
-        }
-        public void DeleteDoctor(int userID)
-        {
-            doctorDAO.DeleteDoctor(userID);
         }
         public void AddDoctor(DoctorDTO doctorDTO)
         {

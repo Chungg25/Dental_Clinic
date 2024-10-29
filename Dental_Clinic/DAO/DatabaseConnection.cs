@@ -12,10 +12,7 @@ namespace Dental_Clinic.DAO
     internal class DatabaseConnection
     {
         private SqlConnection conn;
-        //private static string stringConnection = "Data Source=DESKTOP-NTCHRQN\\SQLEXPRESS02;Initial Catalog=DentalClinic;Integrated Security=True";
-        private static string stringConnection = "Data Source=NGUYENN\\NGUYEN;Initial Catalog=DentalClinic;Integrated Security=True;";
-
-
+        private static string stringConnection = "Data Source=DESKTOP-NTCHRQN\\SQLEXPRESS02;Initial Catalog=DentalClinic;Integrated Security=True";
         public DatabaseConnection()
         {
             conn = new SqlConnection(stringConnection);
@@ -32,29 +29,6 @@ namespace Dental_Clinic.DAO
             if (conn.State == ConnectionState.Open)
             {
                 conn.Close(); // Đóng kết nối
-            }
-        }
-
-        public bool TestConnection()
-        {
-            try
-            {
-                conn.Open(); // Mở kết nối
-                Console.WriteLine("Kết nối thành công!");
-                return true; // Nếu mở thành công, trả về true
-            }
-            catch (Exception ex)
-            {
-                // Có thể ghi lại hoặc xử lý ngoại lệ ở đây
-                Console.WriteLine("Lỗi kết nối: " + ex.Message);
-                return false; // Nếu có lỗi, trả về false
-            }
-            finally
-            {
-                if (conn.State == System.Data.ConnectionState.Open)
-                {
-                    conn.Close(); // Đóng kết nối nếu nó đang mở
-                }
             }
         }
     }

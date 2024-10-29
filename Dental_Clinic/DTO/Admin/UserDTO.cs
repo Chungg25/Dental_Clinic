@@ -20,7 +20,6 @@ namespace Dental_Clinic.DTO.Admin
         private string password;
         private string email;
         private float salary_coefficient;
-        private int salary_id;
 
         public int Id { get => id; set => id = value; }
         public string Full_name { get => full_name; set => full_name = value; }
@@ -34,6 +33,5 @@ namespace Dental_Clinic.DTO.Admin
         public string Password { get => password; set => password = value; }
         public string Email { get => email; set => email = value; }
         public float Salary_coefficient { get => salary_coefficient; set => salary_coefficient = value; }
-        public int Salary_id { get => salary_id; set => salary_id = value; }
     }
 }
