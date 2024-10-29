@@ -1266,7 +1266,7 @@ END;
 GO
 
 --Procedure lấy thông tin lễ tân
-CREATE PROCEDURE GetEeceptionistInfo
+CREATE PROCEDURE GetReceptionistInfo
     @userId INT -- Tham số đầu vào là ID của người dùng
 AS
 BEGIN

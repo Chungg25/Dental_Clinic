@@ -1,79 +1,79 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="GUI\Administrator\BusinessStatistics\BusinessStatisticsForm.cs">
+    <Compile Update="GUI\QuanTriVien\ThongKe\FormThongKe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\Administrator\DashboardForm.cs">
+    <Compile Update="GUI\QuanTriVien\DashboardForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\Administrator\MainForm.cs">
+    <Compile Update="GUI\QuanTriVien\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\Administrator\Patient\AddPatientForm.cs">
+    <Compile Update="GUI\QuanTriVien\BenhNhan\FormThemBenhNhan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\Administrator\Patient\EditPatientForm.cs">
+    <Compile Update="GUI\QuanTriVien\BenhNhan\FormChinhSuaBenhNhan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\Administrator\Patient\PatientForm.cs">
+    <Compile Update="GUI\QuanTriVien\BenhNhan\FormBenhNhan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\Administrator\Salary\SalaryManagementForm.cs">
+    <Compile Update="GUI\QuanTriVien\Luong\FormQuanLyLuong.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\Administrator\Supplies\AddMedicineForm.cs">
+    <Compile Update="GUI\QuanTriVien\VatTu\FormThemThuoc.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\Administrator\Supplies\EditMedicineForm.cs">
+    <Compile Update="GUI\QuanTriVien\VatTu\FormChinhSuaThuoc.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\Administrator\Supplies\AddSuppliesForm.cs">
+    <Compile Update="GUI\QuanTriVien\VatTu\FormThemVatTu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\Administrator\Supplies\EditSuppliesForm.cs">
+    <Compile Update="GUI\QuanTriVien\VatTu\FormChinhSuaVatTu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\Administrator\Supplies\SuppliesForm.cs">
+    <Compile Update="GUI\QuanTriVien\VatTu\FormVatTu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\Administrator\User\AddReceptionForm.cs">
+    <Compile Update="GUI\QuanTriVien\NguoiDung\FormThemLeTan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\Administrator\User\EditReceptionForm.cs">
+    <Compile Update="GUI\QuanTriVien\NguoiDung\FormChinhSuaLeTan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\Administrator\User\EditUserForm.cs">
+    <Compile Update="GUI\QuanTriVien\NguoiDung\FormChinhSuaBacSi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\Administrator\User\AddUserForm.cs">
+    <Compile Update="GUI\QuanTriVien\NguoiDung\FormThemBacSi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\Administrator\User\ReceptionistForm.cs">
+    <Compile Update="GUI\QuanTriVien\NguoiDung\FormLeTan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\Administrator\User\UserForm.cs">
+    <Compile Update="GUI\QuanTriVien\NguoiDung\FormBacSi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\Administrator\WorkSchedule\EditWorkScheduleForm.cs">
+    <Compile Update="GUI\QuanTriVien\LichLamViec\FormChinhSuaLichLamViec.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\Administrator\WorkSchedule\WorkScheduleForm.cs">
+    <Compile Update="GUI\QuanTriVien\LichLamViec\FormLichLamViec.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\Doctor\MainForm.cs">
+    <Compile Update="GUI\BacSi\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\Login\ForgotPassword.cs">
+    <Compile Update="GUI\DangNhap\FormQuenMatKhau.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\Login\LoginForm.cs">
+    <Compile Update="GUI\DangNhap\FormDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\Login\MainForm.cs">
+    <Compile Update="GUI\DangNhap\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\Receptionist\MainForm.cs">
+    <Compile Update="GUI\LeTan\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="VBButton.cs">
