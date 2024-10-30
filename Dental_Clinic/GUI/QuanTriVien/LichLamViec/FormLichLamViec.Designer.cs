@@ -40,7 +40,7 @@ namespace Dental_Clinic.GUI.Administrator
             panel1 = new Panel();
             label1 = new Label();
             panelDuLieu = new Panel();
-            dateTimePicker1 = new DateTimePicker();
+            dtpNgay = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
@@ -175,12 +175,12 @@ namespace Dental_Clinic.GUI.Administrator
             panelDuLieu.Size = new Size(1012, 454);
             panelDuLieu.TabIndex = 44;
             // 
-            // dateTimePicker1
+            // dtpNgay
             // 
-            dateTimePicker1.Location = new Point(408, 123);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(250, 27);
-            dateTimePicker1.TabIndex = 45;
+            dtpNgay.Location = new Point(408, 123);
+            dtpNgay.Name = "dtpNgay";
+            dtpNgay.Size = new Size(250, 27);
+            dtpNgay.TabIndex = 45;
             // 
             // FormLichLamViec
             // 
@@ -188,7 +188,7 @@ namespace Dental_Clinic.GUI.Administrator
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             ClientSize = new Size(1016, 644);
-            Controls.Add(dateTimePicker1);
+            Controls.Add(dtpNgay);
             Controls.Add(panelDuLieu);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox1);
@@ -221,6 +221,6 @@ namespace Dental_Clinic.GUI.Administrator
         private Panel panel1;
         private Label label1;
         private Panel panelDuLieu;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dtpNgay;
     }
 }

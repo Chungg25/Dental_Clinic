@@ -11,16 +11,16 @@ namespace Dental_Clinic.BUS.Login
 {
     internal class DangNhapBUS
     {
-        private DangNhapDAO loginDAO;
+        private DangNhapDAO dangNhapDAO;
 
         public DangNhapBUS()
         {
-            loginDAO = new DangNhapDAO();
+            dangNhapDAO = new DangNhapDAO();
         }
 
         public DataRow KiemTraDangNhap(DangNhapDTO dangNhapDTO)
         {
-            return loginDAO.KiemTraDangNhap(dangNhapDTO);
+            return dangNhapDAO.KiemTraDangNhap(dangNhapDTO);
         }
     }
 }
