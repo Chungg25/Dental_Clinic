@@ -17,12 +17,12 @@ namespace Dental_Clinic.GUI.Administrator.User
     {
         private MainForm mainForm;
         private LeTanDTO leTanDTO;
-        private LeTanBUS leTanBUS;
+        private QuanTriVienBUS quanTriVienBUS;
         public FormThemLeTan(MainForm _mainForm)
         {
             InitializeComponent();
             mainForm = _mainForm;
-            leTanBUS = new LeTanBUS();
+            quanTriVienBUS = new QuanTriVienBUS();
             this.leTanDTO = new LeTanDTO();
             ChinhSua();
         }
@@ -77,7 +77,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             leTanDTO.NgaySinh = dtpNgaySinh.Value; // Ngày sinh
             leTanDTO.DiaChi = tbQueQuan.Text;
 
-            leTanBUS.ThemLeTan(leTanDTO);
+            quanTriVienBUS.ThemLeTan(leTanDTO);
 
         }
 
