@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dental_Clinic.BUS.Admin;
-using Dental_Clinic.DTO.Admin;
+using Dental_Clinic.DTO.BacSi;
 
 namespace Dental_Clinic.GUI.Administrator.User
 {

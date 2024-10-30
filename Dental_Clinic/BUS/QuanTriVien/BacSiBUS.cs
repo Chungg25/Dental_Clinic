@@ -1,5 +1,5 @@
 ﻿using Dental_Clinic.DAO.Admin;
-using Dental_Clinic.DTO.Admin;
+using Dental_Clinic.DTO.BacSi;
 using System;
 using System.Collections.Generic;
 using System.Linq;

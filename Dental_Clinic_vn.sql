@@ -1331,7 +1331,7 @@ GO
 
 --------------------Dành cho đăng nhập, quên mật khẩu, kiểm tra tồn tại--------------------
 --Procedure kiểm tra đăng nhập
-CREATE PROCEDURE CheckLogin
+CREATE PROCEDURE KiemTraDangNhap
     @username VARCHAR(100),
     @password VARCHAR(100),
     @id INT OUTPUT,
@@ -1364,7 +1364,7 @@ END;
 GO
 
 --Procedure lấy thông tin user
-CREATE PROCEDURE GetUserInfo
+CREATE PROCEDURE LayThongTinBacSi
     @userId INT
 -- Tham số đầu vào là ID của người dùng
 AS
@@ -1387,7 +1387,7 @@ GO
 
 
 -- Procedure lấy mật khẩu từ email và username
-CREATE PROCEDURE GetPasswordByEmailAndUsername
+CREATE PROCEDURE LayThongTinEmailVaUserName
     @Email NVARCHAR(50),
     @Username NVARCHAR(50)
 AS
@@ -1401,7 +1401,7 @@ END;
 GO
 
 -- Procedure kiểm tra email tồn tại
-CREATE PROCEDURE CheckEmailExists
+CREATE PROCEDURE KiemTraEmail
     @Email NVARCHAR(50)
 AS
 BEGIN
@@ -1421,7 +1421,7 @@ END;
 GO
 
 -- Procedure kiểm tra username tồn tại
-CREATE PROCEDURE CheckUsernameExists
+CREATE PROCEDURE KiemTraUserName
     @username NVARCHAR(50)
 AS
 BEGIN
@@ -1445,7 +1445,7 @@ GO
 --Admin
 
 --Procedure danh sách bác sĩ
-CREATE PROCEDURE GetDoctorList
+CREATE PROCEDURE DanhSachBacSi
 AS
 BEGIN
     SELECT *
@@ -1457,7 +1457,7 @@ END;
 GO
 
 --Procedure danh sách lễ tân
-CREATE PROCEDURE GetReceptionistList
+CREATE PROCEDURE DanhSachLeTan
 AS
 BEGIN
     SELECT *
@@ -1469,7 +1469,7 @@ GO
 
 
 --Procedure danh sách bệnh nhân
-CREATE PROCEDURE GetPatientListForAdmin
+CREATE PROCEDURE DanhSachBenhNhan
 AS
 BEGIN
     SELECT *
@@ -1477,10 +1477,8 @@ BEGIN
 END;
 GO
 
-	
-DROP FUNCTION CountDoctor
 --Function đếm số lượng dữ liệu
-CREATE FUNCTION CountDoctors()
+CREATE FUNCTION SoLuongBacSi()
 RETURNS INT
 AS
 BEGIN
@@ -1491,8 +1489,8 @@ BEGIN
 END;
 GO
 
-
-CREATE FUNCTION CountPatient()
+	
+CREATE FUNCTION SoLuongBenhNhan()
 RETURNS INT
 AS
 BEGIN
@@ -1503,8 +1501,7 @@ BEGIN
 END;
 GO
 
-
-CREATE FUNCTION CountRevenue()
+CREATE FUNCTION TongDoanhThu()
 RETURNS INT
 AS
 BEGIN
@@ -1523,8 +1520,7 @@ BEGIN
 END;
 GO
 
-
-CREATE PROCEDURE UpdateStatus
+CREATE PROCEDURE CapNhatTrangThai
     @userId INT
 AS
 BEGIN
@@ -1535,7 +1531,7 @@ END;
 GO
 
 
-CREATE PROCEDURE UpdateUserInfo
+CREATE PROCEDURE CapNhatThongTinBacSi
     @userId INT,
     @fullName NVARCHAR(255),
     @citizenId NVARCHAR(12),
@@ -1564,15 +1560,7 @@ BEGIN
         ma_chuyen_mon = @specializationID
     WHERE ma_nguoi_dung = @userId;
 END;
-GO
 
-CREATE PROCEDURE DeleteDoctor
-    @userId INT
-AS
-BEGIN
-    DELETE FROM bac_si WHERE ma_nguoi_dung = @userId;
-    DELETE FROM nguoi_dung WHERE ma_nguoi_dung = @userId;
-END;
 GO
 
 -- Hàm tự tạo tên đăng nhập
@@ -1591,7 +1579,7 @@ BEGIN
 END;
 GO
 
-CREATE PROCEDURE AddDoctor
+CREATE PROCEDURE ThemBacSi
     @fullName NVARCHAR(255),
     @citizenId NVARCHAR(12),
     @phoneNumber NVARCHAR(10),
@@ -1624,7 +1612,7 @@ END;
 GO
 
 --Procedure lấy thông tin lễ tân
-CREATE PROCEDURE GetReceptionistInfo
+CREATE PROCEDURE ThongTinLeTan
     @userId INT
 -- Tham số đầu vào là ID của người dùng
 AS
@@ -1645,7 +1633,7 @@ END;
 GO
 
 --Procedure cập nhật thông tin lễ tân
-CREATE PROCEDURE UpdateReceptionistInfo
+CREATE PROCEDURE CapNhatThongTinLeTan
     @maNguoiDung INT,
     @hoTen NVARCHAR(255),
     @cccd NVARCHAR(12),
@@ -1691,7 +1679,7 @@ END;
 GO
 
 --Procedure thêm lễ tân
-CREATE PROCEDURE AddReceptionist
+CREATE PROCEDURE ThemLeTan
     @hoTen NVARCHAR(255),
     -- Họ tên
     @cccd NVARCHAR(12),
@@ -1731,7 +1719,7 @@ END;
 GO
 
 --Procedure lấy thông tin bệnh nhân
-CREATE PROCEDURE GetPatientInfo
+CREATE PROCEDURE ThongTinBenhNhan
     @maBenhNhan INT
 -- Tham số đầu vào là ID của bệnh nhân
 AS
@@ -1751,7 +1739,7 @@ END;
 GO
 
 --Procedure cập nhật thông tin bệnh nhân
-CREATE PROCEDURE UpdatePatientInfo
+CREATE PROCEDURE CapNhatBenhNhan
     @maBenhNhan INT,
     @hoTen NVARCHAR(255),
     @soDienThoai NVARCHAR(10),
@@ -1772,7 +1760,7 @@ END;
 GO
 
 --Procedure thêm lễ tân
-CREATE PROCEDURE AddPatient
+CREATE PROCEDURE ThemBenhNhan
     @hoTen NVARCHAR(255),
     -- Họ tên
     @soDienThoai NVARCHAR(10),
@@ -1797,4 +1785,15 @@ BEGIN
 END;
 GO
 
+CREATE PROCEDURE LichLamViecTheoID
+	@ID INT,
+	@StartOfMonth DATE,
+	@EndOfMonth DATE
+AS
+BEGIN
+	SELECT * FROM lich_lam_viec
+	WHERE lich_lam_viec.ma_nguoi_dung = @ID
+	AND lich_lam_viec.ngay BETWEEN @StartOfMonth AND @EndOfMonth;
+END;
 
+GO

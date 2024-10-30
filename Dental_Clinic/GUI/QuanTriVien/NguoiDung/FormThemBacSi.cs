@@ -1,10 +1,8 @@
 ﻿using Dental_Clinic.BUS.Admin;
-using Dental_Clinic.DTO.Admin;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using Dental_Clinic.BUS.Admin;
-using Dental_Clinic.DTO.Admin;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dental_Clinic.DTO.BacSi;
 
 namespace Dental_Clinic.GUI.Administrator.User
 {

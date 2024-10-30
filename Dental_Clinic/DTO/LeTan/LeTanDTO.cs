@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dental_Clinic.DTO.Admin
+namespace Dental_Clinic.DTO.LeTan
 {
     public class LeTanDTO
     {

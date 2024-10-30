@@ -1,11 +1,11 @@
-﻿using Dental_Clinic.DTO.Admin;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dental_Clinic.DTO.LeTan;
 
 namespace Dental_Clinic.DAO.Admin
 {

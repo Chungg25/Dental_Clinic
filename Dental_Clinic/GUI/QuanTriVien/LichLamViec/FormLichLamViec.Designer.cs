@@ -40,6 +40,7 @@ namespace Dental_Clinic.GUI.Administrator
             panel1 = new Panel();
             label1 = new Label();
             panelDuLieu = new Panel();
+            dateTimePicker1 = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
@@ -115,16 +116,16 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             tbTimKiem.BackColor = SystemColors.ButtonFace;
             tbTimKiem.BorderStyle = BorderStyle.None;
-            tbTimKiem.Location = new Point(511, 116);
+            tbTimKiem.Location = new Point(727, 116);
             tbTimKiem.Name = "tbTimKiem";
-            tbTimKiem.Size = new Size(476, 20);
+            tbTimKiem.Size = new Size(260, 20);
             tbTimKiem.TabIndex = 35;
             // 
             // pictureBox8
             // 
             pictureBox8.BackColor = SystemColors.ButtonFace;
             pictureBox8.Image = Resources.icons8_find_50;
-            pictureBox8.Location = new Point(480, 112);
+            pictureBox8.Location = new Point(687, 112);
             pictureBox8.Name = "pictureBox8";
             pictureBox8.Size = new Size(25, 38);
             pictureBox8.SizeMode = PictureBoxSizeMode.Zoom;
@@ -141,9 +142,9 @@ namespace Dental_Clinic.GUI.Administrator
             vbTimKiem.FlatAppearance.BorderSize = 0;
             vbTimKiem.FlatStyle = FlatStyle.Flat;
             vbTimKiem.ForeColor = Color.White;
-            vbTimKiem.Location = new Point(468, 109);
+            vbTimKiem.Location = new Point(675, 109);
             vbTimKiem.Name = "vbTimKiem";
-            vbTimKiem.Size = new Size(532, 43);
+            vbTimKiem.Size = new Size(325, 43);
             vbTimKiem.TabIndex = 39;
             vbTimKiem.TextColor = Color.White;
             vbTimKiem.UseVisualStyleBackColor = false;
@@ -174,12 +175,20 @@ namespace Dental_Clinic.GUI.Administrator
             panelDuLieu.Size = new Size(1012, 454);
             panelDuLieu.TabIndex = 44;
             // 
-            // WorkScheduleForm
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(408, 123);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(250, 27);
+            dateTimePicker1.TabIndex = 45;
+            // 
+            // FormLichLamViec
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             ClientSize = new Size(1016, 644);
+            Controls.Add(dateTimePicker1);
             Controls.Add(panelDuLieu);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox1);
@@ -189,7 +198,7 @@ namespace Dental_Clinic.GUI.Administrator
             Controls.Add(pictureBox8);
             Controls.Add(vbTimKiem);
             Controls.Add(panel1);
-            Name = "WorkScheduleForm";
+            Name = "FormLichLamViec";
             Text = "WorkScheduleForm";
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -212,5 +221,6 @@ namespace Dental_Clinic.GUI.Administrator
         private Panel panel1;
         private Label label1;
         private Panel panelDuLieu;
+        private DateTimePicker dateTimePicker1;
     }
 }

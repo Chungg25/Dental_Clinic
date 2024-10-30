@@ -18,9 +18,9 @@ namespace Dental_Clinic.BUS.Login
             this.forgotPasswordDAO = new QuenMatKhauDAO();
         }
         // Kiểm tra username có tồn tại trong database không
-        public bool KiemTraTenDangNhap(string username)
+        public bool KiemTraTenDangNhap(string tenDangNhap)
         {
-            return forgotPasswordDAO.KiemTraTenDangNhap(username);
+            return forgotPasswordDAO.KiemTraTenDangNhap(tenDangNhap);
         }
         // Kiểm tra email có tồn tại trong database không
         public bool KiemTraMail(string email)
@@ -39,10 +39,10 @@ namespace Dental_Clinic.BUS.Login
             return code;
         }
         // Hàm gửi mã code đến email
-        public bool GuiXacThucDenMail(string recipientEmail, string verificationCode)
+        public bool GuiXacThucDenMail(string MailPhanHoi, string CodeXacThuc)
         {
             var fromAddress = new MailAddress("huygianhoang2007@gmail.com", "TechCraft N05");
-            var toAddress = new MailAddress(recipientEmail);
+            var toAddress = new MailAddress(MailPhanHoi);
             const string fromPassword = "zruj aszp lanq sgql";
             const string subject = "Mã xác nhận của bạn";
 
@@ -52,7 +52,7 @@ namespace Dental_Clinic.BUS.Login
               <body>
                 <h2 style='color: #333;'>Xin chào,</h2>
                 <p style='font-size: 14px;'>Mã xác nhận của bạn là:</p>
-                <p style='font-size: 20px; font-weight: bold; color: #4CAF50;'>{verificationCode}</p>
+                <p style='font-size: 20px; font-weight: bold; color: #4CAF50;'>{CodeXacThuc}</p>
                 <p>Nếu bạn không yêu cầu mã này, hãy bỏ qua email này.</p>
                 <br />  
                 <p>Trân trọng,</p>
@@ -91,9 +91,9 @@ namespace Dental_Clinic.BUS.Login
             }
         }
         // Lấy mật khẩu từ mail và username
-        public string LayMatKhau(string email, string username)
+        public string LayMatKhau(string email, string tenDangNhap)
         {
-            return forgotPasswordDAO.MatKhau(email, username);
+            return forgotPasswordDAO.MatKhau(email, tenDangNhap);
         }
     }
 }

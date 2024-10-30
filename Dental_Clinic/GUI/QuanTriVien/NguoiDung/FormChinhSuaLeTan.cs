@@ -1,6 +1,6 @@
 ﻿using Dental_Clinic.BUS.Admin;
 using Dental_Clinic.DAO.Admin;
-using Dental_Clinic.DTO.Admin;
+using Dental_Clinic.DTO.LeTan;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

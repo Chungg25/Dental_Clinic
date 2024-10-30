@@ -2,7 +2,7 @@
 using CustomButton;
 using Dental_Clinic.GUI.Administrator.User;
 using Dental_Clinic.BUS.Admin;
-using Dental_Clinic.DTO.Admin;
+using Dental_Clinic.DTO.BacSi;
 
 namespace Dental_Clinic.GUI.Administrator
 {

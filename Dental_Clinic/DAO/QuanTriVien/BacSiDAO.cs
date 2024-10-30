@@ -1,5 +1,4 @@
-﻿using Dental_Clinic.DTO.Admin;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Data.SqlClient;
@@ -8,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography.X509Certificates;
+using Dental_Clinic.DTO.BacSi;
 
 namespace Dental_Clinic.DAO.Admin
 {

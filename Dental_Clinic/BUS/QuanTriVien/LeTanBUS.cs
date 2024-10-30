@@ -1,5 +1,5 @@
 ﻿using Dental_Clinic.DAO.Admin;
-using Dental_Clinic.DTO.Admin;
+using Dental_Clinic.DTO.LeTan;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,13 +30,13 @@ namespace Dental_Clinic.BUS.Admin
         {
             receptionistDAO.CapNhatTrangThai(userID);
         }
-        public void CapNhatLeTan(LeTanDTO receptionistDTO)
+        public void CapNhatLeTan(LeTanDTO leTanDTO)
         {
-            receptionistDAO.CapNhatLeTan(receptionistDTO);
+            receptionistDAO.CapNhatLeTan(leTanDTO);
         }
-        public void ThemLeTan(LeTanDTO receptionistDTO)
+        public void ThemLeTan(LeTanDTO leTanDTO)
         {
-            receptionistDAO.ThemLeTan(receptionistDTO);
+            receptionistDAO.ThemLeTan(leTanDTO);
         }
     }
 }
