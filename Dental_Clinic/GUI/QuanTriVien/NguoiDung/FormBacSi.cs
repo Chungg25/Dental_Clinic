@@ -8,14 +8,14 @@ namespace Dental_Clinic.GUI.Administrator
 {
     public partial class FormBacSi : Form
     {
-        private BacSiBUS bacSiBUS;
+        private QuanTriVienBUS quanTriVienBUS;
         private MainForm _mainForm;
         public FormBacSi(MainForm mainForm)
         {
             InitializeComponent();
             _mainForm = mainForm;
-            bacSiBUS = new BacSiBUS();
-            List<BacSiDTO> bacSi = bacSiBUS.LayDanhSachBacSi();
+            quanTriVienBUS = new QuanTriVienBUS();
+            List<BacSiDTO> bacSi = quanTriVienBUS.LayDanhSachBacSi();
             TaoTableLayoutPanel(bacSi);
 
             vbThemBacSi.FlatStyle = FlatStyle.Flat;
@@ -108,7 +108,7 @@ namespace Dental_Clinic.GUI.Administrator
                     int userId = (int)cb.Tag;
                     int isChecked = cb.Checked ? 0 : 1;
 
-                    bacSiBUS.CapNhatTrangThai(userId);
+                    quanTriVienBUS.CapNhatTrangThai(userId);
                 }
             };
 
@@ -250,7 +250,7 @@ namespace Dental_Clinic.GUI.Administrator
             string searchText = tbTimKiem.Text.ToLower();
 
             // Lấy danh sách bác sĩ từ doctorBUS
-            var bacSiList = bacSiBUS.LayDanhSachBacSi();
+            var bacSiList = quanTriVienBUS.LayDanhSachBacSi();
 
             if (string.IsNullOrWhiteSpace(searchText))
             {
@@ -306,7 +306,7 @@ namespace Dental_Clinic.GUI.Administrator
 
         public void HienThiChinhSuaBacSi(int id)
         {
-            FormChinhSuaBacSi formChinhSuaBacSi = new FormChinhSuaBacSi(_mainForm, bacSiBUS.LayThongTinBacSi(id));
+            FormChinhSuaBacSi formChinhSuaBacSi = new FormChinhSuaBacSi(_mainForm, quanTriVienBUS.LayThongTinBacSi(id));
             formChinhSuaBacSi.TopLevel = false; // Đặt editUserForm không phải là form cấp cao nhất (TopLevel)
             formChinhSuaBacSi.FormBorderStyle = FormBorderStyle.None; // Xóa viền của editUserForm
             formChinhSuaBacSi.Dock = DockStyle.Fill; // Đặt editUserForm khớp với kích thước panel

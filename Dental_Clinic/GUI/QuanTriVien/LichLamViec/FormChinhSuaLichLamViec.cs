@@ -28,7 +28,6 @@ namespace Dental_Clinic.GUI.Administrator.WorkSchedule
             HienThiLichLamViec(id, day);
 
             dtpLichLamViec.ValueChanged += DtpLichLamViec_ValueChanged;
-            //UpdateCalendar(dtpLichLamViec.Value);
         }
 
         public void HienThiLichLamViec(int id, DateTime day)
