@@ -19,7 +19,7 @@ namespace Dental_Clinic.DAO.Login
             try
             {
                 // Câu lệnh SQL để kiểm tra username và password
-                string query = "CheckLogin";
+                string query = "KiemTraDangNhap";
 
                 // Tạo đối tượng SqlCommand
                 using (SqlCommand cmd = new SqlCommand(query, dbConnection.Conn))
@@ -48,7 +48,7 @@ namespace Dental_Clinic.DAO.Login
                     if (userId > 0)
                     {
                         // Câu lệnh SQL để lấy thông tin người dùng
-                        string userQuery = "GetUserInfo";
+                        string userQuery = "LayThongTinBacSi";
                         using (SqlCommand userCmd = new SqlCommand(userQuery, dbConnection.Conn))
                         {
                             userCmd.CommandType = CommandType.StoredProcedure; // Đặt loại lệnh là StoredProcedure

@@ -19,7 +19,7 @@ namespace Dental_Clinic.DAO.Patient
 
             try
             {
-                using (SqlCommand cmd = new SqlCommand("GetPatientListForAdmin", dbConnection.Conn))
+                using (SqlCommand cmd = new SqlCommand("DanhSachBenhNhan", dbConnection.Conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 
@@ -66,7 +66,7 @@ namespace Dental_Clinic.DAO.Patient
         {
             BenhNhanDTO patient = new BenhNhanDTO();
             DatabaseConnection dbConnection = new DatabaseConnection();
-            using (SqlCommand cmd = new SqlCommand("GetPatientInfo", dbConnection.Conn))
+            using (SqlCommand cmd = new SqlCommand("ThongTinBenhNhan", dbConnection.Conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@maBenhNhan", id);
@@ -93,7 +93,7 @@ namespace Dental_Clinic.DAO.Patient
         public void CapNhatBenhNhan(BenhNhanDTO patient)
         {
             DatabaseConnection dbConnection = new DatabaseConnection();
-            using (SqlCommand cmd = new SqlCommand("UpdatePatientInfo", dbConnection.Conn))
+            using (SqlCommand cmd = new SqlCommand("CapNhatBenhNhan", dbConnection.Conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -112,7 +112,7 @@ namespace Dental_Clinic.DAO.Patient
         public void ThemBenhNhan(BenhNhanDTO patient)
         {
             DatabaseConnection dbConnection = new DatabaseConnection();
-            using (SqlCommand cmd = new SqlCommand("AddPatient", dbConnection.Conn))
+            using (SqlCommand cmd = new SqlCommand("ThemBenhNhan", dbConnection.Conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
 

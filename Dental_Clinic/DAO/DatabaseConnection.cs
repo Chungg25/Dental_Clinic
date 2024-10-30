@@ -12,7 +12,7 @@ namespace Dental_Clinic.DAO
     internal class DatabaseConnection
     {
         private SqlConnection conn;
-        private static string stringConnection = "Data Source=NGUYENN\\NGUYEN;" +
+        private static string stringConnection = "Data Source=DESKTOP-NTCHRQN\\SQLEXPRESS02;" +
             "                                       Initial Catalog=DentalClinic;" +
             "                                       Integrated Security=True";
         public DatabaseConnection()

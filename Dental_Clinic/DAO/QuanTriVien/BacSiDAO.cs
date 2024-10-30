@@ -21,7 +21,7 @@ namespace Dental_Clinic.DAO.Admin
 
             try
             {
-                using (SqlCommand cmd = new SqlCommand("GetDoctorList", dbConnection.Conn))
+                using (SqlCommand cmd = new SqlCommand("DanhSachBacSi", dbConnection.Conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 
@@ -74,7 +74,7 @@ namespace Dental_Clinic.DAO.Admin
         public void CapNhatTrangThai(int userID)
         {
             DatabaseConnection dbConnection = new DatabaseConnection();
-            using (SqlCommand cmd = new SqlCommand("UpdateStatus", dbConnection.Conn))
+            using (SqlCommand cmd = new SqlCommand("CapNhatTrangThai", dbConnection.Conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@userId", userID);
@@ -88,7 +88,7 @@ namespace Dental_Clinic.DAO.Admin
             BacSiDTO doctor = new BacSiDTO();
             DatabaseConnection dbConnection = new DatabaseConnection();
 
-            using (SqlCommand cmd = new SqlCommand("GetUserInfo", dbConnection.Conn))
+            using (SqlCommand cmd = new SqlCommand("LayThongTinBacSi", dbConnection.Conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -128,7 +128,7 @@ namespace Dental_Clinic.DAO.Admin
         public void CapNhatBacSi(BacSiDTO doctor)
         {
             DatabaseConnection dbConnection = new DatabaseConnection();
-            using (SqlCommand cmd = new SqlCommand("UpdateUserInfo", dbConnection.Conn))
+            using (SqlCommand cmd = new SqlCommand("CapNhatThongTinBacSi", dbConnection.Conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -177,7 +177,7 @@ namespace Dental_Clinic.DAO.Admin
         public void ThemBacSi(BacSiDTO doctor)
         {
             DatabaseConnection dbConnection = new DatabaseConnection();
-            using (SqlCommand cmd = new SqlCommand("AddDoctor", dbConnection.Conn))
+            using (SqlCommand cmd = new SqlCommand("ThemBacSi", dbConnection.Conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
 

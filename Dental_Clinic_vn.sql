@@ -1477,7 +1477,8 @@ BEGIN
 END;
 GO
 
-
+	
+DROP FUNCTION CountDoctor
 --Function đếm số lượng dữ liệu
 CREATE FUNCTION CountDoctors()
 RETURNS INT

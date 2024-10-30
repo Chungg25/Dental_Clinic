@@ -20,7 +20,7 @@ namespace Dental_Clinic.DAO.Login
         // Kiểm tra username có tồn tại trong database không
         public bool KiemTraTenDangNhap(string username)
         {
-            string query = "CheckUsernameExists";
+            string query = "KiemTraUserName";
             using (SqlCommand cmd = new SqlCommand(query, dbConnection.Conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -33,7 +33,7 @@ namespace Dental_Clinic.DAO.Login
         // Kiểm tra email có tồn tại trong database không
         public bool KiemTraMail(string email)
         {
-            string query = "CheckEmailExists";
+            string query = "KiemTraEmail";
             using (SqlCommand cmd = new SqlCommand(query, dbConnection.Conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -45,7 +45,7 @@ namespace Dental_Clinic.DAO.Login
         // Lấy mật khẩu từ mail và username
         public string MatKhau(string email, string username)
         {
-            string query = "GetPasswordByEmailAndUsername";
+            string query = "LayThongTinEmailVaUserName";
             using (SqlCommand cmd = new SqlCommand(query, dbConnection.Conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;

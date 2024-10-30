@@ -17,7 +17,7 @@ namespace Dental_Clinic.DAO.Admin
             List<LeTanDTO> receptionistList = new List<LeTanDTO>();
             DatabaseConnection dbConnection = new DatabaseConnection();
 
-            using (SqlCommand cmd = new SqlCommand("GetReceptionistList", dbConnection.Conn))
+            using (SqlCommand cmd = new SqlCommand("DanhSachLeTan", dbConnection.Conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -53,7 +53,7 @@ namespace Dental_Clinic.DAO.Admin
             LeTanDTO receptionist = new LeTanDTO();
             DatabaseConnection dbConnection = new DatabaseConnection();
 
-            using (SqlCommand cmd = new SqlCommand("GetReceptionistInfo", dbConnection.Conn))
+            using (SqlCommand cmd = new SqlCommand("ThongTinLeTan", dbConnection.Conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -92,7 +92,7 @@ namespace Dental_Clinic.DAO.Admin
         public void CapNhatTrangThai(int userID)
         {
             DatabaseConnection dbConnection = new DatabaseConnection();
-            using (SqlCommand cmd = new SqlCommand("UpdateStatus", dbConnection.Conn))
+            using (SqlCommand cmd = new SqlCommand("CapNhatTrangThai", dbConnection.Conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@userId", userID);
@@ -104,7 +104,7 @@ namespace Dental_Clinic.DAO.Admin
         public void CapNhatLeTan(LeTanDTO receptionist)
         {
             DatabaseConnection dbConnection = new DatabaseConnection();
-            using (SqlCommand cmd = new SqlCommand("UpdateReceptionistInfo", dbConnection.Conn))
+            using (SqlCommand cmd = new SqlCommand("CapNhatThongTinLeTan", dbConnection.Conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -127,7 +127,7 @@ namespace Dental_Clinic.DAO.Admin
         public void ThemLeTan(LeTanDTO receptionist)
         {
             DatabaseConnection dbConnection = new DatabaseConnection();
-            using (SqlCommand cmd = new SqlCommand("AddReceptionist", dbConnection.Conn))
+            using (SqlCommand cmd = new SqlCommand("ThemLeTan", dbConnection.Conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
 

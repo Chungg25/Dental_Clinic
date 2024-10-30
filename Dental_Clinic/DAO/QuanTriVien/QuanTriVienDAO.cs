@@ -18,7 +18,7 @@ namespace Dental_Clinic.DAO.Admin
             int doctorCount = 0;
             DatabaseConnection dbConnection = new DatabaseConnection();
 
-            using (SqlCommand cmd = new SqlCommand("SELECT dbo.CountDoctors()", dbConnection.Conn))
+            using (SqlCommand cmd = new SqlCommand("SELECT dbo.SoLuongBacSi()", dbConnection.Conn))
             {
                 doctorCount = (int)cmd.ExecuteScalar(); // Lấy giá trị trả về
                 dbConnection.CloseConnection();
@@ -30,7 +30,7 @@ namespace Dental_Clinic.DAO.Admin
         {
             int patientCount = 0;
             DatabaseConnection dbConnection = new DatabaseConnection();
-            using (SqlCommand cmd = new SqlCommand("SELECT dbo.CountPatient()", dbConnection.Conn))
+            using (SqlCommand cmd = new SqlCommand("SELECT dbo.SoLuongBenhNhan()", dbConnection.Conn))
             {
                 patientCount = (int)cmd.ExecuteScalar(); // Lấy giá trị trả về
                 dbConnection.CloseConnection();
@@ -42,7 +42,7 @@ namespace Dental_Clinic.DAO.Admin
         {
             int revenueCount = 0;
             DatabaseConnection dbConnection = new DatabaseConnection();
-            using (SqlCommand cmd = new SqlCommand("SELECT dbo.CountRevenue()", dbConnection.Conn))
+            using (SqlCommand cmd = new SqlCommand("SELECT dbo.TongDoanhThu()", dbConnection.Conn))
             {
                 revenueCount = (int)cmd.ExecuteScalar(); 
                 dbConnection.CloseConnection();
