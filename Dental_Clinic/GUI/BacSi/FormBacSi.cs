@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Dental_Clinic.GUI.Doctor
+namespace Dental_Clinic.GUI.BacSi
 {
-    public partial class MainForm : Form
+    public partial class FormBacSi : Form
     {
-        public MainForm(DTO.Admin.QuanTriVienDTO userDTO)
+        public FormBacSi(DTO.Admin.QuanTriVienDTO user)
         {
             InitializeComponent();
+        }
+
+        private void FormBacSi_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

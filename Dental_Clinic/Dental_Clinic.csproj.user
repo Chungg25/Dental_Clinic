@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Compile Update="GUI\BacSi\FormBacSi.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="GUI\QuanTriVien\ThongKe\FormThongKe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,9 +62,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="GUI\QuanTriVien\LichLamViec\FormLichLamViec.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="GUI\BacSi\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="GUI\DangNhap\FormQuenMatKhau.cs">
