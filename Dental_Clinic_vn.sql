@@ -2146,18 +2146,31 @@ CREATE PROCEDURE LichLamViecBacSiTheoID
 	@EndOfMonth DATE
 AS
 BEGIN
-	SELECT nguoi_dung.ma_nguoi_dung, nguoi_dung.ho_ten, lich_lam_viec.ca, lich_lam_viec.ngay, cham_cong.ghi_chu FROM nguoi_dung
-	join lich_lam_viec on nguoi_dung.ma_nguoi_dung = lich_lam_viec.ma_nguoi_dung
-	join bac_si on nguoi_dung.ma_nguoi_dung = bac_si.ma_nguoi_dung
-	left join cham_cong on nguoi_dung.ma_nguoi_dung = cham_cong.ma_nguoi_dung
-	WHERE lich_lam_viec.ngay BETWEEN @StartOfMonth AND @EndOfMonth
-	AND nguoi_dung.ma_nguoi_dung = @ID
-	AND cham_cong.ngay = lich_lam_viec.ngay
+	SELECT 
+		nguoi_dung.ma_nguoi_dung, 
+		nguoi_dung.ho_ten, 
+		lich_lam_viec.ca, 
+		lich_lam_viec.ngay, 
+		CASE 
+			WHEN cham_cong.ghi_chu = N'Làm việc đúng giờ' THEN 1 
+			ELSE 0 
+		END AS LamViecDungGio
+	FROM 
+		nguoi_dung
+	JOIN 
+		lich_lam_viec ON nguoi_dung.ma_nguoi_dung = lich_lam_viec.ma_nguoi_dung
+	JOIN 
+		bac_si ON nguoi_dung.ma_nguoi_dung = bac_si.ma_nguoi_dung
+	LEFT JOIN 
+		cham_cong ON nguoi_dung.ma_nguoi_dung = cham_cong.ma_nguoi_dung 
+		AND cham_cong.ngay = lich_lam_viec.ngay
+	WHERE 
+		lich_lam_viec.ngay BETWEEN @StartOfMonth AND @EndOfMonth
+		AND nguoi_dung.ma_nguoi_dung = @ID
 END;
-
-GO
 
 exec LichLamViecBacSiTheoID 6, '2024-9-1', '2024-9-30'
 drop proc LichLamViecBacSiTheoID
 
+SELECT * FROM bac_si
 

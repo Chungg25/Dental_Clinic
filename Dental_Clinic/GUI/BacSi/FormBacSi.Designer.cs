@@ -1,4 +1,5 @@
-﻿namespace Dental_Clinic.GUI.BacSi
+﻿using Dental_Clinic.Properties;
+namespace Dental_Clinic.GUI.BacSi
 {
     partial class FormBacSi
     {
@@ -187,7 +188,7 @@
             // pictureBox13
             // 
             pictureBox13.Cursor = Cursors.Hand;
-            pictureBox13.Image = Dental_Clinic.Properties.Resources.languages;
+            pictureBox13.Image = Resources.languages;
             pictureBox13.Location = new Point(570, 29);
             pictureBox13.Margin = new Padding(4);
             pictureBox13.Name = "pictureBox13";
@@ -345,7 +346,7 @@
             // picUser
             // 
             picUser.Cursor = Cursors.Hand;
-            picUser.Image = Dental_Clinic.Properties.Resources.icons8_admin_40;
+            picUser.Image = Resources.icons8_admin_40;
             picUser.Location = new Point(1124, 29);
             picUser.Margin = new Padding(4);
             picUser.Name = "picUser";
@@ -493,7 +494,7 @@
             // pictureBox8
             // 
             pictureBox8.Cursor = Cursors.Hand;
-            pictureBox8.Image = Dental_Clinic.Properties.Resources.icons8_theme_50;
+            pictureBox8.Image = Resources.icons8_theme_50;
             pictureBox8.Location = new Point(842, 29);
             pictureBox8.Margin = new Padding(4);
             pictureBox8.Name = "pictureBox8";

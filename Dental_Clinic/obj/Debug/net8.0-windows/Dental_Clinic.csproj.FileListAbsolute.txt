@@ -74,7 +74,6 @@ D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\re
 D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.pdb
 D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.genruntimeconfig.cache
 D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\ref\Dental_Clinic.dll
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Doctor.MainForm.resources
 D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
 D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
 D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
@@ -204,3 +203,4 @@ C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Den
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.genruntimeconfig.cache
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\ref\Dental_Clinic.dll
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.FormBacSi.resources
+D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.FormBacSi.resources
