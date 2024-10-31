@@ -183,10 +183,14 @@ namespace Dental_Clinic.GUI.Administrator
 
         private void lbDangXuat_Click(object sender, EventArgs e)
         {
+            // Hiển thị form đăng nhập
             this.Hide();
-            GUI.Dental_Clinic main = new GUI.Dental_Clinic();
-            main.ShowDialog();
-            this.Close();
+            GUI.Dental_Clinic mainForm = new GUI.Dental_Clinic();
+            mainForm.ShowDialog();
+            if (mainForm.DialogResult == DialogResult.OK)
+            {
+                this.Close();
+            }
         }
 
         private void label9_Click(object sender, EventArgs e)
