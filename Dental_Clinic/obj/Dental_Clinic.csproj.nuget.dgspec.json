@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\Nguyen\\Desktop\\Dental_Clinic\\Dental_Clinic\\Dental_Clinic.csproj": {}
   },
   "projects": {
@@ -12,6 +13,19 @@
         "projectPath": "C:\\Users\\Nguyen\\Desktop\\Dental_Clinic\\Dental_Clinic\\Dental_Clinic.csproj",
         "packagesPath": "C:\\Users\\Nguyen\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Nguyen\\Desktop\\Dental_Clinic\\Dental_Clinic\\obj\\",
+=======
+    "D:\\Đại học\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\Dental_Clinic.csproj": {}
+  },
+  "projects": {
+    "D:\\Đại học\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\Dental_Clinic.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Đại học\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\Dental_Clinic.csproj",
+        "projectName": "Dental_Clinic",
+        "projectPath": "D:\\Đại học\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\Dental_Clinic.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "D:\\Đại học\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\obj\\",
+>>>>>>> 31e65af61a621bca5c9ede42001f6cfe64ab4a26
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Nguyen\\AppData\\Roaming\\NuGet\\NuGet.Config",

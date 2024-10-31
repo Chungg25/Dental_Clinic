@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "jJ5yhDIN3q8=",
   "success": true,
   "projectFilePath": "C:\\Users\\Nguyen\\Desktop\\Dental_Clinic\\Dental_Clinic\\Dental_Clinic.csproj",
+=======
+  "dgSpecHash": "0ZjqQ2CrsAc=",
+  "success": true,
+  "projectFilePath": "D:\\Đại học\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\Dental_Clinic.csproj",
+>>>>>>> 31e65af61a621bca5c9ede42001f6cfe64ab4a26
   "expectedPackageFiles": [
     "C:\\Users\\Nguyen\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Nguyen\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
