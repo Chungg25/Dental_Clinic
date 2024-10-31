@@ -2200,5 +2200,6 @@ BEGIN
 		AND nguoi_dung.ma_nguoi_dung = @ID
 END;
 
+GO
 exec ChiTietCaLam 6, '2024-9-2'
-
+GO

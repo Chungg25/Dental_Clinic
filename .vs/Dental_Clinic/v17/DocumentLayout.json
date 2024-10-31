@@ -1,22 +1,13 @@
 {
   "Version": 1,
-<<<<<<< HEAD
   "WorkspaceRootPath": "C:\\Users\\Nguyen\\Desktop\\Dental_Clinic\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|c:\\users\\nguyen\\desktop\\dental_clinic\\dental_clinic\\dao\\databaseconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|solutionrelative:dental_clinic\\dao\\databaseconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-=======
-  "WorkspaceRootPath": "D:\\\u0110\u1EA1i h\u1ECDc\\HK5\\CNPM\\Dental_Clinic\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|d:\\\u0111\u1EA1i h\u1ECDc\\hk5\\cnpm\\dental_clinic\\dental_clinic\\dao\\lichlamviec\\lichlamviecdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|solutionrelative:dental_clinic\\dao\\lichlamviec\\lichlamviecdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|c:\\users\\nguyen\\desktop\\dental_clinic\\dental_clinic\\dental_clinic.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|solutionrelative:dental_clinic\\dental_clinic.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|d:\\\u0111\u1EA1i h\u1ECDc\\hk5\\cnpm\\dental_clinic\\dental_clinic\\gui\\bacsi\\formbacsi.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|solutionrelative:dental_clinic\\gui\\bacsi\\formbacsi.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
->>>>>>> 31e65af61a621bca5c9ede42001f6cfe64ab4a26
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,44 +17,33 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-<<<<<<< HEAD
-              "Title": "DatabaseConnection.cs",
-              "DocumentMoniker": "C:\\Users\\Nguyen\\Desktop\\Dental_Clinic\\Dental_Clinic\\DAO\\DatabaseConnection.cs",
-              "RelativeDocumentMoniker": "Dental_Clinic\\DAO\\DatabaseConnection.cs",
-              "ToolTip": "C:\\Users\\Nguyen\\Desktop\\Dental_Clinic\\Dental_Clinic\\DAO\\DatabaseConnection.cs",
-              "RelativeToolTip": "Dental_Clinic\\DAO\\DatabaseConnection.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T03:31:26.84Z",
-              "EditorCaption": ""
-=======
-              "Title": "LichLamViecDAO.cs",
-              "DocumentMoniker": "D:\\\u0110\u1EA1i h\u1ECDc\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\DAO\\LichLamViec\\LichLamViecDAO.cs",
-              "RelativeDocumentMoniker": "Dental_Clinic\\DAO\\LichLamViec\\LichLamViecDAO.cs",
-              "ToolTip": "D:\\\u0110\u1EA1i h\u1ECDc\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\DAO\\LichLamViec\\LichLamViecDAO.cs",
-              "RelativeToolTip": "Dental_Clinic\\DAO\\LichLamViec\\LichLamViecDAO.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAQwDIAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T02:50:08.283Z",
+              "DocumentIndex": 1,
+              "Title": "Microsoft.Common.CurrentVersion.targets",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "RelativeToolTip": "..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ViewState": "AgIAAMoVAAAAAAAAAAAmwN4VAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2024-10-31T03:53:12.022Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "FormBacSi.Designer.cs",
-              "DocumentMoniker": "D:\\\u0110\u1EA1i h\u1ECDc\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\GUI\\BacSi\\FormBacSi.Designer.cs",
-              "RelativeDocumentMoniker": "Dental_Clinic\\GUI\\BacSi\\FormBacSi.Designer.cs",
-              "ToolTip": "D:\\\u0110\u1EA1i h\u1ECDc\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\GUI\\BacSi\\FormBacSi.Designer.cs",
-              "RelativeToolTip": "Dental_Clinic\\GUI\\BacSi\\FormBacSi.Designer.cs",
-              "ViewState": "AgIAADoCAAAAAAAAAAAlwD4CAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T02:47:59.219Z"
->>>>>>> 31e65af61a621bca5c9ede42001f6cfe64ab4a26
+              "DocumentIndex": 0,
+              "Title": "Dental_Clinic",
+              "DocumentMoniker": "C:\\Users\\Nguyen\\Desktop\\Dental_Clinic\\Dental_Clinic\\Dental_Clinic.csproj",
+              "RelativeDocumentMoniker": "Dental_Clinic\\Dental_Clinic.csproj",
+              "ToolTip": "C:\\Users\\Nguyen\\Desktop\\Dental_Clinic\\Dental_Clinic\\Dental_Clinic.csproj",
+              "RelativeToolTip": "Dental_Clinic\\Dental_Clinic.csproj",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABYAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-10-31T03:40:34.761Z",
+              "EditorCaption": ""
             }
           ]
         }
