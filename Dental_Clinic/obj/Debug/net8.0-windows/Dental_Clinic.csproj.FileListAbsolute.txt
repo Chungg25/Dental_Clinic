@@ -258,7 +258,14 @@ D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\refint\
 D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.pdb
 D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.genruntimeconfig.cache
 D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\ref\Dental_Clinic.dll
+<<<<<<< HEAD
+C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.BenhNhan.FormBenhNhan_BacSi.resources
+C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.BenhNhan.FormChinhSuaBenhNhan_BacSi.resources
+C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.BenhNhan.FormThemBenhNhan_BacSi.resources
+C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.FormTrangChuBacSi.resources
+=======
 D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.BenhNhan.FormBenhNhan_BacSi.resources
 D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.BenhNhan.FormChinhSuaBenhNhan_BacSi.resources
 D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.BenhNhan.FormThemBenhNhan_BacSi.resources
 D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.FormTrangChuBacSi.resources
+>>>>>>> 31e65af61a621bca5c9ede42001f6cfe64ab4a26
