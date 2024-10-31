@@ -204,3 +204,7 @@ C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Den
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.genruntimeconfig.cache
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\ref\Dental_Clinic.dll
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.FormBacSi.resources
+C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.FormTrangChuBacSi.resources
+C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.BenhNhan.FormBenhNhan_BacSi.resources
+C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.BenhNhan.FormChinhSuaBenhNhan_BacSi.resources
+C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.BenhNhan.FormThemBenhNhan_BacSi.resources

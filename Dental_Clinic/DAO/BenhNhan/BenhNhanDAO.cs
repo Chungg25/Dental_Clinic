@@ -12,10 +12,14 @@ namespace Dental_Clinic.DAO.Patient
 {
     internal class BenhNhanDAO
     {
+        private DatabaseConnection dbConnection;
+        public BenhNhanDAO() 
+        { 
+            this.dbConnection = new DatabaseConnection();
+        }
         public List<BenhNhanDTO> LayDanhSachBenhNhan()
         {
             List<BenhNhanDTO> patientList = new List<BenhNhanDTO>();
-            DatabaseConnection dbConnection = new DatabaseConnection();
 
             try
             {

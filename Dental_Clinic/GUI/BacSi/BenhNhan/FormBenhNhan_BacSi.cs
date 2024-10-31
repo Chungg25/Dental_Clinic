@@ -1,22 +1,37 @@
-﻿using CustomButton;
-using Dental_Clinic.BUS.Admin;
+﻿using Dental_Clinic.GUI.Administrator;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using Dental_Clinic.GUI.BacSi;
 using Dental_Clinic.BUS.Patient;
+using CustomButton;
 using Dental_Clinic.DTO.Patient;
 using Dental_Clinic.GUI.Administrator.Patient;
+using Dental_Clinic.GUI.Receptionist;
 using System.Globalization;
 
-namespace Dental_Clinic.GUI.Administrator
+namespace Dental_Clinic.GUI.BacSi.BenhNhan
 {
-    public partial class FormBenhNhan : Form
+    public partial class FormBenhNhan_BacSi : Form
     {
-        private MainForm _mainForm;
-        private BenhNhanBUS benhNhanBUS;
-        public FormBenhNhan(MainForm mainForm)
+        private FormBacSi _formBacSi;
+        private BenhNhanBUS _benhNhanBUS;
+        public FormBenhNhan_BacSi(FormBacSi formBacSi)
         {
             InitializeComponent();
-            _mainForm = mainForm;
-            benhNhanBUS = new BenhNhanBUS();
-            List<BenhNhanDTO> benhNhan = benhNhanBUS.LayDanhSachBenhNhan();
+            this._formBacSi = formBacSi;
+            this._benhNhanBUS = new BenhNhanBUS();
+        }
+
+        private void FormBenhNhan_Load(object sender, EventArgs e)
+        {
+            List<BenhNhanDTO> benhNhan = _benhNhanBUS.LayDanhSachBenhNhan();
             TaoTableLayoutPanel(benhNhan);
 
             vbBenhNhan.FlatStyle = FlatStyle.Flat;
@@ -38,8 +53,7 @@ namespace Dental_Clinic.GUI.Administrator
             tbTimKiem.Text = "Tìm kiếm";
             tbTimKiem.ForeColor = Color.Gray;
             tbTimKiem.Enter += tbTimKiem_Enter;
-            tbTimKiem.Leave += tbTimKiem_Leave;            
-            tbTimKiem.TextChanged += tbTimKiem_TextChanged;
+            tbTimKiem.Leave += tbTimKiem_Leave;
         }
 
         //Phần này để chỉnh sửa các control
@@ -222,7 +236,7 @@ namespace Dental_Clinic.GUI.Administrator
             string searchText = tbTimKiem.Text.ToLower();
 
             // Lấy danh sách bác sĩ từ doctorBUS
-            var patientList = benhNhanBUS.LayDanhSachBenhNhan();
+            var patientList = _benhNhanBUS.LayDanhSachBenhNhan();
 
             if (string.IsNullOrWhiteSpace(searchText))
             {
@@ -249,29 +263,29 @@ namespace Dental_Clinic.GUI.Administrator
 
         public void HienThiThemThongTinBenhNhan()
         {
-            FormThemBenhNhan formThemBenhNhan = new FormThemBenhNhan(_mainForm);
+            FormThemBenhNhan_BacSi formThemBenhNhan = new FormThemBenhNhan_BacSi(_formBacSi);
             formThemBenhNhan.TopLevel = false;
             formThemBenhNhan.FormBorderStyle = FormBorderStyle.None;
             formThemBenhNhan.Dock = DockStyle.Fill;
-            _mainForm.panelTrangChu.Controls.Add(formThemBenhNhan);
+            _formBacSi.panelTrangChu.Controls.Add(formThemBenhNhan);
             formThemBenhNhan.BringToFront();
             formThemBenhNhan.Show();
         }
 
         public void HienThiChinhSuaThongTinBenhNhan(int id)
         {
-            FormChinhSuaBenhNhan formChinhSuaBenhNhan = new FormChinhSuaBenhNhan(_mainForm, benhNhanBUS.LayThongTinBenhNhan(id));
+            FormChinhSuaBenhNhan_BacSi formChinhSuaBenhNhan = new FormChinhSuaBenhNhan_BacSi(_formBacSi, _benhNhanBUS.LayThongTinBenhNhan(id));
             formChinhSuaBenhNhan.TopLevel = false;
             formChinhSuaBenhNhan.FormBorderStyle = FormBorderStyle.None;
             formChinhSuaBenhNhan.Dock = DockStyle.Fill;
-            _mainForm.panelTrangChu.Controls.Add(formChinhSuaBenhNhan);
+            _formBacSi.panelTrangChu.Controls.Add(formChinhSuaBenhNhan);
             formChinhSuaBenhNhan.BringToFront();
             formChinhSuaBenhNhan.Show();
         }
 
         private void vbBenhNhan_Click(object sender, EventArgs e)
         {
-            List<BenhNhanDTO> benhNhan = benhNhanBUS.LayDanhSachBenhNhan();
+            List<BenhNhanDTO> benhNhan = _benhNhanBUS.LayDanhSachBenhNhan();
             TaoTableLayoutPanel(benhNhan);
         }
         //Kết thúc
