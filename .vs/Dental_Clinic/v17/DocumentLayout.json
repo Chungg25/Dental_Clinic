@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "C:\\Users\\Nguyen\\Desktop\\Dental_Clinic\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|c:\\users\\nguyen\\desktop\\dental_clinic\\dental_clinic\\dental_clinic.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|solutionrelative:dental_clinic\\dental_clinic.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|c:\\users\\nguyen\\desktop\\dental_clinic\\dental_clinic\\gui\\bacsi\\benhnhan\\formbenhnhan_bacsi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|solutionrelative:dental_clinic\\gui\\bacsi\\benhnhan\\formbenhnhan_bacsi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -17,33 +17,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Microsoft.Common.CurrentVersion.targets",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
               "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
               "RelativeToolTip": "..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
-              "ViewState": "AgIAAMoVAAAAAAAAAAAmwN4VAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAMoVAAAAAAAAAAAmwN4VAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2024-10-31T03:53:12.022Z",
+              "WhenOpened": "2024-10-31T03:57:09.619Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Dental_Clinic",
-              "DocumentMoniker": "C:\\Users\\Nguyen\\Desktop\\Dental_Clinic\\Dental_Clinic\\Dental_Clinic.csproj",
-              "RelativeDocumentMoniker": "Dental_Clinic\\Dental_Clinic.csproj",
-              "ToolTip": "C:\\Users\\Nguyen\\Desktop\\Dental_Clinic\\Dental_Clinic\\Dental_Clinic.csproj",
-              "RelativeToolTip": "Dental_Clinic\\Dental_Clinic.csproj",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABYAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-10-31T03:40:34.761Z",
-              "EditorCaption": ""
+              "DocumentIndex": 1,
+              "Title": "FormBenhNhan_BacSi.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Nguyen\\Desktop\\Dental_Clinic\\Dental_Clinic\\GUI\\BacSi\\BenhNhan\\FormBenhNhan_BacSi.cs",
+              "RelativeDocumentMoniker": "Dental_Clinic\\GUI\\BacSi\\BenhNhan\\FormBenhNhan_BacSi.cs",
+              "ToolTip": "C:\\Users\\Nguyen\\Desktop\\Dental_Clinic\\Dental_Clinic\\GUI\\BacSi\\BenhNhan\\FormBenhNhan_BacSi.cs [Design]",
+              "RelativeToolTip": "Dental_Clinic\\GUI\\BacSi\\BenhNhan\\FormBenhNhan_BacSi.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-31T03:56:43.104Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }
