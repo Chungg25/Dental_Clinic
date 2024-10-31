@@ -1,12 +1,15 @@
 ﻿using Dental_Clinic.BUS.LichLamViec;
 using Dental_Clinic.DTO.ChamCong;
 using Dental_Clinic.DTO.LichLamViec;
+using Dental_Clinic.GUI.QuanTriVien.LichLamViec;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -170,7 +173,7 @@ namespace Dental_Clinic.GUI.Administrator.WorkSchedule
                                     {
                                         dayPanel.BackColor = Color.Red; // Màu đỏ cho trạng thái không đúng giờ
                                     }
-                                    else
+                                    else if (trangThai == "1")
                                     {
                                         dayPanel.BackColor = Color.FromArgb(255, 223, 186); // Màu nền cho các ngày có ca làm
                                     }
@@ -203,6 +206,8 @@ namespace Dental_Clinic.GUI.Administrator.WorkSchedule
                                     Padding = new Padding(5),
                                     Font = new Font("Segoe UI", 7, FontStyle.Bold)
                                 };
+                                dayLabel.Tag = currentDate;
+                                dayLabel.Click += DayLabel_Click;
                                 dayPanel.Controls.Add(dayLabel);
 
                                 day++;
@@ -225,22 +230,14 @@ namespace Dental_Clinic.GUI.Administrator.WorkSchedule
 
         public void HienThiChiTietNgayLamViec(int id, DateTime day)
         {
-            Label dateOfBirthLabel = new Label
-            {
-                Text = "Ngày sinh: " + day.ToString("dd/MM/yyyy"), // Định dạng ngày
-                Dock = DockStyle.Fill,
-                TextAlign = ContentAlignment.MiddleCenter,
-                Font = new Font("Segoe UI", 12, FontStyle.Bold),
-                ForeColor = Color.Black
-            };
-
+            FormChiTietCaLam formChiTietCaLam = new FormChiTietCaLam(id, day);
+            
             dtpLichLamViec.Visible = false;
 
-            // Thêm label vào panelLichLamViec
-            panelLichLamViec.Controls.Add(dateOfBirthLabel);
-
-            // Đảm bảo label nằm ở trên cùng nếu có nhiều điều khiển
-            dateOfBirthLabel.BringToFront();
+            // Add FormChiTietCaLam to panelLichLamViec and display it
+            panelLichLamViec.Controls.Add(formChiTietCaLam.panelChiTiet);
+            formChiTietCaLam.panelChiTiet.Dock = DockStyle.Fill;
+            formChiTietCaLam.panelChiTiet.BringToFront();
         }
 
         private void pbQuayVe_Click(object sender, EventArgs e)
@@ -258,6 +255,75 @@ namespace Dental_Clinic.GUI.Administrator.WorkSchedule
                 panelLichLamViec.Controls.Clear();
 
                 panelLichLamViec.Controls.Add(lastControl);
+            }
+        }
+
+        private void DayLabel_Click(object sender, EventArgs e)
+        {
+            Label shiftLabel = sender as Label;
+            if (shiftLabel != null && shiftLabel.Tag is DateTime currentDate)
+            {
+                HienThiChiTietNgayLamViec(id, currentDate);
+            }
+        }
+
+        private bool GuiXacThucDenMail(string MailPhanHoi, string CodeXacThuc)
+        {
+            var fromAddress = new MailAddress("huygianhoang2007@gmail.com", "TechCraft N05");
+            var toAddress = new MailAddress(MailPhanHoi);
+            const string fromPassword = "zruj aszp lanq sgql";
+            const string subject = "Mã xác nhận của bạn";
+
+            // Định dạng lại nội dung email với HTML
+            string body = $@"
+            <html>
+                <body style='font-family: Arial, sans-serif; line-height: 1.6; color: #333; padding: 20px;'>
+                    <h2 style='color: #333;'>Thông báo thay đổi lịch làm việc</h2>
+                    <p style='font-size: 14px;'>Xin chào,</p>
+                    <p style='font-size: 14px;'>Lịch làm việc của bạn đã được thay đổi.</p>
+                    <p style='font-size: 14px'>
+                        Vui lòng kiểm tra lại lịch làm việc mới của bạn:
+                    </p>
+                    <p style='font-size: 20px; font-weight: bold; color: #4caf50'>
+                        {{LichLamViecMoi}}
+                    </p>
+                    <p style='font-size: 14px'>
+                        Nếu bạn có bất kỳ câu hỏi nào, hãy liên hệ với chúng tôi.
+                    </p
+                    <br />
+                    <p>Trân trọng,</p>
+                    <p>Đội ngũ hỗ trợ</p>
+                </body>
+            </html>";
+
+            var smtp = new SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+            };
+
+            try
+            {
+                using (var message = new MailMessage(fromAddress, toAddress)
+                {
+                    Subject = subject,
+                    Body = body,
+                    IsBodyHtml = true
+                })
+                {
+                    smtp.Send(message);
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi: " + ex.Message);
+                return false;
             }
         }
     }

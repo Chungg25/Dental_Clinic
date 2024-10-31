@@ -2140,6 +2140,8 @@ END;
 
 GO
 
+DROP proc LichLamViecBacSiTheoID
+Go
 CREATE PROCEDURE LichLamViecBacSiTheoID
 	@ID INT,
 	@StartOfMonth DATE,
@@ -2153,6 +2155,7 @@ BEGIN
 		lich_lam_viec.ngay, 
 		CASE 
 			WHEN cham_cong.ghi_chu = N'Làm việc đúng giờ' THEN 1 
+			WHEN cham_cong.ghi_chu IS NULL THEN 2
 			ELSE 0 
 		END AS LamViecDungGio
 	FROM 
@@ -2168,8 +2171,6 @@ BEGIN
 		lich_lam_viec.ngay BETWEEN @StartOfMonth AND @EndOfMonth
 		AND nguoi_dung.ma_nguoi_dung = @ID
 END;
-
-exec LichLamViecBacSiTheoID 6, '2024-9-1', '2024-9-30'
 
 GO
 
@@ -2201,6 +2202,15 @@ BEGIN
 END;
 
 GO
+<<<<<<< HEAD
 exec ChiTietCaLam 6, '2024-9-2'
 GO
 
+=======
+exec ChiTietCaLam 4, '2024-10-20'
+GO
+
+exec LichLamViecBacSiTheoID 6, '2024-9-1', '2024-9-30'
+
+GO
+>>>>>>> 01a611af1aedb8cfc547b45f07c4d10f98a37ce1

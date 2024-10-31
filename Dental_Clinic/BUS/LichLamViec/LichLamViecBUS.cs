@@ -26,5 +26,10 @@ namespace Dental_Clinic.BUS.LichLamViec
             return lichLamViecDAO.LichLamViecBacSi(id, day);
         }
 
+        public ChamCongDTO ChiTietLamViec(int id, DateTime day)
+        {
+            return lichLamViecDAO.ChiTietLamViec(id, day);
+        }
+
     }
 }

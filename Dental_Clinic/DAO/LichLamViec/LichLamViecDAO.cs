@@ -80,7 +80,6 @@ namespace Dental_Clinic.DAO.LichLamViec
                     cmd.Parameters.AddWithValue("@ID", id);
                     cmd.Parameters.AddWithValue("@StartOfMonth", firstDayOfMonth);
                     cmd.Parameters.AddWithValue("@EndOfMonth", lastDayOfMonth);
-
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
@@ -117,6 +116,61 @@ namespace Dental_Clinic.DAO.LichLamViec
             }
 
             return chamCongBacSiList;
+        }
+
+        public ChamCongDTO ChiTietLamViec(int id, DateTime day)
+        {
+            ChamCongDTO ChiTietLamViec = new ChamCongDTO();
+            DatabaseConnection dbConnection = new DatabaseConnection();
+            DateOnly NgayLamViec = new DateOnly(day.Year, day.Month, day.Day);
+            string ThayDoiDinhDangNgay = NgayLamViec.ToString("yyyy-MM-dd");
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("ChiTietCaLam", dbConnection.Conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ID", id);
+                    cmd.Parameters.AddWithValue("@day", ThayDoiDinhDangNgay);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            ChiTietLamViec = new ChamCongDTO
+                            {
+                                MaNguoiDung = Convert.ToInt32(reader["ma_nguoi_dung"]),
+                                HoTen = reader["ho_ten"].ToString() ?? "",
+                                GioiTinh = Convert.ToBoolean(reader["gioi_tinh"]),
+                                Ngay = reader["ngay"].ToString(),
+                                Email = reader["email"]?.ToString() ?? "",
+                                GioVao = reader["gio_vao"].ToString(),
+                                GioRa = reader["gio_ra"].ToString(),
+                                GhiChu = reader["ghi_chu"].ToString(),
+                                SĐT = reader["so_dien_thoai"].ToString(),
+                                DiaChi = reader["dia_chi"].ToString(),
+                            };
+                        }
+                    }
+                }
+            }
+            catch (SqlException sqlEx)
+            {
+                // Xử lý lỗi SQL
+                Console.WriteLine($"SQL Error: {sqlEx.Message}");
+                // Có thể ném ngoại lệ hoặc ghi log lỗi ở đây
+            }
+            catch (Exception ex)
+            {
+                // Xử lý các lỗi khác
+                Console.WriteLine($"Error: {ex.Message}");
+                // Có thể ném ngoại lệ hoặc ghi log lỗi ở đây
+            }
+            finally
+            {
+                // Đảm bảo đóng kết nối trong mọi trường hợp
+                dbConnection.CloseConnection();
+            }
+
+            return ChiTietLamViec;
         }
     }
 }
