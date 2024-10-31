@@ -34,7 +34,7 @@ namespace Dental_Clinic.GUI.BacSi
             ShowFormOnPanel(new FormTrangChuBacSi());
         }
         // Hiển thị form lên panel
-        private void ShowFormOnPanel(Form form)
+        public void ShowFormOnPanel(Form form)
         {
             form.TopLevel = false; // Đặt dashForm không phải là form cấp cao nhất (TopLevel)
             form.FormBorderStyle = FormBorderStyle.None; // Xóa viền của dashForm

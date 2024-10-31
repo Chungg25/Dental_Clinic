@@ -61,27 +61,27 @@ namespace Dental_Clinic.GUI.BacSi.BenhNhan
             // pnLine
             // 
             pnLine.BackColor = Color.Black;
-            pnLine.Location = new Point(60, 70);
+            pnLine.Location = new Point(13, 67);
             pnLine.Name = "pnLine";
-            pnLine.Size = new Size(1210, 2);
+            pnLine.Size = new Size(1300, 2);
             pnLine.TabIndex = 27;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
-            label1.Location = new Point(60, 13);
+            label1.Location = new Point(13, 10);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(626, 54);
+            label1.Size = new Size(395, 54);
             label1.TabIndex = 0;
-            label1.Text = "Trang Chủ / Quản Lý Bệnh Nhân";
+            label1.Text = "Quản Lý Bệnh Nhân";
             // 
             // pictureBox5
             // 
             pictureBox5.BackColor = Color.FromArgb(163, 211, 229);
             pictureBox5.Image = Resources.icons8_tooth_50;
-            pictureBox5.Location = new Point(221, 116);
+            pictureBox5.Location = new Point(174, 116);
             pictureBox5.Margin = new Padding(4);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(45, 45);
@@ -91,23 +91,24 @@ namespace Dental_Clinic.GUI.BacSi.BenhNhan
             // 
             // panelBenhNhan
             // 
-            panelBenhNhan.Location = new Point(13, 216);
+            panelBenhNhan.Location = new Point(10, 189);
             panelBenhNhan.Margin = new Padding(4);
             panelBenhNhan.Name = "panelBenhNhan";
-            panelBenhNhan.Size = new Size(1228, 601);
+            panelBenhNhan.Size = new Size(1247, 603);
             panelBenhNhan.TabIndex = 26;
             // 
             // pictureBox7
             // 
             pictureBox7.BackColor = Color.FromArgb(163, 211, 229);
             pictureBox7.Image = Resources.icons8_plus_50;
-            pictureBox7.Location = new Point(577, 116);
+            pictureBox7.Location = new Point(545, 116);
             pictureBox7.Margin = new Padding(4);
             pictureBox7.Name = "pictureBox7";
             pictureBox7.Size = new Size(45, 45);
             pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox7.TabIndex = 21;
             pictureBox7.TabStop = false;
+            pictureBox7.Click += vbThemBenhNhan_Click;
             // 
             // tbTimKiem
             // 
@@ -116,7 +117,7 @@ namespace Dental_Clinic.GUI.BacSi.BenhNhan
             tbTimKiem.Location = new Point(754, 125);
             tbTimKiem.Margin = new Padding(4);
             tbTimKiem.Name = "tbTimKiem";
-            tbTimKiem.Size = new Size(503, 24);
+            tbTimKiem.Size = new Size(471, 24);
             tbTimKiem.TabIndex = 22;
             tbTimKiem.TextChanged += tbTimKiem_TextChanged;
             // 
@@ -145,7 +146,7 @@ namespace Dental_Clinic.GUI.BacSi.BenhNhan
             vbTimKiem.Location = new Point(685, 105);
             vbTimKiem.Margin = new Padding(4);
             vbTimKiem.Name = "vbTimKiem";
-            vbTimKiem.Size = new Size(572, 64);
+            vbTimKiem.Size = new Size(556, 64);
             vbTimKiem.TabIndex = 25;
             vbTimKiem.TextColor = Color.White;
             vbTimKiem.UseVisualStyleBackColor = false;
@@ -162,7 +163,7 @@ namespace Dental_Clinic.GUI.BacSi.BenhNhan
             vbThemBenhNhan.FlatStyle = FlatStyle.Flat;
             vbThemBenhNhan.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             vbThemBenhNhan.ForeColor = Color.White;
-            vbThemBenhNhan.Location = new Point(341, 105);
+            vbThemBenhNhan.Location = new Point(309, 105);
             vbThemBenhNhan.Margin = new Padding(4);
             vbThemBenhNhan.Name = "vbThemBenhNhan";
             vbThemBenhNhan.Size = new Size(301, 64);
@@ -171,6 +172,7 @@ namespace Dental_Clinic.GUI.BacSi.BenhNhan
             vbThemBenhNhan.TextAlign = ContentAlignment.MiddleLeft;
             vbThemBenhNhan.TextColor = Color.White;
             vbThemBenhNhan.UseVisualStyleBackColor = false;
+            vbThemBenhNhan.Click += vbThemBenhNhan_Click;
             // 
             // vbBenhNhan
             // 
@@ -184,7 +186,7 @@ namespace Dental_Clinic.GUI.BacSi.BenhNhan
             vbBenhNhan.FlatStyle = FlatStyle.Flat;
             vbBenhNhan.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             vbBenhNhan.ForeColor = Color.White;
-            vbBenhNhan.Location = new Point(60, 105);
+            vbBenhNhan.Location = new Point(13, 105);
             vbBenhNhan.Margin = new Padding(4);
             vbBenhNhan.Name = "vbBenhNhan";
             vbBenhNhan.Size = new Size(232, 64);
@@ -193,6 +195,7 @@ namespace Dental_Clinic.GUI.BacSi.BenhNhan
             vbBenhNhan.TextAlign = ContentAlignment.MiddleLeft;
             vbBenhNhan.TextColor = Color.White;
             vbBenhNhan.UseVisualStyleBackColor = false;
+            vbBenhNhan.Click += vbBenhNhan_Click;
             // 
             // FormBenhNhan_BacSi
             // 
@@ -211,7 +214,6 @@ namespace Dental_Clinic.GUI.BacSi.BenhNhan
             Controls.Add(vbBenhNhan);
             Name = "FormBenhNhan_BacSi";
             Text = "FormBenhNhan";
-            Load += FormBenhNhan_Load;
             pnTop.ResumeLayout(false);
             pnTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
