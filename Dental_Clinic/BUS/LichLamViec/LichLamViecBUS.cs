@@ -1,5 +1,6 @@
 ﻿using Dental_Clinic.DAO.LichLamViec;
 using Dental_Clinic.DTO.BacSi;
+using Dental_Clinic.DTO.ChamCong;
 using Dental_Clinic.DTO.LeTan;
 using Dental_Clinic.DTO.LichLamViec;
 using System;
@@ -20,7 +21,7 @@ namespace Dental_Clinic.BUS.LichLamViec
         {
             return lichLamViecDAO.DanhSachLichLamViecBacSi(firstDayOfMonth, lastDayOfMonth);
         }
-        public List<LichLamViecDTO> LichLamViecBacSi(int id, DateTime day)
+        public List<ChamCongDTO> LichLamViecBacSi(int id, DateTime day)
         {
             return lichLamViecDAO.LichLamViecBacSi(id, day);
         }

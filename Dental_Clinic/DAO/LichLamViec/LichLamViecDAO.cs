@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dental_Clinic.DTO.LichLamViec;
+using Dental_Clinic.DTO.ChamCong;
 
 namespace Dental_Clinic.DAO.LichLamViec
 {
@@ -35,7 +36,7 @@ namespace Dental_Clinic.DAO.LichLamViec
                                 GioiTinh = Convert.ToBoolean(reader["gioi_tinh"]),
                                 Email = reader["email"]?.ToString() ?? "",
                                 ChuyenNganh = reader["ten_chuyen_mon"]?.ToString() ?? "",
-                                SoCa = Convert.ToInt32(reader["so_ca"])
+                                SoCa = Convert.ToInt32(reader["so_ca"]),
                             };
                             lichLamViecBacSiList.Add(lichLamViecBacSi);
                         }
@@ -63,12 +64,12 @@ namespace Dental_Clinic.DAO.LichLamViec
             return lichLamViecBacSiList;
         }
 
-        public List<LichLamViecDTO> LichLamViecBacSi(int id, DateTime day)
+        public List<ChamCongDTO> LichLamViecBacSi(int id, DateTime day)
         {
 
             DateTime firstDayOfMonth = new DateTime(day.Year, day.Month, 1);
             DateTime lastDayOfMonth = new DateTime(day.Year, day.Month, DateTime.DaysInMonth(day.Year, day.Month));
-            List<LichLamViecDTO> lichLamViecBacSiList = new List<LichLamViecDTO>();
+            List<ChamCongDTO> chamCongBacSiList = new List<ChamCongDTO>();
             DatabaseConnection dbConnection = new DatabaseConnection();
 
             try
@@ -84,14 +85,15 @@ namespace Dental_Clinic.DAO.LichLamViec
                     {
                         while (reader.Read())
                         {
-                            LichLamViecDTO lichLamViecBacSi = new LichLamViecDTO
+                            ChamCongDTO chamCongBacSi = new ChamCongDTO
                             {
                                 MaNguoiDung = Convert.ToInt32(reader["ma_nguoi_dung"]),
                                 HoTen = reader["ho_ten"].ToString() ?? "",
                                 Ca = Convert.ToInt32(reader["ca"]),
-                                Ngay = reader["ngay"].ToString()
+                                Ngay = reader["ngay"].ToString(),
+                                TrangThai = Convert.ToInt32(reader["LamViecDungGio"]),
                             };
-                            lichLamViecBacSiList.Add(lichLamViecBacSi);
+                            chamCongBacSiList.Add(chamCongBacSi);
                         }
                     }
                 }
@@ -114,7 +116,7 @@ namespace Dental_Clinic.DAO.LichLamViec
                 dbConnection.CloseConnection();
             }
 
-            return lichLamViecBacSiList;
+            return chamCongBacSiList;
         }
     }
 }

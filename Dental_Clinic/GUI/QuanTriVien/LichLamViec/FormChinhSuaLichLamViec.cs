@@ -1,4 +1,5 @@
 ﻿using Dental_Clinic.BUS.LichLamViec;
+using Dental_Clinic.DTO.ChamCong;
 using Dental_Clinic.DTO.LichLamViec;
 using System;
 using System.Collections.Generic;
@@ -18,11 +19,13 @@ namespace Dental_Clinic.GUI.Administrator.WorkSchedule
         private LichLamViecBUS lichLamViecBUS;
         private int id;
         private DateTime day;
-        public FormChinhSuaLichLamViec(object _mainForm, int id, DateTime day)
+        private MainForm mainForm;
+        public FormChinhSuaLichLamViec(MainForm _mainForm, int id, DateTime day)
         {
             InitializeComponent();
             this.id = id;
             this.day = day;
+            mainForm = _mainForm;
             lichLamViecBUS = new LichLamViecBUS();
 
             HienThiLichLamViec(id, day);
@@ -33,12 +36,10 @@ namespace Dental_Clinic.GUI.Administrator.WorkSchedule
         public void HienThiLichLamViec(int id, DateTime day)
         {
             TaoCalendar();
-            Dictionary<DateTime, string> workShifts = new Dictionary<DateTime, string>();
+            Dictionary<DateTime, (string Ca, string TrangThai)> workShifts = new Dictionary<DateTime, (string Ca, string TrangThai)>();
 
-            // Lấy danh sách lịch làm việc của bác sĩ từ BUS
-            List<LichLamViecDTO> lichLamViecBacSi = lichLamViecBUS.LichLamViecBacSi(id, day);
+            List<ChamCongDTO> lichLamViecBacSi = lichLamViecBUS.LichLamViecBacSi(id, day);
 
-            // Thêm các ca làm việc từ danh sách vào Dictionary
             foreach (var lichLamViec in lichLamViecBacSi)
             {
                 DateTime ngayLamViec;
@@ -46,7 +47,7 @@ namespace Dental_Clinic.GUI.Administrator.WorkSchedule
                 {
                     if (!workShifts.ContainsKey(ngayLamViec))
                     {
-                        workShifts.Add(ngayLamViec, lichLamViec.Ca.ToString());
+                        workShifts.Add(ngayLamViec, (lichLamViec.Ca.ToString(), lichLamViec.TrangThai.ToString()));
                     }
                 }
             }
@@ -58,7 +59,7 @@ namespace Dental_Clinic.GUI.Administrator.WorkSchedule
         {
             // Khi giá trị của dtpLichLamViec thay đổi, cập nhật lịch
             DateTime selectedDate = dtpLichLamViec.Value;
-            HienThiLichLamViec(id, day);
+            HienThiLichLamViec(id, selectedDate);
         }
 
         private void TaoCalendar()
@@ -119,8 +120,8 @@ namespace Dental_Clinic.GUI.Administrator.WorkSchedule
             panelLichLamViec.Controls.Add(calendarTable); // Thêm bảng lịch vào Form
         }
 
-        
-        private void TaoLichLamViec(DateTime selectedDate, Dictionary<DateTime, string> workShifts)
+
+        private void TaoLichLamViec(DateTime selectedDate, Dictionary<DateTime, (string Ca, string TrangThai)> workShifts)
         {
             // Lấy thông tin về tháng và năm hiện tại
             int selectedYear = selectedDate.Year;
@@ -147,7 +148,7 @@ namespace Dental_Clinic.GUI.Administrator.WorkSchedule
                     // Bắt đầu thêm ngày vào đúng ô khi đã tới ngày đầu tiên của tháng
                     if (dayPanel != null)
                     {
-                        dayPanel.Controls.Clear();  // Xóa nội dung cũ
+                        dayPanel.Controls.Clear();
 
                         if (col > firstDayIndex || daysStarted)
                         {
@@ -161,9 +162,19 @@ namespace Dental_Clinic.GUI.Administrator.WorkSchedule
                                 // Kiểm tra ca làm việc từ workShifts
                                 if (workShifts.ContainsKey(currentDate))
                                 {
-                                    shiftText = workShifts[currentDate];
-                                    // Bạn có thể thay đổi màu nền dựa trên ca làm việc
-                                    dayPanel.BackColor = Color.FromArgb(255, 223, 186); // Màu nền cho các ngày có ca làm
+                                    var shiftInfo = workShifts[currentDate];
+                                    shiftText = shiftInfo.Ca; // Lấy ca làm
+                                    string trangThai = shiftInfo.TrangThai; // Lấy trạng thái
+                                    // Thay đổi màu nền dựa trên trạng thái
+                                    if (trangThai == "0") // Kiểm tra nếu trạng thái là 0
+                                    {
+                                        dayPanel.BackColor = Color.Red; // Màu đỏ cho trạng thái không đúng giờ
+                                    }
+                                    else
+                                    {
+                                        dayPanel.BackColor = Color.FromArgb(255, 223, 186); // Màu nền cho các ngày có ca làm
+                                    }
+
                                 }
 
                                 if (!string.IsNullOrEmpty(shiftText))
@@ -177,7 +188,10 @@ namespace Dental_Clinic.GUI.Administrator.WorkSchedule
                                         Font = new Font("Segoe UI", 8),
                                         ForeColor = Color.Black,
                                     };
+
+                                    shiftLabel.Tag = currentDate;
                                     dayPanel.Controls.Add(shiftLabel);
+                                    shiftLabel.Click += ShiftLabel_Click;
                                 }
 
                                 // Thêm số ngày
@@ -192,10 +206,58 @@ namespace Dental_Clinic.GUI.Administrator.WorkSchedule
                                 dayPanel.Controls.Add(dayLabel);
 
                                 day++;
+                                dayPanel.BringToFront();
                             }
                         }
                     }
                 }
+            }
+        }
+
+        private void ShiftLabel_Click(object sender, EventArgs e)
+        {
+            Label shiftLabel = sender as Label;
+            if (shiftLabel != null && shiftLabel.Tag is DateTime currentDate)
+            {
+                HienThiChiTietNgayLamViec(id, currentDate);
+            }
+        }
+
+        public void HienThiChiTietNgayLamViec(int id, DateTime day)
+        {
+            Label dateOfBirthLabel = new Label
+            {
+                Text = "Ngày sinh: " + day.ToString("dd/MM/yyyy"), // Định dạng ngày
+                Dock = DockStyle.Fill,
+                TextAlign = ContentAlignment.MiddleCenter,
+                Font = new Font("Segoe UI", 12, FontStyle.Bold),
+                ForeColor = Color.Black
+            };
+
+            dtpLichLamViec.Visible = false;
+
+            // Thêm label vào panelLichLamViec
+            panelLichLamViec.Controls.Add(dateOfBirthLabel);
+
+            // Đảm bảo label nằm ở trên cùng nếu có nhiều điều khiển
+            dateOfBirthLabel.BringToFront();
+        }
+
+        private void pbQuayVe_Click(object sender, EventArgs e)
+        {
+            int controlCount = panelLichLamViec.Controls.Count;
+            if (controlCount == 1)
+            {
+                mainForm.ShowWorkScheduleInPanel();
+            }
+            else
+            {
+                dtpLichLamViec.Visible = true;
+                Control lastControl = panelLichLamViec.Controls[controlCount - 1];
+
+                panelLichLamViec.Controls.Clear();
+
+                panelLichLamViec.Controls.Add(lastControl);
             }
         }
     }
