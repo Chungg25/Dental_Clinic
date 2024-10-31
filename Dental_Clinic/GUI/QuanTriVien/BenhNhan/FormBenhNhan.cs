@@ -38,7 +38,7 @@ namespace Dental_Clinic.GUI.Administrator
             tbTimKiem.Text = "Tìm kiếm";
             tbTimKiem.ForeColor = Color.Gray;
             tbTimKiem.Enter += tbTimKiem_Enter;
-            tbTimKiem.Leave += tbTimKiem_Leave;            
+            tbTimKiem.Leave += tbTimKiem_Leave;
             tbTimKiem.TextChanged += tbTimKiem_TextChanged;
         }
 

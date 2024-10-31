@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dental_Clinic.GUI.Login;
 
 namespace Dental_Clinic.GUI.Administrator
 {
@@ -182,14 +183,10 @@ namespace Dental_Clinic.GUI.Administrator
 
         private void lbDangXuat_Click(object sender, EventArgs e)
         {
-            // Hiển thị form đăng nhập
             this.Hide();
-            GUI.Dental_Clinic mainForm = new GUI.Dental_Clinic();
-            mainForm.ShowDialog();
-            if (mainForm.DialogResult == DialogResult.OK)
-            {
-                this.Close();
-            }
+            GUI.Dental_Clinic main = new GUI.Dental_Clinic();
+            main.ShowDialog();
+            this.Close();
         }
 
         private void label9_Click(object sender, EventArgs e)

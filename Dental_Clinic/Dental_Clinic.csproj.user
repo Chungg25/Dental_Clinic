@@ -1,19 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Compile Update="GUI\BacSi\BenhNhan\FormBenhNhan_BacSi.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="GUI\BacSi\BenhNhan\FormChinhSuaBenhNhan_BacSi.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="GUI\BacSi\BenhNhan\FormThemBenhNhan_BacSi.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="GUI\BacSi\FormBacSi.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="GUI\BacSi\FormTrangChuBacSi.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="GUI\QuanTriVien\ThongKe\FormThongKe.cs">
