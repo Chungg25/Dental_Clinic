@@ -1,4 +1,6 @@
-﻿namespace Dental_Clinic.GUI.Administrator.WorkSchedule
+﻿using Dental_Clinic.Properties;
+
+namespace Dental_Clinic.GUI.Administrator.WorkSchedule
 {
     partial class FormChinhSuaLichLamViec
     {
@@ -32,7 +34,9 @@
             label1 = new Label();
             panelLichLamViec = new Panel();
             dtpLichLamViec = new DateTimePicker();
+            pbQuayVe = new PictureBox();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbQuayVe).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -68,19 +72,32 @@
             dtpLichLamViec.Size = new Size(250, 27);
             dtpLichLamViec.TabIndex = 46;
             // 
-            // EditWorkScheduleForm
+            // pbQuayVe
+            // 
+            pbQuayVe.Image = Resources.icons8_back_50;
+            pbQuayVe.Location = new Point(12, 87);
+            pbQuayVe.Name = "pbQuayVe";
+            pbQuayVe.Size = new Size(70, 39);
+            pbQuayVe.SizeMode = PictureBoxSizeMode.Zoom;
+            pbQuayVe.TabIndex = 47;
+            pbQuayVe.TabStop = false;
+            pbQuayVe.Click += pbQuayVe_Click;
+            // 
+            // FormChinhSuaLichLamViec
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             ClientSize = new Size(1016, 644);
+            Controls.Add(pbQuayVe);
             Controls.Add(dtpLichLamViec);
             Controls.Add(panelLichLamViec);
             Controls.Add(panel1);
-            Name = "EditWorkScheduleForm";
+            Name = "FormChinhSuaLichLamViec";
             Text = "EditWorkScheduleForm";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pbQuayVe).EndInit();
             ResumeLayout(false);
         }
 
@@ -90,5 +107,6 @@
         private Label label1;
         private Panel panelLichLamViec;
         private DateTimePicker dtpLichLamViec;
+        private PictureBox pbQuayVe;
     }
 }

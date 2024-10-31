@@ -2170,7 +2170,35 @@ BEGIN
 END;
 
 exec LichLamViecBacSiTheoID 6, '2024-9-1', '2024-9-30'
-drop proc LichLamViecBacSiTheoID
 
-SELECT * FROM bac_si
+GO
+
+CREATE PROCEDURE ChiTietCaLam
+	@ID INT,
+	@day DATE
+AS
+BEGIN
+	SELECT 
+		nguoi_dung.ma_nguoi_dung, 
+		nguoi_dung.ho_ten, 
+		nguoi_dung.gioi_tinh,
+		nguoi_dung.email,
+		nguoi_dung.so_dien_thoai,
+		nguoi_dung.dia_chi,
+		cham_cong.ghi_chu,
+		cham_cong.gio_vao,
+		cham_cong.gio_ra,
+		cham_cong.ngay
+	FROM 
+		nguoi_dung
+	JOIN 
+		bac_si ON nguoi_dung.ma_nguoi_dung = bac_si.ma_nguoi_dung
+	LEFT JOIN 
+		cham_cong ON nguoi_dung.ma_nguoi_dung = cham_cong.ma_nguoi_dung 
+	WHERE 
+		cham_cong.ngay = @day
+		AND nguoi_dung.ma_nguoi_dung = @ID
+END;
+
+exec ChiTietCaLam 6, '2024-9-2'
 
