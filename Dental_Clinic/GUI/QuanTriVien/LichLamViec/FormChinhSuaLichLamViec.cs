@@ -36,8 +36,6 @@ namespace Dental_Clinic.GUI.Administrator.WorkSchedule
         public void HienThiLichLamViec(int id, DateTime day)
         {
             TaoCalendar();
-            panelChiTiet.Visible = false;
-            panelLichLamViec.Visible = true;
             Dictionary<DateTime, (string Ca, string TrangThai)> workShifts = new Dictionary<DateTime, (string Ca, string TrangThai)>();
 
             List<ChamCongDTO> lichLamViecBacSi = lichLamViecBUS.LichLamViecBacSi(id, day);
@@ -236,14 +234,13 @@ namespace Dental_Clinic.GUI.Administrator.WorkSchedule
                 ForeColor = Color.Black
             };
 
-            panelChiTiet.Visible = true;
-            panelLichLamViec.Visible = false;
+            dtpLichLamViec.Visible = false;
 
             // Thêm label vào panelLichLamViec
-            //panelLichLamViec.Controls.Add(panelChiTiet);
+            panelLichLamViec.Controls.Add(dateOfBirthLabel);
 
             // Đảm bảo label nằm ở trên cùng nếu có nhiều điều khiển
-            //panelChiTiet.BringToFront();
+            dateOfBirthLabel.BringToFront();
         }
 
         private void pbQuayVe_Click(object sender, EventArgs e)
@@ -256,8 +253,6 @@ namespace Dental_Clinic.GUI.Administrator.WorkSchedule
             else
             {
                 dtpLichLamViec.Visible = true;
-                panelChiTiet.Visible=false;
-                panelLichLamViec.Visible = true;
                 Control lastControl = panelLichLamViec.Controls[controlCount - 1];
 
                 panelLichLamViec.Controls.Clear();

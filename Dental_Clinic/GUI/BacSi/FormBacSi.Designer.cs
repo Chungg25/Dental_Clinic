@@ -1,5 +1,4 @@
 ﻿using Dental_Clinic.Properties;
-
 namespace Dental_Clinic.GUI.BacSi
 {
     partial class FormBacSi
@@ -46,7 +45,7 @@ namespace Dental_Clinic.GUI.BacSi
             label7 = new Label();
             pictureBox17 = new PictureBox();
             pictureBox9 = new PictureBox();
-            panelNgonNgu = new Panel();
+            panelNgonNgu1 = new Panel();
             label15 = new Label();
             pictureBox20 = new PictureBox();
             label18 = new Label();
@@ -54,23 +53,17 @@ namespace Dental_Clinic.GUI.BacSi
             lbTen = new Label();
             picUser = new PictureBox();
             panel1 = new Panel();
-            pnQuanLyLuong = new Panel();
-            pictureBox6 = new PictureBox();
-            lbLuong = new Label();
-            pnQuanLyLich = new Panel();
-            pictureBox4 = new PictureBox();
-            lbLichLamViec = new Label();
-            pnQuanLyBenhNhan = new Panel();
-            pictureBox3 = new PictureBox();
-            lbBenhNhan = new Label();
             panel2 = new Panel();
-            picLogo = new PictureBox();
+            pictureBox6 = new PictureBox();
+            pictureBox4 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            lbLuong = new Label();
+            lbLichLamViec = new Label();
+            lbBenhNhan = new Label();
+            picDash = new PictureBox();
             panel3 = new Panel();
-            pnNgonNgu = new Panel();
-            pnChuDe = new Panel();
             lbChuDe = new Label();
             pictureBox8 = new PictureBox();
-            pnUser = new Panel();
             panelOption.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox11).BeginInit();
@@ -80,23 +73,17 @@ namespace Dental_Clinic.GUI.BacSi
             panelChuDe.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox17).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
-            panelNgonNgu.SuspendLayout();
+            panelNgonNgu1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox20).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox21).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picUser).BeginInit();
             panel1.SuspendLayout();
-            pnQuanLyLuong.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
-            pnQuanLyLich.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            pnQuanLyBenhNhan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picDash).BeginInit();
             panel3.SuspendLayout();
-            pnNgonNgu.SuspendLayout();
-            pnChuDe.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
-            pnUser.SuspendLayout();
             SuspendLayout();
             // 
             // panelOption
@@ -129,7 +116,6 @@ namespace Dental_Clinic.GUI.BacSi
             // pictureBox12
             // 
             pictureBox12.Cursor = Cursors.Hand;
-            pictureBox12.Image = Resources.icons8_face_scan_50;
             pictureBox12.Location = new Point(0, 4);
             pictureBox12.Margin = new Padding(4);
             pictureBox12.Name = "pictureBox12";
@@ -150,7 +136,6 @@ namespace Dental_Clinic.GUI.BacSi
             lbDangXuat.Size = new Size(100, 25);
             lbDangXuat.TabIndex = 2;
             lbDangXuat.Text = "Đăng xuất";
-            lbDangXuat.Click += DangXuat_Click;
             // 
             // label9
             // 
@@ -168,7 +153,6 @@ namespace Dental_Clinic.GUI.BacSi
             // pictureBox11
             // 
             pictureBox11.Cursor = Cursors.Hand;
-            pictureBox11.Image = Resources.icons8_log_out_50;
             pictureBox11.Location = new Point(4, 115);
             pictureBox11.Margin = new Padding(4);
             pictureBox11.Name = "pictureBox11";
@@ -176,12 +160,10 @@ namespace Dental_Clinic.GUI.BacSi
             pictureBox11.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox11.TabIndex = 1;
             pictureBox11.TabStop = false;
-            pictureBox11.Click += DangXuat_Click;
             // 
             // pictureBox10
             // 
             pictureBox10.Cursor = Cursors.Hand;
-            pictureBox10.Image = Resources.icons8_change_50;
             pictureBox10.Location = new Point(0, 58);
             pictureBox10.Margin = new Padding(4);
             pictureBox10.Name = "pictureBox10";
@@ -196,37 +178,35 @@ namespace Dental_Clinic.GUI.BacSi
             lbNgonNgu.Cursor = Cursors.Hand;
             lbNgonNgu.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbNgonNgu.ForeColor = SystemColors.ButtonHighlight;
-            lbNgonNgu.Location = new Point(67, 16);
+            lbNgonNgu.Location = new Point(634, 42);
             lbNgonNgu.Margin = new Padding(4, 0, 4, 0);
             lbNgonNgu.Name = "lbNgonNgu";
             lbNgonNgu.Size = new Size(131, 32);
             lbNgonNgu.TabIndex = 9;
             lbNgonNgu.Text = "Ngôn ngữ";
-            lbNgonNgu.Click += pnNgonNgu_Click;
             // 
             // pictureBox13
             // 
             pictureBox13.Cursor = Cursors.Hand;
-            pictureBox13.Image = Resources.icons8_language_50;
-            pictureBox13.Location = new Point(4, 5);
+            pictureBox13.Image = Resources.languages;
+            pictureBox13.Location = new Point(570, 29);
             pictureBox13.Margin = new Padding(4);
             pictureBox13.Name = "pictureBox13";
-            pictureBox13.Size = new Size(55, 55);
+            pictureBox13.Size = new Size(56, 60);
             pictureBox13.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox13.TabIndex = 8;
             pictureBox13.TabStop = false;
-            pictureBox13.Click += pnNgonNgu_Click;
             // 
             // panelTrangChu
             // 
             panelTrangChu.Controls.Add(panelOption);
             panelTrangChu.Controls.Add(panelChuDe);
-            panelTrangChu.Controls.Add(panelNgonNgu);
+            panelTrangChu.Controls.Add(panelNgonNgu1);
             panelTrangChu.Cursor = Cursors.Hand;
-            panelTrangChu.Location = new Point(387, 111);
+            panelTrangChu.Location = new Point(359, 111);
             panelTrangChu.Margin = new Padding(4);
             panelTrangChu.Name = "panelTrangChu";
-            panelTrangChu.Size = new Size(1303, 864);
+            panelTrangChu.Size = new Size(1331, 864);
             panelTrangChu.TabIndex = 9;
             // 
             // panelChuDe
@@ -270,7 +250,6 @@ namespace Dental_Clinic.GUI.BacSi
             // pictureBox17
             // 
             pictureBox17.Cursor = Cursors.Hand;
-            pictureBox17.Image = Resources.icons8_night_50;
             pictureBox17.Location = new Point(5, 64);
             pictureBox17.Margin = new Padding(4);
             pictureBox17.Name = "pictureBox17";
@@ -282,7 +261,6 @@ namespace Dental_Clinic.GUI.BacSi
             // pictureBox9
             // 
             pictureBox9.Cursor = Cursors.Hand;
-            pictureBox9.Image = Resources.icons8_light_50;
             pictureBox9.Location = new Point(4, 10);
             pictureBox9.Margin = new Padding(4);
             pictureBox9.Name = "pictureBox9";
@@ -291,18 +269,18 @@ namespace Dental_Clinic.GUI.BacSi
             pictureBox9.TabIndex = 2;
             pictureBox9.TabStop = false;
             // 
-            // panelNgonNgu
+            // panelNgonNgu1
             // 
-            panelNgonNgu.BackColor = Color.White;
-            panelNgonNgu.Controls.Add(label15);
-            panelNgonNgu.Controls.Add(pictureBox20);
-            panelNgonNgu.Controls.Add(label18);
-            panelNgonNgu.Controls.Add(pictureBox21);
-            panelNgonNgu.Location = new Point(560, 4);
-            panelNgonNgu.Margin = new Padding(4);
-            panelNgonNgu.Name = "panelNgonNgu";
-            panelNgonNgu.Size = new Size(165, 126);
-            panelNgonNgu.TabIndex = 5;
+            panelNgonNgu1.BackColor = Color.White;
+            panelNgonNgu1.Controls.Add(label15);
+            panelNgonNgu1.Controls.Add(pictureBox20);
+            panelNgonNgu1.Controls.Add(label18);
+            panelNgonNgu1.Controls.Add(pictureBox21);
+            panelNgonNgu1.Location = new Point(565, 4);
+            panelNgonNgu1.Margin = new Padding(4);
+            panelNgonNgu1.Name = "panelNgonNgu1";
+            panelNgonNgu1.Size = new Size(165, 126);
+            panelNgonNgu1.TabIndex = 5;
             // 
             // label15
             // 
@@ -320,7 +298,6 @@ namespace Dental_Clinic.GUI.BacSi
             // pictureBox20
             // 
             pictureBox20.Cursor = Cursors.Hand;
-            pictureBox20.Image = Resources.united_kingdom__1_;
             pictureBox20.Location = new Point(4, 75);
             pictureBox20.Margin = new Padding(4);
             pictureBox20.Name = "pictureBox20";
@@ -345,7 +322,6 @@ namespace Dental_Clinic.GUI.BacSi
             // pictureBox21
             // 
             pictureBox21.Cursor = Cursors.Hand;
-            pictureBox21.Image = Resources.vietnam__3_;
             pictureBox21.Location = new Point(4, 11);
             pictureBox21.Margin = new Padding(4);
             pictureBox21.Name = "pictureBox21";
@@ -360,145 +336,41 @@ namespace Dental_Clinic.GUI.BacSi
             lbTen.Cursor = Cursors.Hand;
             lbTen.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbTen.ForeColor = SystemColors.ButtonHighlight;
-            lbTen.Location = new Point(67, 17);
+            lbTen.Location = new Point(1188, 44);
             lbTen.Margin = new Padding(4, 0, 4, 0);
             lbTen.Name = "lbTen";
             lbTen.Size = new Size(59, 29);
             lbTen.TabIndex = 6;
             lbTen.Text = "Kiệt";
-            lbTen.Click += pnUser_Click;
             // 
             // picUser
             // 
             picUser.Cursor = Cursors.Hand;
             picUser.Image = Resources.icons8_admin_40;
-            picUser.Location = new Point(4, 4);
+            picUser.Location = new Point(1124, 29);
             picUser.Margin = new Padding(4);
             picUser.Name = "picUser";
-            picUser.Size = new Size(55, 55);
+            picUser.Size = new Size(56, 60);
             picUser.SizeMode = PictureBoxSizeMode.Zoom;
             picUser.TabIndex = 6;
             picUser.TabStop = false;
-            picUser.Click += pnUser_Click;
             // 
             // panel1
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(pnQuanLyLuong);
-            panel1.Controls.Add(pnQuanLyLich);
-            panel1.Controls.Add(pnQuanLyBenhNhan);
             panel1.Controls.Add(panel2);
-            panel1.Controls.Add(picLogo);
-            panel1.Dock = DockStyle.Left;
-            panel1.Location = new Point(0, 0);
+            panel1.Controls.Add(pictureBox6);
+            panel1.Controls.Add(pictureBox4);
+            panel1.Controls.Add(pictureBox3);
+            panel1.Controls.Add(lbLuong);
+            panel1.Controls.Add(lbLichLamViec);
+            panel1.Controls.Add(lbBenhNhan);
+            panel1.Controls.Add(picDash);
+            panel1.Location = new Point(-20, -9);
             panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(373, 966);
+            panel1.Size = new Size(373, 983);
             panel1.TabIndex = 7;
-            // 
-            // pnQuanLyLuong
-            // 
-            pnQuanLyLuong.AutoSize = true;
-            pnQuanLyLuong.Controls.Add(pictureBox6);
-            pnQuanLyLuong.Controls.Add(lbLuong);
-            pnQuanLyLuong.Location = new Point(22, 417);
-            pnQuanLyLuong.Name = "pnQuanLyLuong";
-            pnQuanLyLuong.Size = new Size(264, 68);
-            pnQuanLyLuong.TabIndex = 17;
-            // 
-            // pictureBox6
-            // 
-            pictureBox6.Cursor = Cursors.Hand;
-            pictureBox6.Image = Resources.icons8_sales_performance_50;
-            pictureBox6.Location = new Point(4, 4);
-            pictureBox6.Margin = new Padding(4);
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(60, 60);
-            pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox6.TabIndex = 14;
-            pictureBox6.TabStop = false;
-            // 
-            // lbLuong
-            // 
-            lbLuong.AutoSize = true;
-            lbLuong.Cursor = Cursors.Hand;
-            lbLuong.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbLuong.Location = new Point(76, 18);
-            lbLuong.Margin = new Padding(4, 0, 4, 0);
-            lbLuong.Name = "lbLuong";
-            lbLuong.Size = new Size(184, 32);
-            lbLuong.TabIndex = 10;
-            lbLuong.Text = "Quản lý lương ";
-            // 
-            // pnQuanLyLich
-            // 
-            pnQuanLyLich.AutoSize = true;
-            pnQuanLyLich.Controls.Add(pictureBox4);
-            pnQuanLyLich.Controls.Add(lbLichLamViec);
-            pnQuanLyLich.Location = new Point(22, 311);
-            pnQuanLyLich.Name = "pnQuanLyLich";
-            pnQuanLyLich.Size = new Size(326, 68);
-            pnQuanLyLich.TabIndex = 16;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.Cursor = Cursors.Hand;
-            pictureBox4.Image = Resources.icons8_schedule_50;
-            pictureBox4.Location = new Point(4, 4);
-            pictureBox4.Margin = new Padding(4);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(60, 60);
-            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox4.TabIndex = 12;
-            pictureBox4.TabStop = false;
-            // 
-            // lbLichLamViec
-            // 
-            lbLichLamViec.AutoSize = true;
-            lbLichLamViec.Cursor = Cursors.Hand;
-            lbLichLamViec.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbLichLamViec.Location = new Point(72, 18);
-            lbLichLamViec.Margin = new Padding(4, 0, 4, 0);
-            lbLichLamViec.Name = "lbLichLamViec";
-            lbLichLamViec.Size = new Size(250, 32);
-            lbLichLamViec.TabIndex = 7;
-            lbLichLamViec.Text = "Quản lý lịch làm việc";
-            // 
-            // pnQuanLyBenhNhan
-            // 
-            pnQuanLyBenhNhan.AutoSize = true;
-            pnQuanLyBenhNhan.Controls.Add(pictureBox3);
-            pnQuanLyBenhNhan.Controls.Add(lbBenhNhan);
-            pnQuanLyBenhNhan.Location = new Point(22, 205);
-            pnQuanLyBenhNhan.Name = "pnQuanLyBenhNhan";
-            pnQuanLyBenhNhan.Size = new Size(306, 68);
-            pnQuanLyBenhNhan.TabIndex = 15;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.Cursor = Cursors.Hand;
-            pictureBox3.Image = Resources.icons8_recovery_50;
-            pictureBox3.Location = new Point(4, 4);
-            pictureBox3.Margin = new Padding(4);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(60, 60);
-            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox3.TabIndex = 11;
-            pictureBox3.TabStop = false;
-            pictureBox3.Click += QuanLyBenhNhan_Click;
-            // 
-            // lbBenhNhan
-            // 
-            lbBenhNhan.AutoSize = true;
-            lbBenhNhan.Cursor = Cursors.Hand;
-            lbBenhNhan.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbBenhNhan.Location = new Point(72, 18);
-            lbBenhNhan.Margin = new Padding(4, 0, 4, 0);
-            lbBenhNhan.Name = "lbBenhNhan";
-            lbBenhNhan.Size = new Size(230, 32);
-            lbBenhNhan.TabIndex = 6;
-            lbBenhNhan.Text = "Quản lý bệnh nhân";
-            lbBenhNhan.Click += QuanLyBenhNhan_Click;
             // 
             // panel2
             // 
@@ -508,53 +380,103 @@ namespace Dental_Clinic.GUI.BacSi
             panel2.Size = new Size(611, 156);
             panel2.TabIndex = 5;
             // 
-            // picLogo
+            // pictureBox6
             // 
-            picLogo.BackColor = SystemColors.Window;
-            picLogo.Image = (Image)resources.GetObject("picLogo.Image");
-            picLogo.Location = new Point(75, 24);
-            picLogo.Margin = new Padding(4);
-            picLogo.Name = "picLogo";
-            picLogo.Size = new Size(221, 134);
-            picLogo.SizeMode = PictureBoxSizeMode.Zoom;
-            picLogo.TabIndex = 3;
-            picLogo.TabStop = false;
+            pictureBox6.Cursor = Cursors.Hand;
+            pictureBox6.Location = new Point(28, 849);
+            pictureBox6.Margin = new Padding(4);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(68, 65);
+            pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox6.TabIndex = 14;
+            pictureBox6.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Cursor = Cursors.Hand;
+            pictureBox4.Location = new Point(28, 475);
+            pictureBox4.Margin = new Padding(4);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(68, 60);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 12;
+            pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Cursor = Cursors.Hand;
+            pictureBox3.Location = new Point(28, 203);
+            pictureBox3.Margin = new Padding(4);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(68, 60);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 11;
+            pictureBox3.TabStop = false;
+            // 
+            // lbLuong
+            // 
+            lbLuong.AutoSize = true;
+            lbLuong.Cursor = Cursors.Hand;
+            lbLuong.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbLuong.Location = new Point(106, 867);
+            lbLuong.Margin = new Padding(4, 0, 4, 0);
+            lbLuong.Name = "lbLuong";
+            lbLuong.Size = new Size(184, 32);
+            lbLuong.TabIndex = 10;
+            lbLuong.Text = "Quản lý lương ";
+            // 
+            // lbLichLamViec
+            // 
+            lbLichLamViec.AutoSize = true;
+            lbLichLamViec.Cursor = Cursors.Hand;
+            lbLichLamViec.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbLichLamViec.Location = new Point(106, 491);
+            lbLichLamViec.Margin = new Padding(4, 0, 4, 0);
+            lbLichLamViec.Name = "lbLichLamViec";
+            lbLichLamViec.Size = new Size(250, 32);
+            lbLichLamViec.TabIndex = 7;
+            lbLichLamViec.Text = "Quản lý lịch làm việc";
+            // 
+            // lbBenhNhan
+            // 
+            lbBenhNhan.AutoSize = true;
+            lbBenhNhan.Cursor = Cursors.Hand;
+            lbBenhNhan.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbBenhNhan.Location = new Point(106, 216);
+            lbBenhNhan.Margin = new Padding(4, 0, 4, 0);
+            lbBenhNhan.Name = "lbBenhNhan";
+            lbBenhNhan.Size = new Size(230, 32);
+            lbBenhNhan.TabIndex = 6;
+            lbBenhNhan.Text = "Quản lý bệnh nhân";
+            // 
+            // picDash
+            // 
+            picDash.BackColor = SystemColors.Window;
+            picDash.Image = (Image)resources.GetObject("picDash.Image");
+            picDash.Location = new Point(75, 24);
+            picDash.Margin = new Padding(4);
+            picDash.Name = "picDash";
+            picDash.Size = new Size(221, 134);
+            picDash.SizeMode = PictureBoxSizeMode.Zoom;
+            picDash.TabIndex = 3;
+            picDash.TabStop = false;
             // 
             // panel3
             // 
+            panel3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel3.BackColor = Color.FromArgb(32, 155, 220);
             panel3.BorderStyle = BorderStyle.FixedSingle;
-            panel3.Controls.Add(pnNgonNgu);
-            panel3.Controls.Add(pnChuDe);
-            panel3.Controls.Add(pnUser);
-            panel3.Dock = DockStyle.Top;
-            panel3.Location = new Point(373, 0);
+            panel3.Controls.Add(lbNgonNgu);
+            panel3.Controls.Add(pictureBox13);
+            panel3.Controls.Add(lbTen);
+            panel3.Controls.Add(picUser);
+            panel3.Controls.Add(lbChuDe);
+            panel3.Controls.Add(pictureBox8);
+            panel3.Location = new Point(353, -1);
             panel3.Margin = new Padding(4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1297, 100);
+            panel3.Size = new Size(1337, 103);
             panel3.TabIndex = 8;
-            // 
-            // pnNgonNgu
-            // 
-            pnNgonNgu.AutoSize = true;
-            pnNgonNgu.Controls.Add(pictureBox13);
-            pnNgonNgu.Controls.Add(lbNgonNgu);
-            pnNgonNgu.Cursor = Cursors.Hand;
-            pnNgonNgu.Location = new Point(541, 18);
-            pnNgonNgu.Name = "pnNgonNgu";
-            pnNgonNgu.Size = new Size(202, 64);
-            pnNgonNgu.TabIndex = 12;
-            // 
-            // pnChuDe
-            // 
-            pnChuDe.AutoSize = true;
-            pnChuDe.Controls.Add(lbChuDe);
-            pnChuDe.Controls.Add(pictureBox8);
-            pnChuDe.Cursor = Cursors.Hand;
-            pnChuDe.Location = new Point(843, 18);
-            pnChuDe.Name = "pnChuDe";
-            pnChuDe.Size = new Size(164, 63);
-            pnChuDe.TabIndex = 11;
             // 
             // lbChuDe
             // 
@@ -562,37 +484,24 @@ namespace Dental_Clinic.GUI.BacSi
             lbChuDe.Cursor = Cursors.Hand;
             lbChuDe.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbChuDe.ForeColor = SystemColors.ButtonHighlight;
-            lbChuDe.Location = new Point(67, 15);
+            lbChuDe.Location = new Point(906, 44);
             lbChuDe.Margin = new Padding(4, 0, 4, 0);
             lbChuDe.Name = "lbChuDe";
             lbChuDe.Size = new Size(93, 32);
             lbChuDe.TabIndex = 7;
             lbChuDe.Text = "Chủ đề";
-            lbChuDe.Click += pnChuDe_Click;
             // 
             // pictureBox8
             // 
             pictureBox8.Cursor = Cursors.Hand;
-            pictureBox8.Image = Resources.icons8_draw_50;
-            pictureBox8.Location = new Point(4, 4);
+            pictureBox8.Image = Resources.icons8_theme_50;
+            pictureBox8.Location = new Point(842, 29);
             pictureBox8.Margin = new Padding(4);
             pictureBox8.Name = "pictureBox8";
-            pictureBox8.Size = new Size(55, 55);
+            pictureBox8.Size = new Size(56, 60);
             pictureBox8.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox8.TabIndex = 6;
             pictureBox8.TabStop = false;
-            pictureBox8.Click += pnChuDe_Click;
-            // 
-            // pnUser
-            // 
-            pnUser.AutoSize = true;
-            pnUser.Controls.Add(lbTen);
-            pnUser.Controls.Add(picUser);
-            pnUser.Cursor = Cursors.Hand;
-            pnUser.Location = new Point(1106, 18);
-            pnUser.Name = "pnUser";
-            pnUser.Size = new Size(130, 63);
-            pnUser.TabIndex = 10;
             // 
             // FormBacSi
             // 
@@ -600,12 +509,12 @@ namespace Dental_Clinic.GUI.BacSi
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1670, 966);
-            Controls.Add(panel3);
             Controls.Add(panelTrangChu);
             Controls.Add(panel1);
+            Controls.Add(panel3);
             Name = "FormBacSi";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Trang Chủ";
+            Text = "FormBacSi";
             Load += FormBacSi_Load;
             panelOption.ResumeLayout(false);
             panelOption.PerformLayout();
@@ -618,32 +527,20 @@ namespace Dental_Clinic.GUI.BacSi
             panelChuDe.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox17).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
-            panelNgonNgu.ResumeLayout(false);
-            panelNgonNgu.PerformLayout();
+            panelNgonNgu1.ResumeLayout(false);
+            panelNgonNgu1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox20).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox21).EndInit();
             ((System.ComponentModel.ISupportInitialize)picUser).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            pnQuanLyLuong.ResumeLayout(false);
-            pnQuanLyLuong.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
-            pnQuanLyLich.ResumeLayout(false);
-            pnQuanLyLich.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            pnQuanLyBenhNhan.ResumeLayout(false);
-            pnQuanLyBenhNhan.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picDash).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            pnNgonNgu.ResumeLayout(false);
-            pnNgonNgu.PerformLayout();
-            pnChuDe.ResumeLayout(false);
-            pnChuDe.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
-            pnUser.ResumeLayout(false);
-            pnUser.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -664,7 +561,7 @@ namespace Dental_Clinic.GUI.BacSi
         private Label label7;
         private PictureBox pictureBox17;
         private PictureBox pictureBox9;
-        private Panel panelNgonNgu;
+        private Panel panelNgonNgu1;
         private Label label15;
         private PictureBox pictureBox20;
         private Label label18;
@@ -679,15 +576,9 @@ namespace Dental_Clinic.GUI.BacSi
         private Label lbLuong;
         private Label lbLichLamViec;
         private Label lbBenhNhan;
-        private PictureBox picLogo;
+        private PictureBox picDash;
         private Panel panel3;
         private Label lbChuDe;
         private PictureBox pictureBox8;
-        private Panel pnQuanLyBenhNhan;
-        private Panel pnQuanLyLuong;
-        private Panel pnQuanLyLich;
-        private Panel pnUser;
-        private Panel pnNgonNgu;
-        private Panel pnChuDe;
     }
 }
