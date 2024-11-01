@@ -27,18 +27,51 @@ namespace Dental_Clinic.DAO.LichLamViec
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        while (reader.Read())
+                        if (reader.HasRows)
                         {
-                            LichLamViecDTO lichLamViecBacSi = new LichLamViecDTO
+                            while (reader.Read())
                             {
-                                MaNguoiDung = Convert.ToInt32(reader["ma_nguoi_dung"]),
-                                HoTen = reader["ho_ten"].ToString() ?? "",
-                                GioiTinh = Convert.ToBoolean(reader["gioi_tinh"]),
-                                Email = reader["email"]?.ToString() ?? "",
-                                ChuyenNganh = reader["ten_chuyen_mon"]?.ToString() ?? "",
-                                SoCa = Convert.ToInt32(reader["so_ca"]),
-                            };
-                            lichLamViecBacSiList.Add(lichLamViecBacSi);
+                                LichLamViecDTO lichLamViecBacSi = new LichLamViecDTO
+                                {
+                                    MaNguoiDung = Convert.ToInt32(reader["ma_nguoi_dung"]),
+                                    HoTen = reader["ho_ten"].ToString() ?? "",
+                                    GioiTinh = Convert.ToBoolean(reader["gioi_tinh"]),
+                                    Email = reader["email"]?.ToString() ?? "",
+                                    ChuyenNganh = reader["ten_chuyen_mon"]?.ToString() ?? "",
+                                    SoCa = Convert.ToInt32(reader["so_ca"]),
+                                };
+                                lichLamViecBacSiList.Add(lichLamViecBacSi);
+                            }
+                        }
+                        else
+                        {
+                            reader.Close();
+                            MessageBox.Show("!");
+                            using (SqlCommand cmdNoSchedule = new SqlCommand("DanhSachLichLamViecBacSiKhongNgayLam", dbConnection.Conn))
+                            {
+                                cmd.CommandType = CommandType.StoredProcedure;
+                                cmd.Parameters.AddWithValue("@StartOfMonth", firstDayOfMonth);
+                                cmd.Parameters.AddWithValue("@EndOfMonth", lastDayOfMonth);
+         
+                                using (SqlDataReader readerNoSchedule = cmdNoSchedule.ExecuteReader())
+                                {
+                                    while (readerNoSchedule.Read())
+                                    {
+                                        MessageBox.Show("!");
+                                        LichLamViecDTO lichLamViecBacSi = new LichLamViecDTO
+                                        {
+                                            MaNguoiDung = Convert.ToInt32(readerNoSchedule["ma_nguoi_dung"]),
+                                            HoTen = readerNoSchedule["ho_ten"].ToString() ?? "",
+                                            GioiTinh = Convert.ToBoolean(readerNoSchedule["gioi_tinh"]),
+                                            Email = readerNoSchedule["email"]?.ToString() ?? "",
+                                            ChuyenNganh = readerNoSchedule["ten_chuyen_mon"]?.ToString() ?? "",
+                                            SoCa = 0,
+                                        };
+                                        MessageBox.Show(lichLamViecBacSi.MaNguoiDung.ToString());
+                                        lichLamViecBacSiList.Add(lichLamViecBacSi);
+                                    }
+                                }
+                            }
                         }
                     }
                 }

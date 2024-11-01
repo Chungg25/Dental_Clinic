@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             panelChiTiet = new Panel();
+            cbThayDoi = new ComboBox();
+            label9 = new Label();
+            vbThayDoi = new CustomButton.VBButton();
             label7 = new Label();
             vbTrangThai = new CustomButton.VBButton();
             label4 = new Label();
@@ -50,6 +53,9 @@
             // 
             // panelChiTiet
             // 
+            panelChiTiet.Controls.Add(cbThayDoi);
+            panelChiTiet.Controls.Add(label9);
+            panelChiTiet.Controls.Add(vbThayDoi);
             panelChiTiet.Controls.Add(label7);
             panelChiTiet.Controls.Add(vbTrangThai);
             panelChiTiet.Controls.Add(label4);
@@ -70,6 +76,40 @@
             panelChiTiet.Name = "panelChiTiet";
             panelChiTiet.Size = new Size(977, 445);
             panelChiTiet.TabIndex = 81;
+            // 
+            // cbThayDoi
+            // 
+            cbThayDoi.FormattingEnabled = true;
+            cbThayDoi.Location = new Point(717, 173);
+            cbThayDoi.Name = "cbThayDoi";
+            cbThayDoi.Size = new Size(133, 28);
+            cbThayDoi.TabIndex = 107;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(708, 135);
+            label9.Name = "label9";
+            label9.Size = new Size(68, 20);
+            label9.TabIndex = 106;
+            label9.Text = "Thay Đổi";
+            // 
+            // vbThayDoi
+            // 
+            vbThayDoi.BackColor = SystemColors.Window;
+            vbThayDoi.BackgroundColor = SystemColors.Window;
+            vbThayDoi.BorderColor = Color.Black;
+            vbThayDoi.BorderRadius = 10;
+            vbThayDoi.BorderSize = 1;
+            vbThayDoi.FlatAppearance.BorderSize = 0;
+            vbThayDoi.FlatStyle = FlatStyle.Flat;
+            vbThayDoi.ForeColor = Color.White;
+            vbThayDoi.Location = new Point(708, 167);
+            vbThayDoi.Name = "vbThayDoi";
+            vbThayDoi.Size = new Size(154, 38);
+            vbThayDoi.TabIndex = 105;
+            vbThayDoi.TextColor = Color.White;
+            vbThayDoi.UseVisualStyleBackColor = false;
             // 
             // label7
             // 
@@ -311,5 +351,8 @@
         private CustomButton.VBButton vbGioRa;
         private Label label1;
         private CustomButton.VBButton vbGioVao;
+        private CustomButton.VBButton vbThayDoi;
+        private Label label9;
+        private ComboBox cbThayDoi;
     }
 }

@@ -229,6 +229,7 @@ namespace Dental_Clinic.GUI.Administrator
             // Thêm TableLayoutPanel vào form
             panelDuLieu.Controls.Add(scrollablePanel);
 
+
             // Thêm một hàng mẫu
             int sequenceNumber = 1;
             foreach (var lichLamViecBacSi in lichLamViecBacSis)

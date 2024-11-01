@@ -60,6 +60,16 @@ namespace Dental_Clinic.GUI.QuanTriVien.LichLamViec
                 vbTrangThai.FlatAppearance.MouseOverBackColor = vbTrangThai.BackColor;
                 vbTrangThai.FlatAppearance.MouseDownBackColor = vbTrangThai.BackColor;
             }
+
+            DateTime today = DateTime.Now;
+            if (day < today.AddDays(-2))
+            {
+                if (!string.IsNullOrEmpty(chamCongDTO.GioVao) && !string.IsNullOrEmpty(chamCongDTO.GioRa))
+                {
+                    cbThayDoi.Enabled = false;
+                    cbThayDoi.SelectedItem = "Có";
+                }
+            }
             vbQueQuan.Text = chamCongDTO.DiaChi;
         }
 
@@ -104,6 +114,17 @@ namespace Dental_Clinic.GUI.QuanTriVien.LichLamViec
             vbQueQuan.BorderColor = Color.Black;
             vbQueQuan.FlatAppearance.MouseOverBackColor = vbQueQuan.BackColor;
             vbQueQuan.FlatAppearance.MouseDownBackColor = vbQueQuan.BackColor;
+
+            cbThayDoi.Items.Add("Hủy");
+            cbThayDoi.Items.Add("Thêm");
+            cbThayDoi.Items.Add("Có");
+
+            cbThayDoi.FlatStyle = FlatStyle.Flat;
+
+            vbThayDoi.BorderSize = 1;
+            vbThayDoi.BorderColor = Color.Black;
+            vbThayDoi.FlatAppearance.MouseOverBackColor = vbThayDoi.BackColor;
+            vbThayDoi.FlatAppearance.MouseDownBackColor = vbThayDoi.BackColor;
         }
     }
 }

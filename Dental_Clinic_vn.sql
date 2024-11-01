@@ -1823,7 +1823,8 @@ AS
 BEGIN
     DECLARE @TotalDoctors INT;
     SELECT @TotalDoctors = COUNT(*)
-    FROM bac_si;
+    FROM bac_si join nguoi_dung on nguoi_dung.ma_nguoi_dung = bac_si.ma_nguoi_dung
+	where nguoi_dung.trang_thai = 1;
     RETURN @TotalDoctors;
 END;
 GO
@@ -1855,6 +1856,8 @@ BEGIN
     FROM hoa_don
     WHERE ngay BETWEEN @StartOfMonth AND @EndOfMonth;
 
+	IF @Revenue IS NULL
+		SET @Revenue = 0
     RETURN @Revenue;
 END;
 GO
@@ -2129,8 +2132,8 @@ CREATE PROCEDURE DanhSachLichLamViecBacSi
 	@EndOfMonth DATE
 AS
 BEGIN
-	SELECT nguoi_dung.ma_nguoi_dung, nguoi_dung.ho_ten, nguoi_dung.gioi_tinh, nguoi_dung.email, bac_si_chuyen_mon.ten_chuyen_mon, count(*) as so_ca from lich_lam_viec
-	join nguoi_dung on lich_lam_viec.ma_nguoi_dung = nguoi_dung.ma_nguoi_dung
+	SELECT nguoi_dung.ma_nguoi_dung, nguoi_dung.ho_ten, nguoi_dung.gioi_tinh, nguoi_dung.email, bac_si_chuyen_mon.ten_chuyen_mon, count(*) as so_ca from nguoi_dung
+	left join lich_lam_viec on lich_lam_viec.ma_nguoi_dung = nguoi_dung.ma_nguoi_dung
 	join bac_si on nguoi_dung.ma_nguoi_dung = bac_si.ma_nguoi_dung
 	join bac_si_chuyen_mon on bac_si.ma_chuyen_mon = bac_si_chuyen_mon.ma_chuyen_mon
 	WHERE lich_lam_viec.ngay BETWEEN @StartOfMonth AND @EndOfMonth
@@ -2140,8 +2143,21 @@ END;
 
 GO
 
-DROP proc LichLamViecBacSiTheoID
-Go
+CREATE PROCEDURE DanhSachLichLamViecBacSiKhongNgayLam
+	@StartOfMonth DATE,
+	@EndOfMonth DATE
+AS
+BEGIN
+	SELECT nguoi_dung.ma_nguoi_dung, nguoi_dung.ho_ten, nguoi_dung.gioi_tinh, nguoi_dung.email, bac_si_chuyen_mon.ten_chuyen_mon, count(*) as so_ca from nguoi_dung
+	join bac_si on nguoi_dung.ma_nguoi_dung = bac_si.ma_nguoi_dung
+	join bac_si_chuyen_mon on bac_si.ma_chuyen_mon = bac_si_chuyen_mon.ma_chuyen_mon
+	GROUP BY nguoi_dung.ho_ten, nguoi_dung.gioi_tinh, nguoi_dung.email, bac_si_chuyen_mon.ten_chuyen_mon, nguoi_dung.ma_nguoi_dung
+	order by nguoi_dung.ma_nguoi_dung
+END;
+
+GO
+
+
 CREATE PROCEDURE LichLamViecBacSiTheoID
 	@ID INT,
 	@StartOfMonth DATE,
@@ -2160,7 +2176,7 @@ BEGIN
 		END AS LamViecDungGio
 	FROM 
 		nguoi_dung
-	JOIN 
+	Left JOIN 
 		lich_lam_viec ON nguoi_dung.ma_nguoi_dung = lich_lam_viec.ma_nguoi_dung
 	JOIN 
 		bac_si ON nguoi_dung.ma_nguoi_dung = bac_si.ma_nguoi_dung
@@ -2205,6 +2221,8 @@ GO
 exec ChiTietCaLam 4, '2024-10-20'
 GO
 
-exec LichLamViecBacSiTheoID 6, '2024-9-1', '2024-9-30'
+exec DanhSachLichLamViecBacSiKhongNgayLam '2024-11-1', '2024-11-30'
 
 GO
+
+
