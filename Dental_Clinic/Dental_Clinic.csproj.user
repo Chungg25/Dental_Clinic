@@ -16,6 +16,9 @@
     <Compile Update="GUI\BacSi\FormTrangChuBacSi.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="GUI\LeTan\FormTrangChuLeTan.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="GUI\QuanTriVien\LichLamViec\FormChiTietCaLam.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,7 +91,7 @@
     <Compile Update="GUI\DangNhap\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\LeTan\MainForm.cs">
+    <Compile Update="GUI\LeTan\FormLeTan.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="VBButton.cs">

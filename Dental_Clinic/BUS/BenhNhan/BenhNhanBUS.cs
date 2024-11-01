@@ -40,5 +40,9 @@ namespace Dental_Clinic.BUS.Patient
         {
             return patientDAO.LayDanhSachBenhNhanCuaBacSi(id);
         }
+        public void ThemBenhNhan_BacSi(BenhNhanDTO patientDTO, int id)
+        {
+            patientDAO.ThemBenhNhan_BacSi(patientDTO, id);
+        }
     }
 }

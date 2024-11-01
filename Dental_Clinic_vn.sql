@@ -216,7 +216,7 @@ CREATE TABLE [dieu_tri]
     [ma_dieu_tri] INT PRIMARY KEY IDENTITY(1, 1),
     [ten_bac_si_thay_the] NVARCHAR(50) NOT NULL,
     [ma_bac_si] INT NOT NULL,
-    [ma_benh_nhan] INT NOT NULL,
+    [ma_benh_nhan] INT,
     [ngay_dieu_tri] DATE NOT NULL,
     [ghi_chu] NVARCHAR(255)
 )
@@ -2245,8 +2245,6 @@ BEGIN
         benh_nhan AS bn ON dt.ma_benh_nhan = bn.ma_benh_nhan
     WHERE 
         nd.ma = @MaBacSi
-    ORDER BY 
-        dt.ngay_dieu_tri DESC;
 END;
 GO
 
@@ -2301,3 +2299,78 @@ BEGIN
     DELETE FROM lich_lam_viec
 	WHERE ma_nguoi_dung = @ID and ngay = @day
 END;
+GO
+
+CREATE PROCEDURE ThemBenhNhan_BacSi
+    @hoTen NVARCHAR(255),       -- Họ tên
+    @soDienThoai NVARCHAR(10),  -- Số điện thoại
+    @diaChi NVARCHAR(50),       -- Địa chỉ
+    @gioiTinh BIT,              -- Giới tính (0 cho nữ, 1 cho nam)
+    @tuoi INT,                  -- Tuổi
+    @maBacSi INT,               -- Mã của bác sĩ điều trị
+    @ngayDieuTri DATE,          -- Ngày điều trị
+    @TenBacSiThayThe NVARCHAR(50) = NULL  -- Tên bác sĩ thay thế (nếu có)
+AS
+BEGIN
+    DECLARE @maBenhNhanMoi INT;
+
+    -- Kiểm tra xem mã bác sĩ có tồn tại trong bảng bac_si hay không
+    IF NOT EXISTS (SELECT 1 FROM bac_si WHERE ma_nguoi_dung = @maBacSi)
+    BEGIN
+        PRINT 'Lỗi: Mã bác sĩ không tồn tại trong bảng bac_si.';
+        RETURN;
+    END
+
+    -- Tạo mã bệnh nhân mới
+    SELECT @maBenhNhanMoi = ISNULL(MAX(ma_benh_nhan), 0) + 1
+    FROM benh_nhan;
+
+    -- Thêm bệnh nhân mới vào bảng benh_nhan
+    INSERT INTO benh_nhan
+        (ma_benh_nhan, ho_ten, gioi_tinh, tuoi, so_dien_thoai, dia_chi)
+    VALUES
+        (@maBenhNhanMoi, @hoTen, @gioiTinh, @tuoi, @soDienThoai, @diaChi);
+
+    -- Thêm thông tin điều trị vào bảng dieu_tri
+    INSERT INTO dieu_tri
+        (ma_bac_si, ma_benh_nhan, ngay_dieu_tri, ghi_chu, ten_bac_si_thay_the)
+    VALUES
+        (@maBacSi, @maBenhNhanMoi, @ngayDieuTri, N'Điều trị ban đầu', 
+         ISNULL(@TenBacSiThayThe, N'Không có'));
+
+    -- Xác nhận thành công
+    PRINT 'Thêm bệnh nhân và thông tin điều trị thành công.';
+END;
+GO
+-- Lấy danh sách lịch hẹn trong ngày
+CREATE PROCEDURE LayDanhSachLichHenTrongNgay
+    @NgayHen DATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT 
+        lh.ma_lich_hen AS maLichHen,
+        bn.ma_benh_nhan AS maBenhNhan,
+        bn.ho_ten AS tenBenhNhan,
+        bn.so_dien_thoai AS soDienThoai,
+        bn.dia_chi AS DiaChi,
+        CASE bn.gioi_tinh WHEN 1 THEN N'Nam' ELSE N'Nữ' END AS gioiTinh,
+        bn.tuoi AS tuoi,
+        bs.ma AS maBacSi,
+        bs.ho_ten AS tenBacSi,	
+        lh.trang_thai AS trangThai,
+        lh.ghi_chu AS ghiChu
+    FROM 
+        lich_hen AS lh
+    JOIN 
+        benh_nhan AS bn ON lh.ma_benh_nhan = bn.ma_benh_nhan
+    JOIN 
+        nguoi_dung AS bs ON lh.ma_nguoi_dung = bs.ma -- `ma_nguoi_dung` được giả định là mã bác sĩ
+    WHERE 
+        lh.ngay_hen = @NgayHen
+    ORDER BY 
+        lh.ngay_hen ASC;
+END;
+GO
+EXEC LayDanhSachLichHenTrongNgay @NgayHen = '2024-10-25';

@@ -150,7 +150,7 @@ namespace Dental_Clinic.GUI.Login
                 }
                 else
                 {
-                    form = new GUI.Receptionist.MainForm(user);
+                    form = new GUI.Receptionist.FormLeTan(user);
                 }
 
                 this.Hide();
