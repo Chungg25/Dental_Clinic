@@ -234,7 +234,6 @@ namespace Dental_Clinic.GUI.Administrator.WorkSchedule
             
             dtpLichLamViec.Visible = false;
 
-            // Add FormChiTietCaLam to panelLichLamViec and display it
             panelLichLamViec.Controls.Add(formChiTietCaLam.panelChiTiet);
             formChiTietCaLam.panelChiTiet.Dock = DockStyle.Fill;
             formChiTietCaLam.panelChiTiet.BringToFront();
@@ -250,11 +249,9 @@ namespace Dental_Clinic.GUI.Administrator.WorkSchedule
             else
             {
                 dtpLichLamViec.Visible = true;
-                Control lastControl = panelLichLamViec.Controls[controlCount - 1];
 
                 panelLichLamViec.Controls.Clear();
-
-                panelLichLamViec.Controls.Add(lastControl);
+                HienThiLichLamViec(id, day);
             }
         }
 
@@ -264,66 +261,6 @@ namespace Dental_Clinic.GUI.Administrator.WorkSchedule
             if (shiftLabel != null && shiftLabel.Tag is DateTime currentDate)
             {
                 HienThiChiTietNgayLamViec(id, currentDate);
-            }
-        }
-
-        private bool GuiXacThucDenMail(string MailPhanHoi, string CodeXacThuc)
-        {
-            var fromAddress = new MailAddress("huygianhoang2007@gmail.com", "TechCraft N05");
-            var toAddress = new MailAddress(MailPhanHoi);
-            const string fromPassword = "zruj aszp lanq sgql";
-            const string subject = "Mã xác nhận của bạn";
-
-            // Định dạng lại nội dung email với HTML
-            string body = $@"
-            <html>
-                <body style='font-family: Arial, sans-serif; line-height: 1.6; color: #333; padding: 20px;'>
-                    <h2 style='color: #333;'>Thông báo thay đổi lịch làm việc</h2>
-                    <p style='font-size: 14px;'>Xin chào,</p>
-                    <p style='font-size: 14px;'>Lịch làm việc của bạn đã được thay đổi.</p>
-                    <p style='font-size: 14px'>
-                        Vui lòng kiểm tra lại lịch làm việc mới của bạn:
-                    </p>
-                    <p style='font-size: 20px; font-weight: bold; color: #4caf50'>
-                        {{LichLamViecMoi}}
-                    </p>
-                    <p style='font-size: 14px'>
-                        Nếu bạn có bất kỳ câu hỏi nào, hãy liên hệ với chúng tôi.
-                    </p
-                    <br />
-                    <p>Trân trọng,</p>
-                    <p>Đội ngũ hỗ trợ</p>
-                </body>
-            </html>";
-
-            var smtp = new SmtpClient
-            {
-                Host = "smtp.gmail.com",
-                Port = 587,
-                EnableSsl = true,
-                DeliveryMethod = SmtpDeliveryMethod.Network,
-                UseDefaultCredentials = false,
-                Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
-            };
-
-            try
-            {
-                using (var message = new MailMessage(fromAddress, toAddress)
-                {
-                    Subject = subject,
-                    Body = body,
-                    IsBodyHtml = true
-                })
-                {
-                    smtp.Send(message);
-                }
-
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Lỗi: " + ex.Message);
-                return false;
             }
         }
     }

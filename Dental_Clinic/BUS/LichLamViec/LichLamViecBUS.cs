@@ -1,13 +1,6 @@
 ﻿using Dental_Clinic.DAO.LichLamViec;
-using Dental_Clinic.DTO.BacSi;
 using Dental_Clinic.DTO.ChamCong;
-using Dental_Clinic.DTO.LeTan;
 using Dental_Clinic.DTO.LichLamViec;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dental_Clinic.BUS.LichLamViec
 {
@@ -29,6 +22,16 @@ namespace Dental_Clinic.BUS.LichLamViec
         public ChamCongDTO ChiTietLamViec(int id, DateTime day)
         {
             return lichLamViecDAO.ChiTietLamViec(id, day);
+        }
+
+        public void ThemLichLamViec(int id, int ca, DateTime ngay)
+        {
+            lichLamViecDAO.ThemLichLamViec(id, ca, ngay);
+        }
+
+        public void XoaLichLamViec(int id, DateTime ngay)
+        {
+            lichLamViecDAO.XoaLichLamViec(id, ngay);
         }
 
     }

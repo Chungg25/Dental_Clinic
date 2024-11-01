@@ -33,8 +33,8 @@ namespace Dental_Clinic.GUI.Administrator.WorkSchedule
             panel1 = new Panel();
             label1 = new Label();
             panelLichLamViec = new Panel();
-            dtpLichLamViec = new DateTimePicker();
             pbQuayVe = new PictureBox();
+            dtpLichLamViec = new DateTimePicker();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbQuayVe).BeginInit();
             SuspendLayout();
@@ -65,13 +65,6 @@ namespace Dental_Clinic.GUI.Administrator.WorkSchedule
             panelLichLamViec.Size = new Size(1012, 502);
             panelLichLamViec.TabIndex = 45;
             // 
-            // dtpLichLamViec
-            // 
-            dtpLichLamViec.Location = new Point(693, 99);
-            dtpLichLamViec.Name = "dtpLichLamViec";
-            dtpLichLamViec.Size = new Size(250, 27);
-            dtpLichLamViec.TabIndex = 46;
-            // 
             // pbQuayVe
             // 
             pbQuayVe.Image = Resources.icons8_back_50;
@@ -83,14 +76,21 @@ namespace Dental_Clinic.GUI.Administrator.WorkSchedule
             pbQuayVe.TabStop = false;
             pbQuayVe.Click += pbQuayVe_Click;
             // 
+            // dtpLichLamViec
+            // 
+            dtpLichLamViec.Location = new Point(700, 99);
+            dtpLichLamViec.Name = "dtpLichLamViec";
+            dtpLichLamViec.Size = new Size(250, 27);
+            dtpLichLamViec.TabIndex = 48;
+            // 
             // FormChinhSuaLichLamViec
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             ClientSize = new Size(1016, 644);
-            Controls.Add(pbQuayVe);
             Controls.Add(dtpLichLamViec);
+            Controls.Add(pbQuayVe);
             Controls.Add(panelLichLamViec);
             Controls.Add(panel1);
             Name = "FormChinhSuaLichLamViec";
@@ -106,7 +106,7 @@ namespace Dental_Clinic.GUI.Administrator.WorkSchedule
         private Panel panel1;
         private Label label1;
         private Panel panelLichLamViec;
-        private DateTimePicker dtpLichLamViec;
         private PictureBox pbQuayVe;
+        private DateTimePicker dtpLichLamViec;
     }
 }
