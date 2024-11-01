@@ -1724,6 +1724,7 @@ BEGIN
 END;
 GO
 
+EXEC LayThongTinBacSi 6
 
 -- Procedure lấy mật khẩu từ email và username
 CREATE PROCEDURE LayThongTinEmailVaUserName
@@ -2144,8 +2145,6 @@ END;
 GO
 
 CREATE PROCEDURE DanhSachLichLamViecBacSiKhongNgayLam
-	@StartOfMonth DATE,
-	@EndOfMonth DATE
 AS
 BEGIN
 	SELECT nguoi_dung.ma_nguoi_dung, nguoi_dung.ho_ten, nguoi_dung.gioi_tinh, nguoi_dung.email, bac_si_chuyen_mon.ten_chuyen_mon, count(*) as so_ca from nguoi_dung
@@ -2218,21 +2217,6 @@ BEGIN
 END;
 
 GO
-<<<<<<< HEAD
-exec ChiTietCaLam 6, '2024-9-2'
+
+exec DanhSachLichLamViecBacSiKhongNgayLam 
 GO
-
-=======
-exec ChiTietCaLam 4, '2024-10-20'
-GO
-
-exec DanhSachLichLamViecBacSiKhongNgayLam '2024-11-1', '2024-11-30'
-
-GO
-
-
-<<<<<<< HEAD
-=======
-GO
->>>>>>> 01a611af1aedb8cfc547b45f07c4d10f98a37ce1
->>>>>>> b92716a78115bf326faeab52de98c00e6d113fb7

@@ -46,18 +46,14 @@ namespace Dental_Clinic.DAO.LichLamViec
                         else
                         {
                             reader.Close();
-                            MessageBox.Show("!");
                             using (SqlCommand cmdNoSchedule = new SqlCommand("DanhSachLichLamViecBacSiKhongNgayLam", dbConnection.Conn))
                             {
                                 cmd.CommandType = CommandType.StoredProcedure;
-                                cmd.Parameters.AddWithValue("@StartOfMonth", firstDayOfMonth);
-                                cmd.Parameters.AddWithValue("@EndOfMonth", lastDayOfMonth);
-         
+                                
                                 using (SqlDataReader readerNoSchedule = cmdNoSchedule.ExecuteReader())
                                 {
                                     while (readerNoSchedule.Read())
                                     {
-                                        MessageBox.Show("!");
                                         LichLamViecDTO lichLamViecBacSi = new LichLamViecDTO
                                         {
                                             MaNguoiDung = Convert.ToInt32(readerNoSchedule["ma_nguoi_dung"]),
@@ -67,7 +63,6 @@ namespace Dental_Clinic.DAO.LichLamViec
                                             ChuyenNganh = readerNoSchedule["ten_chuyen_mon"]?.ToString() ?? "",
                                             SoCa = 0,
                                         };
-                                        MessageBox.Show(lichLamViecBacSi.MaNguoiDung.ToString());
                                         lichLamViecBacSiList.Add(lichLamViecBacSi);
                                     }
                                 }
@@ -166,21 +161,49 @@ namespace Dental_Clinic.DAO.LichLamViec
                     cmd.Parameters.AddWithValue("@day", ThayDoiDinhDangNgay);
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        while (reader.Read())
+                        if (reader.HasRows) 
                         {
-                            ChiTietLamViec = new ChamCongDTO
+                            while (reader.Read())
                             {
-                                MaNguoiDung = Convert.ToInt32(reader["ma_nguoi_dung"]),
-                                HoTen = reader["ho_ten"].ToString() ?? "",
-                                GioiTinh = Convert.ToBoolean(reader["gioi_tinh"]),
-                                Ngay = reader["ngay"].ToString(),
-                                Email = reader["email"]?.ToString() ?? "",
-                                GioVao = reader["gio_vao"].ToString(),
-                                GioRa = reader["gio_ra"].ToString(),
-                                GhiChu = reader["ghi_chu"].ToString(),
-                                SĐT = reader["so_dien_thoai"].ToString(),
-                                DiaChi = reader["dia_chi"].ToString(),
-                            };
+                                ChiTietLamViec = new ChamCongDTO
+                                {
+                                    MaNguoiDung = Convert.ToInt32(reader["ma_nguoi_dung"]),
+                                    HoTen = reader["ho_ten"].ToString() ?? "",
+                                    GioiTinh = Convert.ToBoolean(reader["gioi_tinh"]),
+                                    Ngay = reader["ngay"].ToString(),
+                                    Email = reader["email"]?.ToString() ?? "",
+                                    GioVao = reader["gio_vao"].ToString(),
+                                    GioRa = reader["gio_ra"].ToString(),
+                                    GhiChu = reader["ghi_chu"].ToString(),
+                                    SĐT = reader["so_dien_thoai"].ToString(),
+                                    DiaChi = reader["dia_chi"].ToString(),
+                                };
+                            }
+                        }  
+                        else
+                        {
+                            reader.Close();
+                            using (SqlCommand cmdNoSchedule = new SqlCommand("LayThongTinBacSi", dbConnection.Conn))
+                            {
+                                cmdNoSchedule.CommandType = CommandType.StoredProcedure;
+                                cmdNoSchedule.Parameters.AddWithValue("@userId", id);
+                                using (SqlDataReader readerNoSchedule = cmdNoSchedule.ExecuteReader())
+                                {
+                                    while (readerNoSchedule.Read())
+                                    {
+                                        ChiTietLamViec = new ChamCongDTO
+                                        {
+                                            MaNguoiDung = Convert.ToInt32(readerNoSchedule["ma_nguoi_dung"]),
+                                            HoTen = readerNoSchedule["ho_ten"].ToString() ?? "",
+                                            GioiTinh = Convert.ToBoolean(readerNoSchedule["gioi_tinh"]),
+                                            Email = readerNoSchedule["email"]?.ToString() ?? "",
+                                            SĐT = readerNoSchedule["so_dien_thoai"].ToString(),
+                                            DiaChi = readerNoSchedule["dia_chi"].ToString(),
+                                        };
+                                        MessageBox.Show(ChiTietLamViec.MaNguoiDung.ToString());
+                                    }
+                                }
+                            }
                         }
                     }
                 }

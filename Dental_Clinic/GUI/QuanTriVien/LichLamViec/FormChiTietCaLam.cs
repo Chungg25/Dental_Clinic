@@ -26,6 +26,7 @@ namespace Dental_Clinic.GUI.QuanTriVien.LichLamViec
         public void HienThi(int id, DateTime day)
         {
             ChamCongDTO chamCongDTO = lichLamViecBUS.ChiTietLamViec(id, day);
+
             vbHoTen.Text = chamCongDTO.HoTen;
             vbEmail.Text = chamCongDTO.Email;
             vbSĐT.Text = chamCongDTO.SĐT;
@@ -33,7 +34,11 @@ namespace Dental_Clinic.GUI.QuanTriVien.LichLamViec
             vbGioVao.Text = chamCongDTO.GioVao;
             vbGioRa.Text = chamCongDTO.GioRa;
             vbTrangThai.Text = chamCongDTO.GhiChu;
-            if (chamCongDTO.GhiChu.Equals("làm việc đúng giờ", StringComparison.OrdinalIgnoreCase))
+            if (string.IsNullOrEmpty(chamCongDTO.GhiChu))
+            {
+                MessageBox.Show("!");
+            }
+            else if (chamCongDTO.GhiChu.Equals("làm việc đúng giờ", StringComparison.OrdinalIgnoreCase))
             {
                 vbTrangThai.BackColor = ColorTranslator.FromHtml("#28a745");
                 vbTrangThai.ForeColor = Color.White;
