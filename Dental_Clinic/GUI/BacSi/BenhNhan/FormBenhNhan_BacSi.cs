@@ -22,16 +22,20 @@ namespace Dental_Clinic.GUI.BacSi.BenhNhan
     {
         private FormBacSi _formBacSi;
         private BenhNhanBUS _benhNhanBUS;
+        private List<BenhNhanDTO> benhNhan;
         public FormBenhNhan_BacSi(FormBacSi formBacSi)
         {
             InitializeComponent();
             this._formBacSi = formBacSi;
             this._benhNhanBUS = new BenhNhanBUS();
-        }
+            this.benhNhan = new List<BenhNhanDTO>();
 
-        private void FormBenhNhan_Load(object sender, EventArgs e)
+            FormBenhNhan_BacSi_Load();
+        }
+        // Hàm khởi tạo nội dung
+        private void FormBenhNhan_BacSi_Load()
         {
-            List<BenhNhanDTO> benhNhan = _benhNhanBUS.LayDanhSachBenhNhan();
+            benhNhan = _benhNhanBUS.LayDanhSachBenhNhan();
             TaoTableLayoutPanel(benhNhan);
 
             vbBenhNhan.FlatStyle = FlatStyle.Flat;
@@ -55,8 +59,7 @@ namespace Dental_Clinic.GUI.BacSi.BenhNhan
             tbTimKiem.Enter += tbTimKiem_Enter;
             tbTimKiem.Leave += tbTimKiem_Leave;
         }
-
-        //Phần này để chỉnh sửa các control
+        // Tìm kiếm bệnh nhân
         private void tbTimKiem_Enter(object? sender, EventArgs e)
         {
             if (tbTimKiem.Text == "Tìm kiếm")
@@ -65,7 +68,7 @@ namespace Dental_Clinic.GUI.BacSi.BenhNhan
                 tbTimKiem.ForeColor = Color.Black;
             }
         }
-
+        // Kết thúc tìm kiếm
         private void tbTimKiem_Leave(object? sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(tbTimKiem.Text))
@@ -74,15 +77,6 @@ namespace Dental_Clinic.GUI.BacSi.BenhNhan
                 tbTimKiem.ForeColor = Color.Gray;
             }
         }
-
-        //Kết thúc
-
-        //Phần này để tạo hiển thị danh sách bệnh nhân
-        //Hàm CreateTableLayoutPanel() được gọi trên đầu để tạo panel hiển thị
-        //Hàm AddRowToTableLayoutPanel để thêm dữ liệu vào
-        //Xem hàm CreateTableLayoutPanel() để biết thêm chi tiết
-
-
         // Hàm để tạo Label
         private Label TaoLabel(string text, Font font)
         {
@@ -95,7 +89,6 @@ namespace Dental_Clinic.GUI.BacSi.BenhNhan
                 Anchor = AnchorStyles.Left | AnchorStyles.Top
             };
         }
-
         // Hàm tạo nút hành động (chỉnh sửa và xóa)
         private Button TaoActionButton(Color backgroundColor, Image icon)
         {
@@ -113,8 +106,6 @@ namespace Dental_Clinic.GUI.BacSi.BenhNhan
             };
             return button;
         }
-
-
         // Hàm thêm các nút hành động (chỉnh sửa và xóa)
         private void ThemActionButtonsVaoTableLayoutPanel(TableLayoutPanel tlpUser, int rowIndex, int id)
         {
@@ -130,8 +121,6 @@ namespace Dental_Clinic.GUI.BacSi.BenhNhan
             // Tạo các nút
             Color editEditColor = ColorTranslator.FromHtml("#0d6efd");
             Button btnEdit = TaoActionButton(editEditColor, editIcon);
-            //Color editDeleteColor = ColorTranslator.FromHtml("#dc3545");
-            //Button btnDelete = CreateActionButton(editDeleteColor, deleteIcon);
 
             // Thêm sự kiện Click
             btnEdit.Click += (s, e) => { HienThiChinhSuaThongTinBenhNhan(id); };
@@ -142,7 +131,7 @@ namespace Dental_Clinic.GUI.BacSi.BenhNhan
             {
                 Dock = DockStyle.Fill,
                 Margin = new Padding(0),
-                Padding = new Padding(5, 0, 0, 0),
+                Padding = new Padding(30, 0, 0, 0),
                 AutoSize = true,
                 FlowDirection = FlowDirection.LeftToRight, // Sắp xếp các điều khiển theo chiều ngang
                 WrapContents = false
@@ -285,7 +274,7 @@ namespace Dental_Clinic.GUI.BacSi.BenhNhan
 
         private void vbBenhNhan_Click(object sender, EventArgs e)
         {
-            List<BenhNhanDTO> benhNhan = _benhNhanBUS.LayDanhSachBenhNhan();
+            benhNhan = _benhNhanBUS.LayDanhSachBenhNhan();
             TaoTableLayoutPanel(benhNhan);
         }
         //Kết thúc

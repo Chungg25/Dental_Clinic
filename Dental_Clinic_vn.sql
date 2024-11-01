@@ -2218,6 +2218,11 @@ BEGIN
 END;
 
 GO
+<<<<<<< HEAD
+exec ChiTietCaLam 6, '2024-9-2'
+GO
+
+=======
 exec ChiTietCaLam 4, '2024-10-20'
 GO
 
@@ -2226,3 +2231,8 @@ exec DanhSachLichLamViecBacSiKhongNgayLam '2024-11-1', '2024-11-30'
 GO
 
 
+<<<<<<< HEAD
+=======
+GO
+>>>>>>> 01a611af1aedb8cfc547b45f07c4d10f98a37ce1
+>>>>>>> b92716a78115bf326faeab52de98c00e6d113fb7
