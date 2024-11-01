@@ -17,13 +17,22 @@ namespace Dental_Clinic.DAO.LichLamViec
             List<LichLamViecDTO> lichLamViecBacSiList = new List<LichLamViecDTO>();
             DatabaseConnection dbConnection = new DatabaseConnection();
 
+            int doctorCount = 0;
+
+            using (SqlCommand cmd = new SqlCommand("SELECT dbo.SoLuongBacSi()", dbConnection.Conn))
+            {
+                doctorCount = (int)cmd.ExecuteScalar();
+            }
+
             try
             {
+                
                 using (SqlCommand cmd = new SqlCommand("DanhSachLichLamViecBacSi", dbConnection.Conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@StartOfMonth", firstDayOfMonth);
                     cmd.Parameters.AddWithValue("@EndOfMonth", lastDayOfMonth);
+
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -43,20 +52,23 @@ namespace Dental_Clinic.DAO.LichLamViec
                                 lichLamViecBacSiList.Add(lichLamViecBacSi);
                             }
                         }
-                        else
+                    }
+                    if (lichLamViecBacSiList.Count < doctorCount)
+                    {
+                        using (SqlCommand cmdNoSchedule = new SqlCommand("DanhSachLichLamViecBacSiKhongNgayLam", dbConnection.Conn))
                         {
-                            reader.Close();
-                            using (SqlCommand cmdNoSchedule = new SqlCommand("DanhSachLichLamViecBacSiKhongNgayLam", dbConnection.Conn))
+                            cmdNoSchedule.CommandType = CommandType.StoredProcedure;
+
+                            using (SqlDataReader readerNoSchedule = cmdNoSchedule.ExecuteReader())
                             {
-                                cmd.CommandType = CommandType.StoredProcedure;
-                                
-                                using (SqlDataReader readerNoSchedule = cmdNoSchedule.ExecuteReader())
+                                while (readerNoSchedule.Read())
                                 {
-                                    while (readerNoSchedule.Read())
+                                    int maNguoiDung = Convert.ToInt32(readerNoSchedule["ma_nguoi_dung"]);
+                                    if (!lichLamViecBacSiList.Any(l => l.MaNguoiDung == maNguoiDung))
                                     {
                                         LichLamViecDTO lichLamViecBacSi = new LichLamViecDTO
                                         {
-                                            MaNguoiDung = Convert.ToInt32(readerNoSchedule["ma_nguoi_dung"]),
+                                            MaNguoiDung = maNguoiDung,
                                             HoTen = readerNoSchedule["ho_ten"].ToString() ?? "",
                                             GioiTinh = Convert.ToBoolean(readerNoSchedule["gioi_tinh"]),
                                             Email = readerNoSchedule["email"]?.ToString() ?? "",
@@ -159,12 +171,14 @@ namespace Dental_Clinic.DAO.LichLamViec
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@ID", id);
                     cmd.Parameters.AddWithValue("@day", ThayDoiDinhDangNgay);
+
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         if (reader.HasRows) 
                         {
                             while (reader.Read())
                             {
+                                
                                 ChiTietLamViec = new ChamCongDTO
                                 {
                                     MaNguoiDung = Convert.ToInt32(reader["ma_nguoi_dung"]),
@@ -176,6 +190,7 @@ namespace Dental_Clinic.DAO.LichLamViec
                                     GioRa = reader["gio_ra"].ToString(),
                                     GhiChu = reader["ghi_chu"].ToString(),
                                     SĐT = reader["so_dien_thoai"].ToString(),
+                                    Ca = Convert.ToInt32(reader["ca"]),
                                     DiaChi = reader["dia_chi"].ToString(),
                                 };
                             }
@@ -183,10 +198,12 @@ namespace Dental_Clinic.DAO.LichLamViec
                         else
                         {
                             reader.Close();
-                            using (SqlCommand cmdNoSchedule = new SqlCommand("LayThongTinBacSi", dbConnection.Conn))
+                            using (SqlCommand cmdNoSchedule = new SqlCommand("ThongTinLamViecChuaChamCong", dbConnection.Conn))
                             {
                                 cmdNoSchedule.CommandType = CommandType.StoredProcedure;
                                 cmdNoSchedule.Parameters.AddWithValue("@userId", id);
+                                cmdNoSchedule.Parameters.AddWithValue("@ngay", ThayDoiDinhDangNgay);
+
                                 using (SqlDataReader readerNoSchedule = cmdNoSchedule.ExecuteReader())
                                 {
                                     while (readerNoSchedule.Read())
@@ -199,8 +216,8 @@ namespace Dental_Clinic.DAO.LichLamViec
                                             Email = readerNoSchedule["email"]?.ToString() ?? "",
                                             SĐT = readerNoSchedule["so_dien_thoai"].ToString(),
                                             DiaChi = readerNoSchedule["dia_chi"].ToString(),
+                                            Ca = Convert.ToInt32(readerNoSchedule["ca"])
                                         };
-                                        MessageBox.Show(ChiTietLamViec.MaNguoiDung.ToString());
                                     }
                                 }
                             }
@@ -227,6 +244,65 @@ namespace Dental_Clinic.DAO.LichLamViec
             }
 
             return ChiTietLamViec;
+        }
+
+        public void ThemLichLamViec(int id, int ca, DateTime ngay)
+        {
+            DatabaseConnection dbConnection = new DatabaseConnection();
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("ThemLichLamViec", dbConnection.Conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ID", id);
+                    cmd.Parameters.AddWithValue("@ca", ca);
+                    cmd.Parameters.AddWithValue("@day", ngay);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException sqlEx)
+            {
+                // Handle SQL errors
+                Console.WriteLine($"SQL Error: {sqlEx.Message}");
+                // Optionally, log the error or rethrow the exception
+            }
+            catch (Exception ex)
+            {
+                // Handle other errors
+                Console.WriteLine($"Error: {ex.Message}");
+                // Optionally, log the error or rethrow the exception
+            }
+        }
+
+        public void XoaLichLamViec(int id, DateTime ngay)
+        {
+            DatabaseConnection dbConnection = new DatabaseConnection();
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("XoaLichLamViec", dbConnection.Conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ID", id);
+                    cmd.Parameters.AddWithValue("@day", ngay);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException sqlEx)
+            {
+                // Handle SQL errors
+                Console.WriteLine($"SQL Error: {sqlEx.Message}");
+                // Optionally, log the error or rethrow the exception
+            }
+            catch (Exception ex)
+            {
+                // Handle other errors
+                Console.WriteLine($"Error: {ex.Message}");
+                // Optionally, log the error or rethrow the exception
+            }
         }
     }
 }

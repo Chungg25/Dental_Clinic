@@ -1,24 +1,21 @@
 ﻿using Dental_Clinic.BUS.LichLamViec;
 using Dental_Clinic.DTO.ChamCong;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Net.Mail;
+using System.Net;
 
 namespace Dental_Clinic.GUI.QuanTriVien.LichLamViec
 {
     public partial class FormChiTietCaLam : Form
     {
         private LichLamViecBUS lichLamViecBUS;
+        private int _id;
+        private DateTime _day;
         public FormChiTietCaLam(int id, DateTime day)
         {
             InitializeComponent();
             lichLamViecBUS = new LichLamViecBUS();
+            _id = id;
+            _day = day;
             ChinhSua();
             HienThi(id, day);
         }
@@ -26,7 +23,6 @@ namespace Dental_Clinic.GUI.QuanTriVien.LichLamViec
         public void HienThi(int id, DateTime day)
         {
             ChamCongDTO chamCongDTO = lichLamViecBUS.ChiTietLamViec(id, day);
-
             vbHoTen.Text = chamCongDTO.HoTen;
             vbEmail.Text = chamCongDTO.Email;
             vbSĐT.Text = chamCongDTO.SĐT;
@@ -34,9 +30,13 @@ namespace Dental_Clinic.GUI.QuanTriVien.LichLamViec
             vbGioVao.Text = chamCongDTO.GioVao;
             vbGioRa.Text = chamCongDTO.GioRa;
             vbTrangThai.Text = chamCongDTO.GhiChu;
+            vbQueQuan.Text = chamCongDTO.DiaChi;
+
+            cbThayDoi.SelectedItem = chamCongDTO.Ca.ToString();
+
             if (string.IsNullOrEmpty(chamCongDTO.GhiChu))
             {
-                MessageBox.Show("!");
+
             }
             else if (chamCongDTO.GhiChu.Equals("làm việc đúng giờ", StringComparison.OrdinalIgnoreCase))
             {
@@ -67,15 +67,13 @@ namespace Dental_Clinic.GUI.QuanTriVien.LichLamViec
             }
 
             DateTime today = DateTime.Now;
-            if (day < today.AddDays(-2))
+
+            if (day.AddDays(-2) < today.Date)
             {
-                if (!string.IsNullOrEmpty(chamCongDTO.GioVao) && !string.IsNullOrEmpty(chamCongDTO.GioRa))
-                {
-                    cbThayDoi.Enabled = false;
-                    cbThayDoi.SelectedItem = "Có";
-                }
+                cbThayDoi.Enabled = false;
+                cbThayDoi.SelectedItem = "Có";
+                vbLuuThayDoi.Visible = false;
             }
-            vbQueQuan.Text = chamCongDTO.DiaChi;
         }
 
         private void ChinhSua()
@@ -120,16 +118,103 @@ namespace Dental_Clinic.GUI.QuanTriVien.LichLamViec
             vbQueQuan.FlatAppearance.MouseOverBackColor = vbQueQuan.BackColor;
             vbQueQuan.FlatAppearance.MouseDownBackColor = vbQueQuan.BackColor;
 
+            cbThayDoi.Items.Add("1");
+            cbThayDoi.Items.Add("2");
             cbThayDoi.Items.Add("Hủy");
-            cbThayDoi.Items.Add("Thêm");
             cbThayDoi.Items.Add("Có");
-
+            
             cbThayDoi.FlatStyle = FlatStyle.Flat;
 
             vbThayDoi.BorderSize = 1;
             vbThayDoi.BorderColor = Color.Black;
             vbThayDoi.FlatAppearance.MouseOverBackColor = vbThayDoi.BackColor;
             vbThayDoi.FlatAppearance.MouseDownBackColor = vbThayDoi.BackColor;
+
+            //foreach (Control control in panelChiTiet.Controls)
+            //{
+            //    if (control is Label label)
+            //    {
+            //        label.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+            //    }
+            //}
+        }
+
+        private void vbLuuThayDoi_Click(object sender, EventArgs e)
+        {
+            string trangThai = cbThayDoi.SelectedItem.ToString();
+            if(trangThai.Equals("1") || trangThai.Equals("2"))
+            {
+                lichLamViecBUS.ThemLichLamViec(_id, int.Parse(trangThai), _day);
+                string ca = cbThayDoi.SelectedItem.ToString();
+                string thu = _day.ToString("dddd", new System.Globalization.CultureInfo("vi-VN"));
+                GuiMail(vbEmail.Text, $"Thêm lịch làm việc vào ngày {_day.ToString("yyyy-MM-dd")} (Ca: {ca}, Thứ: {thu})");
+            }
+            else
+            {
+                lichLamViecBUS.XoaLichLamViec(_id, _day);
+                string ca = cbThayDoi.SelectedItem.ToString();
+                string thu = _day.ToString("dddd", new System.Globalization.CultureInfo("vi-VN"));
+                GuiMail(vbEmail.Text, $"Hủy ca làm việc vào ngày {_day.ToString("yyyy-MM-dd")} (Ca: {ca}, Thứ: {thu})");
+            }
+        }
+
+        private bool GuiMail(string MailPhanHoi, string tinNhan)
+        {
+            var fromAddress = new MailAddress("huygianhoang2007@gmail.com", "TechCraft N05");
+            var toAddress = new MailAddress(MailPhanHoi); 
+            const string fromPassword = "zruj aszp lanq sgql";
+            const string subject = "Thông báo lịch làm việc";
+            // Định dạng lại nội dung email với HTML
+            string body = $@"
+            <html>
+                <body style='font-family: Arial, sans-serif; line-height: 1.6; color: #333; padding: 20px;'>
+                    <h2 style='color: #333;'>Thông báo thay đổi lịch làm việc</h2>
+                    <p style='font-size: 14px;'>Xin chào,</p>
+                    <p style='font-size: 14px;'>Lịch làm việc của bạn đã được thay đổi.</p>
+                    <p style='font-size: 14px'>
+                        Vui lòng kiểm tra lại lịch làm việc mới của bạn:
+                    </p>
+                    <p style='font-size: 20px; font-weight: bold; color: #ff0000'>
+                        {tinNhan}
+                    </p>
+                    <p style='font-size: 14px'>
+                        Nếu bạn có bất kỳ câu hỏi nào, hãy liên hệ với chúng tôi.
+                    </p
+                    <br />
+                    <p>Trân trọng,</p>
+                    <p>Đội ngũ hỗ trợ</p>
+                </body>
+            </html>";
+
+            var smtp = new SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+            };
+
+            try
+            {
+                using (var message = new MailMessage(fromAddress, toAddress)
+                {
+                    Subject = subject,
+                    Body = body,
+                    IsBodyHtml = true
+                })
+                {
+                    smtp.Send(message);
+                }
+                MessageBox.Show(tinNhan);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi: " + ex.Message);
+                return false;
+            }
         }
     }
 }
