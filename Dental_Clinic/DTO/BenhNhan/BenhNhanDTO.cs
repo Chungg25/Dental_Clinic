@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Dental_Clinic.DTO.Patient
 {
     public class BenhNhanDTO
-    {
+    {   
         private int id;
         private string hoVaTen;
         private string diaChi;

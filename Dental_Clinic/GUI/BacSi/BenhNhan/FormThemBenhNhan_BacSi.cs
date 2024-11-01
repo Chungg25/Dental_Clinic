@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Dental_Clinic.GUI.BacSi.BenhNhan
+namespace Dental_Clinic.GUI.BacSi.BenhNhan 
 {
     public partial class FormThemBenhNhan_BacSi : Form
     {
@@ -25,11 +25,17 @@ namespace Dental_Clinic.GUI.BacSi.BenhNhan
             this._benhNhanBUS = new BenhNhanBUS();
             this._benhNhanDTO = new BenhNhanDTO();
         }
-
+        private void FormThemBenhNhan_BacSi_Load(object sender, EventArgs e)
+        {
+            ChinhSua();
+            // Chỉ được đọc không được chỉnh sửa trong comboBox
+            cbGioiTinh.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
         private void vbThemBenhNhan_Click(object sender, EventArgs e)
         {
             if (!KiemTraThem())
             {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -40,6 +46,10 @@ namespace Dental_Clinic.GUI.BacSi.BenhNhan
             _benhNhanDTO.Tuoi = int.Parse(tbTuoi.Text);
 
             _benhNhanBUS.ThemBenhNhan(_benhNhanDTO);
+
+            MessageBox.Show("Thêm bệnh nhân thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // Quay lại form bệnh nhân
+            _formBacSi.ShowFormOnPanel(new FormBenhNhan_BacSi(_formBacSi));
         }
 
         public void ChinhSua()

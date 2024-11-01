@@ -14,10 +14,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Dental_Clinic
-<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\
-=======
-build_property.ProjectDir = D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\
->>>>>>> 01a611af1aedb8cfc547b45f07c4d10f98a37ce1
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

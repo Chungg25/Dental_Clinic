@@ -1,14 +1,8 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "jJ5yhDIN3q8=",
   "success": true,
   "projectFilePath": "C:\\Users\\Nguyen\\Desktop\\Dental_Clinic\\Dental_Clinic\\Dental_Clinic.csproj",
-=======
-  "dgSpecHash": "0ZjqQ2CrsAc=",
-  "success": true,
-  "projectFilePath": "D:\\Đại học\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\Dental_Clinic.csproj",
->>>>>>> 01a611af1aedb8cfc547b45f07c4d10f98a37ce1
   "expectedPackageFiles": [
     "C:\\Users\\Nguyen\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Nguyen\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
@@ -20,5 +14,12 @@
     "C:\\Users\\Nguyen\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
     "C:\\Users\\Nguyen\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Nguyen\\Desktop\\Dental_Clinic\\Dental_Clinic\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

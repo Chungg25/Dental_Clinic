@@ -10,12 +10,19 @@ using Dental_Clinic.DTO.Patient;
 
 namespace Dental_Clinic.DAO.Patient
 {
-    internal class BenhNhanDAO
+    public class BenhNhanDAO
     {
+        private DatabaseConnection dbConnection;
+
+        public BenhNhanDAO()
+        {
+            dbConnection = new DatabaseConnection();
+        }
+
+        // Hàm lấy danh sách bệnh nhân
         public List<BenhNhanDTO> LayDanhSachBenhNhan()
         {
             List<BenhNhanDTO> patientList = new List<BenhNhanDTO>();
-            DatabaseConnection dbConnection = new DatabaseConnection();
 
             try
             {
@@ -65,11 +72,16 @@ namespace Dental_Clinic.DAO.Patient
         public BenhNhanDTO LayThongTinBenhNhan(int id)
         {
             BenhNhanDTO patient = new BenhNhanDTO();
-            DatabaseConnection dbConnection = new DatabaseConnection();
+
             using (SqlCommand cmd = new SqlCommand("ThongTinBenhNhan", dbConnection.Conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@maBenhNhan", id);
+
+                if (dbConnection.Conn.State == ConnectionState.Closed)
+                {
+                    dbConnection.Conn.Open();
+                }
 
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
@@ -89,10 +101,9 @@ namespace Dental_Clinic.DAO.Patient
             }
             return patient;
         }
-
+        // Cập nhật thông tin bệnh nhân
         public void CapNhatBenhNhan(BenhNhanDTO patient)
         {
-            DatabaseConnection dbConnection = new DatabaseConnection();
             using (SqlCommand cmd = new SqlCommand("CapNhatBenhNhan", dbConnection.Conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -109,9 +120,9 @@ namespace Dental_Clinic.DAO.Patient
                 dbConnection.Conn.Close();
             }
         }
+        // Thêm bệnh nhân
         public void ThemBenhNhan(BenhNhanDTO patient)
         {
-            DatabaseConnection dbConnection = new DatabaseConnection();
             using (SqlCommand cmd = new SqlCommand("ThemBenhNhan", dbConnection.Conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -126,5 +137,32 @@ namespace Dental_Clinic.DAO.Patient
                 dbConnection.Conn.Close();
             }
         }
-    } 
+        // Lấy danh sách bệnh nhân của bác sĩ
+        public List<BenhNhanDTO> LayDanhSachBenhNhanCuaBacSi(int id)
+        {
+            using (SqlCommand cmd = new SqlCommand("LayThongTinBenhNhanCuaBacSi", dbConnection.Conn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@maBacSi", id);
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    List<BenhNhanDTO> patientList = new List<BenhNhanDTO>();
+                    while (reader.Read())
+                    {
+                        BenhNhanDTO patient = new BenhNhanDTO
+                        {
+                            Id = Convert.ToInt32(reader["ma_benh_nhan"]),
+                            HoVaTen = reader["ho_ten"].ToString() ?? "",
+                            DiaChi = reader["dia_chi"]?.ToString() ?? "",
+                            GioiTinh = Convert.ToBoolean(reader["gioi_tinh"]),
+                            Tuoi = Convert.ToInt32(reader["tuoi"])
+                        };
+                        patientList.Add(patient);
+                    }
+                    return patientList;
+                }
+            }
+        }
+    }
 }

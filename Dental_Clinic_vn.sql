@@ -2140,8 +2140,6 @@ END;
 
 GO
 
-DROP proc LichLamViecBacSiTheoID
-Go
 CREATE PROCEDURE LichLamViecBacSiTheoID
 	@ID INT,
 	@StartOfMonth DATE,
@@ -2202,15 +2200,30 @@ BEGIN
 END;
 
 GO
-<<<<<<< HEAD
-exec ChiTietCaLam 6, '2024-9-2'
-GO
 
-=======
-exec ChiTietCaLam 4, '2024-10-20'
-GO
+CREATE PROCEDURE LayThongTinBenhNhanCuaBacSi
+    @MaBacSi INT
+AS
+BEGIN
+    SET NOCOUNT ON;
 
-exec LichLamViecBacSiTheoID 6, '2024-9-1', '2024-9-30'
-
+    SELECT 
+        bn.ma_benh_nhan,
+        bn.ho_ten,
+        bn.dia_chi,
+        bn.gioi_tinh,
+        bn.tuoi
+    FROM 
+        nguoi_dung AS nd
+    JOIN 
+        dieu_tri AS dt ON nd.ma = dt.ma_bac_si
+    JOIN 
+        benh_nhan AS bn ON dt.ma_benh_nhan = bn.ma_benh_nhan
+    WHERE 
+        nd.ma = @MaBacSi
+    ORDER BY 
+        dt.ngay_dieu_tri DESC;
+END;
 GO
->>>>>>> 01a611af1aedb8cfc547b45f07c4d10f98a37ce1
+EXEC LayThongTinBenhNhanCuaBacSi @MaBacSi = 6;
+

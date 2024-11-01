@@ -43,6 +43,11 @@ namespace Dental_Clinic.GUI.BacSi
             form.BringToFront();
             form.Show(); // Hiển thị dashForm
         }
+        // Trả về mã bác sĩ 
+        public int MaBacSi ()
+        {
+            return _user.Id;
+        }
         private void pnUser_Click(object sender, EventArgs e)
         {
             panelOption.Visible = !panelOption.Visible;

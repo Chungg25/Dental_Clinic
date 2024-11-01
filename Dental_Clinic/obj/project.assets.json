@@ -475,19 +475,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\Nguyen\\Desktop\\Dental_Clinic\\Dental_Clinic\\Dental_Clinic.csproj",
       "projectName": "Dental_Clinic",
       "projectPath": "C:\\Users\\Nguyen\\Desktop\\Dental_Clinic\\Dental_Clinic\\Dental_Clinic.csproj",
       "packagesPath": "C:\\Users\\Nguyen\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Nguyen\\Desktop\\Dental_Clinic\\Dental_Clinic\\obj\\",
-=======
-      "projectUniqueName": "D:\\Đại học\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\Dental_Clinic.csproj",
-      "projectName": "Dental_Clinic",
-      "projectPath": "D:\\Đại học\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\Dental_Clinic.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "D:\\Đại học\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\obj\\",
->>>>>>> 01a611af1aedb8cfc547b45f07c4d10f98a37ce1
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Nguyen\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -549,5 +541,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Nguyen\\Desktop\\Dental_Clinic\\Dental_Clinic\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

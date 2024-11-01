@@ -359,6 +359,7 @@
             Controls.Add(panelDuLieu);
             Name = "FormThemBenhNhan_BacSi";
             Text = "FormThemBenhNhan";
+            Load += FormThemBenhNhan_BacSi_Load;
             panelDuLieu.ResumeLayout(false);
             panelDuLieu.PerformLayout();
             pnTop.ResumeLayout(false);
