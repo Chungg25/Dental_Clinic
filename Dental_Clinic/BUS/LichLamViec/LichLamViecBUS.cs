@@ -7,16 +7,17 @@ namespace Dental_Clinic.BUS.LichLamViec
     internal class LichLamViecBUS
     {
         private LichLamViecDAO lichLamViecDAO;
-        public LichLamViecBUS() {
+        public LichLamViecBUS()
+        {
             lichLamViecDAO = new LichLamViecDAO();
         }
         public List<LichLamViecDTO> DanhSachLichLamViecBacSi(DateTime firstDayOfMonth, DateTime lastDayOfMonth)
         {
             return lichLamViecDAO.DanhSachLichLamViecBacSi(firstDayOfMonth, lastDayOfMonth);
         }
-        public List<ChamCongDTO> LichLamViecBacSi(int id, DateTime day)
+        public List<ChamCongDTO> LichLamViec(int id, DateTime day)
         {
-            return lichLamViecDAO.LichLamViecBacSi(id, day);
+            return lichLamViecDAO.LichLamViec(id, day);
         }
 
         public ChamCongDTO ChiTietLamViec(int id, DateTime day)
@@ -34,5 +35,14 @@ namespace Dental_Clinic.BUS.LichLamViec
             lichLamViecDAO.XoaLichLamViec(id, ngay);
         }
 
+        public List<LichLamViecDTO> DanhSachLichLamViecLeTan(DateTime firstDayOfMonth, DateTime lastDayOfMonth)
+        {
+            return lichLamViecDAO.DanhSachLichLamViecLeTan(firstDayOfMonth, lastDayOfMonth);
+        }
+
+        public List<ChamCongDTO> LichLamViecLeTan(int id, DateTime day)
+        {
+            return lichLamViecDAO.LichLamViecLeTan(id, day);
+        }
     }
 }

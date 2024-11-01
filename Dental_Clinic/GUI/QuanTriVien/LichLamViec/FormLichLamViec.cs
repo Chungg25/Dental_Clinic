@@ -64,6 +64,15 @@ namespace Dental_Clinic.GUI.Administrator
             TaoDoctorTableLayoutPanel(lichLamViecBacSi);
         }
 
+        public void HienThiLeTan()
+        {
+            DateTime selectedDate = dtpNgay.Value;
+            DateTime firstDayOfMonth = new DateTime(selectedDate.Year, selectedDate.Month, 1);
+            DateTime lastDayOfMonth = new DateTime(selectedDate.Year, selectedDate.Month, DateTime.DaysInMonth(selectedDate.Year, selectedDate.Month));
+            List<LichLamViecDTO> lichLamViecLeTan = lichLamViecBUS.DanhSachLichLamViecLeTan(firstDayOfMonth, lastDayOfMonth);
+            TaoDoctorTableLayoutPanel(lichLamViecLeTan);
+        }
+
         //Phần này để chỉnh sửa các control
         private void tbTimKiem_Enter(object? sender, EventArgs e)
         {
@@ -92,7 +101,7 @@ namespace Dental_Clinic.GUI.Administrator
 
         private void vbLeTan_Click(object sender, EventArgs e)
         {
-            TaoReceptionTableLayoutPanel();
+            HienThiLeTan();
         }
 
         //Phần này để tạo hiển thị danh sách bác sĩ
@@ -109,7 +118,7 @@ namespace Dental_Clinic.GUI.Administrator
                 Text = text,
                 Font = font,
                 AutoSize = true,
-                Padding = new Padding(10, 5, 10, 5), // Tăng khoảng cách bên trái và bên phải
+                Padding = new Padding(5, 5, 5, 5), // Tăng khoảng cách bên trái và bên phải
                 Anchor = AnchorStyles.Left | AnchorStyles.Top
             };
         }
@@ -253,13 +262,18 @@ namespace Dental_Clinic.GUI.Administrator
             ThemActionButtonsVaoTableLayoutPanel(tlpUser, 5, currentRow);
         }
 
-        private void TaoReceptionTableLayoutPanel()
+        private void TaoReceptionTableLayoutPanel(List<LichLamViecDTO> lichLamViecLeTans)
         {
 
+            if (panelDuLieu.Controls.Count > 0)
+            {
+                // Xóa các control trong panelBacSi, bao gồm TableLayoutPanel cũ
+                panelDuLieu.Controls.Clear();
+            }
             TableLayoutPanel tlpReception = new TableLayoutPanel
             {
-                Dock = DockStyle.Fill,
-                AutoSize = false,
+                Dock = DockStyle.Top,
+                AutoSize = true,
             };
 
             // Thiết lập số cột
@@ -282,11 +296,24 @@ namespace Dental_Clinic.GUI.Administrator
             // Xóa các control khác
             ClearControlsExcept(tlpReception);
 
+            Panel scrollablePanel = new Panel
+            {
+                Dock = DockStyle.Fill,
+                AutoScroll = true,
+            };
+            scrollablePanel.Controls.Add(tlpReception);
+
             // Thêm TableLayoutPanel vào form
             panelDuLieu.Controls.Add(tlpReception);
 
             // Thêm một hàng mẫu
-            ThemHangVaoReceptionTableLayoutPanel(tlpReception, "1", "Nguyễn Văn A", "Nam", "example@example.com", "5");
+            int sequenceNumber = 1;
+            foreach (var lichLamViecLeTan in lichLamViecLeTans)
+            {
+                string genderText = lichLamViecLeTan.GioiTinh ? "Nam" : "Nữ";
+                ThemHangVaoDoctorTableLayoutPanel(tlpReception, sequenceNumber.ToString(), lichLamViecLeTan.HoTen, genderText, lichLamViecLeTan.Email, lichLamViecLeTan.ChuyenNganh, lichLamViecLeTan.SoCa.ToString(), lichLamViecLeTan.MaNguoiDung);
+                sequenceNumber++;
+            }
         }
 
         private string ToTitleCase(string text)

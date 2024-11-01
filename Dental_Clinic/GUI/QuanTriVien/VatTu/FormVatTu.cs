@@ -9,19 +9,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CustomButton;
+using Dental_Clinic.BUS.VatTu;
+using Dental_Clinic.DTO.VatTu;
 using Dental_Clinic.GUI.Administrator.Supplies;
 using Dental_Clinic.GUI.Administrator.WorkSchedule;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace Dental_Clinic.GUI.Administrator
 {
     public partial class FormVatTu : Form
     {
         private MainForm _mainForm;
+        private VatTuBUS vatTuBUS;
         public FormVatTu(MainForm mainForm)
         {
             InitializeComponent();
-            CreateMedicineTableLayoutPanel();
-
+            vatTuBUS = new VatTuBUS();
+            HienThiThuoc();
+            
             _mainForm = mainForm;
 
             vbThuoc.FlatStyle = FlatStyle.Flat;
@@ -85,20 +90,20 @@ namespace Dental_Clinic.GUI.Administrator
 
 
         // Hàm để tạo Label
-        private Label CreateLabel(string text, Font font)
+        private Label TaoLabel(string text, Font font)
         {
             return new Label
             {
                 Text = text,
                 Font = font,
                 AutoSize = true,
-                Padding = new Padding(10, 5, 10, 5), // Tăng khoảng cách bên trái và bên phải
+                Padding = new Padding(1, 5, 10, 5), // Tăng khoảng cách bên trái và bên phải
                 Anchor = AnchorStyles.Left | AnchorStyles.Top
             };
         }
 
         // Hàm tạo nút hành động (chỉnh sửa và xóa)
-        private Button CreateActionButton(Color backgroundColor, Image icon)
+        private Button TaoActionButton(Color backgroundColor, Image icon)
         {
             VBButton button = new VBButton
             {
@@ -117,7 +122,7 @@ namespace Dental_Clinic.GUI.Administrator
 
 
         // Hàm thêm các nút hành động (chỉnh sửa và xóa)
-        private void AddActionButtonsToTableLayoutPanel(TableLayoutPanel tlpMedicine, int index, int rowIndex, EventHandler onEditClick, EventHandler onDeleteClick)
+        private void ThemActionButtonsVaoTableLayoutPanel(TableLayoutPanel tlpMedicine, int index, int rowIndex, int id)
         {
             Image ResizeImage(Image img, int width, int height)
             {
@@ -130,12 +135,12 @@ namespace Dental_Clinic.GUI.Administrator
 
             // Tạo các nút
             Color editEditColor = ColorTranslator.FromHtml("#0d6efd");
-            Button btnEdit = CreateActionButton(editEditColor, editIcon);
+            Button btnEdit = TaoActionButton(editEditColor, editIcon);
             Color editDeleteColor = ColorTranslator.FromHtml("#dc3545");
-            Button btnDelete = CreateActionButton(editDeleteColor, deleteIcon);
+            Button btnDelete = TaoActionButton(editDeleteColor, deleteIcon);
 
             // Thêm sự kiện Click
-            btnEdit.Click += onEditClick;
+            btnEdit.Click += (s, e) => { HienThiChinhSuaThuocLenPanel(id); };
             //btnDelete.Click += (s, e) => { MessageBox.Show("Xóa"); };
 
             // Tạo một Panel để chứa 2 nút
@@ -158,29 +163,36 @@ namespace Dental_Clinic.GUI.Administrator
         }
 
         // Hàm để thêm hàng mới vào TableLayoutPanel
-        private void AddRowToMedicineTableLayoutPanel(TableLayoutPanel tlpMedicine, string tenThuoc, string DVT, string soLuong, string giaBan, string hamLuong, string hanSuDung, string Loai)
+        private void ThemHangVaoMedicineTableLayoutPanel(TableLayoutPanel tlpMedicine, string tenThuoc, string DVT, string soLuong, float giaBan, string hamLuong, string hanSuDung, string Loai, int id)
         {
             int currentRow = tlpMedicine.RowCount++; // Tăng số lượng hàng
 
             Font headerFont = new Font("Segoe UI", 10);
-            tlpMedicine.Controls.Add(CreateLabel(tenThuoc, headerFont), 0, currentRow);
-            tlpMedicine.Controls.Add(CreateLabel(DVT, headerFont), 1, currentRow);
-            tlpMedicine.Controls.Add(CreateLabel(soLuong, headerFont), 2, currentRow);
-            tlpMedicine.Controls.Add(CreateLabel(giaBan, headerFont), 3, currentRow);
-            tlpMedicine.Controls.Add(CreateLabel(hamLuong, headerFont), 4, currentRow);
-            tlpMedicine.Controls.Add(CreateLabel(hanSuDung, headerFont), 5, currentRow); // Thêm CheckBox
-            tlpMedicine.Controls.Add(CreateLabel(Loai, headerFont), 6, currentRow); // Thêm CheckBox
-            AddActionButtonsToTableLayoutPanel(tlpMedicine, 7, currentRow, ShowEditMedicineInPanel, null);
+            tlpMedicine.Controls.Add(TaoLabel(tenThuoc, headerFont), 0, currentRow);
+            tlpMedicine.Controls.Add(TaoLabel(DVT, headerFont), 1, currentRow);
+            tlpMedicine.Controls.Add(TaoLabel(soLuong, headerFont), 2, currentRow);
+            tlpMedicine.Controls.Add(TaoLabel(giaBan.ToString(), headerFont), 3, currentRow);
+            tlpMedicine.Controls.Add(TaoLabel(hamLuong, headerFont), 4, currentRow);
+            tlpMedicine.Controls.Add(TaoLabel(hanSuDung, headerFont), 5, currentRow); // Thêm CheckBox
+            tlpMedicine.Controls.Add(TaoLabel(Loai, headerFont), 6, currentRow); // Thêm CheckBox
+            ThemActionButtonsVaoTableLayoutPanel(tlpMedicine, 7, currentRow, id);
         }
 
         // Hàm tạo TableLayoutPanel và gọi hàm AddRowToTableLayoutPanel để thêm dữ liệu
-        private void CreateMedicineTableLayoutPanel()
+        private void TaoMedicineTableLayoutPanel(List<VatTuDTO> danhSachThuoc)
         {
+            if (panelDuLieu.Controls.Count > 0)
+            {
+                // Xóa các control trong panelBacSi, bao gồm TableLayoutPanel cũ
+                panelDuLieu.Controls.Clear();
+            }
+
             // Tạo TableLayoutPanel
             TableLayoutPanel tlpMedicine = new TableLayoutPanel
             {
-                Dock = DockStyle.Fill,
-                AutoSize = false,
+                Dock = DockStyle.Top,
+                AutoSize = true,
+                AutoSizeMode = AutoSizeMode.GrowAndShrink,
             };
 
             // Thiết lập số cột
@@ -193,53 +205,61 @@ namespace Dental_Clinic.GUI.Administrator
             // Thiết lập số hàng và thêm các Label tiêu đề vào hàng đầu tiên
             tlpMedicine.RowCount = 1;
             Font headerFont = new Font("Arial", 10, FontStyle.Bold);
-            tlpMedicine.Controls.Add(CreateLabel("Tên thuốc", headerFont), 0, 0);
-            tlpMedicine.Controls.Add(CreateLabel("ĐVT", headerFont), 1, 0);
-            tlpMedicine.Controls.Add(CreateLabel("Số lượng", headerFont), 2, 0);
-            tlpMedicine.Controls.Add(CreateLabel("Giá bán", headerFont), 3, 0);
-            tlpMedicine.Controls.Add(CreateLabel("Hàm lượng", headerFont), 4, 0);
-            tlpMedicine.Controls.Add(CreateLabel("Hạn sử dụng", headerFont), 5, 0);
-            tlpMedicine.Controls.Add(CreateLabel("Loại", headerFont), 6, 0);
-            tlpMedicine.Controls.Add(CreateLabel("Thao tác", headerFont), 7, 0);
-
+            tlpMedicine.Controls.Add(TaoLabel("Tên thuốc", headerFont), 0, 0);
+            tlpMedicine.Controls.Add(TaoLabel("ĐVT", headerFont), 1, 0);
+            tlpMedicine.Controls.Add(TaoLabel("Số lượng", headerFont), 2, 0);
+            tlpMedicine.Controls.Add(TaoLabel("Giá bán", headerFont), 3, 0);
+            tlpMedicine.Controls.Add(TaoLabel("Hàm lượng", headerFont), 4, 0);
+            tlpMedicine.Controls.Add(TaoLabel("Hạn sử dụng", headerFont), 5, 0);
+            tlpMedicine.Controls.Add(TaoLabel("Loại", headerFont), 6, 0);
+            tlpMedicine.Controls.Add(TaoLabel("Thao tác", headerFont), 7, 0);
 
             ClearControlsExcept(tlpMedicine);
+            Panel scrollablePanel = new Panel
+            {
+                Dock = DockStyle.Fill,
+                AutoScroll = true,
+            };
+            scrollablePanel.Controls.Add(tlpMedicine);
 
-            // Thêm TableLayoutPanel vào form
-            tlpMedicine.Name = "Medicine";
-            panelDuLieu.Controls.Add(tlpMedicine);
-
-            // Thêm một hàng mẫu
-            AddRowToMedicineTableLayoutPanel(tlpMedicine, "Amoxicillin", "Viên", "50", "10,000", "500mg", "12/2025", "Kháng sinh");
-            AddRowToMedicineTableLayoutPanel(tlpMedicine, "Amoxicillin", "Viên", "50", "10,000", "500mg", "12/2025", "Kháng sinh");
+            panelDuLieu.Controls.Add(scrollablePanel);
+            scrollablePanel.Name = "Medicine";
+            foreach (var thuoc in danhSachThuoc)
+            {
+                ThemHangVaoMedicineTableLayoutPanel(tlpMedicine, thuoc.Ten, thuoc.DonVi, thuoc.SoLuong, thuoc.Gia, thuoc.LieuLuong, thuoc.NgayHetHan, thuoc.TenLoai, thuoc.Id);;
+            }
         }
 
 
         // Hàm để thêm hàng mới vào TableLayoutPanel
-        private void AddRowToSuppliesTableLayoutPanel(TableLayoutPanel tlpSupplies, string vatLieu, string mau, string kichCo, string DVT, string triGia, string soLuong, string hanSuDung, string Loai)
+        private void ThemHangVaoSuppliesTableLayoutPanel(TableLayoutPanel tlpSupplies, string vatLieu, string DVT, string soLuong, float gia, string hanSuDung, string Loai, int id)
         {
             int currentRow = tlpSupplies.RowCount++; // Tăng số lượng hàng
 
             Font headerFont = new Font("Segoe UI", 10);
-            tlpSupplies.Controls.Add(CreateLabel(vatLieu, headerFont), 0, currentRow);
-            tlpSupplies.Controls.Add(CreateLabel(mau, headerFont), 1, currentRow);
-            tlpSupplies.Controls.Add(CreateLabel(kichCo, headerFont), 2, currentRow);
-            tlpSupplies.Controls.Add(CreateLabel(DVT, headerFont), 3, currentRow);
-            tlpSupplies.Controls.Add(CreateLabel(triGia, headerFont), 4, currentRow);
-            tlpSupplies.Controls.Add(CreateLabel(soLuong, headerFont), 5, currentRow);
-            tlpSupplies.Controls.Add(CreateLabel(hanSuDung, headerFont), 6, currentRow);
-            tlpSupplies.Controls.Add(CreateLabel(Loai, headerFont), 7, currentRow);
-            AddActionButtonsToTableLayoutPanel(tlpSupplies, 8, currentRow, ShowEditSuppliesInPanel, null);
+            tlpSupplies.Controls.Add(TaoLabel(vatLieu, headerFont), 0, currentRow);
+            tlpSupplies.Controls.Add(TaoLabel(DVT, headerFont), 1, currentRow);
+            tlpSupplies.Controls.Add(TaoLabel(soLuong, headerFont), 2, currentRow);
+            tlpSupplies.Controls.Add(TaoLabel(gia.ToString(), headerFont), 3, currentRow);
+            tlpSupplies.Controls.Add(TaoLabel(hanSuDung, headerFont), 4, currentRow);
+            tlpSupplies.Controls.Add(TaoLabel(Loai, headerFont), 5, currentRow);
+            ThemActionButtonsVaoTableLayoutPanel(tlpSupplies, 6, currentRow, id);
         }
 
         // Hàm tạo TableLayoutPanel và gọi hàm AddRowToTableLayoutPanel để thêm dữ liệu
-        private void CreateSuppliesTableLayoutPanel()
+        private void TaoSuppliesTableLayoutPanel(List<VatTuDTO> danhSachVatTu)
         {
+            if (panelDuLieu.Controls.Count > 0)
+            {
+                // Xóa các control trong panelBacSi, bao gồm TableLayoutPanel cũ
+                panelDuLieu.Controls.Clear();
+            }
             // Tạo TableLayoutPanel
             TableLayoutPanel tlpSupplies = new TableLayoutPanel
             {
-                Dock = DockStyle.Fill,
-                AutoSize = false,
+                Dock = DockStyle.Top,
+                AutoSize = true,
+                AutoSizeMode = AutoSizeMode.GrowAndShrink,
             };
 
             // Thiết lập số cột
@@ -252,25 +272,31 @@ namespace Dental_Clinic.GUI.Administrator
             // Thiết lập số hàng và thêm các Label tiêu đề vào hàng đầu tiên
             tlpSupplies.RowCount = 1;
             Font headerFont = new Font("Arial", 10, FontStyle.Bold);
-            tlpSupplies.Controls.Add(CreateLabel("Vật liệu", headerFont), 0, 0);
-            tlpSupplies.Controls.Add(CreateLabel("Màu", headerFont), 1, 0);
-            tlpSupplies.Controls.Add(CreateLabel("Kích cỡ", headerFont), 2, 0);
-            tlpSupplies.Controls.Add(CreateLabel("ĐVT", headerFont), 3, 0);
-            tlpSupplies.Controls.Add(CreateLabel("Trị giá", headerFont), 4, 0);
-            tlpSupplies.Controls.Add(CreateLabel("Số lượng", headerFont), 5, 0);
-            tlpSupplies.Controls.Add(CreateLabel("Hạn sử dụng", headerFont), 6, 0);
-            tlpSupplies.Controls.Add(CreateLabel("Loại", headerFont), 7, 0);
-            tlpSupplies.Controls.Add(CreateLabel("Thao tác", headerFont), 8, 0);
-
+            tlpSupplies.Controls.Add(TaoLabel("Vật liệu", headerFont), 0, 0);
+            tlpSupplies.Controls.Add(TaoLabel("ĐVT", headerFont), 1, 0);
+            tlpSupplies.Controls.Add(TaoLabel("Số lượng", headerFont), 2, 0);
+            tlpSupplies.Controls.Add(TaoLabel("Giá bán", headerFont), 3, 0);
+            tlpSupplies.Controls.Add(TaoLabel("Hạn sử dụng", headerFont), 4, 0);
+            tlpSupplies.Controls.Add(TaoLabel("Loại", headerFont), 5, 0);
+            tlpSupplies.Controls.Add(TaoLabel("Thao tác", headerFont), 6, 0);
 
             ClearControlsExcept(tlpSupplies);
+            Panel scrollablePanel = new Panel
+            {
+                Dock = DockStyle.Fill,
+                AutoScroll = true,
+            };
+            scrollablePanel.Controls.Add(tlpSupplies);
 
-            // Thêm TableLayoutPanel vào form
-            tlpSupplies.Name = "Supplies";
-            panelDuLieu.Controls.Add(tlpSupplies);
+            scrollablePanel.Name = "Supplies";
+            panelDuLieu.Controls.Add(scrollablePanel);
 
-            // Thêm một hàng mẫu
-            AddRowToSuppliesTableLayoutPanel(tlpSupplies, "Mũi cao vôi", "Trắng", "5mm", "Chiếc", "15,000", "50", "12/2025", "Vật liệu cố định");
+            int sequenceNumber = 1;
+            foreach (var vatTu in danhSachVatTu)
+            {
+                ThemHangVaoSuppliesTableLayoutPanel(tlpSupplies, vatTu.Ten, vatTu.DonVi, vatTu.SoLuong, vatTu.Gia, vatTu.NgayHetHan, vatTu.TenLoai, vatTu.Id);
+                sequenceNumber++;
+            }
         }
 
 
@@ -297,12 +323,23 @@ namespace Dental_Clinic.GUI.Administrator
         //Kết thúc
         private void vbVatTu_Click(object sender, EventArgs e)
         {
-            CreateSuppliesTableLayoutPanel();
+            HienVatTu();
+        }
+        private void HienVatTu()
+        {
+            List<VatTuDTO> danhSachVatTu = vatTuBUS.DanhSachVatTu(1);
+            TaoSuppliesTableLayoutPanel(danhSachVatTu);
         }
 
         private void vbThuoc_Click(object sender, EventArgs e)
         {
-            CreateMedicineTableLayoutPanel();
+            HienThiThuoc();
+        }
+
+        private void HienThiThuoc()
+        {
+            List<VatTuDTO> danhSachThuoc = vatTuBUS.DanhSachThuoc(1);
+            TaoMedicineTableLayoutPanel(danhSachThuoc);
         }
 
         //Phần điều hướng
@@ -318,15 +355,15 @@ namespace Dental_Clinic.GUI.Administrator
             editSuppliesForm.Show(); // Hiển thị editUserForm
         }
 
-        private void ShowEditMedicineInPanel(object sender, EventArgs e)
+        private void HienThiChinhSuaThuocLenPanel(int id)
         {
-            FormChinhSuaThuoc editMedicineForm = new FormChinhSuaThuoc(_mainForm);
-            editMedicineForm.TopLevel = false; // Đặt editUserForm không phải là form cấp cao nhất (TopLevel)
-            editMedicineForm.FormBorderStyle = FormBorderStyle.None; // Xóa viền của editUserForm
-            editMedicineForm.Dock = DockStyle.Fill; // Đặt editUserForm khớp với kích thước panel
-            _mainForm.panelTrangChu.Controls.Add(editMedicineForm); // Thêm editUserForm vào panel
-            editMedicineForm.BringToFront();
-            editMedicineForm.Show(); // Hiển thị editUserForm
+            FormChinhSuaThuoc formChinhSuaThuoc = new FormChinhSuaThuoc(_mainForm);
+            formChinhSuaThuoc.TopLevel = false; 
+            formChinhSuaThuoc.FormBorderStyle = FormBorderStyle.None;
+            formChinhSuaThuoc.Dock = DockStyle.Fill; 
+            _mainForm.panelTrangChu.Controls.Add(formChinhSuaThuoc); 
+            formChinhSuaThuoc.BringToFront();
+            formChinhSuaThuoc.Show();
         }
 
         private void vbThem_Click(object sender, EventArgs e)
