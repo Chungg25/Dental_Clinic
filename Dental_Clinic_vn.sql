@@ -1260,18 +1260,18 @@ VALUES
     (16, N'Dexamethasone', N'Giảm đau', 150, N'Viên', N'0.5mg', '2024-09-01', '2026-09-01', '2024-10-01', 7000, 1),
 
     (17, N'Mũi cạo vôi', N'Vật liệu cố định', 10, N'Kg', '', '2024-01-01', '2029-01-01', '2024-01-10', 50000, 2),
-    (18, N'Nạy', 'Vật liệu cố định', 20, N'Cây', '', '2024-01-20', '2025-01-20', '2024-01-25', 80000, 2),
-    (19, N'Cây đo túi nướu', 'Vật liệu cố định', 10, N'Cây', '', '2024-03-20', '2025-03-20', '2024-03-25', 100000, 2),
-    (20, 'Nạy', 'Vật liệu cố định', 20, N'Cây', '', '2024-01-20', '2025-01-20', '2024-01-25', 80000, 2),
-    (21, N'Ống chích sắt', 'Vật liệu cố định', 50, N'Ống', '', '2024-05-20', '2025-05-20', '2024-05-25', 10000, 2),
-    (22, N'Bông Gòn', 'Vật liệu tiêu hao', 50, N'Bịch', '', '2024-10-01', '2029-10-01', '2024-10-15', 20000, 2),
-    (23, N'Mũi khoan kim cương', 'Vật liệu tiêu hao', 30, N'Cái', '', '2024-01-20', '2026-01-20', '2024-01-10', 50000, 2),
-    (24, N'NaCl', 'Vật liệu tiêu hao', 5, N'Kg', '', '2024-10-01', '2027-10-01', '2024-10-15', 50000, 2),
-    (25, N'Trâm tay', 'Vật liệu tiêu hao', 50, N'Cái', '', '2024-10-01', '2028-10-01', '2024-10-15', 30000, 2),
-    (26, N'Trâm tay', 'Vật liệu tiêu hao', 50, N'Cái', '', '2024-10-01', '2029-10-01', '2024-10-15', 30000, 2),
-    (27, N'Sò đánh bóng', 'Vật liệu tiêu hao', 60, N'Cái', '', '2024-10-01', '2026-10-01', '2024-10-15', 70000, 2),
-    (28, N'Chỉ khâu', 'Vật liệu tiêu hao', 50, N'Cuộn', '', '2024-10-01', '2030-10-01', '2024-10-15', 35000, 2),
-    (29, N'Thuốc tê', 'Vật liệu tiêu hao', 200, N'Viên', N'50mg', '2024-08-01', '2026-08-01', '2024-08-15', 35000, 2),
+    (18, N'Nạy', N'Vật liệu cố định', 20, N'Cây', '', '2024-01-20', '2025-01-20', '2024-01-25', 80000, 2),
+    (19, N'Cây đo túi nướu', N'Vật liệu cố định', 10, N'Cây', '', '2024-03-20', '2025-03-20', '2024-03-25', 100000, 2),
+    (20, 'Nạy', N'Vật liệu cố định', 20, N'Cây', '', '2024-01-20', '2025-01-20', '2024-01-25', 80000, 2),
+    (21, N'Ống chích sắt', N'Vật liệu cố định', 50, N'Ống', '', '2024-05-20', '2025-05-20', '2024-05-25', 10000, 2),
+    (22, N'Bông Gòn', N'Vật liệu tiêu hao', 50, N'Bịch', '', '2024-10-01', '2029-10-01', '2024-10-15', 20000, 2),
+    (23, N'Mũi khoan kim cương', N'Vật liệu tiêu hao', 30, N'Cái', '', '2024-01-20', '2026-01-20', '2024-01-10', 50000, 2),
+    (24, N'NaCl', N'Vật liệu tiêu hao', 5, N'Kg', '', '2024-10-01', '2027-10-01', '2024-10-15', 50000, 2),
+    (25, N'Trâm tay', N'Vật liệu tiêu hao', 50, N'Cái', '', '2024-10-01', '2028-10-01', '2024-10-15', 30000, 2),
+    (26, N'Trâm tay', N'Vật liệu tiêu hao', 50, N'Cái', '', '2024-10-01', '2029-10-01', '2024-10-15', 30000, 2),
+    (27, N'Sò đánh bóng', N'Vật liệu tiêu hao', 60, N'Cái', '', '2024-10-01', '2026-10-01', '2024-10-15', 70000, 2),
+    (28, N'Chỉ khâu', N'Vật liệu tiêu hao', 50, N'Cuộn', '', '2024-10-01', '2030-10-01', '2024-10-15', 35000, 2),
+    (29, N'Thuốc tê', N'Vật liệu tiêu hao', 200, N'Viên', N'50mg', '2024-08-01', '2026-08-01', '2024-08-15', 35000, 2),
 
     (30, N'Bộ dụng cụ khám răng', N'Dụng cụ điều trị', 50, N'Bộ', '', '2024-04-01', '2027-04-01', '2024-04-15', 150000, 3),
     (31, N'Bộ dụng cụ trám răng', N'Dụng cụ điều trị', 50, N'Bộ', '', '2024-04-01', '2027-04-01', '2024-05-01', 200000, 3),
@@ -1279,7 +1279,7 @@ VALUES
 
     (33, N'Máy X-Quang', N'Thiết bị chẩn đoán', 4, N'Máy', '', '2024-09-01', '2029-09-01', '2024-09-15', 15000000, 4),
     (34, N'Máy chụp CT', N'Thiết bị chẩn đoán', 3, N'Máy', '', '2024-09-01', '2029-09-01', '2024-09-15', 20000000, 4),
-    (45, N'Ghế nha khoa', N'Thiết bị điều trị', 5, N'Ghế', '', '2024-08-01', '2032-08-01', '2024-09-15', 20000000, 4),
+    (35, N'Ghế nha khoa', N'Thiết bị điều trị', 5, N'Ghế', '', '2024-08-01', '2032-08-01', '2024-09-15', 20000000, 4),
     (36, N'Máy trám răng', N'Thiết bị điều trị', 4, N'Máy', '', '2024-07-01', '2030-07-01', '2024-07-15', 10000000, 4),
     (37, N'Máy điều trị tủy', N'Thiết bị điều trị', 3, N'Máy', '', '2024-09-01', '2034-09-01', '2024-10-15', 20000000, 4),
     (38, N'Máy tẩy trắng răng', N'Thiết bị thẩm mỹ', 3, N'Máy', '', '2024-09-01', '2029-09-01', '2024-12-01', 12000000, 4);
@@ -1842,6 +1842,17 @@ BEGIN
 END;
 GO
 
+CREATE FUNCTION SoLuongLeTan()
+RETURNS INT
+AS
+BEGIN
+    DECLARE @SoLuongLeTan INT;
+    SELECT @SoLuongLeTan = COUNT(*)
+    FROM le_tan;
+    RETURN @SoLuongLeTan;
+END;
+GO
+
 CREATE FUNCTION TongDoanhThu()
 RETURNS INT
 AS
@@ -2159,7 +2170,7 @@ END;
 
 GO
 
-CREATE PROCEDURE LichLamViecBacSiTheoID
+CREATE PROCEDURE LichLamViec
     @ID INT,
     @StartOfMonth DATE,
     @EndOfMonth DATE
@@ -2179,8 +2190,6 @@ BEGIN
         nguoi_dung
         Left JOIN
         lich_lam_viec ON nguoi_dung.ma_nguoi_dung = lich_lam_viec.ma_nguoi_dung
-        JOIN
-        bac_si ON nguoi_dung.ma_nguoi_dung = bac_si.ma_nguoi_dung
         LEFT JOIN
         cham_cong ON nguoi_dung.ma_nguoi_dung = cham_cong.ma_nguoi_dung
             AND cham_cong.ngay = lich_lam_viec.ngay
@@ -2301,3 +2310,58 @@ BEGIN
     DELETE FROM lich_lam_viec
 	WHERE ma_nguoi_dung = @ID and ngay = @day
 END;
+
+GO
+
+CREATE PROCEDURE DanhSachLichLamViecLeTan
+    @StartOfMonth DATE,
+    @EndOfMonth DATE
+AS
+BEGIN
+    SELECT nguoi_dung.ma_nguoi_dung, nguoi_dung.ho_ten, nguoi_dung.gioi_tinh, nguoi_dung.email, count(*) as so_ca
+    from nguoi_dung
+        left join lich_lam_viec on lich_lam_viec.ma_nguoi_dung = nguoi_dung.ma_nguoi_dung
+        join le_tan on nguoi_dung.ma_nguoi_dung = le_tan.ma_nguoi_dung
+    WHERE lich_lam_viec.ngay BETWEEN @StartOfMonth AND @EndOfMonth
+    GROUP BY nguoi_dung.ho_ten, nguoi_dung.gioi_tinh, nguoi_dung.email, nguoi_dung.ma_nguoi_dung
+    order by nguoi_dung.ma_nguoi_dung
+END;
+
+GO
+
+CREATE PROCEDURE DanhSachLichLamViecLeTanKhongNgayLam
+AS
+BEGIN
+    SELECT nguoi_dung.ma_nguoi_dung, nguoi_dung.ho_ten, nguoi_dung.gioi_tinh, nguoi_dung.email, count(*) as so_ca
+    from nguoi_dung
+        join le_tan on nguoi_dung.ma_nguoi_dung = le_tan.ma_nguoi_dung
+    GROUP BY nguoi_dung.ho_ten, nguoi_dung.gioi_tinh, nguoi_dung.email, nguoi_dung.ma_nguoi_dung
+    order by nguoi_dung.ma_nguoi_dung
+END;
+
+GO
+--Quản lý vật tư
+
+CREATE PROCEDURE ThongTinThuoc
+	@id INT
+AS
+BEGIN
+	select * 
+	from hang_ton_kho 
+		join loai_hang_ton_kho on hang_ton_kho.ma_loai = loai_hang_ton_kho.ma_loai
+	where hang_ton_kho.ma_loai = @id
+	order by hang_ton_kho.ngay_het_han
+END;
+GO
+
+CREATE PROCEDURE ThongTinThuoc
+	@id INT
+AS
+BEGIN
+	select * 
+	from hang_ton_kho 
+		join loai_hang_ton_kho on hang_ton_kho.ma_loai = loai_hang_ton_kho.ma_loai
+	where hang_ton_kho.ma_loai = @id
+	order by hang_ton_kho.ngay_het_han
+END;
+GO

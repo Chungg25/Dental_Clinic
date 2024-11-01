@@ -41,7 +41,7 @@ namespace Dental_Clinic.GUI.Administrator.WorkSchedule
             TaoCalendar();
             Dictionary<DateTime, (string Ca, string TrangThai)> workShifts = new Dictionary<DateTime, (string Ca, string TrangThai)>();
 
-            List<ChamCongDTO> lichLamViecBacSi = lichLamViecBUS.LichLamViecBacSi(id, day);
+            List<ChamCongDTO> lichLamViecBacSi = lichLamViecBUS.LichLamViec(id, day);
 
             foreach (var lichLamViec in lichLamViecBacSi)
             {

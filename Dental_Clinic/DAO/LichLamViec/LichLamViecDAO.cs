@@ -12,6 +12,7 @@ namespace Dental_Clinic.DAO.LichLamViec
 {
     internal class LichLamViecDAO
     {
+        //Bác sĩ
         public List<LichLamViecDTO> DanhSachLichLamViecBacSi(DateTime firstDayOfMonth, DateTime lastDayOfMonth)
         {
             List<LichLamViecDTO> lichLamViecBacSiList = new List<LichLamViecDTO>();
@@ -104,17 +105,17 @@ namespace Dental_Clinic.DAO.LichLamViec
             return lichLamViecBacSiList;
         }
 
-        public List<ChamCongDTO> LichLamViecBacSi(int id, DateTime day)
+        public List<ChamCongDTO> LichLamViec(int id, DateTime day)
         {
 
             DateTime firstDayOfMonth = new DateTime(day.Year, day.Month, 1);
             DateTime lastDayOfMonth = new DateTime(day.Year, day.Month, DateTime.DaysInMonth(day.Year, day.Month));
-            List<ChamCongDTO> chamCongBacSiList = new List<ChamCongDTO>();
+            List<ChamCongDTO> chamCongs = new List<ChamCongDTO>();
             DatabaseConnection dbConnection = new DatabaseConnection();
 
             try
             {
-                using (SqlCommand cmd = new SqlCommand("LichLamViecBacSiTheoID", dbConnection.Conn))
+                using (SqlCommand cmd = new SqlCommand("LichLamViec", dbConnection.Conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@ID", id);
@@ -124,7 +125,7 @@ namespace Dental_Clinic.DAO.LichLamViec
                     {
                         while (reader.Read())
                         {
-                            ChamCongDTO chamCongBacSi = new ChamCongDTO
+                            ChamCongDTO chamCong = new ChamCongDTO
                             {
                                 MaNguoiDung = Convert.ToInt32(reader["ma_nguoi_dung"]),
                                 HoTen = reader["ho_ten"].ToString() ?? "",
@@ -132,7 +133,7 @@ namespace Dental_Clinic.DAO.LichLamViec
                                 Ngay = reader["ngay"].ToString(),
                                 TrangThai = Convert.ToInt32(reader["LamViecDungGio"]),
                             };
-                            chamCongBacSiList.Add(chamCongBacSi);
+                            chamCongs.Add(chamCong);
                         }
                     }
                 }
@@ -155,7 +156,7 @@ namespace Dental_Clinic.DAO.LichLamViec
                 dbConnection.CloseConnection();
             }
 
-            return chamCongBacSiList;
+            return chamCongs;
         }
 
         public ChamCongDTO ChiTietLamViec(int id, DateTime day)
@@ -303,6 +304,154 @@ namespace Dental_Clinic.DAO.LichLamViec
                 Console.WriteLine($"Error: {ex.Message}");
                 // Optionally, log the error or rethrow the exception
             }
+        }
+
+
+
+
+        //Lễ tân
+        public List<LichLamViecDTO> DanhSachLichLamViecLeTan(DateTime firstDayOfMonth, DateTime lastDayOfMonth)
+        {
+            List<LichLamViecDTO> lichLamViecBacSiList = new List<LichLamViecDTO>();
+            DatabaseConnection dbConnection = new DatabaseConnection();
+
+            int soLuongLeTan = 0;
+
+            using (SqlCommand cmd = new SqlCommand("SELECT dbo.SoLuongLeTan()", dbConnection.Conn))
+            {
+                soLuongLeTan = (int)cmd.ExecuteScalar();
+            }
+
+            try
+            {
+
+                using (SqlCommand cmd = new SqlCommand("DanhSachLichLamViecLeTan", dbConnection.Conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@StartOfMonth", firstDayOfMonth);
+                    cmd.Parameters.AddWithValue("@EndOfMonth", lastDayOfMonth);
+
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                LichLamViecDTO lichLamViecBacSi = new LichLamViecDTO
+                                {
+                                    MaNguoiDung = Convert.ToInt32(reader["ma_nguoi_dung"]),
+                                    HoTen = reader["ho_ten"].ToString() ?? "",
+                                    GioiTinh = Convert.ToBoolean(reader["gioi_tinh"]),
+                                    Email = reader["email"]?.ToString() ?? "",
+                                    SoCa = Convert.ToInt32(reader["so_ca"]),
+                                };
+                                lichLamViecBacSiList.Add(lichLamViecBacSi);
+                            }
+                        }
+                    }
+                    if (lichLamViecBacSiList.Count < soLuongLeTan)
+                    {
+                        using (SqlCommand cmdNoSchedule = new SqlCommand("DanhSachLichLamViecLeTanKhongNgayLam", dbConnection.Conn))
+                        {
+                            cmdNoSchedule.CommandType = CommandType.StoredProcedure;
+
+                            using (SqlDataReader readerNoSchedule = cmdNoSchedule.ExecuteReader())
+                            {
+                                while (readerNoSchedule.Read())
+                                {
+                                    int maNguoiDung = Convert.ToInt32(readerNoSchedule["ma_nguoi_dung"]);
+                                    if (!lichLamViecBacSiList.Any(l => l.MaNguoiDung == maNguoiDung))
+                                    {
+                                        LichLamViecDTO lichLamViecBacSi = new LichLamViecDTO
+                                        {
+                                            MaNguoiDung = maNguoiDung,
+                                            HoTen = readerNoSchedule["ho_ten"].ToString() ?? "",
+                                            GioiTinh = Convert.ToBoolean(readerNoSchedule["gioi_tinh"]),
+                                            Email = readerNoSchedule["email"]?.ToString() ?? "",
+                                            SoCa = 0,
+                                        };
+                                        lichLamViecBacSiList.Add(lichLamViecBacSi);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SqlException sqlEx)
+            {
+                // Xử lý lỗi SQL
+                Console.WriteLine($"SQL Error: {sqlEx.Message}");
+                // Có thể ném ngoại lệ hoặc ghi log lỗi ở đây
+            }
+            catch (Exception ex)
+            {
+                // Xử lý các lỗi khác
+                Console.WriteLine($"Error: {ex.Message}");
+                // Có thể ném ngoại lệ hoặc ghi log lỗi ở đây
+            }
+            finally
+            {
+                // Đảm bảo đóng kết nối trong mọi trường hợp
+                dbConnection.CloseConnection();
+            }
+
+            return lichLamViecBacSiList;
+        }
+
+        public List<ChamCongDTO> LichLamViecLeTan(int id, DateTime day)
+        {
+
+            DateTime firstDayOfMonth = new DateTime(day.Year, day.Month, 1);
+            DateTime lastDayOfMonth = new DateTime(day.Year, day.Month, DateTime.DaysInMonth(day.Year, day.Month));
+            List<ChamCongDTO> chamCongBacSiList = new List<ChamCongDTO>();
+            DatabaseConnection dbConnection = new DatabaseConnection();
+
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("LichLamViecLeTanTheoID", dbConnection.Conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ID", id);
+                    cmd.Parameters.AddWithValue("@StartOfMonth", firstDayOfMonth);
+                    cmd.Parameters.AddWithValue("@EndOfMonth", lastDayOfMonth);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            ChamCongDTO chamCongBacSi = new ChamCongDTO
+                            {
+                                MaNguoiDung = Convert.ToInt32(reader["ma_nguoi_dung"]),
+                                HoTen = reader["ho_ten"].ToString() ?? "",
+                                Ca = Convert.ToInt32(reader["ca"]),
+                                Ngay = reader["ngay"].ToString(),
+                                TrangThai = Convert.ToInt32(reader["LamViecDungGio"]),
+                            };
+                            chamCongBacSiList.Add(chamCongBacSi);
+                        }
+                    }
+                }
+            }
+            catch (SqlException sqlEx)
+            {
+                // Xử lý lỗi SQL
+                Console.WriteLine($"SQL Error: {sqlEx.Message}");
+                // Có thể ném ngoại lệ hoặc ghi log lỗi ở đây
+            }
+            catch (Exception ex)
+            {
+                // Xử lý các lỗi khác
+                Console.WriteLine($"Error: {ex.Message}");
+                // Có thể ném ngoại lệ hoặc ghi log lỗi ở đây
+            }
+            finally
+            {
+                // Đảm bảo đóng kết nối trong mọi trường hợp
+                dbConnection.CloseConnection();
+            }
+
+            return chamCongBacSiList;
         }
     }
 }
