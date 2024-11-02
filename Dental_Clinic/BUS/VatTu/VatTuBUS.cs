@@ -59,5 +59,21 @@ namespace Dental_Clinic.BUS.VatTu
         {
             vatTuDAO.ThemDichVu(dichVu);
         }
+        public void ThemVatTu(VatTuDTO vatTu)
+        {
+            vatTuDAO.ThemVatTu(vatTu);
+        }
+        public void ThemThuoc(VatTuDTO thuoc)
+        {
+            vatTuDAO.ThemThuoc(thuoc);
+        }
+        public void XoaHang(int id)
+        {
+            vatTuDAO.XoaHang(id);
+        }
+        public void XoaDichVu(int id)
+        {
+            vatTuDAO.XoaDichVu(id);
+        }
     }
 }

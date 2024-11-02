@@ -41,7 +41,6 @@ namespace Dental_Clinic.GUI.Administrator.Supplies
             tbNgaySanXuat.Text = thuoc.NgaySanXuat;
             tbNgayHetHan.Text = thuoc.NgayHetHan;
             tbNgayNhap.Text = thuoc.NgayNhap;
-
         }
 
         public void ChinhSua()

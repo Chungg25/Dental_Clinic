@@ -134,7 +134,7 @@ namespace Dental_Clinic.GUI.Administrator.Supplies
             // 
             // dtpNgayNhap
             // 
-            dtpNgayNhap.Location = new Point(667, 274);
+            dtpNgayNhap.Location = new Point(403, 274);
             dtpNgayNhap.Name = "dtpNgayNhap";
             dtpNgayNhap.Size = new Size(135, 27);
             dtpNgayNhap.TabIndex = 156;
@@ -142,7 +142,7 @@ namespace Dental_Clinic.GUI.Administrator.Supplies
             // 
             // dtpNgayHetHan
             // 
-            dtpNgayHetHan.Location = new Point(402, 274);
+            dtpNgayHetHan.Location = new Point(667, 274);
             dtpNgayHetHan.Name = "dtpNgayHetHan";
             dtpNgayHetHan.Size = new Size(136, 27);
             dtpNgayHetHan.TabIndex = 155;
@@ -195,7 +195,7 @@ namespace Dental_Clinic.GUI.Administrator.Supplies
             vbNgayHetHan.FlatAppearance.BorderSize = 0;
             vbNgayHetHan.FlatStyle = FlatStyle.Flat;
             vbNgayHetHan.ForeColor = Color.White;
-            vbNgayHetHan.Location = new Point(392, 267);
+            vbNgayHetHan.Location = new Point(657, 267);
             vbNgayHetHan.Name = "vbNgayHetHan";
             vbNgayHetHan.Size = new Size(155, 38);
             vbNgayHetHan.TabIndex = 148;
@@ -206,7 +206,7 @@ namespace Dental_Clinic.GUI.Administrator.Supplies
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(657, 230);
+            label7.Location = new Point(393, 230);
             label7.Name = "label7";
             label7.Size = new Size(81, 20);
             label7.TabIndex = 146;
@@ -242,7 +242,7 @@ namespace Dental_Clinic.GUI.Administrator.Supplies
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(392, 230);
+            label11.Location = new Point(657, 230);
             label11.Name = "label11";
             label11.Size = new Size(97, 20);
             label11.TabIndex = 143;
@@ -258,7 +258,7 @@ namespace Dental_Clinic.GUI.Administrator.Supplies
             vbNgayNhap.FlatAppearance.BorderSize = 0;
             vbNgayNhap.FlatStyle = FlatStyle.Flat;
             vbNgayNhap.ForeColor = Color.White;
-            vbNgayNhap.Location = new Point(657, 267);
+            vbNgayNhap.Location = new Point(393, 267);
             vbNgayNhap.Name = "vbNgayNhap";
             vbNgayNhap.Size = new Size(154, 38);
             vbNgayNhap.TabIndex = 150;

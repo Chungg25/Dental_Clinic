@@ -100,7 +100,7 @@ namespace Dental_Clinic.GUI.Administrator
                 Text = text,
                 Font = font,
                 AutoSize = true,
-                Padding = new Padding(1, 5, 5, 5),
+                Padding = new Padding(1, 5, 10, 5),
                 Anchor = AnchorStyles.Left | AnchorStyles.Top
             };
         }
@@ -125,7 +125,7 @@ namespace Dental_Clinic.GUI.Administrator
 
 
         // Hàm thêm các nút hành động (chỉnh sửa và xóa)
-        private void ThemActionButtonsVaoTableLayoutPanel(TableLayoutPanel tlpMedicine, int index, int rowIndex, int id, Action<int> onEditAction)
+        private void ThemActionButtonsVaoTableLayoutPanel(TableLayoutPanel tlpMedicine, int index, int rowIndex, int id, Action<int> onEditAction, Action<int> onDeleteAction)
         {
             Image ResizeImage(Image img, int width, int height)
             {
@@ -144,7 +144,7 @@ namespace Dental_Clinic.GUI.Administrator
 
             // Thêm sự kiện Click
             btnEdit.Click += (s, e) => onEditAction(id);
-            //btnDelete.Click += (s, e) => { MessageBox.Show("Xóa"); };
+            btnDelete.Click += (s, e) => onDeleteAction(id);
 
             // Tạo một Panel để chứa 2 nút
             FlowLayoutPanel panelActions = new FlowLayoutPanel
@@ -178,7 +178,7 @@ namespace Dental_Clinic.GUI.Administrator
             tlpMedicine.Controls.Add(TaoLabel(hamLuong, headerFont), 4, currentRow);
             tlpMedicine.Controls.Add(TaoLabel(hanSuDung, headerFont), 5, currentRow); // Thêm CheckBox
             tlpMedicine.Controls.Add(TaoLabel(Loai, headerFont), 6, currentRow); // Thêm CheckBox
-            ThemActionButtonsVaoTableLayoutPanel(tlpMedicine, 7, currentRow, id, HienThiChinhSuaThuocLenPanel);
+            ThemActionButtonsVaoTableLayoutPanel(tlpMedicine, 7, currentRow, id, HienThiChinhSuaThuocLenPanel, XoaThuoc);
         }
 
         // Hàm tạo TableLayoutPanel và gọi hàm AddRowToTableLayoutPanel để thêm dữ liệu
@@ -246,7 +246,7 @@ namespace Dental_Clinic.GUI.Administrator
             tlpSupplies.Controls.Add(TaoLabel(gia.ToString(), headerFont), 3, currentRow);
             tlpSupplies.Controls.Add(TaoLabel(hanSuDung, headerFont), 4, currentRow);
             tlpSupplies.Controls.Add(TaoLabel(Loai, headerFont), 5, currentRow);
-            ThemActionButtonsVaoTableLayoutPanel(tlpSupplies, 6, currentRow, id, HienThiChinhSuaVatTuLenPanel);
+            ThemActionButtonsVaoTableLayoutPanel(tlpSupplies, 6, currentRow, id, HienThiChinhSuaVatTuLenPanel, XoaVatTu);
         }
 
         private void ThemHangVaoServiceTableLayoutPanel(TableLayoutPanel tlpSupplies, string vatLieu, string DVT, float gia, string tenLoai, int id)
@@ -261,7 +261,7 @@ namespace Dental_Clinic.GUI.Administrator
             tlpSupplies.Controls.Add(TaoLabel(DVT, headerFont), 1, currentRow);
             tlpSupplies.Controls.Add(TaoLabel(gia.ToString(), headerFont), 2, currentRow);
             tlpSupplies.Controls.Add(TaoLabel(tenLoai, headerFont), 3, currentRow);
-            ThemActionButtonsVaoTableLayoutPanel(tlpSupplies, 4, currentRow, id, HienThiChinhSuaDichVuLenPanel);
+            ThemActionButtonsVaoTableLayoutPanel(tlpSupplies, 4, currentRow, id, HienThiChinhSuaDichVuLenPanel, XoaDichVu);
         }
 
         // Hàm tạo TableLayoutPanel và gọi hàm AddRowToTableLayoutPanel để thêm dữ liệu
@@ -500,6 +500,22 @@ namespace Dental_Clinic.GUI.Administrator
             mainForm.panelTrangChu.Controls.Add(formChinhSuaDichVu);
             formChinhSuaDichVu.BringToFront();
             formChinhSuaDichVu.Show();
+        }
+
+        private void XoaThuoc(int id)
+        {
+            vatTuBUS.XoaHang(id);
+            HienThiThuoc();
+        }
+        private void XoaVatTu(int id)
+        {
+            vatTuBUS.XoaHang(id);
+            HienVatTu();
+        }
+        private void XoaDichVu(int id)
+        {
+            vatTuBUS.XoaDichVu(id);
+            HienThiDichVu();    
         }
 
 

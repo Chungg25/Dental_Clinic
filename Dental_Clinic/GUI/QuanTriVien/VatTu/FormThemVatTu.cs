@@ -1,14 +1,5 @@
 ﻿using Dental_Clinic.BUS.VatTu;
 using Dental_Clinic.DTO.VatTu;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Dental_Clinic.GUI.Administrator.Supplies
 {
@@ -90,18 +81,20 @@ namespace Dental_Clinic.GUI.Administrator.Supplies
 
         private void vbThemVatTu_Click(object sender, EventArgs e)
         {
-            if (KiemTraThem())
+            if (!KiemTraThem())
             {
                 return;
             }
             dichVuDTO.Ten = tbThuoc.Text;
-            dichVuDTO.Loai = cbLoaiVatTu.SelectedText;
+            dichVuDTO.Loai = cbLoaiVatTu.SelectedItem?.ToString() ?? "";
             dichVuDTO.SoLuong = tbSoLuong.Text;
             dichVuDTO.DonVi = tbDonViTinh.Text;
-            dichVuDTO.LieuLuong = tbLieuLuong.Text;
             dichVuDTO.Gia = float.Parse(tbGia.Text);
-
-
+            dichVuDTO.LieuLuong = string.IsNullOrEmpty(tbLieuLuong.Text) ? "" : tbLieuLuong.Text; dichVuDTO.Gia = float.Parse(tbGia.Text);
+            dichVuDTO.NgayNhap = dtpNgayNhap.Value.ToString();
+            dichVuDTO.NgaySanXuat = dtpNgaySanXuat.Value.ToString();
+            dichVuDTO.NgayHetHan = dtpNgayHetHan.Value.ToString();
+            dichVuBUS.ThemVatTu(dichVuDTO);
         }
 
         public bool KiemTraThem()
@@ -148,16 +141,6 @@ namespace Dental_Clinic.GUI.Administrator.Supplies
                 vbDonViTinh.BorderColor = Color.Black; // Đặt màu viền mặc định
             }
 
-            if (string.IsNullOrEmpty(tbLieuLuong.Text))
-            {
-                vbLieuLuong.BorderColor = Color.Red; // Đặt màu viền cho tbHeSoLuong
-                isValid = false;
-            }
-            else
-            {
-                vbLieuLuong.BorderColor = Color.Black; // Đặt màu viền mặc định
-            }
-
             if (string.IsNullOrEmpty(tbGia.Text))
             {
                 vbGia.BorderColor = Color.Red; // Đặt màu viền cho tbQueQuan
@@ -167,19 +150,30 @@ namespace Dental_Clinic.GUI.Administrator.Supplies
             {
                 vbGia.BorderColor = Color.Black; // Đặt màu viền mặc định
             }
-            if(dtpNgaySanXuat.Value < dtpNgayNhap.Value)
+            if(dtpNgaySanXuat.Value >= dtpNgayNhap.Value)
             {
                 vbNgaySanXuat.BorderColor = Color.Red;
                 vbNgayNhap.BorderColor = Color.Red;
                 isValid = false;
             }
-            if(dtpNgayHetHan.Value > dtpNgayNhap.Value)
+            else
+            {
+                vbNgayNhap.BorderColor= Color.Black;
+                vbNgaySanXuat.BorderColor= Color.Black;
+            }
+            if(dtpNgayHetHan.Value <= dtpNgayNhap.Value)
             {
                 vbNgayHetHan.BorderColor = Color.Red;
                 vbNgayNhap.BorderColor = Color.Red;
                 isValid = false;
             }
+            else
+            {
+                vbNgayHetHan.BorderColor = Color.Black;
+                vbNgayNhap.BorderColor = Color.Black;
+            }
             return isValid;
         }
+
     }
 }

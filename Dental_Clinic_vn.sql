@@ -2556,9 +2556,50 @@ CREATE PROCEDURE ThemVatTu
 AS
 BEGIN 
 	DECLARE @TongSoLuong INT;
-    SET @TongSoLuong = dbo.DemSoLuongHangTonKho();
+    SET @TongSoLuong = dbo.DemSoLuongHangTonKho() + 1;
 	INSERT INTO hang_ton_kho
 	VALUES (@TongSoLuong, @ten, @loai, @soLuong, @donVi, @lieuLuong, @ngaySanXuat, @ngayHetHan, @ngayNhap, @gia, @maLoai);
 END;
 
 GO
+
+CREATE PROCEDURE ThemThuoc
+	@ten nvarchar(255),
+	@loai nvarchar(255),
+	@soLuong int,
+	@donVi nvarchar(255),
+	@lieuLuong nvarchar(255),
+	@ngaySanXuat date,
+	@ngayHetHan date,
+	@ngayNhap date,
+	@gia float,
+	@maLoai int
+AS
+BEGIN 
+	DECLARE @TongSoLuong INT;
+    SET @TongSoLuong = dbo.DemSoLuongHangTonKho() + 1;
+	INSERT INTO hang_ton_kho
+	VALUES (@TongSoLuong, @ten, @loai, @soLuong, @donVi, @lieuLuong, @ngaySanXuat, @ngayHetHan, @ngayNhap, @gia, @maLoai);
+END;
+
+GO
+
+CREATE PROC XoaHangTonKho
+	@id int
+AS
+BEGIN
+	DELETE FROM hang_ton_kho
+	where ma_kho = @id
+END;
+GO
+
+CREATE PROC XoaDichVu
+	@id int
+AS
+BEGIN
+	DELETE FROM dich_vu
+	where ma_loai = @id
+END;
+GO
+
+

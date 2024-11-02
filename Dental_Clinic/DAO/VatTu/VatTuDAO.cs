@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualBasic.ApplicationServices;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace Dental_Clinic.DAO.VatTu
 {
@@ -300,6 +301,91 @@ namespace Dental_Clinic.DAO.VatTu
                     return 14;
                 default:
                     return 0; 
+            }
+        }
+        public void ThemVatTu(VatTuDTO vatTu)
+        {
+            DatabaseConnection dbConnection = new DatabaseConnection();
+
+            using (SqlCommand cmd = new SqlCommand("ThemVatTu", dbConnection.Conn))
+            {
+                cmd.Parameters.AddWithValue("@ten", vatTu.Ten);
+                cmd.Parameters.AddWithValue("@loai", vatTu.Loai);
+                cmd.Parameters.AddWithValue("@soLuong", vatTu.SoLuong);
+                cmd.Parameters.AddWithValue("@donVi", vatTu.DonVi);
+                cmd.Parameters.AddWithValue("@lieuLuong", vatTu.LieuLuong);
+                cmd.Parameters.AddWithValue("@ngaySanXuat", vatTu.NgaySanXuat);
+                cmd.Parameters.AddWithValue("@ngayHetHan", vatTu.NgayHetHan);
+                cmd.Parameters.AddWithValue("@ngayNhap", vatTu.NgayNhap);
+                cmd.Parameters.AddWithValue("@gia", vatTu.Gia);
+                cmd.Parameters.AddWithValue("@maLoai", LayMaLoaiVatTu(vatTu.Loai));
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.ExecuteNonQuery();
+
+            }
+        }
+
+        public int LayMaLoaiVatTu(string loai)
+        {
+            switch (loai)
+            {
+                case "Vật tư":
+                    return 2;
+                case "Dụng cụ":
+                    return 3;
+                case "Thiết bị":
+                    return 4;
+                default:
+                    return 0;
+            }
+        }
+
+        public void ThemThuoc(VatTuDTO thuoc)
+        {
+            DatabaseConnection dbConnection = new DatabaseConnection();
+
+            using (SqlCommand cmd = new SqlCommand("ThemThuoc", dbConnection.Conn))
+            {
+                cmd.Parameters.AddWithValue("@ten", thuoc.Ten);
+                cmd.Parameters.AddWithValue("@loai", thuoc.TenLoai);
+                cmd.Parameters.AddWithValue("@soLuong", thuoc.SoLuong);
+                cmd.Parameters.AddWithValue("@donVi", thuoc.DonVi);
+                cmd.Parameters.AddWithValue("@lieuLuong", thuoc.LieuLuong);
+                cmd.Parameters.AddWithValue("@ngaySanXuat", thuoc.NgaySanXuat);
+                cmd.Parameters.AddWithValue("@ngayHetHan", thuoc.NgayHetHan);
+                cmd.Parameters.AddWithValue("@ngayNhap", thuoc.NgayNhap);
+                cmd.Parameters.AddWithValue("@gia", thuoc.Gia);
+                cmd.Parameters.AddWithValue("@maLoai", 1);
+                MessageBox.Show("!");
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.ExecuteNonQuery();
+
+            }
+        }
+
+        public void XoaHang(int id)
+        {
+            DatabaseConnection dbConnection = new DatabaseConnection();
+
+            using (SqlCommand cmd = new SqlCommand("XoaHangTonKho", dbConnection.Conn))
+            {
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.ExecuteNonQuery();
+
+            }
+        }
+
+        public void XoaDichVu(int id)
+        {
+            DatabaseConnection dbConnection = new DatabaseConnection();
+
+            using (SqlCommand cmd = new SqlCommand("XoaDichVu", dbConnection.Conn))
+            {
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.ExecuteNonQuery();
+
             }
         }
     }
