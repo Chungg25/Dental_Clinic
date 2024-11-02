@@ -96,5 +96,10 @@ namespace Dental_Clinic.GUI.Receptionist
         {
             this.Refresh();
         }
+
+        private void lbTrangChu_Click(object sender, EventArgs e)
+        {
+            HienThiFormLenPanel(new FormTrangChuLeTan());
+        }
     }
 }

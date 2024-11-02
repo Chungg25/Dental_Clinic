@@ -16,6 +16,12 @@
     <Compile Update="GUI\BacSi\FormTrangChuBacSi.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="GUI\LeTan\FormChinhSuaThongTinBenhNhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\LeTan\FormThemLichHen.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="GUI\LeTan\FormTrangChuLeTan.cs">
       <SubType>Form</SubType>
     </Compile>

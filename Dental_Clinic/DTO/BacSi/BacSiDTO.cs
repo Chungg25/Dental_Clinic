@@ -9,28 +9,37 @@ namespace Dental_Clinic.DTO.BacSi
     public class BacSiDTO
     {
         private int id;
-        private string hoVaTen;
-        private string cCCD;
-        private string sDT;
-        private string diaChi;
+        private string hoVaTen = string.Empty;
+        private string cCCD = string.Empty;
+        private string sDT = string.Empty;
+        private string diaChi = string.Empty;
         private bool gioiTinh;
         private DateTime ngaySinh;
-        private string tenDangNhap;
-        private string matKhau;
-        private string email;
+        private string tenDangNhap = string.Empty;
+        private string matKhau = string.Empty;
+        private string email = string.Empty;
         private float heSoLuong;
-        public int Id { get; set; }
-        public string HoVaTen { get; set; }
-        public string CCCD { get; set; }
-        public string SDT { get; set; }
-        public string DiaChi { get; set; }
-        public bool GioiTinh { get; set; }
-        public DateTime NgaySinh { get; set; }
-        public string TenDangNhap { get; set; }
-        public string MatKhau { get; set; }
-        public string Email { get; set; }
-        public float HeSoLuong { get; set; }
-        public string ChuyenNganh { get; set; }
-        public int TrangThai { get; set; }
+        private string chuyenNganh = string.Empty;
+        private int ca;
+        private int soLuongBenhNhan;
+        private string trangThaiLamViec = string.Empty;
+        private int trangThai;
+
+        public int Id { get => id; set => id = value; }
+        public string HoVaTen { get => hoVaTen; set => hoVaTen = value; }
+        public string CCCD { get => cCCD; set => cCCD = value; }
+        public string SDT { get => sDT; set => sDT = value; }
+        public string DiaChi { get => diaChi; set => diaChi = value; }
+        public bool GioiTinh { get => gioiTinh; set => gioiTinh = value; }
+        public DateTime NgaySinh { get => ngaySinh; set => ngaySinh = value; }
+        public string TenDangNhap { get => tenDangNhap; set => tenDangNhap = value; }
+        public string MatKhau { get => matKhau; set => matKhau = value; }
+        public string Email { get => email; set => email = value; }
+        public float HeSoLuong { get => heSoLuong; set => heSoLuong = value; }
+        public string ChuyenNganh { get => chuyenNganh; set => chuyenNganh = value; }
+        public int Ca { get => ca; set => ca = value; }
+        public int SoLuongBenhNhan { get => soLuongBenhNhan; set => soLuongBenhNhan = value; }
+        public string TrangThaiLamViec { get => trangThaiLamViec; set => trangThaiLamViec = value; }
+        public int TrangThai { get => trangThai; set => trangThai = value; }
     }
 }

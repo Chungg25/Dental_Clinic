@@ -1,4 +1,4 @@
-﻿use master
+﻿ use master
 
 -- Drop the database if it exists
 IF EXISTS (SELECT 1
@@ -130,6 +130,7 @@ CREATE TABLE [lich_hen]
     [ghi_chu] NVARCHAR(50) NOT NULL,
     [trang_thai] BIT NOT NULL,
     [ngay_hen] DATE NOT NULL,
+	[ca] INT NOT NULL,
     [ma_nguoi_dung] INT NOT NULL,
     [ma_benh_nhan] INT NOT NULL,
     PRIMARY KEY ([ma_lich_hen])
@@ -454,32 +455,32 @@ DBCC CHECKIDENT ('salaries', RESEED, 0);*/
 INSERT INTO lich_lam_viec
     (ngay, ca, ma_nguoi_dung)
 VALUES
-    ('2024-09-01', 1, 3),
-    ('2024-09-01', 1, 5),
-    ('2024-09-01', 1, 7),
-    ('2024-09-01', 1, 9),
-    ('2024-09-01', 2, 11),
-    ('2024-09-01', 2, 13),
-    ('2024-09-01', 2, 15),
-    ('2024-09-01', 2, 17),
+    ('2024-11-02', 1, 3),
+    ('2024-11-02', 1, 5),
+    ('2024-11-02', 1, 7),
+    ('2024-11-02', 1, 9),
+    ('2024-11-02', 2, 11),
+    ('2024-11-02', 2, 13),
+    ('2024-11-02', 2, 15),
+    ('2024-11-02', 2, 17),
 
-    ('2024-09-02', 1, 4),
-    ('2024-09-02', 1, 6),
-    ('2024-09-02', 1, 8),
-    ('2024-09-02', 1, 10),
-    ('2024-09-02', 2, 12),
-    ('2024-09-02', 2, 14),
-    ('2024-09-02', 2, 16),
-    ('2024-09-02', 2, 18),
+    ('2024-11-02', 1, 4),
+    ('2024-11-02', 1, 6),
+    ('2024-11-02', 1, 8),
+    ('2024-11-02', 1, 10),
+    ('2024-11-02', 2, 12),
+    ('2024-11-02', 2, 14),
+    ('2024-11-02', 2, 16),
+    ('2024-11-02', 2, 18),
 
-    ('2024-09-03', 1, 3),
-    ('2024-09-03', 1, 5),
-    ('2024-09-03', 1, 7),
-    ('2024-09-03', 1, 9),
-    ('2024-09-03', 2, 11),
-    ('2024-09-03', 2, 13),
-    ('2024-09-03', 2, 15),
-    ('2024-09-03', 2, 17),
+    ('2024-11-03', 1, 3),
+    ('2024-11-03', 1, 5),
+    ('2024-11-03', 1, 7),
+    ('2024-11-03', 1, 9),
+    ('2024-11-03', 2, 11),
+    ('2024-11-03', 2, 13),
+    ('2024-11-03', 2, 15),
+    ('2024-11-03', 2, 17),
 
     ('2024-09-04', 1, 4),
     ('2024-09-04', 1, 6),
@@ -1176,28 +1177,29 @@ DBCC CHECKIDENT ('receptions', RESEED, 0);*/
 
 -- Thêm dữ liệu vào bảng lịch hẹn
 INSERT INTO lich_hen
-    (ghi_chu, trang_thai, ngay_hen, ma_nguoi_dung, ma_benh_nhan)
+    (ghi_chu, trang_thai, ngay_hen, ca, ma_nguoi_dung, ma_benh_nhan)
 VALUES
-    (N'Khám răng lần đầu', 0, '2024-10-25', 6, 1),
-    (N'Tái khám sau nhổ răng', 1, '2024-10-15', 7, 2),
-    (N'Khám nha chu', 0, '2024-11-05', 8, 3),
-    (N'Chỉnh hình răng mặt', 0, '2024-10-30', 9, 4),
-    (N'Cấy ghép Implant', 1, '2024-09-20', 10, 5),
-    (N'Khám tổng quát', 0, '2024-10-27', 6, 6),
-    (N'Khám răng miệng', 1, '2024-11-02', 7, 7),
-    (N'Tái khám sau cấy ghép', 0, '2024-11-10', 8, 8),
-    (N'Kiểm tra tình trạng răng', 0, '2024-10-22', 9, 9),
-    (N'Khám và lấy cao răng', 1, '2024-10-20', 10, 10),
-    (N'Tái khám sau điều trị', 0, '2024-11-05', 11, 11),
-    (N'Khám răng sữa', 1, '2024-10-25', 12, 12),
-    (N'Khám răng khôn', 0, '2024-10-15', 13, 13),
-    (N'Khám và làm răng giả', 0, '2024-11-01', 14, 14),
-    (N'Khám sức khỏe răng miệng', 1, '2024-10-28', 15, 15),
-    (N'Tái khám sau nhổ răng', 0, '2024-11-12', 6, 16),
-    (N'Khám răng cho trẻ em', 1, '2024-10-31', 7, 17),
-    (N'Khám và điều trị sâu răng', 0, '2024-11-04', 8, 18),
-    (N'Kiểm tra định kỳ', 0, '2024-10-29', 9, 19),
-    (N'Khám và làm sạch răng', 1, '2024-11-03', 10, 20);
+    (N'Khám răng lần đầu', 0, '2024-10-25', 1, 6, 1),
+    (N'Tái khám sau nhổ răng', 1, '2024-10-15', 2, 7, 2),
+    (N'Khám nha chu', 0, '2024-11-05', 1, 8, 3),
+    (N'Chỉnh hình răng mặt', 0, '2024-10-30', 2, 9, 4),
+    (N'Cấy ghép Implant', 1, '2024-09-20', 1, 10, 5),
+    (N'Khám tổng quát', 0, '2024-10-27', 2, 6, 6),
+    (N'Khám răng miệng', 1, '2024-11-02', 1, 7, 7),
+    (N'Tái khám sau cấy ghép', 0, '2024-11-10', 2, 8, 8),
+    (N'Kiểm tra tình trạng răng', 0, '2024-10-22', 1, 9, 9),
+    (N'Khám và lấy cao răng', 1, '2024-10-20', 2, 10, 10),
+    (N'Tái khám sau điều trị', 0, '2024-11-05', 1, 11, 11),
+    (N'Khám răng sữa', 1, '2024-10-25', 2, 12, 12),
+    (N'Khám răng khôn', 0, '2024-10-15', 1, 13, 13),
+    (N'Khám và làm răng giả', 0, '2024-11-01', 2, 14, 14),
+    (N'Khám sức khỏe răng miệng', 1, '2024-10-28', 1, 15, 15),
+    (N'Tái khám sau nhổ răng', 0, '2024-11-12', 2, 6, 16),
+    (N'Khám răng cho trẻ em', 1, '2024-10-31', 1, 7, 17),
+    (N'Khám và điều trị sâu răng', 0, '2024-11-04', 2, 8, 18),
+    (N'Kiểm tra định kỳ', 0, '2024-10-29', 1, 9, 19),
+    (N'Khám và làm sạch răng', 1, '2024-11-03', 2, 10, 20);
+
 /*DELETE FROM appointments;
 DBCC CHECKIDENT ('appointments', RESEED, 0);*/
 -- Thêm dữ liệu vào bảng hồ sơ bệnh án
@@ -2383,7 +2385,6 @@ BEGIN
         lh.ngay_hen ASC;
 END;
 GO
-EXEC LayDanhSachLichHenTrongNgay @NgayHen = '2024-10-25';
 
 GO
 
@@ -2415,7 +2416,6 @@ END;
 
 GO
 --Quản lý vật tư
-
 CREATE PROCEDURE ThongTinThuoc
 	@id INT
 AS
@@ -2425,5 +2425,179 @@ BEGIN
 		join loai_hang_ton_kho on hang_ton_kho.ma_loai = loai_hang_ton_kho.ma_loai
 	where hang_ton_kho.ma_loai = @id
 	order by hang_ton_kho.ngay_het_han
+END;
+GO
+CREATE PROCEDURE LayThongTinBacSiTrongNgay
+    @ngay DATE
+AS
+BEGIN
+    SELECT 
+        llv.ma_nguoi_dung AS ma_bac_si,
+        nd.ho_ten AS ten_bac_si,
+        bscm.ten_chuyen_mon,
+        llv.ca,
+        COUNT(lh.ma_benh_nhan) AS so_luong_benh_nhan,
+        CASE 
+            WHEN COUNT(lh.ma_benh_nhan) > 3 THEN N'Vượt quá giới hạn'
+            ELSE N'Đủ điều kiện'
+        END AS trang_thai_lam_viec
+    FROM 
+        lich_lam_viec AS llv
+        LEFT JOIN lich_hen AS lh ON llv.ma_nguoi_dung = lh.ma_nguoi_dung 
+            AND llv.ngay = lh.ngay_hen
+        JOIN nguoi_dung AS nd ON llv.ma_nguoi_dung = nd.ma_nguoi_dung
+        JOIN bac_si AS bs ON llv.ma_nguoi_dung = bs.ma_nguoi_dung
+        JOIN bac_si_chuyen_mon AS bscm ON bs.ma_chuyen_mon = bscm.ma_chuyen_mon
+    WHERE 
+        llv.ngay = @ngay
+    GROUP BY 
+        llv.ma_nguoi_dung, nd.ho_ten, bscm.ten_chuyen_mon, llv.ca
+    ORDER BY 
+        llv.ca, nd.ho_ten;
+END;
+GO
+
+CREATE PROCEDURE DanhSachBenhNhanTheoNgay
+    @ngay DATE
+AS
+BEGIN
+    SELECT 
+        lh.ma_lich_hen,
+        bn.ma_benh_nhan,
+        bn.ho_ten AS ten_benh_nhan,
+        bn.so_dien_thoai,
+        lh.ma_nguoi_dung AS ma_bac_si,
+        nd.ho_ten AS ten_bac_si,
+        llv.ca,
+        lh.ngay_hen,
+        lh.ghi_chu,
+        CASE 
+            WHEN lh.trang_thai = 0 THEN N'Chưa khám'
+            WHEN lh.trang_thai = 1 THEN N'Đã khám'
+        END AS trang_thai
+    FROM 
+        lich_hen AS lh
+        JOIN benh_nhan AS bn ON lh.ma_benh_nhan = bn.ma_benh_nhan
+        JOIN nguoi_dung AS nd ON lh.ma_nguoi_dung = nd.ma_nguoi_dung
+        JOIN lich_lam_viec AS llv ON lh.ma_nguoi_dung = llv.ma_nguoi_dung 
+            AND lh.ngay_hen = llv.ngay
+            AND llv.ngay = @ngay
+    WHERE 
+        lh.ngay_hen = @ngay
+    ORDER BY 
+        lh.ma_lich_hen
+END;
+GO
+
+CREATE PROCEDURE TaoLichHenBenhNhan
+    @ho_ten NVARCHAR(50),
+    @gioi_tinh BIT,
+    @tuoi INT,
+    @so_dien_thoai NVARCHAR(10),
+    @dia_chi NVARCHAR(50),
+    @ma_bac_si INT,
+    @ngay_hen DATE,               -- Ngày hẹn
+    @ca INT,                      -- Ca làm việc
+    @ghi_chu NVARCHAR(255)
+AS
+BEGIN
+    DECLARE @ma_benh_nhan INT;
+
+    -- 1. Tạo mã bệnh nhân mới bằng cách lấy giá trị lớn nhất của ma_benh_nhan và tăng lên 1
+    SELECT @ma_benh_nhan = ISNULL(MAX(ma_benh_nhan), 0) + 1
+    FROM benh_nhan;   
+
+    -- 2. Thêm bệnh nhân mới vào bảng benh_nhan với mã bệnh nhân mới
+    INSERT INTO benh_nhan (ma_benh_nhan, ho_ten, gioi_tinh, tuoi, so_dien_thoai, dia_chi)
+    VALUES (@ma_benh_nhan, @ho_ten, @gioi_tinh, @tuoi, @so_dien_thoai, @dia_chi);
+
+    -- 3. Thêm lịch hẹn vào bảng lich_hen với mã bệnh nhân, mã bác sĩ, ngày hẹn, ca và ghi chú
+    INSERT INTO lich_hen (ma_benh_nhan, ma_nguoi_dung, ngay_hen, ca, ghi_chu, trang_thai)
+    VALUES (@ma_benh_nhan, @ma_bac_si, @ngay_hen, @ca, @ghi_chu, 0); -- 0: Chưa khám
+
+    PRINT N'Lịch hẹn đã được thêm thành công!';
+END;
+GO
+
+CREATE PROCEDURE LayThongTinBenhNhanVaBenhAn
+    @ma_benh_nhan INT
+AS
+BEGIN
+    SELECT 
+        bn.ma_benh_nhan,
+        bn.ho_ten,
+        bn.gioi_tinh,
+        bn.tuoi,
+        bn.so_dien_thoai,
+        bn.dia_chi,
+        hsba.ma_ho_so,
+        hsba.chan_doan,
+        hsba.phuong_phap_dieu_tri,
+        hsba.trieu_chung
+    FROM 
+        benh_nhan AS bn
+    LEFT JOIN 
+        ho_so_benh_an AS hsba ON bn.ma_benh_nhan = hsba.ma_benh_nhan
+    WHERE 
+        bn.ma_benh_nhan = @ma_benh_nhan;
+END;
+GO
+
+EXEC LayThongTinBenhNhanVaBenhAn @ma_benh_nhan = 1;
+GO
+
+CREATE PROCEDURE CapNhatThongTinBenhNhanVaBenhAn
+    @ma_benh_nhan INT,
+    @ho_ten NVARCHAR(50) = NULL,
+    @gioi_tinh BIT = NULL,
+    @tuoi INT = NULL,
+    @so_dien_thoai NVARCHAR(10) = NULL,
+    @dia_chi NVARCHAR(50) = NULL,
+    @ma_ho_so INT = NULL,
+    @chan_doan NVARCHAR(50) = NULL,
+    @phuong_phap_dieu_tri NVARCHAR(50) = NULL,
+    @trieu_chung NVARCHAR(50) = NULL
+AS
+BEGIN
+    -- Bắt đầu một giao dịch để đảm bảo tính toàn vẹn dữ liệu
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+        -- 1. Cập nhật thông tin trong bảng benh_nhan
+        UPDATE benh_nhan
+        SET 
+            ho_ten = COALESCE(@ho_ten, ho_ten),
+            gioi_tinh = COALESCE(@gioi_tinh, gioi_tinh),
+            tuoi = COALESCE(@tuoi, tuoi),
+            so_dien_thoai = COALESCE(@so_dien_thoai, so_dien_thoai),
+            dia_chi = COALESCE(@dia_chi, dia_chi)
+        WHERE 
+            ma_benh_nhan = @ma_benh_nhan;
+
+        -- 2. Cập nhật thông tin trong bảng ho_so_benh_an nếu ma_ho_so được cung cấp
+        IF @ma_ho_so IS NOT NULL
+        BEGIN
+            UPDATE ho_so_benh_an
+            SET 
+                chan_doan = COALESCE(@chan_doan, chan_doan),
+                phuong_phap_dieu_tri = COALESCE(@phuong_phap_dieu_tri, phuong_phap_dieu_tri),
+                trieu_chung = COALESCE(@trieu_chung, trieu_chung)
+            WHERE 
+                ma_ho_so = @ma_ho_so
+                AND ma_benh_nhan = @ma_benh_nhan;
+        END
+
+        -- Xác nhận giao dịch nếu không có lỗi xảy ra
+        COMMIT TRANSACTION;
+        
+        PRINT N'Cập nhật thông tin bệnh nhân và bệnh án thành công!';
+    END TRY
+    BEGIN CATCH
+        -- Nếu có lỗi, hủy bỏ giao dịch
+        ROLLBACK TRANSACTION;
+        
+        PRINT N'Có lỗi xảy ra. Giao dịch đã được hủy bỏ.';
+        THROW; -- Ném lỗi để xem chi tiết
+    END CATCH
 END;
 GO

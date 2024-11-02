@@ -1,4 +1,6 @@
-﻿namespace Dental_Clinic.GUI.LeTan
+﻿using Dental_Clinic.Properties;
+
+namespace Dental_Clinic.GUI.LeTan
 {
     partial class FormTrangChuLeTan
     {
@@ -32,9 +34,21 @@
             pnTop = new Panel();
             dateTimePicker = new DateTimePicker();
             pnLine = new Panel();
-            GirdHienThiDanhSach = new DataGridView();
+            pbLichHen = new PictureBox();
+            tbTimKiem = new TextBox();
+            pictureBox8 = new PictureBox();
+            vbTimKiem = new CustomButton.VBButton();
+            vbLichHen = new CustomButton.VBButton();
+            vbBacSi = new CustomButton.VBButton();
+            pbBacSi = new PictureBox();
+            vbThemLichHen = new CustomButton.VBButton();
+            pbThemLichHen = new PictureBox();
+            pnChinh = new Panel();
             pnTop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)GirdHienThiDanhSach).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbLichHen).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbBacSi).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbThemLichHen).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -67,7 +81,7 @@
             dateTimePicker.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dateTimePicker.Format = DateTimePickerFormat.Custom;
             dateTimePicker.ImeMode = ImeMode.NoControl;
-            dateTimePicker.Location = new Point(954, 21);
+            dateTimePicker.Location = new Point(945, 25);
             dateTimePicker.Name = "dateTimePicker";
             dateTimePicker.RightToLeft = RightToLeft.No;
             dateTimePicker.Size = new Size(304, 39);
@@ -83,15 +97,158 @@
             pnLine.Size = new Size(1210, 2);
             pnLine.TabIndex = 1;
             // 
-            // GirdHienThiDanhSach
+            // pbLichHen
             // 
-            GirdHienThiDanhSach.BackgroundColor = Color.White;
-            GirdHienThiDanhSach.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            GirdHienThiDanhSach.Location = new Point(12, 87);
-            GirdHienThiDanhSach.Name = "GirdHienThiDanhSach";
-            GirdHienThiDanhSach.RowHeadersWidth = 62;
-            GirdHienThiDanhSach.Size = new Size(1246, 706);
-            GirdHienThiDanhSach.TabIndex = 18;
+            pbLichHen.BackColor = Color.FromArgb(163, 211, 229);
+            pbLichHen.Image = Resources.icons8_calendar_64;
+            pbLichHen.Location = new Point(395, 119);
+            pbLichHen.Margin = new Padding(4);
+            pbLichHen.Name = "pbLichHen";
+            pbLichHen.Size = new Size(45, 45);
+            pbLichHen.SizeMode = PictureBoxSizeMode.Zoom;
+            pbLichHen.TabIndex = 28;
+            pbLichHen.TabStop = false;
+            // 
+            // tbTimKiem
+            // 
+            tbTimKiem.BackColor = SystemColors.ButtonFace;
+            tbTimKiem.BorderStyle = BorderStyle.None;
+            tbTimKiem.Location = new Point(917, 128);
+            tbTimKiem.Margin = new Padding(4);
+            tbTimKiem.Name = "tbTimKiem";
+            tbTimKiem.Size = new Size(323, 24);
+            tbTimKiem.TabIndex = 29;
+            tbTimKiem.TextChanged += tbTimKiem_TextChanged;
+            // 
+            // pictureBox8
+            // 
+            pictureBox8.BackColor = SystemColors.ButtonFace;
+            pictureBox8.Image = Resources.icons8_find_50;
+            pictureBox8.Location = new Point(864, 120);
+            pictureBox8.Margin = new Padding(4);
+            pictureBox8.Name = "pictureBox8";
+            pictureBox8.Size = new Size(39, 44);
+            pictureBox8.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox8.TabIndex = 30;
+            pictureBox8.TabStop = false;
+            // 
+            // vbTimKiem
+            // 
+            vbTimKiem.BackColor = SystemColors.ButtonFace;
+            vbTimKiem.BackgroundColor = SystemColors.ButtonFace;
+            vbTimKiem.BorderColor = Color.PaleVioletRed;
+            vbTimKiem.BorderRadius = 14;
+            vbTimKiem.BorderSize = 0;
+            vbTimKiem.FlatAppearance.BorderSize = 0;
+            vbTimKiem.FlatStyle = FlatStyle.Flat;
+            vbTimKiem.ForeColor = Color.White;
+            vbTimKiem.Location = new Point(848, 108);
+            vbTimKiem.Margin = new Padding(4);
+            vbTimKiem.Name = "vbTimKiem";
+            vbTimKiem.Size = new Size(401, 64);
+            vbTimKiem.TabIndex = 32;
+            vbTimKiem.TextColor = Color.White;
+            vbTimKiem.UseVisualStyleBackColor = false;
+            // 
+            // vbLichHen
+            // 
+            vbLichHen.BackColor = Color.FromArgb(163, 211, 229);
+            vbLichHen.BackgroundColor = Color.FromArgb(163, 211, 229);
+            vbLichHen.BorderColor = Color.PaleVioletRed;
+            vbLichHen.BorderRadius = 14;
+            vbLichHen.BorderSize = 0;
+            vbLichHen.Cursor = Cursors.Hand;
+            vbLichHen.FlatAppearance.BorderSize = 0;
+            vbLichHen.FlatStyle = FlatStyle.Flat;
+            vbLichHen.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            vbLichHen.ForeColor = Color.White;
+            vbLichHen.Location = new Point(267, 108);
+            vbLichHen.Margin = new Padding(4);
+            vbLichHen.Name = "vbLichHen";
+            vbLichHen.Size = new Size(190, 64);
+            vbLichHen.TabIndex = 31;
+            vbLichHen.Text = "Lịch hẹn";
+            vbLichHen.TextAlign = ContentAlignment.MiddleLeft;
+            vbLichHen.TextColor = Color.White;
+            vbLichHen.UseVisualStyleBackColor = false;
+            vbLichHen.Click += vbLichHen_Click;
+            // 
+            // vbBacSi
+            // 
+            vbBacSi.BackColor = Color.FromArgb(163, 211, 229);
+            vbBacSi.BackgroundColor = Color.FromArgb(163, 211, 229);
+            vbBacSi.BorderColor = Color.PaleVioletRed;
+            vbBacSi.BorderRadius = 14;
+            vbBacSi.BorderSize = 0;
+            vbBacSi.Cursor = Cursors.Hand;
+            vbBacSi.FlatAppearance.BorderSize = 0;
+            vbBacSi.FlatStyle = FlatStyle.Flat;
+            vbBacSi.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            vbBacSi.ForeColor = Color.White;
+            vbBacSi.Location = new Point(60, 108);
+            vbBacSi.Margin = new Padding(4);
+            vbBacSi.Name = "vbBacSi";
+            vbBacSi.Size = new Size(154, 64);
+            vbBacSi.TabIndex = 27;
+            vbBacSi.Text = "Bác sĩ";
+            vbBacSi.TextAlign = ContentAlignment.MiddleLeft;
+            vbBacSi.TextColor = Color.White;
+            vbBacSi.UseVisualStyleBackColor = false;
+            vbBacSi.Click += vbBacSi_Click;
+            // 
+            // pbBacSi
+            // 
+            pbBacSi.BackColor = Color.FromArgb(163, 211, 229);
+            pbBacSi.Image = Resources.icons8_doctor_50__2_;
+            pbBacSi.Location = new Point(157, 119);
+            pbBacSi.Margin = new Padding(4);
+            pbBacSi.Name = "pbBacSi";
+            pbBacSi.Size = new Size(45, 45);
+            pbBacSi.SizeMode = PictureBoxSizeMode.Zoom;
+            pbBacSi.TabIndex = 26;
+            pbBacSi.TabStop = false;
+            // 
+            // vbThemLichHen
+            // 
+            vbThemLichHen.BackColor = Color.FromArgb(163, 211, 229);
+            vbThemLichHen.BackgroundColor = Color.FromArgb(163, 211, 229);
+            vbThemLichHen.BorderColor = Color.PaleVioletRed;
+            vbThemLichHen.BorderRadius = 14;
+            vbThemLichHen.BorderSize = 0;
+            vbThemLichHen.Cursor = Cursors.Hand;
+            vbThemLichHen.FlatAppearance.BorderSize = 0;
+            vbThemLichHen.FlatStyle = FlatStyle.Flat;
+            vbThemLichHen.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            vbThemLichHen.ForeColor = Color.White;
+            vbThemLichHen.Location = new Point(522, 108);
+            vbThemLichHen.Margin = new Padding(4);
+            vbThemLichHen.Name = "vbThemLichHen";
+            vbThemLichHen.Size = new Size(266, 64);
+            vbThemLichHen.TabIndex = 33;
+            vbThemLichHen.Text = "Thêm lịch hẹn";
+            vbThemLichHen.TextAlign = ContentAlignment.MiddleLeft;
+            vbThemLichHen.TextColor = Color.White;
+            vbThemLichHen.UseVisualStyleBackColor = false;
+            vbThemLichHen.Click += vbThemLichHen_Click;
+            // 
+            // pbThemLichHen
+            // 
+            pbThemLichHen.BackColor = Color.FromArgb(163, 211, 229);
+            pbThemLichHen.Image = Resources.icons8_plus_50;
+            pbThemLichHen.Location = new Point(726, 119);
+            pbThemLichHen.Margin = new Padding(4);
+            pbThemLichHen.Name = "pbThemLichHen";
+            pbThemLichHen.Size = new Size(45, 45);
+            pbThemLichHen.SizeMode = PictureBoxSizeMode.Zoom;
+            pbThemLichHen.TabIndex = 34;
+            pbThemLichHen.TabStop = false;
+            // 
+            // pnChinh
+            // 
+            pnChinh.Location = new Point(60, 206);
+            pnChinh.Name = "pnChinh";
+            pnChinh.Size = new Size(1189, 587);
+            pnChinh.TabIndex = 35;
             // 
             // FormTrangChuLeTan
             // 
@@ -99,15 +256,28 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1270, 805);
-            Controls.Add(GirdHienThiDanhSach);
+            Controls.Add(pnChinh);
+            Controls.Add(pbThemLichHen);
+            Controls.Add(vbThemLichHen);
+            Controls.Add(pbBacSi);
+            Controls.Add(pbLichHen);
+            Controls.Add(tbTimKiem);
+            Controls.Add(pictureBox8);
+            Controls.Add(vbTimKiem);
+            Controls.Add(vbLichHen);
+            Controls.Add(vbBacSi);
             Controls.Add(pnTop);
             Name = "FormTrangChuLeTan";
             Text = "FormTrangChuLeTan";
             Load += FormTrangChuLeTan_Load;
             pnTop.ResumeLayout(false);
             pnTop.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)GirdHienThiDanhSach).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbLichHen).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbBacSi).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbThemLichHen).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -115,6 +285,15 @@
         private Panel pnTop;
         private Panel pnLine;
         private DateTimePicker dateTimePicker;
-        private DataGridView GirdHienThiDanhSach;
+        private PictureBox pbLichHen;
+        private TextBox tbTimKiem;
+        private PictureBox pictureBox8;
+        private CustomButton.VBButton vbTimKiem;
+        private CustomButton.VBButton vbLichHen;
+        private CustomButton.VBButton vbBacSi;
+        private PictureBox pbBacSi;
+        private CustomButton.VBButton vbThemLichHen;
+        private PictureBox pbThemLichHen;
+        private Panel pnChinh;
     }
 }

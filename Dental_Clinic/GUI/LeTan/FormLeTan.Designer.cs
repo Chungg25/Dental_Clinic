@@ -42,9 +42,9 @@ namespace Dental_Clinic.GUI.Receptionist
             pictureBox4 = new PictureBox();
             lbLichLamViec = new Label();
             panel1 = new Panel();
-            pnQuanLyBenhNhan = new Panel();
-            pictureBox3 = new PictureBox();
-            lbBenhNhan = new Label();
+            pnTrangChu = new Panel();
+            pbTrangChu = new PictureBox();
+            lbTrangChu = new Label();
             panel2 = new Panel();
             picLogo = new PictureBox();
             panel3 = new Panel();
@@ -78,8 +78,8 @@ namespace Dental_Clinic.GUI.Receptionist
             pnQuanLyLich.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             panel1.SuspendLayout();
-            pnQuanLyBenhNhan.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            pnTrangChu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbTrangChu).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picLogo).BeginInit();
             panel3.SuspendLayout();
             pnNgonNgu.SuspendLayout();
@@ -223,7 +223,7 @@ namespace Dental_Clinic.GUI.Receptionist
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(pnQuanLyLuong);
             panel1.Controls.Add(pnQuanLyLich);
-            panel1.Controls.Add(pnQuanLyBenhNhan);
+            panel1.Controls.Add(pnTrangChu);
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(picLogo);
             panel1.Dock = DockStyle.Left;
@@ -233,39 +233,41 @@ namespace Dental_Clinic.GUI.Receptionist
             panel1.Size = new Size(373, 966);
             panel1.TabIndex = 10;
             // 
-            // pnQuanLyBenhNhan
+            // pnTrangChu
             // 
-            pnQuanLyBenhNhan.AutoSize = true;
-            pnQuanLyBenhNhan.Controls.Add(pictureBox3);
-            pnQuanLyBenhNhan.Controls.Add(lbBenhNhan);
-            pnQuanLyBenhNhan.Location = new Point(22, 205);
-            pnQuanLyBenhNhan.Name = "pnQuanLyBenhNhan";
-            pnQuanLyBenhNhan.Size = new Size(306, 68);
-            pnQuanLyBenhNhan.TabIndex = 15;
+            pnTrangChu.AutoSize = true;
+            pnTrangChu.Controls.Add(pbTrangChu);
+            pnTrangChu.Controls.Add(lbTrangChu);
+            pnTrangChu.Location = new Point(22, 205);
+            pnTrangChu.Name = "pnTrangChu";
+            pnTrangChu.Size = new Size(206, 68);
+            pnTrangChu.TabIndex = 15;
             // 
-            // pictureBox3
+            // pbTrangChu
             // 
-            pictureBox3.Cursor = Cursors.Hand;
-            pictureBox3.Image = Resources.icons8_recovery_50;
-            pictureBox3.Location = new Point(4, 4);
-            pictureBox3.Margin = new Padding(4);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(60, 60);
-            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox3.TabIndex = 11;
-            pictureBox3.TabStop = false;
+            pbTrangChu.Cursor = Cursors.Hand;
+            pbTrangChu.Image = Resources.icons8_home_50;
+            pbTrangChu.Location = new Point(4, 4);
+            pbTrangChu.Margin = new Padding(4);
+            pbTrangChu.Name = "pbTrangChu";
+            pbTrangChu.Size = new Size(60, 60);
+            pbTrangChu.SizeMode = PictureBoxSizeMode.Zoom;
+            pbTrangChu.TabIndex = 11;
+            pbTrangChu.TabStop = false;
+            pbTrangChu.Click += lbTrangChu_Click;
             // 
-            // lbBenhNhan
+            // lbTrangChu
             // 
-            lbBenhNhan.AutoSize = true;
-            lbBenhNhan.Cursor = Cursors.Hand;
-            lbBenhNhan.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbBenhNhan.Location = new Point(72, 18);
-            lbBenhNhan.Margin = new Padding(4, 0, 4, 0);
-            lbBenhNhan.Name = "lbBenhNhan";
-            lbBenhNhan.Size = new Size(230, 32);
-            lbBenhNhan.TabIndex = 6;
-            lbBenhNhan.Text = "Quản lý bệnh nhân";
+            lbTrangChu.AutoSize = true;
+            lbTrangChu.Cursor = Cursors.Hand;
+            lbTrangChu.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbTrangChu.Location = new Point(72, 18);
+            lbTrangChu.Margin = new Padding(4, 0, 4, 0);
+            lbTrangChu.Name = "lbTrangChu";
+            lbTrangChu.Size = new Size(130, 32);
+            lbTrangChu.TabIndex = 6;
+            lbTrangChu.Text = "Trang Chủ";
+            lbTrangChu.Click += lbTrangChu_Click;
             // 
             // panel2
             // 
@@ -618,9 +620,9 @@ namespace Dental_Clinic.GUI.Receptionist
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            pnQuanLyBenhNhan.ResumeLayout(false);
-            pnQuanLyBenhNhan.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            pnTrangChu.ResumeLayout(false);
+            pnTrangChu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pbTrangChu).EndInit();
             ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
@@ -661,9 +663,9 @@ namespace Dental_Clinic.GUI.Receptionist
         private PictureBox pictureBox4;
         private Label lbLichLamViec;
         private Panel panel1;
-        private Panel pnQuanLyBenhNhan;
-        private PictureBox pictureBox3;
-        private Label lbBenhNhan;
+        private Panel pnTrangChu;
+        private PictureBox pbTrangChu;
+        private Label lbTrangChu;
         private Panel panel2;
         private PictureBox picLogo;
         private Panel panel3;
