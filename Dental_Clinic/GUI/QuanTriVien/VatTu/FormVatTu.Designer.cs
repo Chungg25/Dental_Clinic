@@ -56,18 +56,20 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(-9, -7);
+            panel1.Location = new Point(-11, -9);
+            panel1.Margin = new Padding(4, 4, 4, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1054, 71);
+            panel1.Size = new Size(1317, 88);
             panel1.TabIndex = 2;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
-            label1.Location = new Point(54, 13);
+            label1.Location = new Point(68, 16);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(264, 46);
+            label1.Size = new Size(312, 54);
             label1.TabIndex = 0;
             label1.Text = "Quản Lý Vật Tư";
             // 
@@ -75,9 +77,10 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             pictureBox3.BackColor = Color.FromArgb(163, 211, 229);
             pictureBox3.Image = Resources.icons8_supplies_50;
-            pictureBox3.Location = new Point(244, 116);
+            pictureBox3.Location = new Point(305, 145);
+            pictureBox3.Margin = new Padding(4, 4, 4, 4);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(35, 32);
+            pictureBox3.Size = new Size(44, 40);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox3.TabIndex = 40;
             pictureBox3.TabStop = false;
@@ -86,9 +89,10 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             pictureBox1.BackColor = Color.FromArgb(163, 211, 229);
             pictureBox1.Image = Resources.icons8_medicine_50;
-            pictureBox1.Location = new Point(94, 116);
+            pictureBox1.Location = new Point(118, 145);
+            pictureBox1.Margin = new Padding(4, 4, 4, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(37, 31);
+            pictureBox1.Size = new Size(46, 39);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 39;
             pictureBox1.TabStop = false;
@@ -105,9 +109,10 @@ namespace Dental_Clinic.GUI.Administrator
             vbThuoc.FlatStyle = FlatStyle.Flat;
             vbThuoc.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             vbThuoc.ForeColor = Color.White;
-            vbThuoc.Location = new Point(9, 103);
+            vbThuoc.Location = new Point(11, 129);
+            vbThuoc.Margin = new Padding(4, 4, 4, 4);
             vbThuoc.Name = "vbThuoc";
-            vbThuoc.Size = new Size(140, 57);
+            vbThuoc.Size = new Size(175, 71);
             vbThuoc.TabIndex = 41;
             vbThuoc.Text = "Thuốc";
             vbThuoc.TextAlign = ContentAlignment.MiddleLeft;
@@ -119,9 +124,10 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             pictureBox7.BackColor = Color.FromArgb(163, 211, 229);
             pictureBox7.Image = Resources.icons8_plus_50;
-            pictureBox7.Location = new Point(644, 108);
+            pictureBox7.Location = new Point(805, 135);
+            pictureBox7.Margin = new Padding(4, 4, 4, 4);
             pictureBox7.Name = "pictureBox7";
-            pictureBox7.Size = new Size(47, 47);
+            pictureBox7.Size = new Size(59, 59);
             pictureBox7.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox7.TabIndex = 34;
             pictureBox7.TabStop = false;
@@ -130,18 +136,20 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             tbTimKiem.BackColor = SystemColors.ButtonFace;
             tbTimKiem.BorderStyle = BorderStyle.None;
-            tbTimKiem.Location = new Point(793, 116);
+            tbTimKiem.Location = new Point(991, 145);
+            tbTimKiem.Margin = new Padding(4, 4, 4, 4);
             tbTimKiem.Name = "tbTimKiem";
-            tbTimKiem.Size = new Size(183, 20);
+            tbTimKiem.Size = new Size(229, 24);
             tbTimKiem.TabIndex = 35;
             // 
             // pictureBox8
             // 
             pictureBox8.BackColor = SystemColors.ButtonFace;
             pictureBox8.Image = Resources.icons8_find_50;
-            pictureBox8.Location = new Point(736, 110);
+            pictureBox8.Location = new Point(920, 138);
+            pictureBox8.Margin = new Padding(4, 4, 4, 4);
             pictureBox8.Name = "pictureBox8";
-            pictureBox8.Size = new Size(44, 45);
+            pictureBox8.Size = new Size(55, 56);
             pictureBox8.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox8.TabIndex = 36;
             pictureBox8.TabStop = false;
@@ -156,9 +164,10 @@ namespace Dental_Clinic.GUI.Administrator
             vbTimKiem.FlatAppearance.BorderSize = 0;
             vbTimKiem.FlatStyle = FlatStyle.Flat;
             vbTimKiem.ForeColor = Color.White;
-            vbTimKiem.Location = new Point(722, 103);
+            vbTimKiem.Location = new Point(902, 129);
+            vbTimKiem.Margin = new Padding(4, 4, 4, 4);
             vbTimKiem.Name = "vbTimKiem";
-            vbTimKiem.Size = new Size(278, 57);
+            vbTimKiem.Size = new Size(348, 71);
             vbTimKiem.TabIndex = 38;
             vbTimKiem.TextColor = Color.White;
             vbTimKiem.UseVisualStyleBackColor = false;
@@ -175,9 +184,10 @@ namespace Dental_Clinic.GUI.Administrator
             vbThem.FlatStyle = FlatStyle.Flat;
             vbThem.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             vbThem.ForeColor = Color.White;
-            vbThem.Location = new Point(574, 103);
+            vbThem.Location = new Point(718, 129);
+            vbThem.Margin = new Padding(4, 4, 4, 4);
             vbThem.Name = "vbThem";
-            vbThem.Size = new Size(130, 57);
+            vbThem.Size = new Size(162, 71);
             vbThem.TabIndex = 37;
             vbThem.Text = "Thêm";
             vbThem.TextAlign = ContentAlignment.MiddleLeft;
@@ -187,18 +197,21 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             // panelDuLieu
             // 
-            panelDuLieu.Location = new Point(7, 202);
+            panelDuLieu.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panelDuLieu.Location = new Point(9, 252);
+            panelDuLieu.Margin = new Padding(4, 4, 4, 4);
             panelDuLieu.Name = "panelDuLieu";
-            panelDuLieu.Size = new Size(1012, 454);
+            panelDuLieu.Size = new Size(1265, 568);
             panelDuLieu.TabIndex = 43;
             // 
             // pictureBox2
             // 
             pictureBox2.BackColor = Color.FromArgb(163, 211, 229);
             pictureBox2.Image = Resources.icons8_service_50;
-            pictureBox2.Location = new Point(400, 117);
+            pictureBox2.Location = new Point(500, 146);
+            pictureBox2.Margin = new Padding(4, 4, 4, 4);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(35, 32);
+            pictureBox2.Size = new Size(44, 40);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 43;
             pictureBox2.TabStop = false;
@@ -215,14 +228,16 @@ namespace Dental_Clinic.GUI.Administrator
             vbDichVu.FlatStyle = FlatStyle.Flat;
             vbDichVu.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             vbDichVu.ForeColor = Color.White;
-            vbDichVu.Location = new Point(304, 103);
+            vbDichVu.Location = new Point(380, 129);
+            vbDichVu.Margin = new Padding(4, 4, 4, 4);
             vbDichVu.Name = "vbDichVu";
-            vbDichVu.Size = new Size(143, 57);
+            vbDichVu.Size = new Size(179, 71);
             vbDichVu.TabIndex = 44;
             vbDichVu.Text = "Dịch vụ";
             vbDichVu.TextAlign = ContentAlignment.MiddleLeft;
             vbDichVu.TextColor = Color.White;
             vbDichVu.UseVisualStyleBackColor = false;
+            vbDichVu.Click += vbDichVu_Click;
             // 
             // vbVatTu
             // 
@@ -236,9 +251,10 @@ namespace Dental_Clinic.GUI.Administrator
             vbVatTu.FlatStyle = FlatStyle.Flat;
             vbVatTu.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             vbVatTu.ForeColor = Color.White;
-            vbVatTu.Location = new Point(159, 103);
+            vbVatTu.Location = new Point(199, 129);
+            vbVatTu.Margin = new Padding(4, 4, 4, 4);
             vbVatTu.Name = "vbVatTu";
-            vbVatTu.Size = new Size(133, 57);
+            vbVatTu.Size = new Size(166, 71);
             vbVatTu.TabIndex = 42;
             vbVatTu.Text = "Vật tư";
             vbVatTu.TextAlign = ContentAlignment.MiddleLeft;
@@ -246,12 +262,12 @@ namespace Dental_Clinic.GUI.Administrator
             vbVatTu.UseVisualStyleBackColor = false;
             vbVatTu.Click += vbVatTu_Click;
             // 
-            // SuppliesForm
+            // FormVatTu
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
-            ClientSize = new Size(1016, 644);
+            ClientSize = new Size(1270, 805);
             Controls.Add(pictureBox2);
             Controls.Add(panelDuLieu);
             Controls.Add(vbDichVu);
@@ -265,7 +281,8 @@ namespace Dental_Clinic.GUI.Administrator
             Controls.Add(vbTimKiem);
             Controls.Add(vbThem);
             Controls.Add(panel1);
-            Name = "SuppliesForm";
+            Margin = new Padding(4, 4, 4, 4);
+            Name = "FormVatTu";
             Text = "SuppliesForm";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

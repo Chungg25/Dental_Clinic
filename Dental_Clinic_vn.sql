@@ -1,4 +1,5 @@
-﻿ use master
+﻿
+use master
 
 -- Drop the database if it exists
 IF EXISTS (SELECT 1
@@ -130,7 +131,7 @@ CREATE TABLE [lich_hen]
     [ghi_chu] NVARCHAR(50) NOT NULL,
     [trang_thai] BIT NOT NULL,
     [ngay_hen] DATE NOT NULL,
-	[ca] INT NOT NULL,
+    [ca] INT NOT NULL,
     [ma_nguoi_dung] INT NOT NULL,
     [ma_benh_nhan] INT NOT NULL,
     PRIMARY KEY ([ma_lich_hen])
@@ -1264,7 +1265,7 @@ VALUES
     (17, N'Mũi cạo vôi', N'Vật liệu cố định', 10, N'Kg', '', '2024-01-01', '2029-01-01', '2024-01-10', 50000, 2),
     (18, N'Nạy', N'Vật liệu cố định', 20, N'Cây', '', '2024-01-20', '2025-01-20', '2024-01-25', 80000, 2),
     (19, N'Cây đo túi nướu', N'Vật liệu cố định', 10, N'Cây', '', '2024-03-20', '2025-03-20', '2024-03-25', 100000, 2),
-    (20, 'Nạy', N'Vật liệu cố định', 20, N'Cây', '', '2024-01-20', '2025-01-20', '2024-01-25', 80000, 2),
+    (20, N'Nạy', N'Vật liệu cố định', 20, N'Cây', '', '2024-01-20', '2025-01-20', '2024-01-25', 80000, 2),
     (21, N'Ống chích sắt', N'Vật liệu cố định', 50, N'Ống', '', '2024-05-20', '2025-05-20', '2024-05-25', 10000, 2),
     (22, N'Bông Gòn', N'Vật liệu tiêu hao', 50, N'Bịch', '', '2024-10-01', '2029-10-01', '2024-10-15', 20000, 2),
     (23, N'Mũi khoan kim cương', N'Vật liệu tiêu hao', 30, N'Cái', '', '2024-01-20', '2026-01-20', '2024-01-10', 50000, 2),
@@ -1375,7 +1376,7 @@ DBCC CHECKIDENT ('service_categories', RESEED, 0);*/
 INSERT INTO dich_vu
     (ma_loai, ten, don_vi, gia)
 VALUES
-    (1, N'Khám - Hồ sơ', 'Lượt', 5000);
+    (1, N'Khám - Hồ sơ', N'Lượt', 5000);
 
 -- Category: Nhổ răng (category_id = 2)
 INSERT INTO dich_vu
@@ -2314,20 +2315,30 @@ END;
 GO
 
 CREATE PROCEDURE ThemBenhNhan_BacSi
-    @hoTen NVARCHAR(255),       -- Họ tên
-    @soDienThoai NVARCHAR(10),  -- Số điện thoại
-    @diaChi NVARCHAR(50),       -- Địa chỉ
-    @gioiTinh BIT,              -- Giới tính (0 cho nữ, 1 cho nam)
-    @tuoi INT,                  -- Tuổi
-    @maBacSi INT,               -- Mã của bác sĩ điều trị
-    @ngayDieuTri DATE,          -- Ngày điều trị
-    @TenBacSiThayThe NVARCHAR(50) = NULL  -- Tên bác sĩ thay thế (nếu có)
+    @hoTen NVARCHAR(255),
+    -- Họ tên
+    @soDienThoai NVARCHAR(10),
+    -- Số điện thoại
+    @diaChi NVARCHAR(50),
+    -- Địa chỉ
+    @gioiTinh BIT,
+    -- Giới tính (0 cho nữ, 1 cho nam)
+    @tuoi INT,
+    -- Tuổi
+    @maBacSi INT,
+    -- Mã của bác sĩ điều trị
+    @ngayDieuTri DATE,
+    -- Ngày điều trị
+    @TenBacSiThayThe NVARCHAR(50) = NULL
+-- Tên bác sĩ thay thế (nếu có)
 AS
 BEGIN
     DECLARE @maBenhNhanMoi INT;
 
     -- Kiểm tra xem mã bác sĩ có tồn tại trong bảng bac_si hay không
-    IF NOT EXISTS (SELECT 1 FROM bac_si WHERE ma_nguoi_dung = @maBacSi)
+    IF NOT EXISTS (SELECT 1
+    FROM bac_si
+    WHERE ma_nguoi_dung = @maBacSi)
     BEGIN
         PRINT 'Lỗi: Mã bác sĩ không tồn tại trong bảng bac_si.';
         RETURN;
@@ -2347,8 +2358,8 @@ BEGIN
     INSERT INTO dieu_tri
         (ma_bac_si, ma_benh_nhan, ngay_dieu_tri, ghi_chu, ten_bac_si_thay_the)
     VALUES
-        (@maBacSi, @maBenhNhanMoi, @ngayDieuTri, N'Điều trị ban đầu', 
-        ISNULL(@TenBacSiThayThe, N'Không có'));
+        (@maBacSi, @maBenhNhanMoi, @ngayDieuTri, N'Điều trị ban đầu',
+            ISNULL(@TenBacSiThayThe, N'Không có'));
 
     -- Xác nhận thành công
     PRINT 'Thêm bệnh nhân và thông tin điều trị thành công.';
@@ -2361,7 +2372,7 @@ AS
 BEGIN
     SET NOCOUNT ON;
 
-    SELECT 
+    SELECT
         lh.ma_lich_hen AS maLichHen,
         bn.ma_benh_nhan AS maBenhNhan,
         bn.ho_ten AS tenBenhNhan,
@@ -2370,15 +2381,16 @@ BEGIN
         CASE bn.gioi_tinh WHEN 1 THEN N'Nam' ELSE N'Nữ' END AS gioiTinh,
         bn.tuoi AS tuoi,
         bs.ma AS maBacSi,
-        bs.ho_ten AS tenBacSi,	
+        bs.ho_ten AS tenBacSi,
         lh.trang_thai AS trangThai,
         lh.ghi_chu AS ghiChu
-    FROM 
+    FROM
         lich_hen AS lh
-    JOIN 
+        JOIN
         benh_nhan AS bn ON lh.ma_benh_nhan = bn.ma_benh_nhan
-    JOIN 
-        nguoi_dung AS bs ON lh.ma_nguoi_dung = bs.ma -- `ma_nguoi_dung` được giả định là mã bác sĩ
+        JOIN
+        nguoi_dung AS bs ON lh.ma_nguoi_dung = bs.ma
+    -- `ma_nguoi_dung` được giả định là mã bác sĩ
     WHERE 
         lh.ngay_hen = @NgayHen
     ORDER BY 
@@ -2386,7 +2398,6 @@ BEGIN
 END;
 GO
 
-GO
 
 CREATE PROCEDURE DanhSachLichLamViecLeTan
     @StartOfMonth DATE,
@@ -2417,187 +2428,200 @@ END;
 GO
 --Quản lý vật tư
 CREATE PROCEDURE ThongTinThuoc
-	@id INT
+    @id INT
 AS
 BEGIN
-	select * 
-	from hang_ton_kho 
-		join loai_hang_ton_kho on hang_ton_kho.ma_loai = loai_hang_ton_kho.ma_loai
-	where hang_ton_kho.ma_loai = @id
-	order by hang_ton_kho.ngay_het_han
+    select *
+    from hang_ton_kho
+        join loai_hang_ton_kho on hang_ton_kho.ma_loai = loai_hang_ton_kho.ma_loai
+    where hang_ton_kho.ma_loai = @id
+    order by hang_ton_kho.ngay_het_han
 END;
+
 GO
-CREATE PROCEDURE LayThongTinBacSiTrongNgay
-    @ngay DATE
+
+--Thông tin vật tư
+CREATE PROCEDURE ThongTinVatTu
+    @id INT
 AS
 BEGIN
-    SELECT 
-        llv.ma_nguoi_dung AS ma_bac_si,
-        nd.ho_ten AS ten_bac_si,
-        bscm.ten_chuyen_mon,
-        llv.ca,
-        COUNT(lh.ma_benh_nhan) AS so_luong_benh_nhan,
-        CASE 
-            WHEN COUNT(lh.ma_benh_nhan) > 3 THEN N'Vượt quá giới hạn'
-            ELSE N'Đủ điều kiện'
-        END AS trang_thai_lam_viec
-    FROM 
-        lich_lam_viec AS llv
-        LEFT JOIN lich_hen AS lh ON llv.ma_nguoi_dung = lh.ma_nguoi_dung 
-            AND llv.ngay = lh.ngay_hen
-        JOIN nguoi_dung AS nd ON llv.ma_nguoi_dung = nd.ma_nguoi_dung
-        JOIN bac_si AS bs ON llv.ma_nguoi_dung = bs.ma_nguoi_dung
-        JOIN bac_si_chuyen_mon AS bscm ON bs.ma_chuyen_mon = bscm.ma_chuyen_mon
-    WHERE 
-        llv.ngay = @ngay
-    GROUP BY 
-        llv.ma_nguoi_dung, nd.ho_ten, bscm.ten_chuyen_mon, llv.ca
-    ORDER BY 
-        llv.ca, nd.ho_ten;
+    select *
+    from hang_ton_kho
+        join loai_hang_ton_kho on hang_ton_kho.ma_loai = loai_hang_ton_kho.ma_loai
+    where hang_ton_kho.ma_loai != @id
+    order by hang_ton_kho.ngay_het_han
 END;
 GO
 
-CREATE PROCEDURE DanhSachBenhNhanTheoNgay
-    @ngay DATE
+CREATE PROCEDURE ThongTinDichVu
 AS
 BEGIN
-    SELECT 
-        lh.ma_lich_hen,
-        bn.ma_benh_nhan,
-        bn.ho_ten AS ten_benh_nhan,
-        bn.so_dien_thoai,
-        lh.ma_nguoi_dung AS ma_bac_si,
-        nd.ho_ten AS ten_bac_si,
-        llv.ca,
-        lh.ngay_hen,
-        lh.ghi_chu,
-        CASE 
-            WHEN lh.trang_thai = 0 THEN N'Chưa khám'
-            WHEN lh.trang_thai = 1 THEN N'Đã khám'
-        END AS trang_thai
-    FROM 
-        lich_hen AS lh
-        JOIN benh_nhan AS bn ON lh.ma_benh_nhan = bn.ma_benh_nhan
-        JOIN nguoi_dung AS nd ON lh.ma_nguoi_dung = nd.ma_nguoi_dung
-        JOIN lich_lam_viec AS llv ON lh.ma_nguoi_dung = llv.ma_nguoi_dung 
-            AND lh.ngay_hen = llv.ngay
-            AND llv.ngay = @ngay
-    WHERE 
-        lh.ngay_hen = @ngay
-    ORDER BY 
-        lh.ma_lich_hen
+    select *
+    from dich_vu
+        join loai_dich_vu on dich_vu.ma_loai = loai_dich_vu.ma_loai_dich_vu
 END;
 GO
 
-CREATE PROCEDURE TaoLichHenBenhNhan
-    @ho_ten NVARCHAR(50),
-    @gioi_tinh BIT,
-    @tuoi INT,
-    @so_dien_thoai NVARCHAR(10),
-    @dia_chi NVARCHAR(50),
-    @ma_bac_si INT,
-    @ngay_hen DATE,               -- Ngày hẹn
-    @ca INT,                      -- Ca làm việc
-    @ghi_chu NVARCHAR(255)
+CREATE PROCEDURE ThongTinChiTietThuoc
+    @id INT
 AS
 BEGIN
-    DECLARE @ma_benh_nhan INT;
-
-    -- 1. Tạo mã bệnh nhân mới bằng cách lấy giá trị lớn nhất của ma_benh_nhan và tăng lên 1
-    SELECT @ma_benh_nhan = ISNULL(MAX(ma_benh_nhan), 0) + 1
-    FROM benh_nhan;   
-
-    -- 2. Thêm bệnh nhân mới vào bảng benh_nhan với mã bệnh nhân mới
-    INSERT INTO benh_nhan (ma_benh_nhan, ho_ten, gioi_tinh, tuoi, so_dien_thoai, dia_chi)
-    VALUES (@ma_benh_nhan, @ho_ten, @gioi_tinh, @tuoi, @so_dien_thoai, @dia_chi);
-
-    -- 3. Thêm lịch hẹn vào bảng lich_hen với mã bệnh nhân, mã bác sĩ, ngày hẹn, ca và ghi chú
-    INSERT INTO lich_hen (ma_benh_nhan, ma_nguoi_dung, ngay_hen, ca, ghi_chu, trang_thai)
-    VALUES (@ma_benh_nhan, @ma_bac_si, @ngay_hen, @ca, @ghi_chu, 0); -- 0: Chưa khám
-
-    PRINT N'Lịch hẹn đã được thêm thành công!';
+    SELECT *
+    FROM hang_ton_kho
+    where hang_ton_kho.ma_loai = 1
+        AND hang_ton_kho.ma_kho = @id
 END;
 GO
 
-CREATE PROCEDURE LayThongTinBenhNhanVaBenhAn
-    @ma_benh_nhan INT
+CREATE PROCEDURE CapNhatThongTinThuoc
+    @id INT,
+    @donViTinh nvarchar(255),
+    @gia float
 AS
 BEGIN
-    SELECT 
-        bn.ma_benh_nhan,
-        bn.ho_ten,
-        bn.gioi_tinh,
-        bn.tuoi,
-        bn.so_dien_thoai,
-        bn.dia_chi,
-        hsba.ma_ho_so,
-        hsba.chan_doan,
-        hsba.phuong_phap_dieu_tri,
-        hsba.trieu_chung
-    FROM 
-        benh_nhan AS bn
-    LEFT JOIN 
-        ho_so_benh_an AS hsba ON bn.ma_benh_nhan = hsba.ma_benh_nhan
-    WHERE 
-        bn.ma_benh_nhan = @ma_benh_nhan;
+    UPDATE hang_ton_kho 
+	SET don_vi = @donViTinh,
+	gia = @gia
+	where ma_kho = @id
 END;
 GO
 
-EXEC LayThongTinBenhNhanVaBenhAn @ma_benh_nhan = 1;
-GO
-
-CREATE PROCEDURE CapNhatThongTinBenhNhanVaBenhAn
-    @ma_benh_nhan INT,
-    @ho_ten NVARCHAR(50) = NULL,
-    @gioi_tinh BIT = NULL,
-    @tuoi INT = NULL,
-    @so_dien_thoai NVARCHAR(10) = NULL,
-    @dia_chi NVARCHAR(50) = NULL,
-    @ma_ho_so INT = NULL,
-    @chan_doan NVARCHAR(50) = NULL,
-    @phuong_phap_dieu_tri NVARCHAR(50) = NULL,
-    @trieu_chung NVARCHAR(50) = NULL
+CREATE PROCEDURE ThongTinChiTietVatTu
+    @id INT
 AS
 BEGIN
-    -- Bắt đầu một giao dịch để đảm bảo tính toàn vẹn dữ liệu
-    BEGIN TRANSACTION;
+    SELECT *
+    FROM hang_ton_kho
+    where ma_kho = @id
+        and ma_loai != 1
 
-    BEGIN TRY
-        -- 1. Cập nhật thông tin trong bảng benh_nhan
-        UPDATE benh_nhan
-        SET 
-            ho_ten = COALESCE(@ho_ten, ho_ten),
-            gioi_tinh = COALESCE(@gioi_tinh, gioi_tinh),
-            tuoi = COALESCE(@tuoi, tuoi),
-            so_dien_thoai = COALESCE(@so_dien_thoai, so_dien_thoai),
-            dia_chi = COALESCE(@dia_chi, dia_chi)
-        WHERE 
-            ma_benh_nhan = @ma_benh_nhan;
-
-        -- 2. Cập nhật thông tin trong bảng ho_so_benh_an nếu ma_ho_so được cung cấp
-        IF @ma_ho_so IS NOT NULL
-        BEGIN
-            UPDATE ho_so_benh_an
-            SET 
-                chan_doan = COALESCE(@chan_doan, chan_doan),
-                phuong_phap_dieu_tri = COALESCE(@phuong_phap_dieu_tri, phuong_phap_dieu_tri),
-                trieu_chung = COALESCE(@trieu_chung, trieu_chung)
-            WHERE 
-                ma_ho_so = @ma_ho_so
-                AND ma_benh_nhan = @ma_benh_nhan;
-        END
-
-        -- Xác nhận giao dịch nếu không có lỗi xảy ra
-        COMMIT TRANSACTION;
-        
-        PRINT N'Cập nhật thông tin bệnh nhân và bệnh án thành công!';
-    END TRY
-    BEGIN CATCH
-        -- Nếu có lỗi, hủy bỏ giao dịch
-        ROLLBACK TRANSACTION;
-        
-        PRINT N'Có lỗi xảy ra. Giao dịch đã được hủy bỏ.';
-        THROW; -- Ném lỗi để xem chi tiết
-    END CATCH
 END;
 GO
+
+CREATE PROCEDURE CapNhatThongTinVatTu
+    @id INT,
+    @donViTinh nvarchar(255),
+    @gia float
+AS
+BEGIN
+    UPDATE hang_ton_kho 
+	SET don_vi = @donViTinh,
+	gia = @gia
+	where ma_kho = @id
+END;
+GO
+
+CREATE PROCEDURE ThongTinChiTietDichVu
+    @id INT
+AS
+BEGIN
+    SELECT *
+    FROM dich_vu
+        join loai_dich_vu on dich_vu.ma_loai = loai_dich_vu.ma_loai_dich_vu
+    where dich_vu.ma_loai = @id
+END;
+GO
+
+CREATE PROCEDURE CapNhatThongTinDichVu
+    @id INT,
+    @donViTinh nvarchar(255),
+    @gia float
+AS
+BEGIN
+    UPDATE dich_vu 
+	SET don_vi = @donViTinh,
+	gia = @gia
+	where ma_dich_vu = @id
+END;
+
+GO
+
+CREATE PROCEDURE ThemDichVu
+    @ten nvarchar(255),
+    @donVi nvarchar(255),
+    @gia float,
+    @maLoai int
+AS
+BEGIN
+    INSERT INTO dich_vu
+    VALUES
+        (@maLoai, @ten, @donVi, @gia)
+END;
+
+GO
+
+CREATE FUNCTION DemSoLuongHangTonKho()
+RETURNS INT
+AS
+BEGIN
+    DECLARE @TongSoLuong INT;
+    SELECT @TongSoLuong = Count(*)
+    FROM hang_ton_kho
+
+    RETURN @TongSoLuong;
+END;
+GO
+
+CREATE PROCEDURE ThemVatTu
+    @ten nvarchar(255),
+    @loai nvarchar(255),
+    @soLuong int,
+    @donVi nvarchar(255),
+    @lieuLuong nvarchar(255),
+    @ngaySanXuat date,
+    @ngayHetHan date,
+    @ngayNhap date,
+    @gia float,
+    @maLoai int
+AS
+BEGIN
+    DECLARE @TongSoLuong INT;
+    SET @TongSoLuong = dbo.DemSoLuongHangTonKho() + 1;
+    INSERT INTO hang_ton_kho
+    VALUES
+        (@TongSoLuong, @ten, @loai, @soLuong, @donVi, @lieuLuong, @ngaySanXuat, @ngayHetHan, @ngayNhap, @gia, @maLoai);
+END;
+
+GO
+
+CREATE PROCEDURE ThemThuoc
+    @ten nvarchar(255),
+    @loai nvarchar(255),
+    @soLuong int,
+    @donVi nvarchar(255),
+    @lieuLuong nvarchar(255),
+    @ngaySanXuat date,
+    @ngayHetHan date,
+    @ngayNhap date,
+    @gia float,
+    @maLoai int
+AS
+BEGIN
+    DECLARE @TongSoLuong INT;
+    SET @TongSoLuong = dbo.DemSoLuongHangTonKho() + 1;
+    INSERT INTO hang_ton_kho
+    VALUES
+        (@TongSoLuong, @ten, @loai, @soLuong, @donVi, @lieuLuong, @ngaySanXuat, @ngayHetHan, @ngayNhap, @gia, @maLoai);
+END;
+
+GO
+
+CREATE PROC XoaHangTonKho
+    @id int
+AS
+BEGIN
+    DELETE FROM hang_ton_kho
+	where ma_kho = @id
+END;
+GO
+
+CREATE PROC XoaDichVu
+    @id int
+AS
+BEGIN
+    DELETE FROM dich_vu
+	where ma_loai = @id
+END;
+GO
+
+

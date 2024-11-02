@@ -1,158 +1,3 @@
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\Dental_Clinic.exe
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\Dental_Clinic.deps.json
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\Dental_Clinic.runtimeconfig.json
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\Dental_Clinic.dll
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\Dental_Clinic.pdb
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.csproj.GenerateResource.cache
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GeneratedMSBuildEditorConfig.editorconfig
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.AssemblyInfoInputs.cache
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.AssemblyInfo.cs
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.csproj.CoreCompileInputs.cache
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.sourcelink.json
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.dll
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\refint\Dental_Clinic.dll
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.pdb
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.genruntimeconfig.cache
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\ref\Dental_Clinic.dll
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.Properties.Resources.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Login.LoginForm.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Login.ForgotPassword.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Dental_Clinic.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.MainForm.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.UserForm.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.DashboardForm.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.PatientForm.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.SuppliesForm.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.WorkScheduleForm.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.SalaryManagementForm.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.BusinessStatisticsForm.resources
-D:\Đại học\Dental_Clinic\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\Dental_Clinic.exe
-D:\Đại học\Dental_Clinic\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\Dental_Clinic.deps.json
-D:\Đại học\Dental_Clinic\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\Dental_Clinic.runtimeconfig.json
-D:\Đại học\Dental_Clinic\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\Dental_Clinic.dll
-D:\Đại học\Dental_Clinic\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\Dental_Clinic.pdb
-D:\Đại học\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.BusinessStatisticsForm.resources
-D:\Đại học\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.DashboardForm.resources
-D:\Đại học\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.MainForm.resources
-D:\Đại học\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.PatientForm.resources
-D:\Đại học\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.SalaryManagementForm.resources
-D:\Đại học\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.SuppliesForm.resources
-D:\Đại học\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.UserForm.resources
-D:\Đại học\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.WorkScheduleForm.resources
-D:\Đại học\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Login.ForgotPassword.resources
-D:\Đại học\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Login.LoginForm.resources
-D:\Đại học\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Dental_Clinic.resources
-D:\Đại học\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.Properties.Resources.resources
-D:\Đại học\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.csproj.GenerateResource.cache
-D:\Đại học\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GeneratedMSBuildEditorConfig.editorconfig
-D:\Đại học\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.AssemblyInfoInputs.cache
-D:\Đại học\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.AssemblyInfo.cs
-D:\Đại học\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.csproj.CoreCompileInputs.cache
-D:\Đại học\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.sourcelink.json
-D:\Đại học\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.dll
-D:\Đại học\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\refint\Dental_Clinic.dll
-D:\Đại học\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.pdb
-D:\Đại học\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.genruntimeconfig.cache
-D:\Đại học\Dental_Clinic\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\ref\Dental_Clinic.dll
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\Dental_Clinic.exe
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\Dental_Clinic.deps.json
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\Dental_Clinic.runtimeconfig.json
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\Dental_Clinic.dll
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\Dental_Clinic.pdb
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.DashboardForm.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.MainForm.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Dental_Clinic.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.Properties.Resources.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.csproj.GenerateResource.cache
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GeneratedMSBuildEditorConfig.editorconfig
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.AssemblyInfoInputs.cache
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.AssemblyInfo.cs
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.csproj.CoreCompileInputs.cache
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.sourcelink.json
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.dll
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\refint\Dental_Clinic.dll
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.pdb
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.genruntimeconfig.cache
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\ref\Dental_Clinic.dll
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.csproj.AssemblyReference.cache
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_C.6425C90A.Up2Date
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Receptionist.MainForm.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\bin\Debug\net8.0-windows\Dental_Clinic.exe
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\bin\Debug\net8.0-windows\Dental_Clinic.deps.json
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\bin\Debug\net8.0-windows\Dental_Clinic.runtimeconfig.json
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\bin\Debug\net8.0-windows\Dental_Clinic.dll
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\bin\Debug\net8.0-windows\Dental_Clinic.pdb
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\bin\Debug\net8.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.csproj.AssemblyReference.cache
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.BusinessStatisticsForm.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.DashboardForm.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.MainForm.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.Patient.AddPatientForm.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.Patient.EditPatientForm.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.PatientForm.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.SalaryManagementForm.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.Supplies.AddMedicineForm.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.Supplies.AddSuppliesForm.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.Supplies.EditMedicineForm.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.Supplies.EditSuppliesForm.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.SuppliesForm.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.User.AddReceptionForm.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.User.AddUserForm.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.User.EditReceptionForm.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.User.EditUserForm.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.User.Form1.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.User.ReceptionistForm.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.UserForm.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.WorkSchedule.EditWorkScheduleForm.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.WorkScheduleForm.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Doctor.MainForm.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Login.ForgotPassword.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Login.LoginForm.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Dental_Clinic.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Receptionist.MainForm.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.Properties.Resources.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.csproj.GenerateResource.cache
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.AssemblyInfoInputs.cache
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.AssemblyInfo.cs
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.csproj.CoreCompileInputs.cache
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\Dental_C.6425C90A.Up2Date
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.dll
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\refint\Dental_Clinic.dll
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.pdb
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.genruntimeconfig.cache
-C:\Users\Nguyen\Desktop\Dental_Clinic-f35e99979ea3f2d6e617bc01e6d4fd3df78282d3\Dental_Clinic\obj\Debug\net8.0-windows\ref\Dental_Clinic.dll
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Login.FormDangNhap.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Login.FormQuenMatKhau.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.FormBenhNhan.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.Patient.FormChinhSuaBenhNhan.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.Patient.FormThemBenhNhan.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.WorkSchedule.FormChinhSuaLichLamViec.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.FormLichLamViec.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.FormQuanLyLuong.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.FormBacSi.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.User.FormChinhSuaBacSi.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.User.FormChinhSuaLeTan.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.User.FormLeTan.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.User.FormThemBacSi.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.User.FormThemLeTan.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.FormThongKe.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.Supplies.FormChinhSuaThuoc.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.Supplies.FormChinhSuaVatTu.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.Supplies.FormThemThuoc.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.Supplies.FormThemVatTu.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.FormVatTu.resources
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\Dental_Clinic.exe
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\Dental_Clinic.deps.json
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\Dental_Clinic.runtimeconfig.json
@@ -165,14 +10,24 @@ C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\run
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.csproj.AssemblyReference.cache
+C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.BenhNhan.FormBenhNhan_BacSi.resources
+C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.BenhNhan.FormChinhSuaBenhNhan_BacSi.resources
+C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.BenhNhan.FormThemBenhNhan_BacSi.resources
+C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.FormBacSi.resources
+C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.FormTrangChuBacSi.resources
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Login.FormDangNhap.resources
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Login.FormQuenMatKhau.resources
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Dental_Clinic.resources
+C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.LeTan.FormChinhSuaThongTinBenhNhan.resources
+C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Receptionist.FormLeTan.resources
+C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.LeTan.FormThemLichHen.resources
+C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.LeTan.FormTrangChuLeTan.resources
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.FormBenhNhan.resources
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.Patient.FormChinhSuaBenhNhan.resources
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.Patient.FormThemBenhNhan.resources
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.DashboardForm.resources
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.WorkSchedule.FormChinhSuaLichLamViec.resources
+C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.QuanTriVien.LichLamViec.FormChiTietCaLam.resources
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.FormLichLamViec.resources
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.FormQuanLyLuong.resources
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.MainForm.resources
@@ -183,8 +38,10 @@ C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Den
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.User.FormThemBacSi.resources
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.User.FormThemLeTan.resources
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.FormThongKe.resources
+C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.QuanTriVien.VatTu.FormChinhSuaDichVu.resources
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.Supplies.FormChinhSuaThuoc.resources
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.Supplies.FormChinhSuaVatTu.resources
+C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.QuanTriVien.VatTu.FormThemDichVu.resources
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.Supplies.FormThemThuoc.resources
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.Supplies.FormThemVatTu.resources
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.FormVatTu.resources
@@ -201,73 +58,3 @@ C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\ref
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.pdb
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.genruntimeconfig.cache
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\ref\Dental_Clinic.dll
-C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.FormBacSi.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.FormBacSi.resources
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\Dental_Clinic.exe
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\Dental_Clinic.deps.json
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\Dental_Clinic.runtimeconfig.json
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\Dental_Clinic.dll
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\Dental_Clinic.pdb
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\runtimes\win-arm64\native\sni.dll
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\runtimes\win-x64\native\sni.dll
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\runtimes\win-x86\native\sni.dll
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.csproj.AssemblyReference.cache
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.BenhNhan.FormBenhNhan_BacSi.resources
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.BenhNhan.FormChinhSuaBenhNhan_BacSi.resources
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.BenhNhan.FormThemBenhNhan_BacSi.resources
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.FormBacSi.resources
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.FormTrangChuBacSi.resources
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Login.FormDangNhap.resources
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Login.FormQuenMatKhau.resources
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Dental_Clinic.resources
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Receptionist.MainForm.resources
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.FormBenhNhan.resources
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.Patient.FormChinhSuaBenhNhan.resources
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.Patient.FormThemBenhNhan.resources
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.DashboardForm.resources
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.WorkSchedule.FormChinhSuaLichLamViec.resources
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.FormLichLamViec.resources
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.FormQuanLyLuong.resources
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.MainForm.resources
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.FormBacSi.resources
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.User.FormChinhSuaBacSi.resources
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.User.FormChinhSuaLeTan.resources
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.User.FormLeTan.resources
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.User.FormThemBacSi.resources
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.User.FormThemLeTan.resources
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.FormThongKe.resources
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.Supplies.FormChinhSuaThuoc.resources
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.Supplies.FormChinhSuaVatTu.resources
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.Supplies.FormThemThuoc.resources
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.Supplies.FormThemVatTu.resources
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.FormVatTu.resources
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.Properties.Resources.resources
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.csproj.GenerateResource.cache
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GeneratedMSBuildEditorConfig.editorconfig
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.AssemblyInfoInputs.cache
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.AssemblyInfo.cs
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.csproj.CoreCompileInputs.cache
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.sourcelink.json
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_C.6425C90A.Up2Date
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.dll
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\refint\Dental_Clinic.dll
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.pdb
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.genruntimeconfig.cache
-D:\Đại học\HK5\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\ref\Dental_Clinic.dll
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.BenhNhan.FormBenhNhan_BacSi.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.BenhNhan.FormChinhSuaBenhNhan_BacSi.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.BenhNhan.FormThemBenhNhan_BacSi.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.FormTrangChuBacSi.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.BenhNhan.FormBenhNhan_BacSi.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.BenhNhan.FormChinhSuaBenhNhan_BacSi.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.BenhNhan.FormThemBenhNhan_BacSi.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.FormTrangChuBacSi.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.QuanTriVien.LichLamViec.FormChiTietCaLam.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.QuanTriVien.LichLamViec.FormChiTietCaLam.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Receptionist.FormLeTan.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.LeTan.FormTrangChuLeTan.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.LeTan.FormThemLichHen.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.LeTan.FormChinhSuaThongTinBenhNhan.resources

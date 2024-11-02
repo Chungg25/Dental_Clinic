@@ -179,7 +179,7 @@ namespace Dental_Clinic.GUI.Login
             vbDangNhap.Cursor = Cursors.Hand;
             vbDangNhap.FlatAppearance.BorderSize = 0;
             vbDangNhap.FlatStyle = FlatStyle.Flat;
-            vbDangNhap.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            vbDangNhap.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             vbDangNhap.ForeColor = Color.White;
             vbDangNhap.Location = new Point(134, 558);
             vbDangNhap.Margin = new Padding(4, 4, 4, 4);
