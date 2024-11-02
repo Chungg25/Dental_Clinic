@@ -90,6 +90,17 @@ namespace Dental_Clinic.GUI.Administrator.Supplies
 
         private void vbThemVatTu_Click(object sender, EventArgs e)
         {
+            if (KiemTraThem())
+            {
+                return;
+            }
+            dichVuDTO.Ten = tbThuoc.Text;
+            dichVuDTO.Loai = cbLoaiVatTu.SelectedText;
+            dichVuDTO.SoLuong = tbSoLuong.Text;
+            dichVuDTO.DonVi = tbDonViTinh.Text;
+            dichVuDTO.LieuLuong = tbLieuLuong.Text;
+            dichVuDTO.Gia = float.Parse(tbGia.Text);
+
 
         }
 
@@ -156,26 +167,18 @@ namespace Dental_Clinic.GUI.Administrator.Supplies
             {
                 vbGia.BorderColor = Color.Black; // Đặt màu viền mặc định
             }
-
-            //if (string.IsNullOrEmpty(tbGia.Text))
-            //{
-            //    vbGioiTinh.BorderColor = Color.Red; // Đặt màu nền cho ComboBox khi không chọn
-            //    isValid = false;
-            //}
-            //else
-            //{
-            //    vbGioiTinh.BorderColor = Color.White; // Đặt màu nền mặc định
-            //}
-
-            //if (cbChuyenNganh.SelectedItem == null)
-            //{
-            //    vbChuyenNganh.BorderColor = Color.Red; // Đặt màu nền cho ComboBox khi không chọn
-            //    isValid = false;
-            //}
-            //else
-            //{
-            //    vbChuyenNganh.BorderColor = Color.Black; // Đặt màu nền mặc định
-            //}
+            if(dtpNgaySanXuat.Value < dtpNgayNhap.Value)
+            {
+                vbNgaySanXuat.BorderColor = Color.Red;
+                vbNgayNhap.BorderColor = Color.Red;
+                isValid = false;
+            }
+            if(dtpNgayHetHan.Value > dtpNgayNhap.Value)
+            {
+                vbNgayHetHan.BorderColor = Color.Red;
+                vbNgayNhap.BorderColor = Color.Red;
+                isValid = false;
+            }
             return isValid;
         }
     }

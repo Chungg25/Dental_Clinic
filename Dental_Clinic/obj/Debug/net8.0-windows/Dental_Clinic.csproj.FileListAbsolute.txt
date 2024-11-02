@@ -335,3 +335,6 @@ D:\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.LeTan.
 D:\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.QuanTriVien.LichLamViec.FormChiTietCaLam.resources
 D:\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.QuanTriVien.VatTu.FormChinhSuaDichVu.resources
 D:\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.QuanTriVien.VatTu.FormThemDichVu.resources
+D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Receptionist.FormLeTan.resources
+D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.LeTan.FormTrangChuLeTan.resources
+>>>>>>> 34de7d75ab30d638276e27e851d77c4d70b32ad8

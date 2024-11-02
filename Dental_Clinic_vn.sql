@@ -2383,9 +2383,6 @@ BEGIN
         lh.ngay_hen ASC;
 END;
 GO
-EXEC LayDanhSachLichHenTrongNgay @NgayHen = '2024-10-25';
-
-GO
 
 CREATE PROCEDURE DanhSachLichLamViecLeTan
     @StartOfMonth DATE,
@@ -2516,6 +2513,52 @@ BEGIN
 	SET don_vi = @donViTinh,
 	gia = @gia
 	where ma_dich_vu = @id
+END;
+
+GO
+
+CREATE PROCEDURE ThemDichVu
+	@ten nvarchar(255),
+	@donVi nvarchar(255),
+	@gia float,
+	@maLoai int
+AS
+BEGIN 
+	INSERT INTO dich_vu
+	VALUES (@maLoai, @ten, @donVi,@gia)
+END;
+
+GO
+
+CREATE FUNCTION DemSoLuongHangTonKho()
+RETURNS INT
+AS
+BEGIN
+    DECLARE @TongSoLuong INT;
+    SELECT @TongSoLuong = Count(*)
+    FROM hang_ton_kho
+
+    RETURN @TongSoLuong;
+END;
+GO
+
+CREATE PROCEDURE ThemVatTu
+	@ten nvarchar(255),
+	@loai nvarchar(255),
+	@soLuong int,
+	@donVi nvarchar(255),
+	@lieuLuong nvarchar(255),
+	@ngaySanXuat date,
+	@ngayHetHan date,
+	@ngayNhap date,
+	@gia float,
+	@maLoai int
+AS
+BEGIN 
+	DECLARE @TongSoLuong INT;
+    SET @TongSoLuong = dbo.DemSoLuongHangTonKho();
+	INSERT INTO hang_ton_kho
+	VALUES (@TongSoLuong, @ten, @loai, @soLuong, @donVi, @lieuLuong, @ngaySanXuat, @ngayHetHan, @ngayNhap, @gia, @maLoai);
 END;
 
 GO

@@ -18,7 +18,6 @@ D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Release\net8.0-windows\
 D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Release\net8.0-windows\Dental_Clinic.GUI.Login.FormDangNhap.resources
 D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Release\net8.0-windows\Dental_Clinic.GUI.Login.FormQuenMatKhau.resources
 D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Release\net8.0-windows\Dental_Clinic.GUI.Dental_Clinic.resources
-D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Release\net8.0-windows\Dental_Clinic.GUI.Receptionist.MainForm.resources
 D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Release\net8.0-windows\Dental_Clinic.GUI.Administrator.FormBenhNhan.resources
 D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Release\net8.0-windows\Dental_Clinic.GUI.Administrator.Patient.FormChinhSuaBenhNhan.resources
 D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Release\net8.0-windows\Dental_Clinic.GUI.Administrator.Patient.FormThemBenhNhan.resources
@@ -53,3 +52,7 @@ D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Release\net8.0-windows\
 D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Release\net8.0-windows\Dental_Clinic.pdb
 D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Release\net8.0-windows\Dental_Clinic.genruntimeconfig.cache
 D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Release\net8.0-windows\ref\Dental_Clinic.dll
+D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Release\net8.0-windows\Dental_Clinic.GUI.Receptionist.FormLeTan.resources
+D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Release\net8.0-windows\Dental_Clinic.GUI.LeTan.FormTrangChuLeTan.resources
+D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Release\net8.0-windows\Dental_Clinic.GUI.QuanTriVien.VatTu.FormChinhSuaDichVu.resources
+D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Release\net8.0-windows\Dental_Clinic.GUI.QuanTriVien.VatTu.FormThemDichVu.resources
