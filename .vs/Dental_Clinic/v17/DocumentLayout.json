@@ -1,10 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\\u0110\u1EA1i h\u1ECDc\\HK5\\CNPM\\Dental_Clinic\\",
+  "WorkspaceRootPath": "D:\\Dental_Clinic\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|d:\\\u0111\u1EA1i h\u1ECDc\\hk5\\cnpm\\dental_clinic\\dental_clinic\\gui\\quantrivien\\lichlamviec\\formlichlamviec.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|solutionrelative:dental_clinic\\gui\\quantrivien\\lichlamviec\\formlichlamviec.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|d:\\dental_clinic\\dental_clinic\\gui\\quantrivien\\benhnhan\\formchinhsuabenhnhan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|solutionrelative:dental_clinic\\gui\\quantrivien\\benhnhan\\formchinhsuabenhnhan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|d:\\dental_clinic\\dental_clinic\\gui\\dangnhap\\formquenmatkhau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|solutionrelative:dental_clinic\\gui\\dangnhap\\formquenmatkhau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|d:\\dental_clinic\\dental_clinic\\gui\\dangnhap\\formquenmatkhau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|solutionrelative:dental_clinic\\gui\\dangnhap\\formquenmatkhau.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|d:\\dental_clinic\\dental_clinic\\bus\\dangnhap\\dangnhapbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|solutionrelative:dental_clinic\\bus\\dangnhap\\dangnhapbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|d:\\dental_clinic\\dental_clinic\\dto\\dangnhap\\dangnhapdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|solutionrelative:dental_clinic\\dto\\dangnhap\\dangnhapdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|d:\\dental_clinic\\dental_clinic\\dao\\dangnhap\\dangnhapdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAE82F05-8901-4E94-92FB-87D4FD15BB84}|Dental_Clinic\\Dental_Clinic.csproj|solutionrelative:dental_clinic\\dao\\dangnhap\\dangnhapdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,15 +34,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
               "$type": "Bookmark",
@@ -30,23 +54,113 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+              "Name": "ST:134:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FormLichLamViec.cs [Design]",
-              "DocumentMoniker": "D:\\\u0110\u1EA1i h\u1ECDc\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\GUI\\QuanTriVien\\LichLamViec\\FormLichLamViec.cs",
-              "RelativeDocumentMoniker": "Dental_Clinic\\GUI\\QuanTriVien\\LichLamViec\\FormLichLamViec.cs",
-              "ToolTip": "D:\\\u0110\u1EA1i h\u1ECDc\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\GUI\\QuanTriVien\\LichLamViec\\FormLichLamViec.cs [Design]",
-              "RelativeToolTip": "Dental_Clinic\\GUI\\QuanTriVien\\LichLamViec\\FormLichLamViec.cs [Design]",
+              "Title": "FormChinhSuaBenhNhan.cs",
+              "DocumentMoniker": "D:\\Dental_Clinic\\Dental_Clinic\\GUI\\QuanTriVien\\BenhNhan\\FormChinhSuaBenhNhan.cs",
+              "RelativeDocumentMoniker": "Dental_Clinic\\GUI\\QuanTriVien\\BenhNhan\\FormChinhSuaBenhNhan.cs",
+              "ToolTip": "D:\\Dental_Clinic\\Dental_Clinic\\GUI\\QuanTriVien\\BenhNhan\\FormChinhSuaBenhNhan.cs",
+              "RelativeToolTip": "Dental_Clinic\\GUI\\QuanTriVien\\BenhNhan\\FormChinhSuaBenhNhan.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-30T05:42:00.875Z",
+              "WhenOpened": "2024-11-01T10:41:02.32Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FormQuenMatKhau.cs",
+              "DocumentMoniker": "D:\\Dental_Clinic\\Dental_Clinic\\GUI\\DangNhap\\FormQuenMatKhau.cs",
+              "RelativeDocumentMoniker": "Dental_Clinic\\GUI\\DangNhap\\FormQuenMatKhau.cs",
+              "ToolTip": "D:\\Dental_Clinic\\Dental_Clinic\\GUI\\DangNhap\\FormQuenMatKhau.cs",
+              "RelativeToolTip": "Dental_Clinic\\GUI\\DangNhap\\FormQuenMatKhau.cs",
+              "ViewState": "AQIAAKkAAAAAAAAAAAAqwK0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-01T09:53:20.792Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FormQuenMatKhau.cs [Design]",
+              "DocumentMoniker": "D:\\Dental_Clinic\\Dental_Clinic\\GUI\\DangNhap\\FormQuenMatKhau.cs",
+              "RelativeDocumentMoniker": "Dental_Clinic\\GUI\\DangNhap\\FormQuenMatKhau.cs",
+              "ToolTip": "D:\\Dental_Clinic\\Dental_Clinic\\GUI\\DangNhap\\FormQuenMatKhau.cs [Design]",
+              "RelativeToolTip": "Dental_Clinic\\GUI\\DangNhap\\FormQuenMatKhau.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-01T09:53:07.162Z",
               "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DangNhapDTO.cs",
+              "DocumentMoniker": "D:\\Dental_Clinic\\Dental_Clinic\\DTO\\DangNhap\\DangNhapDTO.cs",
+              "RelativeDocumentMoniker": "Dental_Clinic\\DTO\\DangNhap\\DangNhapDTO.cs",
+              "ToolTip": "D:\\Dental_Clinic\\Dental_Clinic\\DTO\\DangNhap\\DangNhapDTO.cs",
+              "RelativeToolTip": "Dental_Clinic\\DTO\\DangNhap\\DangNhapDTO.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAAwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-31T19:29:14.172Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DangNhapDAO.cs",
+              "DocumentMoniker": "D:\\Dental_Clinic\\Dental_Clinic\\DAO\\DangNhap\\DangNhapDAO.cs",
+              "RelativeDocumentMoniker": "Dental_Clinic\\DAO\\DangNhap\\DangNhapDAO.cs",
+              "ToolTip": "D:\\Dental_Clinic\\Dental_Clinic\\DAO\\DangNhap\\DangNhapDAO.cs",
+              "RelativeToolTip": "Dental_Clinic\\DAO\\DangNhap\\DangNhapDAO.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-31T19:24:58.591Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DangNhapBUS.cs",
+              "DocumentMoniker": "D:\\Dental_Clinic\\Dental_Clinic\\BUS\\DangNhap\\DangNhapBUS.cs",
+              "RelativeDocumentMoniker": "Dental_Clinic\\BUS\\DangNhap\\DangNhapBUS.cs",
+              "ToolTip": "D:\\Dental_Clinic\\Dental_Clinic\\BUS\\DangNhap\\DangNhapBUS.cs",
+              "RelativeToolTip": "Dental_Clinic\\BUS\\DangNhap\\DangNhapBUS.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-31T19:24:45.553Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
             }
           ]
         }
