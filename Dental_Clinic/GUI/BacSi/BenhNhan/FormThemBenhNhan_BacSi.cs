@@ -31,6 +31,7 @@ namespace Dental_Clinic.GUI.BacSi.BenhNhan
             // Chỉ được đọc không được chỉnh sửa trong comboBox
             cbGioiTinh.DropDownStyle = ComboBoxStyle.DropDownList;
         }
+        // Thêm bệnh nhân
         private void vbThemBenhNhan_Click(object sender, EventArgs e)
         {
             if (!KiemTraThem())
@@ -45,9 +46,8 @@ namespace Dental_Clinic.GUI.BacSi.BenhNhan
             _benhNhanDTO.DiaChi = tbQueQuan.Text;
             _benhNhanDTO.Tuoi = int.Parse(tbTuoi.Text);
 
-            _benhNhanBUS.ThemBenhNhan(_benhNhanDTO);
+            _benhNhanBUS.ThemBenhNhan_BacSi(_benhNhanDTO, _formBacSi.MaBacSi());
 
-            MessageBox.Show("Thêm bệnh nhân thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             // Quay lại form bệnh nhân
             _formBacSi.ShowFormOnPanel(new FormBenhNhan_BacSi(_formBacSi));
         }
@@ -84,7 +84,7 @@ namespace Dental_Clinic.GUI.BacSi.BenhNhan
             cbGioiTinh.Items.Add("Nam");
             cbGioiTinh.Items.Add("Nữ");
         }
-
+        // Kiểm tra thông tin nhập vào
         public bool KiemTraThem()
         {
             bool isValid = true;
@@ -140,7 +140,7 @@ namespace Dental_Clinic.GUI.BacSi.BenhNhan
             }
             return isValid;
         }
-
+        // Hủy thêm bệnh nhân
         private void vbHuy_Click(object sender, EventArgs e)
         {
             _formBacSi.ShowFormOnPanel(new FormBenhNhan_BacSi(_formBacSi));

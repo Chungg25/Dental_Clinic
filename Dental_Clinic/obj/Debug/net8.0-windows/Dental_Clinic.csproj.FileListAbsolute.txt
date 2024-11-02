@@ -168,7 +168,6 @@ C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Den
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Login.FormDangNhap.resources
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Login.FormQuenMatKhau.resources
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Dental_Clinic.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Receptionist.MainForm.resources
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.FormBenhNhan.resources
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.Patient.FormChinhSuaBenhNhan.resources
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Administrator.Patient.FormThemBenhNhan.resources
@@ -268,5 +267,10 @@ C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Den
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.FormTrangChuBacSi.resources
 D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.QuanTriVien.LichLamViec.FormChiTietCaLam.resources
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.QuanTriVien.LichLamViec.FormChiTietCaLam.resources
+<<<<<<< HEAD
 D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.QuanTriVien.VatTu.FormChinhSuaDichVu.resources
 D:\Đại học\HK5\CNPM\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.QuanTriVien.VatTu.FormThemDichVu.resources
+=======
+C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Receptionist.FormLeTan.resources
+C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.LeTan.FormTrangChuLeTan.resources
+>>>>>>> eedd83ca561ab2a9b4ed7e26cba46230dbf41044

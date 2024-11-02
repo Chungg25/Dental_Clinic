@@ -133,6 +133,9 @@ namespace Dental_Clinic.DAO.Patient
                 cmd.Parameters.AddWithValue("@gioiTinh", patient.GioiTinh);
                 cmd.Parameters.AddWithValue("@tuoi", patient.Tuoi);
                 cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Thêm bệnh nhân thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 dbConnection.Conn.Close();
             }
         }
@@ -161,6 +164,26 @@ namespace Dental_Clinic.DAO.Patient
                     }
                     return patientList;
                 }
+            }
+        }
+        // Thêm bệnh nhân của bác sĩ
+        public void ThemBenhNhan_BacSi(BenhNhanDTO patient, int id)
+        {
+            using (SqlCommand cmd = new SqlCommand("ThemBenhNhan_BacSi", dbConnection.Conn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                // Thêm các tham số cho thủ tục lưu trữ
+                cmd.Parameters.AddWithValue("@hoTen", patient.HoVaTen);
+                cmd.Parameters.AddWithValue("@soDienThoai", patient.SDT);
+                cmd.Parameters.AddWithValue("@diaChi", patient.DiaChi);
+                cmd.Parameters.AddWithValue("@gioiTinh", patient.GioiTinh);
+                cmd.Parameters.AddWithValue("@tuoi", patient.Tuoi);
+                cmd.Parameters.AddWithValue("@maBacSi", id);
+                cmd.Parameters.AddWithValue("@ngayDieuTri", DateTime.Now.ToString("yyyy-MM-dd"));
+
+                cmd.ExecuteNonQuery();
+                dbConnection.Conn.Close();
             }
         }
     }
