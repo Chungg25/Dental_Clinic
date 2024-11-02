@@ -24,5 +24,40 @@ namespace Dental_Clinic.BUS.VatTu
         {
             return vatTuDAO.DanhSachVatTu(id);
         }
+
+        public List<VatTuDTO> DanhSachDichVu()
+        {
+            return vatTuDAO.DanhSachDichVu();
+        }
+
+        public VatTuDTO ThongTinThuoc(int id)
+        {
+            return vatTuDAO.ThongTinThuoc(id);
+        }
+        public void CapNhatThuoc(VatTuDTO thuoc)
+        {
+            vatTuDAO.CapNhatThongTinThuoc(thuoc);
+        }
+
+        public VatTuDTO ThongTinVatTu(int id)
+        {
+            return vatTuDAO.ThongTinVatTu(id);
+        }
+        public void CapNhatVatTu(VatTuDTO vatTu)
+        {
+            vatTuDAO.CapNhatThongTinVatTu(vatTu);
+        }
+        public VatTuDTO ThongTinDichVu(int id)
+        {
+            return vatTuDAO.ThongTinDichVu(id);
+        }
+        public void CapNhatDichVu(VatTuDTO dichVu)
+        {
+            vatTuDAO.CapNhatThongTinDichVu(dichVu);
+        }
+        public void ThemDichVu(VatTuDTO dichVu)
+        {
+            vatTuDAO.ThemDichVu(dichVu);
+        }
     }
 }

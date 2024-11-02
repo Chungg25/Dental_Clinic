@@ -9,25 +9,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CustomButton;
+using Dental_Clinic.BUS.Patient;
 using Dental_Clinic.BUS.VatTu;
 using Dental_Clinic.DTO.VatTu;
 using Dental_Clinic.GUI.Administrator.Supplies;
 using Dental_Clinic.GUI.Administrator.WorkSchedule;
+using Dental_Clinic.GUI.QuanTriVien.VatTu;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace Dental_Clinic.GUI.Administrator
 {
     public partial class FormVatTu : Form
     {
-        private MainForm _mainForm;
+        private MainForm mainForm;
         private VatTuBUS vatTuBUS;
         public FormVatTu(MainForm mainForm)
         {
             InitializeComponent();
             vatTuBUS = new VatTuBUS();
             HienThiThuoc();
-            
-            _mainForm = mainForm;
+
+            this.mainForm = mainForm;
 
             vbThuoc.FlatStyle = FlatStyle.Flat;
             vbThuoc.FlatAppearance.BorderSize = 0;
@@ -59,6 +61,7 @@ namespace Dental_Clinic.GUI.Administrator
             tbTimKiem.ForeColor = Color.Gray;
             tbTimKiem.Enter += tbTimKiem_Enter;
             tbTimKiem.Leave += tbTimKiem_Leave;
+            tbTimKiem.TextChanged += tbTimKiem_TextChanged;
         }
 
 
@@ -97,7 +100,7 @@ namespace Dental_Clinic.GUI.Administrator
                 Text = text,
                 Font = font,
                 AutoSize = true,
-                Padding = new Padding(1, 5, 10, 5), // Tăng khoảng cách bên trái và bên phải
+                Padding = new Padding(1, 5, 5, 5),
                 Anchor = AnchorStyles.Left | AnchorStyles.Top
             };
         }
@@ -122,7 +125,7 @@ namespace Dental_Clinic.GUI.Administrator
 
 
         // Hàm thêm các nút hành động (chỉnh sửa và xóa)
-        private void ThemActionButtonsVaoTableLayoutPanel(TableLayoutPanel tlpMedicine, int index, int rowIndex, int id)
+        private void ThemActionButtonsVaoTableLayoutPanel(TableLayoutPanel tlpMedicine, int index, int rowIndex, int id, Action<int> onEditAction)
         {
             Image ResizeImage(Image img, int width, int height)
             {
@@ -140,7 +143,7 @@ namespace Dental_Clinic.GUI.Administrator
             Button btnDelete = TaoActionButton(editDeleteColor, deleteIcon);
 
             // Thêm sự kiện Click
-            btnEdit.Click += (s, e) => { HienThiChinhSuaThuocLenPanel(id); };
+            btnEdit.Click += (s, e) => onEditAction(id);
             //btnDelete.Click += (s, e) => { MessageBox.Show("Xóa"); };
 
             // Tạo một Panel để chứa 2 nút
@@ -175,7 +178,7 @@ namespace Dental_Clinic.GUI.Administrator
             tlpMedicine.Controls.Add(TaoLabel(hamLuong, headerFont), 4, currentRow);
             tlpMedicine.Controls.Add(TaoLabel(hanSuDung, headerFont), 5, currentRow); // Thêm CheckBox
             tlpMedicine.Controls.Add(TaoLabel(Loai, headerFont), 6, currentRow); // Thêm CheckBox
-            ThemActionButtonsVaoTableLayoutPanel(tlpMedicine, 7, currentRow, id);
+            ThemActionButtonsVaoTableLayoutPanel(tlpMedicine, 7, currentRow, id, HienThiChinhSuaThuocLenPanel);
         }
 
         // Hàm tạo TableLayoutPanel và gọi hàm AddRowToTableLayoutPanel để thêm dữ liệu
@@ -226,7 +229,7 @@ namespace Dental_Clinic.GUI.Administrator
             scrollablePanel.Name = "Medicine";
             foreach (var thuoc in danhSachThuoc)
             {
-                ThemHangVaoMedicineTableLayoutPanel(tlpMedicine, thuoc.Ten, thuoc.DonVi, thuoc.SoLuong, thuoc.Gia, thuoc.LieuLuong, thuoc.NgayHetHan, thuoc.TenLoai, thuoc.Id);;
+                ThemHangVaoMedicineTableLayoutPanel(tlpMedicine, thuoc.Ten, thuoc.DonVi, thuoc.SoLuong, thuoc.Gia, thuoc.LieuLuong, thuoc.NgayHetHan, thuoc.TenLoai, thuoc.Id); ;
             }
         }
 
@@ -243,7 +246,22 @@ namespace Dental_Clinic.GUI.Administrator
             tlpSupplies.Controls.Add(TaoLabel(gia.ToString(), headerFont), 3, currentRow);
             tlpSupplies.Controls.Add(TaoLabel(hanSuDung, headerFont), 4, currentRow);
             tlpSupplies.Controls.Add(TaoLabel(Loai, headerFont), 5, currentRow);
-            ThemActionButtonsVaoTableLayoutPanel(tlpSupplies, 6, currentRow, id);
+            ThemActionButtonsVaoTableLayoutPanel(tlpSupplies, 6, currentRow, id, HienThiChinhSuaVatTuLenPanel);
+        }
+
+        private void ThemHangVaoServiceTableLayoutPanel(TableLayoutPanel tlpSupplies, string vatLieu, string DVT, float gia, string tenLoai, int id)
+        {
+            if (vatLieu.Contains("-"))
+            {
+                vatLieu = vatLieu.Substring(vatLieu.IndexOf('-') + 1).Trim();
+            }
+            int currentRow = tlpSupplies.RowCount++; // Tăng số lượng hàng
+            Font headerFont = new Font("Segoe UI", 10);
+            tlpSupplies.Controls.Add(TaoLabel(vatLieu, headerFont), 0, currentRow);
+            tlpSupplies.Controls.Add(TaoLabel(DVT, headerFont), 1, currentRow);
+            tlpSupplies.Controls.Add(TaoLabel(gia.ToString(), headerFont), 2, currentRow);
+            tlpSupplies.Controls.Add(TaoLabel(tenLoai, headerFont), 3, currentRow);
+            ThemActionButtonsVaoTableLayoutPanel(tlpSupplies, 4, currentRow, id, HienThiChinhSuaDichVuLenPanel);
         }
 
         // Hàm tạo TableLayoutPanel và gọi hàm AddRowToTableLayoutPanel để thêm dữ liệu
@@ -263,7 +281,9 @@ namespace Dental_Clinic.GUI.Administrator
             };
 
             // Thiết lập số cột
-            tlpSupplies.ColumnCount = 9;
+            tlpSupplies.ColumnCount = 8;
+            tlpSupplies.SuspendLayout();
+
             for (int i = 0; i < tlpSupplies.ColumnCount; i++)
             {
                 tlpSupplies.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
@@ -297,6 +317,59 @@ namespace Dental_Clinic.GUI.Administrator
                 ThemHangVaoSuppliesTableLayoutPanel(tlpSupplies, vatTu.Ten, vatTu.DonVi, vatTu.SoLuong, vatTu.Gia, vatTu.NgayHetHan, vatTu.TenLoai, vatTu.Id);
                 sequenceNumber++;
             }
+            tlpSupplies.ResumeLayout();
+        }
+
+        private void TaoServiceTableLayoutPanel(List<VatTuDTO> danhSachDichVu)
+        {
+            if (panelDuLieu.Controls.Count > 0)
+            {
+                // Xóa các control trong panelBacSi, bao gồm TableLayoutPanel cũ
+                panelDuLieu.Controls.Clear();
+            }
+            // Tạo TableLayoutPanel
+            TableLayoutPanel tlpService = new TableLayoutPanel
+            {
+                Dock = DockStyle.Top,
+                AutoSize = true,
+                AutoSizeMode = AutoSizeMode.GrowAndShrink,
+            };
+
+            // Thiết lập số cột
+            tlpService.ColumnCount = 5;
+            tlpService.SuspendLayout();
+            for (int i = 0; i < tlpService.ColumnCount; i++)
+            {
+                tlpService.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+            }
+
+            // Thiết lập số hàng và thêm các Label tiêu đề vào hàng đầu tiên
+            tlpService.RowCount = 1;
+            Font headerFont = new Font("Arial", 10, FontStyle.Bold);
+            tlpService.Controls.Add(TaoLabel("Dịch vụ", headerFont), 0, 0);
+            tlpService.Controls.Add(TaoLabel("ĐVT", headerFont), 1, 0);
+            tlpService.Controls.Add(TaoLabel("Giá", headerFont), 2, 0);
+            tlpService.Controls.Add(TaoLabel("Tên loại", headerFont), 3, 0);
+            tlpService.Controls.Add(TaoLabel("Thao tác", headerFont), 4, 0);
+
+            ClearControlsExcept(tlpService);
+            Panel scrollablePanel = new Panel
+            {
+                Dock = DockStyle.Fill,
+                AutoScroll = true,
+            };
+            scrollablePanel.Controls.Add(tlpService);
+
+            scrollablePanel.Name = "Service";
+            panelDuLieu.Controls.Add(scrollablePanel);
+
+            int sequenceNumber = 1;
+            foreach (var dichVu in danhSachDichVu)
+            {
+                ThemHangVaoServiceTableLayoutPanel(tlpService, dichVu.Ten, dichVu.DonVi, dichVu.Gia, dichVu.TenLoai, dichVu.Id);
+                sequenceNumber++;
+            }
+            tlpService.ResumeLayout();
         }
 
 
@@ -325,7 +398,7 @@ namespace Dental_Clinic.GUI.Administrator
         {
             HienVatTu();
         }
-        private void HienVatTu()
+        public void HienVatTu()
         {
             List<VatTuDTO> danhSachVatTu = vatTuBUS.DanhSachVatTu(1);
             TaoSuppliesTableLayoutPanel(danhSachVatTu);
@@ -336,68 +409,147 @@ namespace Dental_Clinic.GUI.Administrator
             HienThiThuoc();
         }
 
-        private void HienThiThuoc()
+        public void HienThiThuoc()
         {
             List<VatTuDTO> danhSachThuoc = vatTuBUS.DanhSachThuoc(1);
             TaoMedicineTableLayoutPanel(danhSachThuoc);
         }
 
+        private void vbDichVu_Click(object sender, EventArgs e)
+        {
+            HienThiDichVu();
+        }
+
+        public void HienThiDichVu()
+        {
+            List<VatTuDTO> danhSachDichVu = vatTuBUS.DanhSachDichVu();
+            TaoServiceTableLayoutPanel(danhSachDichVu);
+        }
+
+        private void tbTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            
+            // Lấy nội dung tìm kiếm từ tbTimKiem
+            string searchText = tbTimKiem.Text.ToLower();
+
+            if (string.IsNullOrWhiteSpace(searchText))
+            {
+                return;
+            }
+
+            var danhSachVatTu = vatTuBUS.DanhSachThuoc(1);
+            if (panelDuLieu.Controls[0].Name == "Supplies")
+            {
+                danhSachVatTu = vatTuBUS.DanhSachVatTu(1);
+            }
+            else if (panelDuLieu.Controls[0].Name == "Service")
+            {
+                danhSachVatTu = vatTuBUS.DanhSachDichVu();
+            }
+
+            // Lọc danh sách theo họ tên
+            var filteredList = danhSachVatTu
+                .Where(d => d.Ten.ToLower().Contains(searchText))
+                .ToList();
+            if (filteredList.Any())
+            {
+                if (panelDuLieu.Controls[0].Name == "Medicine")
+                {
+                    TaoMedicineTableLayoutPanel(filteredList);
+                }
+                else if (panelDuLieu.Controls[0].Name == "Supplies")
+                {
+                    TaoSuppliesTableLayoutPanel(filteredList);
+                }
+                else
+                {
+                    TaoServiceTableLayoutPanel(filteredList);
+                }
+            }
+        }
+
         //Phần điều hướng
 
-        private void ShowEditSuppliesInPanel(object sender, EventArgs e)
+        private void HienThiChinhSuaVatTuLenPanel(int id)
         {
-            FormChinhSuaVatTu editSuppliesForm = new FormChinhSuaVatTu(_mainForm);
-            editSuppliesForm.TopLevel = false; // Đặt editUserForm không phải là form cấp cao nhất (TopLevel)
-            editSuppliesForm.FormBorderStyle = FormBorderStyle.None; // Xóa viền của editUserForm
-            editSuppliesForm.Dock = DockStyle.Fill; // Đặt editUserForm khớp với kích thước panel
-            _mainForm.panelTrangChu.Controls.Add(editSuppliesForm); // Thêm editUserForm vào panel
-            editSuppliesForm.BringToFront();
-            editSuppliesForm.Show(); // Hiển thị editUserForm
+            FormChinhSuaVatTu formChinhSuaVatTu = new FormChinhSuaVatTu(mainForm, id);
+            formChinhSuaVatTu.TopLevel = false; // Đặt editUserForm không phải là form cấp cao nhất (TopLevel)
+            formChinhSuaVatTu.FormBorderStyle = FormBorderStyle.None; // Xóa viền của editUserForm
+            formChinhSuaVatTu.Dock = DockStyle.Fill; // Đặt editUserForm khớp với kích thước panel
+            mainForm.panelTrangChu.Controls.Add(formChinhSuaVatTu); // Thêm editUserForm vào panel
+            formChinhSuaVatTu.BringToFront();
+            formChinhSuaVatTu.Show(); // Hiển thị editUserForm
         }
 
         private void HienThiChinhSuaThuocLenPanel(int id)
         {
-            FormChinhSuaThuoc formChinhSuaThuoc = new FormChinhSuaThuoc(_mainForm);
-            formChinhSuaThuoc.TopLevel = false; 
+            FormChinhSuaThuoc formChinhSuaThuoc = new FormChinhSuaThuoc(mainForm, id);
+            formChinhSuaThuoc.TopLevel = false;
             formChinhSuaThuoc.FormBorderStyle = FormBorderStyle.None;
-            formChinhSuaThuoc.Dock = DockStyle.Fill; 
-            _mainForm.panelTrangChu.Controls.Add(formChinhSuaThuoc); 
+            formChinhSuaThuoc.Dock = DockStyle.Fill;
+            mainForm.panelTrangChu.Controls.Add(formChinhSuaThuoc);
             formChinhSuaThuoc.BringToFront();
             formChinhSuaThuoc.Show();
         }
+        private void HienThiChinhSuaDichVuLenPanel(int id)
+        {
+            FormChinhSuaDichVu formChinhSuaDichVu = new FormChinhSuaDichVu(mainForm, id);
+            formChinhSuaDichVu.TopLevel = false;
+            formChinhSuaDichVu.FormBorderStyle = FormBorderStyle.None;
+            formChinhSuaDichVu.Dock = DockStyle.Fill;
+            mainForm.panelTrangChu.Controls.Add(formChinhSuaDichVu);
+            formChinhSuaDichVu.BringToFront();
+            formChinhSuaDichVu.Show();
+        }
+
 
         private void vbThem_Click(object sender, EventArgs e)
         {
             if (panelDuLieu.Controls[0].Name == "Medicine")
             {
-                ShowAddMedicineInPanel();
+                HienThiThemThuocLenPanel();
             }
             else if (panelDuLieu.Controls[0].Name == "Supplies")
             {
-                ShowAddSuppliesInPanel();
+                HienThiThemVatTuLenPanel();
+            }
+            else
+            {
+                HienThiThemDichVuLenPanel();
             }
         }
 
-        private void ShowAddMedicineInPanel()
+        private void HienThiThemThuocLenPanel()
         {
-            FormThemThuoc addMedicineForm = new FormThemThuoc(_mainForm);
-            addMedicineForm.TopLevel = false; // Đặt addMedicineForm không phải là form cấp cao nhất (TopLevel)
-            addMedicineForm.FormBorderStyle = FormBorderStyle.None; // Xóa viền của addMedicineForm
-            addMedicineForm.Dock = DockStyle.Fill; // Đặt addMedicineForm khớp với kích thước panel
-            _mainForm.panelTrangChu.Controls.Add(addMedicineForm); // Thêm addMedicineForm vào panel
-            addMedicineForm.BringToFront();
-            addMedicineForm.Show(); // Hiển thị addMedicineForm
+            FormThemThuoc formThemThuoc = new FormThemThuoc(mainForm);
+            formThemThuoc.TopLevel = false; // Đặt addMedicineForm không phải là form cấp cao nhất (TopLevel)
+            formThemThuoc.FormBorderStyle = FormBorderStyle.None; // Xóa viền của addMedicineForm
+            formThemThuoc.Dock = DockStyle.Fill; // Đặt addMedicineForm khớp với kích thước panel
+            mainForm.panelTrangChu.Controls.Add(formThemThuoc); // Thêm addMedicineForm vào panel
+            formThemThuoc.BringToFront();
+            formThemThuoc.Show(); // Hiển thị addMedicineForm
         }
 
-        private void ShowAddSuppliesInPanel()
+        private void HienThiThemVatTuLenPanel()
         {
-            FormThemVatTu addSuppliesForm = new FormThemVatTu(_mainForm);
-            addSuppliesForm.TopLevel = false; // Đặt addSuppliesForm không phải là form cấp cao nhất (TopLevel)
-            addSuppliesForm.FormBorderStyle = FormBorderStyle.None; // Xóa viền của addSuppliesForm
-            addSuppliesForm.Dock = DockStyle.Fill; // Đặt addSuppliesForm khớp với kích thước panel
-            _mainForm.panelTrangChu.Controls.Add(addSuppliesForm); // Thêm addSuppliesForm vào panel
-            addSuppliesForm.BringToFront();
-            addSuppliesForm.Show(); // Hiển thị addSuppliesForm
+            FormThemVatTu formThemVatTu = new FormThemVatTu(mainForm);
+            formThemVatTu.TopLevel = false; // Đặt addSuppliesForm không phải là form cấp cao nhất (TopLevel)
+            formThemVatTu.FormBorderStyle = FormBorderStyle.None; // Xóa viền của addSuppliesForm
+            formThemVatTu.Dock = DockStyle.Fill; // Đặt addSuppliesForm khớp với kích thước panel
+            mainForm.panelTrangChu.Controls.Add(formThemVatTu); // Thêm addSuppliesForm vào panel
+            formThemVatTu.BringToFront();
+            formThemVatTu.Show(); // Hiển thị addSuppliesForm
+        }
+
+        private void HienThiThemDichVuLenPanel()
+        {
+            FormThemDichVu formThemDichVu = new FormThemDichVu(mainForm);
+            formThemDichVu.TopLevel = false; // Đặt addSuppliesForm không phải là form cấp cao nhất (TopLevel)
+            formThemDichVu.FormBorderStyle = FormBorderStyle.None; // Xóa viền của addSuppliesForm
+            formThemDichVu.Dock = DockStyle.Fill; // Đặt addSuppliesForm khớp với kích thước panel
+            mainForm.panelTrangChu.Controls.Add(formThemDichVu); // Thêm addSuppliesForm vào panel
+            formThemDichVu.BringToFront();
+            formThemDichVu.Show(); // Hiển thị addSuppliesForm
         }
 
         //Kết thúc

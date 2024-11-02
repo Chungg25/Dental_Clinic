@@ -223,6 +223,7 @@ namespace Dental_Clinic.GUI.Administrator
             vbDichVu.TextAlign = ContentAlignment.MiddleLeft;
             vbDichVu.TextColor = Color.White;
             vbDichVu.UseVisualStyleBackColor = false;
+            vbDichVu.Click += vbDichVu_Click;
             // 
             // vbVatTu
             // 
@@ -246,7 +247,7 @@ namespace Dental_Clinic.GUI.Administrator
             vbVatTu.UseVisualStyleBackColor = false;
             vbVatTu.Click += vbVatTu_Click;
             // 
-            // SuppliesForm
+            // FormVatTu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -265,7 +266,7 @@ namespace Dental_Clinic.GUI.Administrator
             Controls.Add(vbTimKiem);
             Controls.Add(vbThem);
             Controls.Add(panel1);
-            Name = "SuppliesForm";
+            Name = "FormVatTu";
             Text = "SuppliesForm";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

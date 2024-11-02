@@ -9,12 +9,12 @@ namespace Dental_Clinic.GUI.Administrator
 {
     public partial class FormBenhNhan : Form
     {
-        private MainForm _mainForm;
+        private MainForm mainForm;
         private BenhNhanBUS benhNhanBUS;
         public FormBenhNhan(MainForm mainForm)
         {
             InitializeComponent();
-            _mainForm = mainForm;
+            this.mainForm = mainForm;
             benhNhanBUS = new BenhNhanBUS();
             List<BenhNhanDTO> benhNhan = benhNhanBUS.LayDanhSachBenhNhan();
             TaoTableLayoutPanel(benhNhan);
@@ -183,6 +183,7 @@ namespace Dental_Clinic.GUI.Administrator
 
             // Thiết lập số hàng và thêm các Label tiêu đề vào hàng đầu tiên
             tlpUser.RowCount = 1;
+            tlpUser.SuspendLayout();
             Font headerFont = new Font("Arial", 10, FontStyle.Bold);
             tlpUser.Controls.Add(TaoLabel("STT", headerFont), 0, 0);
             tlpUser.Controls.Add(TaoLabel("Tên người dùng", headerFont), 1, 0);
@@ -210,6 +211,7 @@ namespace Dental_Clinic.GUI.Administrator
                 ThemHangVaoTableLayoutPanel(tlpUser, sequenceNumber.ToString(), patient.HoVaTen, genderText, patient.Tuoi.ToString(), patient.SDT, patient.DiaChi, patient.Id);
                 sequenceNumber++;
             }
+            tlpUser.ResumeLayout();
         }
 
         private string ToTitleCase(string text)
@@ -249,22 +251,22 @@ namespace Dental_Clinic.GUI.Administrator
 
         public void HienThiThemThongTinBenhNhan()
         {
-            FormThemBenhNhan formThemBenhNhan = new FormThemBenhNhan(_mainForm);
+            FormThemBenhNhan formThemBenhNhan = new FormThemBenhNhan(mainForm);
             formThemBenhNhan.TopLevel = false;
             formThemBenhNhan.FormBorderStyle = FormBorderStyle.None;
             formThemBenhNhan.Dock = DockStyle.Fill;
-            _mainForm.panelTrangChu.Controls.Add(formThemBenhNhan);
+            mainForm.panelTrangChu.Controls.Add(formThemBenhNhan);
             formThemBenhNhan.BringToFront();
             formThemBenhNhan.Show();
         }
 
         public void HienThiChinhSuaThongTinBenhNhan(int id)
         {
-            FormChinhSuaBenhNhan formChinhSuaBenhNhan = new FormChinhSuaBenhNhan(_mainForm, benhNhanBUS.LayThongTinBenhNhan(id));
+            FormChinhSuaBenhNhan formChinhSuaBenhNhan = new FormChinhSuaBenhNhan(mainForm, benhNhanBUS.LayThongTinBenhNhan(id));
             formChinhSuaBenhNhan.TopLevel = false;
             formChinhSuaBenhNhan.FormBorderStyle = FormBorderStyle.None;
             formChinhSuaBenhNhan.Dock = DockStyle.Fill;
-            _mainForm.panelTrangChu.Controls.Add(formChinhSuaBenhNhan);
+            mainForm.panelTrangChu.Controls.Add(formChinhSuaBenhNhan);
             formChinhSuaBenhNhan.BringToFront();
             formChinhSuaBenhNhan.Show();
         }

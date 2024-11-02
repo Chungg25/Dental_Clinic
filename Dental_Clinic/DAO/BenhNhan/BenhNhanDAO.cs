@@ -29,7 +29,6 @@ namespace Dental_Clinic.DAO.Patient
                 using (SqlCommand cmd = new SqlCommand("DanhSachBenhNhan", dbConnection.Conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         while (reader.Read())
@@ -63,7 +62,7 @@ namespace Dental_Clinic.DAO.Patient
             finally
             {
                 // Đảm bảo đóng kết nối trong mọi trường hợp
-                dbConnection.CloseConnection();
+                //dbConnection.CloseConnection();
             }
 
             return patientList;

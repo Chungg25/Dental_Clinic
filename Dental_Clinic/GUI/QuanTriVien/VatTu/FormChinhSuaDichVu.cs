@@ -1,6 +1,6 @@
 ﻿using Dental_Clinic.BUS.VatTu;
-using Dental_Clinic.DTO.LeTan;
 using Dental_Clinic.DTO.VatTu;
+using Dental_Clinic.GUI.Administrator;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,37 +11,31 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Dental_Clinic.GUI.Administrator.Supplies
+namespace Dental_Clinic.GUI.QuanTriVien.VatTu
 {
-    public partial class FormChinhSuaThuoc : Form
+    public partial class FormChinhSuaDichVu : Form
     {
         private MainForm mainForm;
         private VatTuBUS vatTuBUS;
-        private VatTuDTO thuoc;
-        private int idThuoc;
-        public FormChinhSuaThuoc(MainForm mainForm, int id)
+        private VatTuDTO dichVu;
+        private int idDichVu;
+        public FormChinhSuaDichVu(MainForm mainForm, int id)
         {
             InitializeComponent();
             this.mainForm = mainForm;
+            idDichVu = id;
             vatTuBUS = new VatTuBUS();
-            idThuoc = id;
             TaiForm();
         }
 
         public void TaiForm()
         {
             ChinhSua();
-            thuoc = vatTuBUS.ThongTinThuoc(idThuoc);
-            tbThuoc.Text = thuoc.Ten;
-            tbLoaiThuoc.Text = thuoc.TenLoai;
-            tbSoLuong.Text = thuoc.SoLuong;
-            tbDonViTinh.Text = thuoc.DonVi;
-            tbLieuLuong.Text = thuoc.LieuLuong;
-            tbGia.Text = thuoc.Gia.ToString();
-            tbNgaySanXuat.Text = thuoc.NgaySanXuat;
-            tbNgayHetHan.Text = thuoc.NgayHetHan;
-            tbNgayNhap.Text = thuoc.NgayNhap;
-
+            dichVu = vatTuBUS.ThongTinDichVu(idDichVu);
+            tbThuoc.Text = dichVu.Ten;
+            tbLoaiThuoc.Text = dichVu.TenLoai;
+            tbDonViTinh.Text = dichVu.DonVi;
+            tbGia.Text = dichVu.Gia.ToString();
         }
 
         public void ChinhSua()
@@ -61,16 +55,7 @@ namespace Dental_Clinic.GUI.Administrator.Supplies
             {
                 if (control is TextBox textBox)
                 {
-                    if (textBox.Name == "tbDonViTinh" || textBox.Name == "tbGia")
-                    {
-                        textBox.BorderStyle = BorderStyle.None;
-                        textBox.ReadOnly = false;
-                    }
-                    else
-                    {
-                        textBox.BorderStyle = BorderStyle.None;
-                        textBox.KeyPress += TextBox_KeyPress;
-                    }
+                    textBox.BorderStyle = BorderStyle.None;
                 }
             }
 
@@ -82,33 +67,18 @@ namespace Dental_Clinic.GUI.Administrator.Supplies
                 }
             }
         }
-
-        private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            TextBox textBox = sender as TextBox;
-            if (textBox != null && textBox.Name != "tbDonViTinh" && textBox.Name != "tbGia")
-            {
-                e.Handled = true; // Ngăn không cho nhập
-            }
-        }
-
-        private void panelDuLieu_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void vbHuy_Click(object sender, EventArgs e)
+        private void vbHuy_Click_1(object sender, EventArgs e)
         {
             TaiForm();
         }
 
         private void vbLuuThayDoi_Click(object sender, EventArgs e)
         {
-            thuoc.Id = thuoc.Id;
-            thuoc.DonVi = tbDonViTinh.Text;
-            thuoc.Gia = int.Parse(tbGia.Text);
+            dichVu.Id = dichVu.Id;
+            dichVu.DonVi = tbDonViTinh.Text;
+            dichVu.Gia = int.Parse(tbGia.Text);
 
-            vatTuBUS.CapNhatThuoc(thuoc);
+            vatTuBUS.CapNhatDichVu(dichVu);
             TaiForm();
         }
 
@@ -125,11 +95,16 @@ namespace Dental_Clinic.GUI.Administrator.Supplies
                     {
                         if (form is FormVatTu formVatTu)
                         {
-                            formVatTu.HienThiThuoc();
+                            formVatTu.HienThiDichVu();
                         }
                     }
                 }
             }
+        }
+
+        private void FormChinhSuaDichVu_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

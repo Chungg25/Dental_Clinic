@@ -1262,7 +1262,7 @@ VALUES
     (17, N'Mũi cạo vôi', N'Vật liệu cố định', 10, N'Kg', '', '2024-01-01', '2029-01-01', '2024-01-10', 50000, 2),
     (18, N'Nạy', N'Vật liệu cố định', 20, N'Cây', '', '2024-01-20', '2025-01-20', '2024-01-25', 80000, 2),
     (19, N'Cây đo túi nướu', N'Vật liệu cố định', 10, N'Cây', '', '2024-03-20', '2025-03-20', '2024-03-25', 100000, 2),
-    (20, 'Nạy', N'Vật liệu cố định', 20, N'Cây', '', '2024-01-20', '2025-01-20', '2024-01-25', 80000, 2),
+    (20, N'Nạy', N'Vật liệu cố định', 20, N'Cây', '', '2024-01-20', '2025-01-20', '2024-01-25', 80000, 2),
     (21, N'Ống chích sắt', N'Vật liệu cố định', 50, N'Ống', '', '2024-05-20', '2025-05-20', '2024-05-25', 10000, 2),
     (22, N'Bông Gòn', N'Vật liệu tiêu hao', 50, N'Bịch', '', '2024-10-01', '2029-10-01', '2024-10-15', 20000, 2),
     (23, N'Mũi khoan kim cương', N'Vật liệu tiêu hao', 30, N'Cái', '', '2024-01-20', '2026-01-20', '2024-01-10', 50000, 2),
@@ -1373,7 +1373,7 @@ DBCC CHECKIDENT ('service_categories', RESEED, 0);*/
 INSERT INTO dich_vu
     (ma_loai, ten, don_vi, gia)
 VALUES
-    (1, N'Khám - Hồ sơ', 'Lượt', 5000);
+    (1, N'Khám - Hồ sơ', N'Lượt', 5000);
 
 -- Category: Nhổ răng (category_id = 2)
 INSERT INTO dich_vu
@@ -2354,14 +2354,92 @@ BEGIN
 END;
 GO
 
-CREATE PROCEDURE ThongTinThuoc
+--Thông tin vật tư
+CREATE PROCEDURE ThongTinVatTu
 	@id INT
 AS
 BEGIN
 	select * 
 	from hang_ton_kho 
 		join loai_hang_ton_kho on hang_ton_kho.ma_loai = loai_hang_ton_kho.ma_loai
-	where hang_ton_kho.ma_loai = @id
+	where hang_ton_kho.ma_loai != @id
 	order by hang_ton_kho.ngay_het_han
+END;
+GO
+
+CREATE PROCEDURE ThongTinDichVu
+AS
+BEGIN
+	select * 
+	from dich_vu 
+		join loai_dich_vu on dich_vu.ma_loai = loai_dich_vu.ma_loai_dich_vu
+END;
+GO
+
+CREATE PROCEDURE ThongTinChiTietThuoc
+	@id INT
+AS
+BEGIN 
+	SELECT * FROM hang_ton_kho where hang_ton_kho.ma_loai = 1
+	AND hang_ton_kho.ma_kho = @id
+END;
+GO
+
+CREATE PROCEDURE CapNhatThongTinThuoc
+	@id INT,
+	@donViTinh nvarchar(255),
+	@gia float
+AS
+BEGIN 
+	UPDATE hang_ton_kho 
+	SET don_vi = @donViTinh,
+	gia = @gia
+	where ma_kho = @id
+END;
+GO
+
+CREATE PROCEDURE ThongTinChiTietVatTu
+	@id INT
+AS
+BEGIN 
+	SELECT * FROM hang_ton_kho where ma_kho = @id
+	and ma_loai != 1
+
+END;
+GO
+
+CREATE PROCEDURE CapNhatThongTinVatTu
+	@id INT,
+	@donViTinh nvarchar(255),
+	@gia float
+AS
+BEGIN 
+	UPDATE hang_ton_kho 
+	SET don_vi = @donViTinh,
+	gia = @gia
+	where ma_kho = @id
+END;
+GO
+
+CREATE PROCEDURE ThongTinChiTietDichVu
+	@id INT
+AS
+BEGIN 
+	SELECT * FROM dich_vu 
+	join loai_dich_vu on dich_vu.ma_loai = loai_dich_vu.ma_loai_dich_vu
+	where dich_vu.ma_loai = @id
+END;
+GO
+
+CREATE PROCEDURE CapNhatThongTinDichVu
+	@id INT,
+	@donViTinh nvarchar(255),
+	@gia float
+AS
+BEGIN 
+	UPDATE dich_vu 
+	SET don_vi = @donViTinh,
+	gia = @gia
+	where ma_dich_vu = @id
 END;
 GO
