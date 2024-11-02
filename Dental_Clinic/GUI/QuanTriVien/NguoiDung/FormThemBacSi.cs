@@ -20,13 +20,13 @@ namespace Dental_Clinic.GUI.Administrator.User
     {
         private MainForm mainForm;
         private BacSiDTO bacSiDTO;
-        private BacSiBUS bacSiBUS;
+        private QuanTriVienBUS quanTriVienBUS;
         public FormThemBacSi(MainForm _mainForm)
         {
             InitializeComponent();
             mainForm = _mainForm;
             this.bacSiDTO = new BacSiDTO();
-            this.bacSiBUS = new BacSiBUS();
+            this.quanTriVienBUS = new QuanTriVienBUS();
             TaiForm();
         }
 
@@ -88,7 +88,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             bacSiDTO.DiaChi = tbQueQuan.Text;
             bacSiDTO.ChuyenNganh = cbChuyenNganh.SelectedIndex.ToString();
 
-            bacSiBUS.ThemBacSi(bacSiDTO);
+            quanTriVienBUS.ThemBacSi(bacSiDTO);
         }
 
         public bool KiemTraThem()

@@ -9,6 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CustomButton;
+using Dental_Clinic.BUS.Admin;
+using Dental_Clinic.BUS.LichLamViec;
+using Dental_Clinic.DTO.LichLamViec;
 using Dental_Clinic.GUI.Administrator.WorkSchedule;
 
 namespace Dental_Clinic.GUI.Administrator
@@ -16,12 +19,18 @@ namespace Dental_Clinic.GUI.Administrator
     public partial class FormLichLamViec : Form
     {
         private MainForm _mainForm;
+        private LichLamViecBUS lichLamViecBUS;
         public FormLichLamViec(MainForm mainForm)
         {
             InitializeComponent();
-            TaoDoctorTableLayoutPanel();
+            lichLamViecBUS = new LichLamViecBUS();
             _mainForm = mainForm;
+            ChinhSua();
+            HienThiBacSi();
+        }
 
+        public void ChinhSua()
+        {
             vbLeTan.FlatStyle = FlatStyle.Flat;
             vbLeTan.FlatAppearance.BorderSize = 0;
             vbLeTan.FlatAppearance.MouseOverBackColor = vbLeTan.BackColor;
@@ -42,6 +51,26 @@ namespace Dental_Clinic.GUI.Administrator
             tbTimKiem.ForeColor = Color.Gray;
             tbTimKiem.Enter += tbTimKiem_Enter;
             tbTimKiem.Leave += tbTimKiem_Leave;
+            tbTimKiem.TextChanged += tbTimKiem_TextChanged;
+            dtpNgay.ValueChanged += dtpNgay_ValueChanged;
+        }
+
+        public void HienThiBacSi()
+        {
+            DateTime selectedDate = dtpNgay.Value;
+            DateTime firstDayOfMonth = new DateTime(selectedDate.Year, selectedDate.Month, 1);
+            DateTime lastDayOfMonth = new DateTime(selectedDate.Year, selectedDate.Month, DateTime.DaysInMonth(selectedDate.Year, selectedDate.Month));
+            List<LichLamViecDTO> lichLamViecBacSi = lichLamViecBUS.DanhSachLichLamViecBacSi(firstDayOfMonth, lastDayOfMonth);
+            TaoDoctorTableLayoutPanel(lichLamViecBacSi);
+        }
+
+        public void HienThiLeTan()
+        {
+            DateTime selectedDate = dtpNgay.Value;
+            DateTime firstDayOfMonth = new DateTime(selectedDate.Year, selectedDate.Month, 1);
+            DateTime lastDayOfMonth = new DateTime(selectedDate.Year, selectedDate.Month, DateTime.DaysInMonth(selectedDate.Year, selectedDate.Month));
+            List<LichLamViecDTO> lichLamViecLeTan = lichLamViecBUS.DanhSachLichLamViecLeTan(firstDayOfMonth, lastDayOfMonth);
+            TaoDoctorTableLayoutPanel(lichLamViecLeTan);
         }
 
         //Phần này để chỉnh sửa các control
@@ -67,12 +96,12 @@ namespace Dental_Clinic.GUI.Administrator
 
         private void vbBacSi_Click(object sender, EventArgs e)
         {
-            TaoDoctorTableLayoutPanel();
+            HienThiBacSi();
         }
 
         private void vbLeTan_Click(object sender, EventArgs e)
         {
-            TaoReceptionTableLayoutPanel();
+            HienThiLeTan();
         }
 
         //Phần này để tạo hiển thị danh sách bác sĩ
@@ -89,7 +118,7 @@ namespace Dental_Clinic.GUI.Administrator
                 Text = text,
                 Font = font,
                 AutoSize = true,
-                Padding = new Padding(10, 5, 10, 5), // Tăng khoảng cách bên trái và bên phải
+                Padding = new Padding(5, 5, 5, 5), // Tăng khoảng cách bên trái và bên phải
                 Anchor = AnchorStyles.Left | AnchorStyles.Top
             };
         }
@@ -114,7 +143,7 @@ namespace Dental_Clinic.GUI.Administrator
 
 
         // Hàm thêm các nút hành động (chỉnh sửa và xóa)
-        private void ThemActionButtonsVaoTableLayoutPanel(TableLayoutPanel tlpUser, int index,int rowIndex)
+        private void ThemActionButtonsVaoTableLayoutPanel(TableLayoutPanel tlpUser, int rowIndex, int id)
         {
             Image ResizeImage(Image img, int width, int height)
             {
@@ -129,7 +158,7 @@ namespace Dental_Clinic.GUI.Administrator
             Button btnEdit = TaoActionButton(editEditColor, editIcon);
 
             // Thêm sự kiện Click
-            btnEdit.Click += (s, e) => { ShowEditWorkSchedulInPanel(); };
+            btnEdit.Click += (s, e) => { HienThiChinhSuaLichLamViec(id); };
 
             // Tạo một Panel để chứa 2 nút
             FlowLayoutPanel panelActions = new FlowLayoutPanel
@@ -146,11 +175,11 @@ namespace Dental_Clinic.GUI.Administrator
             panelActions.Controls.Add(btnEdit);
 
             // Thêm Panel vào cột thao tác của hàng hiện tại
-            tlpUser.Controls.Add(panelActions, index, rowIndex);
+            tlpUser.Controls.Add(panelActions, 6, rowIndex);
         }
 
         // Hàm để thêm hàng mới vào TableLayoutPanel
-        private void ThemHangVaoDoctorTableLayoutPanel(TableLayoutPanel tlpUser, string stt, string tenNguoiDung, string gioiTinh, string email, string chuyenNganh, string soCa)
+        private void ThemHangVaoDoctorTableLayoutPanel(TableLayoutPanel tlpUser, string stt, string tenNguoiDung, string gioiTinh, string email, string chuyenNganh, string soCa, int id)
         {
             int currentRow = tlpUser.RowCount++; // Tăng số lượng hàng
 
@@ -161,17 +190,21 @@ namespace Dental_Clinic.GUI.Administrator
             tlpUser.Controls.Add(TaoLabel(email, headerFont), 3, currentRow);
             tlpUser.Controls.Add(TaoLabel(chuyenNganh, headerFont), 4, currentRow);
             tlpUser.Controls.Add(TaoLabel(soCa, headerFont), 5, currentRow); // Thêm CheckBox
-            ThemActionButtonsVaoTableLayoutPanel(tlpUser, 6, currentRow);
+            ThemActionButtonsVaoTableLayoutPanel(tlpUser, currentRow, id);
         }
 
         // Hàm tạo TableLayoutPanel và gọi hàm AddRowToTableLayoutPanel để thêm dữ liệu
-        private void TaoDoctorTableLayoutPanel()
+        private void TaoDoctorTableLayoutPanel(List<LichLamViecDTO> lichLamViecBacSis)
         {
-
+            if (panelDuLieu.Controls.Count > 0)
+            {
+                // Xóa các control trong panelBacSi, bao gồm TableLayoutPanel cũ
+                panelDuLieu.Controls.Clear();
+            }
             TableLayoutPanel tlpUser = new TableLayoutPanel
             {
-                Dock = DockStyle.Fill,
-                AutoSize = false,
+                Dock = DockStyle.Top,
+                AutoSize = true,
             };
 
             // Thiết lập số cột
@@ -195,11 +228,25 @@ namespace Dental_Clinic.GUI.Administrator
             // Xóa các control khác
             ClearControlsExcept(tlpUser);
 
+            Panel scrollablePanel = new Panel
+            {
+                Dock = DockStyle.Fill,
+                AutoScroll = true,
+            };
+            scrollablePanel.Controls.Add(tlpUser);
+
             // Thêm TableLayoutPanel vào form
-            panelDuLieu.Controls.Add(tlpUser);
+            panelDuLieu.Controls.Add(scrollablePanel);
+
 
             // Thêm một hàng mẫu
-            ThemHangVaoDoctorTableLayoutPanel(tlpUser, "1", "Nguyễn Văn A", "Nam", "example@example.com", "Nha khoa", "5");
+            int sequenceNumber = 1;
+            foreach (var lichLamViecBacSi in lichLamViecBacSis)
+            {
+                string genderText = lichLamViecBacSi.GioiTinh ? "Nam" : "Nữ";
+                ThemHangVaoDoctorTableLayoutPanel(tlpUser, sequenceNumber.ToString(), lichLamViecBacSi.HoTen, genderText, lichLamViecBacSi.Email, lichLamViecBacSi.ChuyenNganh, lichLamViecBacSi.SoCa.ToString(), lichLamViecBacSi.MaNguoiDung);
+                sequenceNumber++;
+            }
         }
 
         private void ThemHangVaoReceptionTableLayoutPanel(TableLayoutPanel tlpUser, string stt, string tenNguoiDung, string gioiTinh, string email, string soCa)
@@ -215,13 +262,18 @@ namespace Dental_Clinic.GUI.Administrator
             ThemActionButtonsVaoTableLayoutPanel(tlpUser, 5, currentRow);
         }
 
-        private void TaoReceptionTableLayoutPanel()
+        private void TaoReceptionTableLayoutPanel(List<LichLamViecDTO> lichLamViecLeTans)
         {
 
+            if (panelDuLieu.Controls.Count > 0)
+            {
+                // Xóa các control trong panelBacSi, bao gồm TableLayoutPanel cũ
+                panelDuLieu.Controls.Clear();
+            }
             TableLayoutPanel tlpReception = new TableLayoutPanel
             {
-                Dock = DockStyle.Fill,
-                AutoSize = false,
+                Dock = DockStyle.Top,
+                AutoSize = true,
             };
 
             // Thiết lập số cột
@@ -244,11 +296,24 @@ namespace Dental_Clinic.GUI.Administrator
             // Xóa các control khác
             ClearControlsExcept(tlpReception);
 
+            Panel scrollablePanel = new Panel
+            {
+                Dock = DockStyle.Fill,
+                AutoScroll = true,
+            };
+            scrollablePanel.Controls.Add(tlpReception);
+
             // Thêm TableLayoutPanel vào form
             panelDuLieu.Controls.Add(tlpReception);
 
             // Thêm một hàng mẫu
-            ThemHangVaoReceptionTableLayoutPanel(tlpReception, "1", "Nguyễn Văn A", "Nam", "example@example.com", "5");
+            int sequenceNumber = 1;
+            foreach (var lichLamViecLeTan in lichLamViecLeTans)
+            {
+                string genderText = lichLamViecLeTan.GioiTinh ? "Nam" : "Nữ";
+                ThemHangVaoDoctorTableLayoutPanel(tlpReception, sequenceNumber.ToString(), lichLamViecLeTan.HoTen, genderText, lichLamViecLeTan.Email, lichLamViecLeTan.ChuyenNganh, lichLamViecLeTan.SoCa.ToString(), lichLamViecLeTan.MaNguoiDung);
+                sequenceNumber++;
+            }
         }
 
         private string ToTitleCase(string text)
@@ -270,12 +335,45 @@ namespace Dental_Clinic.GUI.Administrator
             }
         }
 
+        private void tbTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            // Lấy nội dung tìm kiếm từ tbTimKiem
+            string searchText = tbTimKiem.Text.ToLower();
+
+            DateTime selectedDate = dtpNgay.Value;
+            DateTime firstDayOfMonth = new DateTime(selectedDate.Year, selectedDate.Month, 1);
+            DateTime lastDayOfMonth = new DateTime(selectedDate.Year, selectedDate.Month, DateTime.DaysInMonth(selectedDate.Year, selectedDate.Month));
+
+            // Lấy danh sách bác sĩ từ doctorBUS
+            var lichLamViecBacSi = lichLamViecBUS.DanhSachLichLamViecBacSi(firstDayOfMonth, lastDayOfMonth);
+
+            if (string.IsNullOrWhiteSpace(searchText))
+            {
+                // Nếu ô tìm kiếm trống, không tạo bảng mới
+                return;
+            }
+
+            // Lọc danh sách theo họ tên
+            var filteredList = lichLamViecBacSi
+                .Where(d => d.HoTen.ToLower().Contains(searchText))
+                .ToList();
+            if (filteredList.Any())
+            {
+                TaoDoctorTableLayoutPanel(filteredList);
+            }
+        }
+
+        private void dtpNgay_ValueChanged(object sender, EventArgs e)
+        {
+            HienThiBacSi();
+        }
+
         //Kết thúc
 
         //Phần điều hướng
-        public void ShowEditWorkSchedulInPanel()
+        public void HienThiChinhSuaLichLamViec(int id)
         {
-            FormChinhSuaLichLamViec editWorkSchedulForm = new FormChinhSuaLichLamViec(_mainForm);
+            FormChinhSuaLichLamViec editWorkSchedulForm = new FormChinhSuaLichLamViec(_mainForm, id, dtpNgay.Value);
             editWorkSchedulForm.TopLevel = false; // Đặt editUserForm không phải là form cấp cao nhất (TopLevel)
             editWorkSchedulForm.FormBorderStyle = FormBorderStyle.None; // Xóa viền của editUserForm
             editWorkSchedulForm.Dock = DockStyle.Fill; // Đặt editUserForm khớp với kích thước panel
@@ -283,7 +381,6 @@ namespace Dental_Clinic.GUI.Administrator
             editWorkSchedulForm.BringToFront();
             editWorkSchedulForm.Show(); // Hiển thị editUserForm
         }
-
         //Kết thúc
 
 

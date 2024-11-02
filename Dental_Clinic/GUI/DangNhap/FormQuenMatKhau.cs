@@ -12,6 +12,7 @@ using CustomButton;
 using Dental_Clinic.BUS.Login;
 using Dental_Clinic.DTO.Admin;
 using Dental_Clinic.DTO.Login;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace Dental_Clinic.GUI.Login
 {
@@ -121,7 +122,7 @@ namespace Dental_Clinic.GUI.Login
                                int userId = (int)thongTinNguoiDung["ma_nguoi_dung"]; // Giả sử cột id tồn tại trong bảng users
                 string userRole = thongTinNguoiDung["vai_tro"].ToString() ?? ""; // Giả sử cột role tồn tại trong bảng users
 
-                QuanTriVienDTO userDTO = new QuanTriVienDTO
+                QuanTriVienDTO user = new QuanTriVienDTO
                 {
                     Id = (int)thongTinNguoiDung["ma"],
                     HoVaTen = thongTinNguoiDung["ho_ten"].ToString() ?? "",
@@ -136,32 +137,26 @@ namespace Dental_Clinic.GUI.Login
                     Email = thongTinNguoiDung["email"].ToString() ?? "",
                     HeSoLuong = Convert.ToSingle(thongTinNguoiDung["he_so_luong"]),
                 };
+
                 //Điều hướng người dùng dựa vào role
+                Form form;
                 if (userRole == "Admin")
                 {
-                    // Mở giao diện cho admin
-                    this.Hide();
-                    GUI.Administrator.MainForm adminForm = new GUI.Administrator.MainForm(userDTO);
-                    adminForm.ShowDialog();
-                    this.Close();
+                    form = new GUI.Administrator.MainForm(user);
                 }
                 else if (userRole == "Doctor")
                 {
-                    // Mở giao diện cho bác sĩ
-                    GUI.Doctor.MainForm doctorForm = new GUI.Doctor.MainForm(userDTO);
-                    doctorForm.Show();
-                    this.Close();
+                    form = new GUI.BacSi.FormBacSi(user);
                 }
                 else
                 {
-                    // Mở giao diện cho các vai trò khác
-                    GUI.Receptionist.MainForm receptionist = new GUI.Receptionist.MainForm(userDTO);
-                    receptionist.Show();
-                    this.Close();
+                    form = new GUI.Receptionist.FormLeTan(user);
                 }
 
-                // Nếu tắt form main thì cả ứng dụng sẽ tắt
-                Environment.Exit(0);
+                this.Hide();
+                mainForm.Hide();
+                form.FormClosed += (s, args) => Application.Exit();
+                form.Show();
             }
         }
         // Sự kiện click vào nút Quay lại

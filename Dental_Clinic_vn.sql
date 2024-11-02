@@ -78,6 +78,18 @@ CREATE TABLE [lich_lam_viec]
     PRIMARY KEY ([ma_lich])
 )
 GO
+
+CREATE TABLE [cham_cong]
+(
+    [ma_lich] INT NOT NULL IDENTITY(1, 1),
+    [ngay] DATE NOT NULL,
+    [gio_vao] TIME NOT NULL,
+    [gio_ra] TIME not null,
+    [ghi_chu] NVARCHAR(255) NOT NULL,
+    [ma_nguoi_dung] INT NOT NULL,
+    PRIMARY KEY ([ma_lich])
+)
+GO
 -- 7. Bảng lương
 CREATE TABLE [luong]
 (
@@ -204,7 +216,7 @@ CREATE TABLE [dieu_tri]
     [ma_dieu_tri] INT PRIMARY KEY IDENTITY(1, 1),
     [ten_bac_si_thay_the] NVARCHAR(50) NOT NULL,
     [ma_bac_si] INT NOT NULL,
-    [ma_benh_nhan] INT NOT NULL,
+    [ma_benh_nhan] INT,
     [ngay_dieu_tri] DATE NOT NULL,
     [ghi_chu] NVARCHAR(255)
 )
@@ -233,6 +245,9 @@ CREATE TABLE [chi_tiet_hoa_don]
 GO
 
 ALTER TABLE [lich_lam_viec] ADD FOREIGN KEY ([ma_nguoi_dung]) REFERENCES [nguoi_dung] ([ma_nguoi_dung])
+GO
+
+ALTER TABLE [cham_cong] ADD FOREIGN KEY ([ma_nguoi_dung]) REFERENCES [nguoi_dung] ([ma_nguoi_dung])
 GO
 
 ALTER TABLE [luong] ADD FOREIGN KEY ([ma_nguoi_dung]) REFERENCES [nguoi_dung] ([ma_nguoi_dung])
@@ -313,15 +328,15 @@ VALUES
     (3, N'Lê Văn Cường', '123456789003', '0901234563', N'789 Lê Duẩn, Q1, TP.HCM', 1, '1992-03-25', 'Reception', 'recep1', 'pass123', 'recep1@gmail.com', 1.2, 1),
     (4, N'Phạm Thị Dung', '123456789004', '0901234564', N'147 Nam Kỳ, Q3, TP.HCM', 0, '1993-04-30', 'Reception', 'recep2', 'pass123', 'recep2@gmail.com', 1.2, 1),
     (5, N'Hoàng Văn Em', '123456789005', '0901234565', N'258 Hai Bà Trưng, Q1, TP.HCM', 1, '1994-05-05', 'Reception', 'recep3', 'pass123', 'recep3@gmail.com', 1.2, 1),
-    (6, N'Đỗ Thị Phương', '123456789006', '0901234566', N'369 Lê Văn Sỹ, Q3, TP.HCM', 0, '1985-06-10', 'Doctor', 'doctor1', 'pass123', 'doctor1@gmail.com', 2.0, 1),
+    (6, N'Đỗ Thị Phương', '123456789006', '0901234566', N'369 Lê Văn Sỹ, Q3, TP.HCM', 0, '1985-06-10', 'Doctor', 'doctor1', 'pass123', 'hatrongnguyen04@gmail.com', 2.0, 1),
     (7, N'Vũ Văn Giang', '123456789007', '0901234567', N'147 Nguyễn Đình Chiểu, Q3, TP.HCM', 1, '1986-07-15', 'Doctor', 'doctor2', 'pass123', 'doctor2@gmail.com', 2.0, 1),
     (8, N'Mai Thị Hoa', '123456789008', '0901234568', N'258 Võ Văn Tần, Q3, TP.HCM', 0, '1987-08-20', 'Doctor', 'doctor3', 'pass123', 'doctor3@gmail.com', 2.0, 1),
     (9, N'Trịnh Văn Inh', '123456789009', '0901234569', N'369 Cách Mạng T8, Q3, TP.HCM', 1, '1988-09-25', 'Doctor', 'doctor4', 'pass123', 'doctor4@gmail.com', 2.0, 1),
     (10, N'Lý Thị Kim', '123456789010', '0901234570', N'147 Điện Biên Phủ, Q1, TP.HCM', 0, '1989-10-30', 'Doctor', 'doctor5', 'pass123', 'doctor5@gmail.com', 2.0, 1),
     (11, N'Ngô Văn Linh', '123456789011', '0901234571', N'258 Nguyễn Trãi, Q5, TP.HCM', 1, '1990-11-05', 'Doctor', 'doctor6', 'pass123', 'doctor6@gmail.com', 2.0, 1),
-    (12, N'Phan Thị Mai', '123456789012', '0901234572', N'369 Lý Thường Kiệt, Q10, TP.HCM', 0, '1991-12-10', 'Doctor', 'doctor7', 'pass123', 'doctor7@gmail.com', 2.0, 11),
+    (12, N'Phan Thị Mai', '123456789012', '0901234572', N'369 Lý Thường Kiệt, Q10, TP.HCM', 0, '1991-12-10', 'Doctor', 'doctor7', 'pass123', 'doctor7@gmail.com', 2.0, 1),
     (13, N'Đặng Văn Nam', '123456789013', '0901234573', N'147 Bà Hom, Q6, TP.HCM', 1, '1992-01-15', 'Doctor', 'doctor8', 'pass123', 'doctor8@gmail.com', 2.0, 1),
-    (14, N'Bùi Thị Oanh', '123456789014', '0901234574', N'258 Hùng Vương, Q5, TP.HCM', 0, '1993-02-20', 'Doctor', 'doctor9', 'pass123', 'doctor9@gmail.com', 2.0, 11),
+    (14, N'Bùi Thị Oanh', '123456789014', '0901234574', N'258 Hùng Vương, Q5, TP.HCM', 0, '1993-02-20', 'Doctor', 'doctor9', 'pass123', 'doctor9@gmail.com', 2.0, 1),
     (15, N'Hồ Văn Phát', '123456789015', '0901234575', N'369 Tân Kỳ Tân Quý, Q.TB, TP.HCM', 1, '1994-03-25', 'Doctor', 'doctor10', 'pass123', 'doctor10@gmail.com', 2.0, 1),
     (16, N'Trương Thị Quỳnh', '123456789016', '0901234576', N'147 Âu Cơ, Q.TB, TP.HCM', 0, '1995-04-30', 'Reception', 'recep4', 'pass123', 'recep4@gmail.com', 1.2, 1),
     (17, N'Lương Văn Rồng', '123456789017', '0901234577', N'258 Lạc Long Quân, Q11, TP.HCM', 1, '1996-05-05', 'Reception', 'recep5', 'pass123', 'recep5@gmail.com', 1.2, 1),
@@ -806,6 +821,332 @@ VALUES
 /*DELETE FROM [work_schedules];
 DBCC CHECKIDENT ('work_schedules', RESEED, 0);*/
 
+INSERT INTO cham_cong
+    (ngay, gio_vao, gio_ra, ghi_chu, ma_nguoi_dung)
+VALUES
+    ('2024-09-01', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 3),
+    ('2024-09-01', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 5),
+    ('2024-09-01', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 7),
+    ('2024-09-01', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 9),
+    ('2024-09-01', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 11),
+    ('2024-09-01', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 13),
+    ('2024-09-01', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 15),
+    ('2024-09-01', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 17),
+    ('2024-09-02', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 4),
+    ('2024-09-02', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 6),
+    ('2024-09-02', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 8),
+    ('2024-09-02', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 10),
+    ('2024-09-02', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 12),
+    ('2024-09-02', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 14),
+    ('2024-09-02', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 16),
+    ('2024-09-02', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 18),
+    ('2024-09-03', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 3),
+    ('2024-09-03', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 5),
+    ('2024-09-03', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 7),
+    ('2024-09-03', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 9),
+    ('2024-09-03', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 11),
+    ('2024-09-03', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 13),
+    ('2024-09-03', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 15),
+    ('2024-09-03', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 17),
+    ('2024-09-04', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 4),
+    ('2024-09-04', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 6),
+    ('2024-09-04', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 8),
+    ('2024-09-04', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 10),
+    ('2024-09-04', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 12),
+    ('2024-09-04', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 14),
+    ('2024-09-04', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 16),
+    ('2024-09-04', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 18),
+    ('2024-09-05', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 3),
+    ('2024-09-05', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 5),
+    ('2024-09-05', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 7),
+    ('2024-09-05', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 9),
+    ('2024-09-05', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 11),
+    ('2024-09-05', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 13),
+    ('2024-09-05', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 15),
+    ('2024-09-05', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 17),
+    ('2024-09-06', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 4),
+    ('2024-09-06', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 6),
+    ('2024-09-06', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 8),
+    ('2024-09-06', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 10),
+    ('2024-09-06', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 12),
+    ('2024-09-06', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 14),
+    ('2024-09-06', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 16),
+    ('2024-09-06', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 18),
+    ('2024-09-07', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 3),
+    ('2024-09-07', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 5),
+    ('2024-09-07', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 7),
+    ('2024-09-07', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 9),
+    ('2024-09-07', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 11),
+    ('2024-09-07', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 13),
+    ('2024-09-07', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 15),
+    ('2024-09-07', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 17),
+    ('2024-09-08', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 4),
+    ('2024-09-08', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 6),
+    ('2024-09-08', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 8),
+    ('2024-09-08', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 10),
+    ('2024-09-08', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 12),
+    ('2024-09-08', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 14),
+    ('2024-09-08', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 16),
+    ('2024-09-08', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 18),
+    ('2024-09-09', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 3),
+    ('2024-09-09', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 5),
+    ('2024-09-09', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 7),
+    ('2024-09-09', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 9),
+    ('2024-09-09', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 11),
+    ('2024-09-09', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 13),
+    ('2024-09-09', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 15),
+    ('2024-09-09', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 17),
+    ('2024-09-10', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 4),
+    ('2024-09-10', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 6),
+    ('2024-09-10', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 8),
+    ('2024-09-10', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 10),
+    ('2024-09-10', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 12),
+    ('2024-09-10', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 14),
+    ('2024-09-10', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 16),
+    ('2024-09-10', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 18),
+    ('2024-09-11', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 3),
+    ('2024-09-11', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 5),
+    ('2024-09-11', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 7),
+    ('2024-09-11', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 9),
+    ('2024-09-11', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 11),
+    ('2024-09-11', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 13),
+    ('2024-09-11', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 15),
+    ('2024-09-11', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 17),
+    ('2024-09-12', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 4),
+    ('2024-09-12', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 6),
+    ('2024-09-12', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 8),
+    ('2024-09-12', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 10),
+    ('2024-09-12', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 12),
+    ('2024-09-12', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 14),
+    ('2024-09-12', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 16),
+    ('2024-09-12', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 18),
+    ('2024-09-13', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 3),
+    ('2024-09-13', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 5),
+    ('2024-09-13', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 7),
+    ('2024-09-13', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 9),
+    ('2024-09-13', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 11),
+    ('2024-09-13', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 13),
+    ('2024-09-13', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 15),
+    ('2024-09-13', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 17),
+    ('2024-09-14', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 4),
+    ('2024-09-14', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 6),
+    ('2024-09-14', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 8),
+    ('2024-09-14', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 10),
+    ('2024-09-14', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 12),
+    ('2024-09-14', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 14),
+    ('2024-09-14', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 16),
+    ('2024-09-14', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 18),
+    ('2024-09-15', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 3),
+    ('2024-09-15', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 5),
+    ('2024-09-15', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 7),
+    ('2024-09-15', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 9),
+    ('2024-09-15', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 11),
+    ('2024-09-15', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 13),
+    ('2024-09-15', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 15),
+    ('2024-09-15', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 17),
+    ('2024-09-16', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 4),
+    ('2024-09-16', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 6),
+    ('2024-09-16', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 8),
+    ('2024-09-16', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 10),
+    ('2024-09-16', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 12),
+    ('2024-09-16', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 14),
+    ('2024-09-16', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 16),
+    ('2024-09-16', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 18),
+    ('2024-09-17', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 3),
+    ('2024-09-17', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 5),
+    ('2024-09-17', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 7),
+    ('2024-09-17', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 9),
+    ('2024-09-17', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 11),
+    ('2024-09-17', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 13),
+    ('2024-09-17', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 15),
+    ('2024-09-17', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 17),
+    ('2024-09-18', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 4),
+    ('2024-09-18', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 6),
+    ('2024-09-18', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 8),
+    ('2024-09-18', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 10),
+    ('2024-09-18', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 12),
+    ('2024-09-18', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 14),
+    ('2024-09-18', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 16),
+    ('2024-09-18', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 18),
+    ('2024-09-19', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 3),
+    ('2024-09-19', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 5),
+    ('2024-09-19', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 7),
+    ('2024-09-19', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 9),
+    ('2024-09-19', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 11),
+    ('2024-09-19', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 13),
+    ('2024-09-19', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 15),
+    ('2024-09-19', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 17),
+    ('2024-09-20', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 4),
+    ('2024-09-20', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 6),
+    ('2024-09-20', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 8),
+    ('2024-09-20', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 10),
+    ('2024-09-20', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 12),
+    ('2024-09-20', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 14),
+    ('2024-09-20', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 16),
+    ('2024-09-20', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 18);
+INSERT INTO cham_cong
+    (ngay, gio_vao, gio_ra, ghi_chu, ma_nguoi_dung)
+VALUES
+    ('2024-10-01', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 3),
+    ('2024-10-01', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 5),
+    ('2024-10-01', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 7),
+    ('2024-10-01', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 9),
+    ('2024-10-01', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 11),
+    ('2024-10-01', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 13),
+    ('2024-10-01', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 15),
+    ('2024-10-01', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 17),
+    ('2024-10-02', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 4),
+    ('2024-10-02', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 6),
+    ('2024-10-02', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 8),
+    ('2024-10-02', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 10),
+    ('2024-10-02', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 12),
+    ('2024-10-02', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 14),
+    ('2024-10-02', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 16),
+    ('2024-10-02', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 18),
+    ('2024-10-03', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 3),
+    ('2024-10-03', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 5),
+    ('2024-10-03', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 7),
+    ('2024-10-03', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 9),
+    ('2024-10-03', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 11),
+    ('2024-10-03', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 13),
+    ('2024-10-03', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 15),
+    ('2024-01-03', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 17),
+    ('2024-10-04', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 4),
+    ('2024-10-04', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 6),
+    ('2024-10-04', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 8),
+    ('2024-10-04', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 10),
+    ('2024-10-04', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 12),
+    ('2024-10-04', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 14),
+    ('2024-10-04', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 16),
+    ('2024-10-04', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 18),
+    ('2024-10-05', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 3),
+    ('2024-10-05', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 5),
+    ('2024-10-05', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 7),
+    ('2024-10-05', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 9),
+    ('2024-10-05', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 11),
+    ('2024-10-05', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 13),
+    ('2024-10-05', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 15),
+    ('2024-10-05', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 17),
+    ('2024-10-06', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 4),
+    ('2024-10-06', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 6),
+    ('2024-10-06', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 8),
+    ('2024-10-06', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 10),
+    ('2024-10-06', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 12),
+    ('2024-10-06', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 14),
+    ('2024-10-06', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 16),
+    ('2024-10-06', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 18),
+    ('2024-10-07', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 3),
+    ('2024-10-07', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 5),
+    ('2024-10-07', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 7),
+    ('2024-10-07', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 9),
+    ('2024-10-07', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 11),
+    ('2024-10-07', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 13),
+    ('2024-10-07', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 15),
+    ('2024-10-07', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 17),
+    ('2024-10-08', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 4),
+    ('2024-10-08', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 6),
+    ('2024-10-08', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 8),
+    ('2024-10-08', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 10),
+    ('2024-10-08', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 12),
+    ('2024-10-08', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 14),
+    ('2024-10-08', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 16),
+    ('2024-10-08', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 18),
+    ('2024-10-09', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 3),
+    ('2024-10-09', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 5),
+    ('2024-10-09', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 7),
+    ('2024-10-09', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 9),
+    ('2024-10-09', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 11),
+    ('2024-10-09', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 13),
+    ('2024-10-09', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 15),
+    ('2024-10-09', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 17),
+    ('2024-10-10', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 4),
+    ('2024-10-10', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 6),
+    ('2024-10-10', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 8),
+    ('2024-10-10', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 10),
+    ('2024-10-10', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 12),
+    ('2024-10-10', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 14),
+    ('2024-10-10', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 16),
+    ('2024-10-10', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 18),
+    ('2024-10-11', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 3),
+    ('2024-10-11', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 5),
+    ('2024-10-11', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 7),
+    ('2024-10-11', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 9),
+    ('2024-10-11', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 11),
+    ('2024-10-11', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 13),
+    ('2024-10-11', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 15),
+    ('2024-10-11', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 17),
+    ('2024-10-12', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 4),
+    ('2024-10-12', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 6),
+    ('2024-10-12', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 8),
+    ('2024-10-12', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 10),
+    ('2024-10-12', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 12),
+    ('2024-10-12', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 14),
+    ('2024-10-12', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 16),
+    ('2024-10-12', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 18),
+    ('2024-10-13', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 3),
+    ('2024-10-13', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 5),
+    ('2024-10-13', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 7),
+    ('2024-10-13', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 9),
+    ('2024-10-13', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 11),
+    ('2024-10-13', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 13),
+    ('2024-10-13', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 15),
+    ('2024-10-13', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 17),
+    ('2024-10-14', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 4),
+    ('2024-10-14', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 6),
+    ('2024-10-14', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 8),
+    ('2024-10-14', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 10),
+    ('2024-10-14', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 12),
+    ('2024-10-14', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 14),
+    ('2024-10-14', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 16),
+    ('2024-10-14', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 18),
+    ('2024-10-15', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 3),
+    ('2024-10-15', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 5),
+    ('2024-10-15', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 7),
+    ('2024-10-15', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 9),
+    ('2024-10-15', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 11),
+    ('2024-10-15', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 13),
+    ('2024-10-15', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 15),
+    ('2024-10-15', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 17),
+    ('2024-10-16', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 4),
+    ('2024-10-16', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 6),
+    ('2024-10-16', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 8),
+    ('2024-10-16', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 10),
+    ('2024-10-16', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 12),
+    ('2024-10-16', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 14),
+    ('2024-10-16', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 16),
+    ('2024-10-16', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 18),
+    ('2024-10-17', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 3),
+    ('2024-10-17', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 5),
+    ('2024-10-17', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 7),
+    ('2024-10-17', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 9),
+    ('2024-10-17', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 11),
+    ('2024-10-17', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 13),
+    ('2024-10-17', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 15),
+    ('2024-10-17', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 17),
+    ('2024-10-18', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 4),
+    ('2024-10-18', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 6),
+    ('2024-10-18', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 8),
+    ('2024-10-18', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 10),
+    ('2024-10-18', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 12),
+    ('2024-10-18', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 14),
+    ('2024-10-18', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 16),
+    ('2024-10-18', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 18),
+    ('2024-10-19', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 3),
+    ('2024-10-19', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 5),
+    ('2024-10-19', '08:00:00', '16:00:00', N'Làm việc đúng giờ', 7),
+    ('2024-10-19', '08:15:00', '16:00:00', N'Đi làm trễ', 9),
+    ('2024-10-19', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 11),
+    ('2024-10-19', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 13),
+    ('2024-10-19', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 15),
+    ('2024-10-19', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 17),
+    ('2024-10-20', '09:00:00', '16:00:00', N'Không đi làm', 4),
+    ('2024-10-20', '16:00:00', '16:00:00', N'Không đi làm', 6),
+    ('2024-10-20', '08:30:00', '16:00:00', N'Đi làm trễ', 8),
+    ('2024-10-20', '08:00:00', '15:00:00', N'Về sớm', 10),
+    ('2024-10-20', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 12),
+    ('2024-10-20', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 14),
+    ('2024-10-20', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 16),
+    ('2024-10-20', '12:00:00', '20:00:00', N'Làm việc đúng giờ', 18);
 -- Thêm dữ liệu vào bảng tiếp nhận
 INSERT INTO tiep_nhan
     (ma_nguoi_dung, ma_benh_nhan)
@@ -919,18 +1260,18 @@ VALUES
     (16, N'Dexamethasone', N'Giảm đau', 150, N'Viên', N'0.5mg', '2024-09-01', '2026-09-01', '2024-10-01', 7000, 1),
 
     (17, N'Mũi cạo vôi', N'Vật liệu cố định', 10, N'Kg', '', '2024-01-01', '2029-01-01', '2024-01-10', 50000, 2),
-    (18, N'Nạy', 'Vật liệu cố định', 20, N'Cây', '', '2024-01-20', '2025-01-20', '2024-01-25', 80000, 2),
-    (19, N'Cây đo túi nướu', 'Vật liệu cố định', 10, N'Cây', '', '2024-03-20', '2025-03-20', '2024-03-25', 100000, 2),
-    (20, 'Nạy', 'Vật liệu cố định', 20, N'Cây', '', '2024-01-20', '2025-01-20', '2024-01-25', 80000, 2),
-    (21, N'Ống chích sắt', 'Vật liệu cố định', 50, N'Ống', '', '2024-05-20', '2025-05-20', '2024-05-25', 10000, 2),
-    (22, N'Bông Gòn', 'Vật liệu tiêu hao', 50, N'Bịch', '', '2024-10-01', '2029-10-01', '2024-10-15', 20000, 2),
-    (23, N'Mũi khoan kim cương', 'Vật liệu tiêu hao', 30, N'Cái', '', '2024-01-20', '2026-01-20', '2024-01-10', 50000, 2),
-    (24, N'NaCl', 'Vật liệu tiêu hao', 5, N'Kg', '', '2024-10-01', '2027-10-01', '2024-10-15', 50000, 2),
-    (25, N'Trâm tay', 'Vật liệu tiêu hao', 50, N'Cái', '', '2024-10-01', '2028-10-01', '2024-10-15', 30000, 2),
-    (26, N'Trâm tay', 'Vật liệu tiêu hao', 50, N'Cái', '', '2024-10-01', '2029-10-01', '2024-10-15', 30000, 2),
-    (27, N'Sò đánh bóng', 'Vật liệu tiêu hao', 60, N'Cái', '', '2024-10-01', '2026-10-01', '2024-10-15', 70000, 2),
-    (28, N'Chỉ khâu', 'Vật liệu tiêu hao', 50, N'Cuộn', '', '2024-10-01', '2030-10-01', '2024-10-15', 35000, 2),
-    (29, N'Thuốc tê', 'Vật liệu tiêu hao', 200, N'Viên', N'50mg', '2024-08-01', '2026-08-01', '2024-08-15', 35000, 2),
+    (18, N'Nạy', N'Vật liệu cố định', 20, N'Cây', '', '2024-01-20', '2025-01-20', '2024-01-25', 80000, 2),
+    (19, N'Cây đo túi nướu', N'Vật liệu cố định', 10, N'Cây', '', '2024-03-20', '2025-03-20', '2024-03-25', 100000, 2),
+    (20, N'Nạy', N'Vật liệu cố định', 20, N'Cây', '', '2024-01-20', '2025-01-20', '2024-01-25', 80000, 2),
+    (21, N'Ống chích sắt', N'Vật liệu cố định', 50, N'Ống', '', '2024-05-20', '2025-05-20', '2024-05-25', 10000, 2),
+    (22, N'Bông Gòn', N'Vật liệu tiêu hao', 50, N'Bịch', '', '2024-10-01', '2029-10-01', '2024-10-15', 20000, 2),
+    (23, N'Mũi khoan kim cương', N'Vật liệu tiêu hao', 30, N'Cái', '', '2024-01-20', '2026-01-20', '2024-01-10', 50000, 2),
+    (24, N'NaCl', N'Vật liệu tiêu hao', 5, N'Kg', '', '2024-10-01', '2027-10-01', '2024-10-15', 50000, 2),
+    (25, N'Trâm tay', N'Vật liệu tiêu hao', 50, N'Cái', '', '2024-10-01', '2028-10-01', '2024-10-15', 30000, 2),
+    (26, N'Trâm tay', N'Vật liệu tiêu hao', 50, N'Cái', '', '2024-10-01', '2029-10-01', '2024-10-15', 30000, 2),
+    (27, N'Sò đánh bóng', N'Vật liệu tiêu hao', 60, N'Cái', '', '2024-10-01', '2026-10-01', '2024-10-15', 70000, 2),
+    (28, N'Chỉ khâu', N'Vật liệu tiêu hao', 50, N'Cuộn', '', '2024-10-01', '2030-10-01', '2024-10-15', 35000, 2),
+    (29, N'Thuốc tê', N'Vật liệu tiêu hao', 200, N'Viên', N'50mg', '2024-08-01', '2026-08-01', '2024-08-15', 35000, 2),
 
     (30, N'Bộ dụng cụ khám răng', N'Dụng cụ điều trị', 50, N'Bộ', '', '2024-04-01', '2027-04-01', '2024-04-15', 150000, 3),
     (31, N'Bộ dụng cụ trám răng', N'Dụng cụ điều trị', 50, N'Bộ', '', '2024-04-01', '2027-04-01', '2024-05-01', 200000, 3),
@@ -938,7 +1279,7 @@ VALUES
 
     (33, N'Máy X-Quang', N'Thiết bị chẩn đoán', 4, N'Máy', '', '2024-09-01', '2029-09-01', '2024-09-15', 15000000, 4),
     (34, N'Máy chụp CT', N'Thiết bị chẩn đoán', 3, N'Máy', '', '2024-09-01', '2029-09-01', '2024-09-15', 20000000, 4),
-    (45, N'Ghế nha khoa', N'Thiết bị điều trị', 5, N'Ghế', '', '2024-08-01', '2032-08-01', '2024-09-15', 20000000, 4),
+    (35, N'Ghế nha khoa', N'Thiết bị điều trị', 5, N'Ghế', '', '2024-08-01', '2032-08-01', '2024-09-15', 20000000, 4),
     (36, N'Máy trám răng', N'Thiết bị điều trị', 4, N'Máy', '', '2024-07-01', '2030-07-01', '2024-07-15', 10000000, 4),
     (37, N'Máy điều trị tủy', N'Thiết bị điều trị', 3, N'Máy', '', '2024-09-01', '2034-09-01', '2024-10-15', 20000000, 4),
     (38, N'Máy tẩy trắng răng', N'Thiết bị thẩm mỹ', 3, N'Máy', '', '2024-09-01', '2029-09-01', '2024-12-01', 12000000, 4);
@@ -1032,7 +1373,7 @@ DBCC CHECKIDENT ('service_categories', RESEED, 0);*/
 INSERT INTO dich_vu
     (ma_loai, ten, don_vi, gia)
 VALUES
-    (1, N'Khám - Hồ sơ', 'Lượt', 5000);
+    (1, N'Khám - Hồ sơ', N'Lượt', 5000);
 
 -- Category: Nhổ răng (category_id = 2)
 INSERT INTO dich_vu
@@ -1385,7 +1726,6 @@ BEGIN
 END;
 GO
 
-
 -- Procedure lấy mật khẩu từ email và username
 CREATE PROCEDURE LayThongTinEmailVaUserName
     @Email NVARCHAR(50),
@@ -1484,12 +1824,13 @@ AS
 BEGIN
     DECLARE @TotalDoctors INT;
     SELECT @TotalDoctors = COUNT(*)
-    FROM bac_si;
+    FROM bac_si join nguoi_dung on nguoi_dung.ma_nguoi_dung = bac_si.ma_nguoi_dung
+    where nguoi_dung.trang_thai = 1;
     RETURN @TotalDoctors;
 END;
 GO
 
-	
+
 CREATE FUNCTION SoLuongBenhNhan()
 RETURNS INT
 AS
@@ -1498,6 +1839,17 @@ BEGIN
     SELECT @TotalPatient = COUNT(*)
     FROM benh_nhan;
     RETURN @TotalPatient;
+END;
+GO
+
+CREATE FUNCTION SoLuongLeTan()
+RETURNS INT
+AS
+BEGIN
+    DECLARE @SoLuongLeTan INT;
+    SELECT @SoLuongLeTan = COUNT(*)
+    FROM le_tan;
+    RETURN @SoLuongLeTan;
 END;
 GO
 
@@ -1516,6 +1868,8 @@ BEGIN
     FROM hoa_don
     WHERE ngay BETWEEN @StartOfMonth AND @EndOfMonth;
 
+    IF @Revenue IS NULL
+		SET @Revenue = 0
     RETURN @Revenue;
 END;
 GO
@@ -1785,15 +2139,383 @@ BEGIN
 END;
 GO
 
-CREATE PROCEDURE LichLamViecTheoID
-	@ID INT,
-	@StartOfMonth DATE,
-	@EndOfMonth DATE
+CREATE PROCEDURE DanhSachLichLamViecBacSi
+    @StartOfMonth DATE,
+    @EndOfMonth DATE
 AS
 BEGIN
-	SELECT * FROM lich_lam_viec
-	WHERE lich_lam_viec.ma_nguoi_dung = @ID
-	AND lich_lam_viec.ngay BETWEEN @StartOfMonth AND @EndOfMonth;
+    SELECT nguoi_dung.ma_nguoi_dung, nguoi_dung.ho_ten, nguoi_dung.gioi_tinh, nguoi_dung.email, bac_si_chuyen_mon.ten_chuyen_mon, count(*) as so_ca
+    from nguoi_dung
+        left join lich_lam_viec on lich_lam_viec.ma_nguoi_dung = nguoi_dung.ma_nguoi_dung
+        join bac_si on nguoi_dung.ma_nguoi_dung = bac_si.ma_nguoi_dung
+        join bac_si_chuyen_mon on bac_si.ma_chuyen_mon = bac_si_chuyen_mon.ma_chuyen_mon
+    WHERE lich_lam_viec.ngay BETWEEN @StartOfMonth AND @EndOfMonth
+    GROUP BY nguoi_dung.ho_ten, nguoi_dung.gioi_tinh, nguoi_dung.email, bac_si_chuyen_mon.ten_chuyen_mon, nguoi_dung.ma_nguoi_dung
+    order by nguoi_dung.ma_nguoi_dung
+END;
+
+GO
+
+
+CREATE PROCEDURE DanhSachLichLamViecBacSiKhongNgayLam
+AS
+BEGIN
+    SELECT nguoi_dung.ma_nguoi_dung, nguoi_dung.ho_ten, nguoi_dung.gioi_tinh, nguoi_dung.email, bac_si_chuyen_mon.ten_chuyen_mon, count(*) as so_ca
+    from nguoi_dung
+        join bac_si on nguoi_dung.ma_nguoi_dung = bac_si.ma_nguoi_dung
+        join bac_si_chuyen_mon on bac_si.ma_chuyen_mon = bac_si_chuyen_mon.ma_chuyen_mon
+    GROUP BY nguoi_dung.ho_ten, nguoi_dung.gioi_tinh, nguoi_dung.email, bac_si_chuyen_mon.ten_chuyen_mon, nguoi_dung.ma_nguoi_dung
+    order by nguoi_dung.ma_nguoi_dung
+END;
+
+GO
+
+CREATE PROCEDURE LichLamViec
+    @ID INT,
+    @StartOfMonth DATE,
+    @EndOfMonth DATE
+AS
+BEGIN
+    SELECT
+        nguoi_dung.ma_nguoi_dung,
+        nguoi_dung.ho_ten,
+        lich_lam_viec.ca,
+        lich_lam_viec.ngay,
+        CASE 
+			WHEN cham_cong.ghi_chu = N'Làm việc đúng giờ' THEN 1 
+			WHEN cham_cong.ghi_chu IS NULL THEN 2
+			ELSE 0 
+		END AS LamViecDungGio
+    FROM
+        nguoi_dung
+        Left JOIN
+        lich_lam_viec ON nguoi_dung.ma_nguoi_dung = lich_lam_viec.ma_nguoi_dung
+        LEFT JOIN
+        cham_cong ON nguoi_dung.ma_nguoi_dung = cham_cong.ma_nguoi_dung
+            AND cham_cong.ngay = lich_lam_viec.ngay
+    WHERE 
+		lich_lam_viec.ngay BETWEEN @StartOfMonth AND @EndOfMonth
+        AND nguoi_dung.ma_nguoi_dung = @ID
+END;
+
+GO
+
+CREATE PROCEDURE ChiTietCaLam
+    @ID INT,
+    @day DATE
+AS
+BEGIN
+    SELECT
+        nguoi_dung.ma_nguoi_dung,
+        nguoi_dung.ho_ten,
+        nguoi_dung.gioi_tinh,
+        nguoi_dung.email,
+        nguoi_dung.so_dien_thoai,
+        nguoi_dung.dia_chi,
+        cham_cong.ghi_chu,
+        cham_cong.gio_vao,
+        cham_cong.gio_ra,
+        cham_cong.ngay,
+        lich_lam_viec.ca
+    FROM
+        nguoi_dung
+        JOIN
+        bac_si ON nguoi_dung.ma_nguoi_dung = bac_si.ma_nguoi_dung
+        JOIN
+        lich_lam_viec on nguoi_dung.ma_nguoi_dung = lich_lam_viec.ma_nguoi_dung
+        JOIN
+        cham_cong ON nguoi_dung.ma_nguoi_dung = cham_cong.ma_nguoi_dung
+    WHERE 
+		lich_lam_viec.ngay = @day
+        AND cham_cong.ngay = @day
+        AND nguoi_dung.ma_nguoi_dung = @ID
+END;
+
+GO
+
+
+CREATE PROCEDURE LayThongTinBenhNhanCuaBacSi
+    @MaBacSi INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT
+        bn.ma_benh_nhan,
+        bn.ho_ten,
+        bn.dia_chi,
+        bn.gioi_tinh,
+        bn.tuoi
+    FROM
+        nguoi_dung AS nd
+        JOIN
+        dieu_tri AS dt ON nd.ma = dt.ma_bac_si
+        JOIN
+        benh_nhan AS bn ON dt.ma_benh_nhan = bn.ma_benh_nhan
+    WHERE 
+        nd.ma = @MaBacSi
+END;
+GO
+
+CREATE PROCEDURE ThongTinLamViecChuaChamCong
+    @userId INT,
+    @ngay Date
+AS
+BEGIN
+    SELECT
+        nguoi_dung.ma_nguoi_dung,
+        nguoi_dung.ho_ten,
+        nguoi_dung.gioi_tinh,
+        nguoi_dung.email,
+        nguoi_dung.so_dien_thoai,
+        nguoi_dung.dia_chi,
+        lich_lam_viec.ca
+    FROM nguoi_dung join lich_lam_viec on nguoi_dung.ma_nguoi_dung = lich_lam_viec.ma_nguoi_dung
+    WHERE nguoi_dung.ma_nguoi_dung = @userId;
+END;
+GO
+
+CREATE PROCEDURE ThemLichLamViec
+    @ID INT,
+    @ca INT,
+    @day DATE
+AS
+BEGIN
+    IF EXISTS (SELECT 1
+    FROM lich_lam_viec
+    WHERE ma_nguoi_dung = @ID AND ngay = @day)
+    BEGIN
+        UPDATE lich_lam_viec
+        SET ngay = @day, ca = @ca
+        WHERE ma_nguoi_dung = @ID AND ca = @ca AND ngay = @day;
+    END
+    ELSE
+    BEGIN
+        INSERT INTO lich_lam_viec
+            (ngay, ca, ma_nguoi_dung)
+        VALUES
+            (@day, @ca, @ID);
+    END
+END;
+
+GO
+
+CREATE PROCEDURE XoaLichLamViec
+    @ID INT,
+    @day DATE
+AS
+BEGIN
+    DELETE FROM lich_lam_viec
+	WHERE ma_nguoi_dung = @ID and ngay = @day
+END;
+
+GO
+
+CREATE PROCEDURE ThemBenhNhan_BacSi
+    @hoTen NVARCHAR(255),       -- Họ tên
+    @soDienThoai NVARCHAR(10),  -- Số điện thoại
+    @diaChi NVARCHAR(50),       -- Địa chỉ
+    @gioiTinh BIT,              -- Giới tính (0 cho nữ, 1 cho nam)
+    @tuoi INT,                  -- Tuổi
+    @maBacSi INT,               -- Mã của bác sĩ điều trị
+    @ngayDieuTri DATE,          -- Ngày điều trị
+    @TenBacSiThayThe NVARCHAR(50) = NULL  -- Tên bác sĩ thay thế (nếu có)
+AS
+BEGIN
+    DECLARE @maBenhNhanMoi INT;
+
+    -- Kiểm tra xem mã bác sĩ có tồn tại trong bảng bac_si hay không
+    IF NOT EXISTS (SELECT 1 FROM bac_si WHERE ma_nguoi_dung = @maBacSi)
+    BEGIN
+        PRINT 'Lỗi: Mã bác sĩ không tồn tại trong bảng bac_si.';
+        RETURN;
+    END
+
+    -- Tạo mã bệnh nhân mới
+    SELECT @maBenhNhanMoi = ISNULL(MAX(ma_benh_nhan), 0) + 1
+    FROM benh_nhan;
+
+    -- Thêm bệnh nhân mới vào bảng benh_nhan
+    INSERT INTO benh_nhan
+        (ma_benh_nhan, ho_ten, gioi_tinh, tuoi, so_dien_thoai, dia_chi)
+    VALUES
+        (@maBenhNhanMoi, @hoTen, @gioiTinh, @tuoi, @soDienThoai, @diaChi);
+
+    -- Thêm thông tin điều trị vào bảng dieu_tri
+    INSERT INTO dieu_tri
+        (ma_bac_si, ma_benh_nhan, ngay_dieu_tri, ghi_chu, ten_bac_si_thay_the)
+    VALUES
+        (@maBacSi, @maBenhNhanMoi, @ngayDieuTri, N'Điều trị ban đầu', 
+        ISNULL(@TenBacSiThayThe, N'Không có'));
+
+    -- Xác nhận thành công
+    PRINT 'Thêm bệnh nhân và thông tin điều trị thành công.';
+END;
+GO
+-- Lấy danh sách lịch hẹn trong ngày
+CREATE PROCEDURE LayDanhSachLichHenTrongNgay
+    @NgayHen DATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT 
+        lh.ma_lich_hen AS maLichHen,
+        bn.ma_benh_nhan AS maBenhNhan,
+        bn.ho_ten AS tenBenhNhan,
+        bn.so_dien_thoai AS soDienThoai,
+        bn.dia_chi AS DiaChi,
+        CASE bn.gioi_tinh WHEN 1 THEN N'Nam' ELSE N'Nữ' END AS gioiTinh,
+        bn.tuoi AS tuoi,
+        bs.ma AS maBacSi,
+        bs.ho_ten AS tenBacSi,	
+        lh.trang_thai AS trangThai,
+        lh.ghi_chu AS ghiChu
+    FROM 
+        lich_hen AS lh
+    JOIN 
+        benh_nhan AS bn ON lh.ma_benh_nhan = bn.ma_benh_nhan
+    JOIN 
+        nguoi_dung AS bs ON lh.ma_nguoi_dung = bs.ma -- `ma_nguoi_dung` được giả định là mã bác sĩ
+    WHERE 
+        lh.ngay_hen = @NgayHen
+    ORDER BY 
+        lh.ngay_hen ASC;
+END;
+GO
+EXEC LayDanhSachLichHenTrongNgay @NgayHen = '2024-10-25';
+
+GO
+
+CREATE PROCEDURE DanhSachLichLamViecLeTan
+    @StartOfMonth DATE,
+    @EndOfMonth DATE
+AS
+BEGIN
+    SELECT nguoi_dung.ma_nguoi_dung, nguoi_dung.ho_ten, nguoi_dung.gioi_tinh, nguoi_dung.email, count(*) as so_ca
+    from nguoi_dung
+        left join lich_lam_viec on lich_lam_viec.ma_nguoi_dung = nguoi_dung.ma_nguoi_dung
+        join le_tan on nguoi_dung.ma_nguoi_dung = le_tan.ma_nguoi_dung
+    WHERE lich_lam_viec.ngay BETWEEN @StartOfMonth AND @EndOfMonth
+    GROUP BY nguoi_dung.ho_ten, nguoi_dung.gioi_tinh, nguoi_dung.email, nguoi_dung.ma_nguoi_dung
+    order by nguoi_dung.ma_nguoi_dung
+END;
+
+GO
+
+CREATE PROCEDURE DanhSachLichLamViecLeTanKhongNgayLam
+AS
+BEGIN
+    SELECT nguoi_dung.ma_nguoi_dung, nguoi_dung.ho_ten, nguoi_dung.gioi_tinh, nguoi_dung.email, count(*) as so_ca
+    from nguoi_dung
+        join le_tan on nguoi_dung.ma_nguoi_dung = le_tan.ma_nguoi_dung
+    GROUP BY nguoi_dung.ho_ten, nguoi_dung.gioi_tinh, nguoi_dung.email, nguoi_dung.ma_nguoi_dung
+    order by nguoi_dung.ma_nguoi_dung
+END;
+
+GO
+--Quản lý vật tư
+
+CREATE PROCEDURE ThongTinThuoc
+	@id INT
+AS
+BEGIN
+	select * 
+	from hang_ton_kho 
+		join loai_hang_ton_kho on hang_ton_kho.ma_loai = loai_hang_ton_kho.ma_loai
+	where hang_ton_kho.ma_loai = @id
+	order by hang_ton_kho.ngay_het_han
+END;
+
+GO
+
+--Thông tin vật tư
+CREATE PROCEDURE ThongTinVatTu
+	@id INT
+AS
+BEGIN
+	select * 
+	from hang_ton_kho 
+		join loai_hang_ton_kho on hang_ton_kho.ma_loai = loai_hang_ton_kho.ma_loai
+	where hang_ton_kho.ma_loai != @id
+	order by hang_ton_kho.ngay_het_han
+END;
+GO
+
+CREATE PROCEDURE ThongTinDichVu
+AS
+BEGIN
+	select * 
+	from dich_vu 
+		join loai_dich_vu on dich_vu.ma_loai = loai_dich_vu.ma_loai_dich_vu
+END;
+GO
+
+CREATE PROCEDURE ThongTinChiTietThuoc
+	@id INT
+AS
+BEGIN 
+	SELECT * FROM hang_ton_kho where hang_ton_kho.ma_loai = 1
+	AND hang_ton_kho.ma_kho = @id
+END;
+GO
+
+CREATE PROCEDURE CapNhatThongTinThuoc
+	@id INT,
+	@donViTinh nvarchar(255),
+	@gia float
+AS
+BEGIN 
+	UPDATE hang_ton_kho 
+	SET don_vi = @donViTinh,
+	gia = @gia
+	where ma_kho = @id
+END;
+GO
+
+CREATE PROCEDURE ThongTinChiTietVatTu
+	@id INT
+AS
+BEGIN 
+	SELECT * FROM hang_ton_kho where ma_kho = @id
+	and ma_loai != 1
+
+END;
+GO
+
+CREATE PROCEDURE CapNhatThongTinVatTu
+	@id INT,
+	@donViTinh nvarchar(255),
+	@gia float
+AS
+BEGIN 
+	UPDATE hang_ton_kho 
+	SET don_vi = @donViTinh,
+	gia = @gia
+	where ma_kho = @id
+END;
+GO
+
+CREATE PROCEDURE ThongTinChiTietDichVu
+	@id INT
+AS
+BEGIN 
+	SELECT * FROM dich_vu 
+	join loai_dich_vu on dich_vu.ma_loai = loai_dich_vu.ma_loai_dich_vu
+	where dich_vu.ma_loai = @id
+END;
+GO
+
+CREATE PROCEDURE CapNhatThongTinDichVu
+	@id INT,
+	@donViTinh nvarchar(255),
+	@gia float
+AS
+BEGIN 
+	UPDATE dich_vu 
+	SET don_vi = @donViTinh,
+	gia = @gia
+	where ma_dich_vu = @id
 END;
 
 GO

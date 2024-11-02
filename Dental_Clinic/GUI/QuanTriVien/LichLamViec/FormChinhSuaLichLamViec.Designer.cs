@@ -1,4 +1,6 @@
-﻿namespace Dental_Clinic.GUI.Administrator.WorkSchedule
+﻿using Dental_Clinic.Properties;
+
+namespace Dental_Clinic.GUI.Administrator.WorkSchedule
 {
     partial class FormChinhSuaLichLamViec
     {
@@ -31,8 +33,10 @@
             panel1 = new Panel();
             label1 = new Label();
             panelLichLamViec = new Panel();
+            pbQuayVe = new PictureBox();
             dtpLichLamViec = new DateTimePicker();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbQuayVe).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -61,26 +65,39 @@
             panelLichLamViec.Size = new Size(1012, 502);
             panelLichLamViec.TabIndex = 45;
             // 
+            // pbQuayVe
+            // 
+            pbQuayVe.Image = Resources.icons8_back_50;
+            pbQuayVe.Location = new Point(12, 87);
+            pbQuayVe.Name = "pbQuayVe";
+            pbQuayVe.Size = new Size(70, 39);
+            pbQuayVe.SizeMode = PictureBoxSizeMode.Zoom;
+            pbQuayVe.TabIndex = 47;
+            pbQuayVe.TabStop = false;
+            pbQuayVe.Click += pbQuayVe_Click;
+            // 
             // dtpLichLamViec
             // 
-            dtpLichLamViec.Location = new Point(693, 99);
+            dtpLichLamViec.Location = new Point(700, 99);
             dtpLichLamViec.Name = "dtpLichLamViec";
             dtpLichLamViec.Size = new Size(250, 27);
-            dtpLichLamViec.TabIndex = 46;
+            dtpLichLamViec.TabIndex = 48;
             // 
-            // EditWorkScheduleForm
+            // FormChinhSuaLichLamViec
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             ClientSize = new Size(1016, 644);
             Controls.Add(dtpLichLamViec);
+            Controls.Add(pbQuayVe);
             Controls.Add(panelLichLamViec);
             Controls.Add(panel1);
-            Name = "EditWorkScheduleForm";
+            Name = "FormChinhSuaLichLamViec";
             Text = "EditWorkScheduleForm";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pbQuayVe).EndInit();
             ResumeLayout(false);
         }
 
@@ -89,6 +106,7 @@
         private Panel panel1;
         private Label label1;
         private Panel panelLichLamViec;
+        private PictureBox pbQuayVe;
         private DateTimePicker dtpLichLamViec;
     }
 }

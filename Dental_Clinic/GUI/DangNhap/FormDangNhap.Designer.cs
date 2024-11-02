@@ -176,14 +176,15 @@ namespace Dental_Clinic.GUI.Login
             vbDangNhap.BorderColor = Color.PaleVioletRed;
             vbDangNhap.BorderRadius = 20;
             vbDangNhap.BorderSize = 0;
+            vbDangNhap.Cursor = Cursors.Hand;
             vbDangNhap.FlatAppearance.BorderSize = 0;
             vbDangNhap.FlatStyle = FlatStyle.Flat;
             vbDangNhap.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             vbDangNhap.ForeColor = Color.White;
-            vbDangNhap.Location = new Point(169, 530);
+            vbDangNhap.Location = new Point(134, 558);
             vbDangNhap.Margin = new Padding(4, 4, 4, 4);
             vbDangNhap.Name = "vbDangNhap";
-            vbDangNhap.Size = new Size(214, 48);
+            vbDangNhap.Size = new Size(374, 66);
             vbDangNhap.TabIndex = 15;
             vbDangNhap.Text = "Đăng Nhập";
             vbDangNhap.TextColor = Color.White;

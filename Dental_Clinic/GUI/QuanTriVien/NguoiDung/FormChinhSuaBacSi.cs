@@ -16,13 +16,13 @@ namespace Dental_Clinic.GUI.Administrator.User
     {
         private MainForm mainForm;
         private BacSiDTO bacSiDTO;
-        private BacSiBUS bacSiBUS;
+        private QuanTriVienBUS quanTriVienBUS;
         public FormChinhSuaBacSi(MainForm _mainForm, BacSiDTO bacSiDTO)
         {
             InitializeComponent();
             mainForm = _mainForm;
             this.bacSiDTO = bacSiDTO;
-            bacSiBUS = new BacSiBUS();
+            quanTriVienBUS = new QuanTriVienBUS();
             TaiForm();
         }
 
@@ -82,7 +82,7 @@ namespace Dental_Clinic.GUI.Administrator.User
 
         private void vbHuy_Click(object sender, EventArgs e)
         {
-            bacSiDTO = bacSiBUS.LayThongTinBacSi(bacSiDTO.Id);
+            bacSiDTO = quanTriVienBUS.LayThongTinBacSi(bacSiDTO.Id);
             TaiForm();
         }
 
@@ -99,8 +99,8 @@ namespace Dental_Clinic.GUI.Administrator.User
             bacSiDTO.DiaChi = tbQueQuan.Text;
             bacSiDTO.ChuyenNganh = cbChuyenNganh.SelectedItem.ToString();
 
-            bacSiBUS.CapNhatBacSi(bacSiDTO);
-            bacSiBUS.LayThongTinBacSi(bacSiDTO.Id);
+            quanTriVienBUS.CapNhatBacSi(bacSiDTO);
+            quanTriVienBUS.LayThongTinBacSi(bacSiDTO.Id);
             TaiForm();
         }
     }

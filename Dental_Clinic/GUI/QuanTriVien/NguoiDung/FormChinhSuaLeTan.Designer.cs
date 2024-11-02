@@ -428,7 +428,7 @@
             vbButton5.TextColor = Color.White;
             vbButton5.UseVisualStyleBackColor = false;
             // 
-            // EditReceptionForm
+            // FormChinhSuaLeTan
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -436,7 +436,7 @@
             ClientSize = new Size(1016, 644);
             Controls.Add(panelDuLieu);
             Controls.Add(panel1);
-            Name = "EditReceptionForm";
+            Name = "FormChinhSuaLeTan";
             Text = "EditReceptionForm";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

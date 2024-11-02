@@ -9,13 +9,13 @@ namespace Dental_Clinic.GUI.Administrator.User
     public partial class FormLeTan : Form
     {
         private MainForm _mainForm;
-        private LeTanBUS leTanBUS;
+        private QuanTriVienBUS quanTriVienBUS;
         public FormLeTan(MainForm mainForm)
         {
             InitializeComponent();
             _mainForm = mainForm;
-            leTanBUS = new LeTanBUS();
-            List<LeTanDTO> leTan = leTanBUS.LayDanhSachLeTan();
+            quanTriVienBUS = new QuanTriVienBUS();
+            List<LeTanDTO> leTan = quanTriVienBUS.LayDanhSachLeTan();
             TaoTableLayoutPanel(leTan);
             
             vbBacSi.FlatStyle = FlatStyle.Flat;
@@ -107,7 +107,7 @@ namespace Dental_Clinic.GUI.Administrator.User
                     int userId = (int)cb.Tag;
                     int isChecked = cb.Checked ? 0 : 1;
 
-                    leTanBUS.CapNhatTrangThai(userId);
+                    quanTriVienBUS.CapNhatTrangThai(userId);
                 }
             };
             return checkBox;
@@ -247,7 +247,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             string searchText = tbTimKiem.Text.ToLower();
 
             // Lấy danh sách bác sĩ từ doctorBUS
-            var receptionistList = leTanBUS.LayDanhSachLeTan();
+            var receptionistList = quanTriVienBUS.LayDanhSachLeTan();
 
             if (string.IsNullOrWhiteSpace(searchText))
             {
@@ -300,7 +300,7 @@ namespace Dental_Clinic.GUI.Administrator.User
         }
         public void HienThiChinhSuaLeTan(int id)
         {
-            FormChinhSuaLeTan formChinhSuaLeTan = new FormChinhSuaLeTan(_mainForm, leTanBUS.LayThongTinLeTan(id));
+            FormChinhSuaLeTan formChinhSuaLeTan = new FormChinhSuaLeTan(_mainForm, quanTriVienBUS.LayThongTinLeTan(id));
             formChinhSuaLeTan.TopLevel = false; // Đặt userForm không phải là form cấp cao nhất (TopLevel)
             formChinhSuaLeTan.FormBorderStyle = FormBorderStyle.None; // Xóa viền của userForm
             formChinhSuaLeTan.Dock = DockStyle.Fill; // Đặt userForm khớp với kích thước panel

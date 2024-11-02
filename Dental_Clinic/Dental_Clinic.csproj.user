@@ -1,6 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Compile Update="GUI\BacSi\BenhNhan\FormBenhNhan_BacSi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\BacSi\BenhNhan\FormChinhSuaBenhNhan_BacSi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\BacSi\BenhNhan\FormThemBenhNhan_BacSi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\BacSi\FormBacSi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\BacSi\FormTrangChuBacSi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\LeTan\FormTrangChuLeTan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\QuanTriVien\LichLamViec\FormChiTietCaLam.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="GUI\QuanTriVien\ThongKe\FormThongKe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -20,6 +41,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="GUI\QuanTriVien\Luong\FormQuanLyLuong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\QuanTriVien\VatTu\FormChinhSuaDichVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\QuanTriVien\VatTu\FormThemDichVu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="GUI\QuanTriVien\VatTu\FormThemThuoc.cs">
@@ -61,9 +88,6 @@
     <Compile Update="GUI\QuanTriVien\LichLamViec\FormLichLamViec.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\BacSi\MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="GUI\DangNhap\FormQuenMatKhau.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,7 +97,7 @@
     <Compile Update="GUI\DangNhap\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\LeTan\MainForm.cs">
+    <Compile Update="GUI\LeTan\FormLeTan.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="VBButton.cs">

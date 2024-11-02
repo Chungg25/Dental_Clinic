@@ -44,6 +44,10 @@ namespace Dental_Clinic.GUI.Login
             tbMatKhau.UseSystemPasswordChar = false; // Không ẩn ký tự khi đang hiển thị placeholder
             tbMatKhau.Enter += TbPassword_Enter;
             tbMatKhau.Leave += TbPassword_Leave;
+
+            // ENTER ĐĂNG NHẬP
+            tbTenDangNhap.KeyDown += tbEnter_KeyDown;
+            tbMatKhau.KeyDown += tbEnter_KeyDown;
         }
         private void TbUser_Enter(object? sender, EventArgs e)
         {
@@ -125,7 +129,7 @@ namespace Dental_Clinic.GUI.Login
                 int userId = (int)thongTinNguoiDung["ma_nguoi_dung"]; // Giả sử cột id tồn tại trong bảng users
                 string userRole = thongTinNguoiDung["vai_tro"].ToString() ?? ""; // Giả sử cột role tồn tại trong bảng users
 
-                QuanTriVienDTO QuanTriVienDTO = new QuanTriVienDTO
+                QuanTriVienDTO user = new QuanTriVienDTO
                 {
                     Id = (int)thongTinNguoiDung["ma"],
                     HoVaTen = thongTinNguoiDung["ho_ten"].ToString() ?? "",
@@ -142,30 +146,24 @@ namespace Dental_Clinic.GUI.Login
                 };
 
                 //Điều hướng người dùng dựa vào role
+                Form form;
                 if (userRole == "Admin")
                 {
-                    // Mở giao diện cho admin
-                    this.Hide();
-                    GUI.Administrator.MainForm adminForm = new GUI.Administrator.MainForm(QuanTriVienDTO);
-                    adminForm.ShowDialog();
-                    this.Close();
-
-                    Environment.Exit(0);
+                    form = new GUI.Administrator.MainForm(user);
                 }
                 else if (userRole == "Doctor")
                 {
-                    // Mở giao diện cho bác sĩ
-                    GUI.Doctor.MainForm doctorForm = new GUI.Doctor.MainForm(QuanTriVienDTO);
-                    doctorForm.Show();
-                    this.Close();
+                    form = new GUI.BacSi.FormBacSi(user);
                 }
                 else
                 {
-                    // Mở giao diện cho các vai trò khác
-                    GUI.Receptionist.MainForm receptionist = new GUI.Receptionist.MainForm(QuanTriVienDTO);
-                    receptionist.Show();
-                    this.Close();
+                    form = new GUI.Receptionist.FormLeTan(user);
                 }
+
+                this.Hide();
+                mainForm.Hide();
+                form.FormClosed += (s, args) => Application.Exit();
+                form.Show();
             }
             else
             {
@@ -198,6 +196,14 @@ namespace Dental_Clinic.GUI.Login
             {
                 // Ẩn mật khẩu
                 tbMatKhau.UseSystemPasswordChar = true;
+            }
+        }
+        // SỰ KIỆN ENTER ĐĂNG NHẬP
+        private void tbEnter_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                DangNhap();
             }
         }
     }
