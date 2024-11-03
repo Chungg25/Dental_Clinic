@@ -17,7 +17,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             quanTriVienBUS = new QuanTriVienBUS();
             List<LeTanDTO> leTan = quanTriVienBUS.LayDanhSachLeTan();
             TaoTableLayoutPanel(leTan);
-            
+
             vbBacSi.FlatStyle = FlatStyle.Flat;
             vbBacSi.FlatAppearance.BorderSize = 0;
             vbBacSi.FlatAppearance.MouseOverBackColor = vbBacSi.BackColor;
@@ -307,6 +307,17 @@ namespace Dental_Clinic.GUI.Administrator.User
             _mainForm.panelTrangChu.Controls.Add(formChinhSuaLeTan); // Thêm userForm vào panel
             formChinhSuaLeTan.BringToFront();
             formChinhSuaLeTan.Show(); // Hiển thị userForm
+        }
+
+        private void vbLeTan_Click(object sender, EventArgs e)
+        {
+            HienLeTan();
+        }
+
+        public void HienLeTan()
+        {
+            List<LeTanDTO> leTan = quanTriVienBUS.LayDanhSachLeTan();
+            TaoTableLayoutPanel(leTan);
         }
 
         //Kết thúc

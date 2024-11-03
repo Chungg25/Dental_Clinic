@@ -90,5 +90,10 @@ namespace Dental_Clinic.GUI.Administrator.Patient
             benhNhanBUS.LayThongTinBenhNhan(benhNhanDTO.Id);
             ChinhSua();
         }
+
+        private void pbQuayVe_Click(object sender, EventArgs e)
+        {
+            mainForm.ShowPatientInPanel();
+        }
     }
 }

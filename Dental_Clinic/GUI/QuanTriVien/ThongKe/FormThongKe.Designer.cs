@@ -37,7 +37,8 @@ namespace Dental_Clinic.GUI.Administrator
             pictureBox5 = new PictureBox();
             pictureBox1 = new PictureBox();
             vbButton1 = new CustomButton.VBButton();
-            panelBenhNhan = new Panel();
+            panelThongKe = new Panel();
+            dtpNgay = new DateTimePicker();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -126,26 +127,34 @@ namespace Dental_Clinic.GUI.Administrator
             vbButton1.TextColor = Color.White;
             vbButton1.UseVisualStyleBackColor = false;
             // 
-            // panelBenhNhan
+            // panelThongKe
             // 
-            panelBenhNhan.Location = new Point(7, 202);
-            panelBenhNhan.Name = "panelBenhNhan";
-            panelBenhNhan.Size = new Size(1012, 454);
-            panelBenhNhan.TabIndex = 18;
+            panelThongKe.Location = new Point(7, 202);
+            panelThongKe.Name = "panelThongKe";
+            panelThongKe.Size = new Size(1012, 454);
+            panelThongKe.TabIndex = 18;
             // 
-            // BusinessStatisticsForm
+            // dtpNgay
+            // 
+            dtpNgay.Location = new Point(740, 120);
+            dtpNgay.Name = "dtpNgay";
+            dtpNgay.Size = new Size(250, 27);
+            dtpNgay.TabIndex = 19;
+            // 
+            // FormThongKe
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             ClientSize = new Size(1016, 644);
-            Controls.Add(panelBenhNhan);
+            Controls.Add(dtpNgay);
+            Controls.Add(panelThongKe);
             Controls.Add(pictureBox1);
             Controls.Add(vbButton1);
             Controls.Add(pictureBox5);
             Controls.Add(vbThongKeDoanhThu);
             Controls.Add(panel1);
-            Name = "BusinessStatisticsForm";
+            Name = "FormThongKe";
             Text = "BusinessStatisticsForm";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -162,6 +171,7 @@ namespace Dental_Clinic.GUI.Administrator
         private PictureBox pictureBox5;
         private PictureBox pictureBox1;
         private CustomButton.VBButton vbButton1;
-        private Panel panelBenhNhan;
+        private Panel panelThongKe;
+        private DateTimePicker dtpNgay;
     }
 }

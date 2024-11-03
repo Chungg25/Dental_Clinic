@@ -37,6 +37,12 @@
     <Compile Update="GUI\QuanTriVien\LichLamViec\FormChiTietCaLam.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="GUI\QuanTriVien\Luong\FormChiTietLuongBacSi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\QuanTriVien\Luong\FormChiTietLuongLeTan.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="GUI\QuanTriVien\ThongKe\FormThongKe.cs">
       <SubType>Form</SubType>
     </Compile>

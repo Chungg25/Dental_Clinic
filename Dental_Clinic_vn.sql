@@ -107,12 +107,12 @@ GO
 -- 8. Bảng bệnh nhân
 CREATE TABLE [benh_nhan]
 (
-    [ma_benh_nhan] INT NOT NULL,
+    [ma_benh_nhan] INT NOT NULL IDENTITY(1, 1),
     [ho_ten] NVARCHAR(50) NOT NULL,
-    [gioi_tinh] BIT NOT NULL,
-    [tuoi] INT NOT NULL,
+    [gioi_tinh] BIT NULL,
+    [tuoi] INT NULL,
     [so_dien_thoai] NVARCHAR(10) NOT NULL,
-    [dia_chi] NVARCHAR(50) NOT NULL,
+    [dia_chi] NVARCHAR(50) NULL,
     PRIMARY KEY ([ma_benh_nhan])
 )
 GO
@@ -128,11 +128,11 @@ GO
 CREATE TABLE [lich_hen]
 (
     [ma_lich_hen] INT NOT NULL IDENTITY(1, 1),
-    [ghi_chu] NVARCHAR(50) NOT NULL,
+    [ghi_chu] NVARCHAR(MAX) NULL,
     [trang_thai] BIT NOT NULL,
-    [ngay_hen] DATE NOT NULL,
-    [ca] INT NOT NULL,
-    [ma_nguoi_dung] INT NOT NULL,
+    [ngay_hen] DATE NULL,
+    [ca] INT NULL,
+    [ma_nguoi_dung] INT NULL,
     [ma_benh_nhan] INT NOT NULL,
     PRIMARY KEY ([ma_lich_hen])
 )
@@ -232,7 +232,8 @@ CREATE TABLE [hoa_don]
     [ma_don_thuoc] INT NOT NULL,
     [ma_benh_nhan] INT NOT NULL,
     [ngay] date,
-	[trang_thai_thanh_toan] BIT DEFAULT 0, -- 0: Chưa thanh toán, 1: Đã thanh toán
+    [trang_thai_thanh_toan] BIT DEFAULT 0,
+    -- 0: Chưa thanh toán, 1: Đã thanh toán
     PRIMARY KEY ([ma_hoa_don])
 )
 GO
@@ -400,28 +401,28 @@ DBCC CHECKIDENT ('doctors', RESEED, 0);*/
 
 -- Thêm dữ liệu vào bảng bệnh nhân
 INSERT INTO benh_nhan
-    (ma_benh_nhan, ho_ten, gioi_tinh, tuoi, so_dien_thoai, dia_chi)
+    (ho_ten, gioi_tinh, tuoi, so_dien_thoai, dia_chi)
 VALUES
-    (1, N'Phạm Văn Cường', 1, 29, '0903456789', N'789 Lê Lợi, Quận 5'),
-    (2, N'Trần Văn Tùng', 1, 37, '0906789012', N'56 Võ Thị Sáu, Quận 2'),
-    (3, N'Lê Thị Hoa', 0, 30, '0907890123', N'78 Nam Kỳ Khởi Nghĩa, Quận 3'),
-    (4, N'Phạm Văn Bảo', 1, 33, '0900123456', N'23 Trường Chinh, Quận Tân Bình'),
-    (5, N'Trần Văn Đức', 1, 32, '0903334455', N'67 Trường Sa, Phú Nhuận'),
-    (6, N'Lê Thị Lan', 0, 31, '0904445566', N'78 Lê Văn Sỹ, Quận 3'),
-    (7, N'Nguyễn Hoàng Long', 1, 33, '0905556677', N'89 Nguyễn Văn Trỗi, Quận Tân Phú'),
-    (8, N'Phạm Thanh Bình', 1, 37, '0906667788', N'23 Lê Lợi, Quận 1'),
-    (9, N'Võ Thị Quỳnh', 0, 31, '0907778899', N'34 Hai Bà Trưng, Quận 3'),
-    (10, N'Nguyễn Văn Minh', 1, 32, '0905678901', N'34 Hai Bà Trưng, Quận 3'),
-    (11, N'Trần Thị Hoa', 0, 39, '0902345678', N'456 Điện Biên Phủ, Quận 3'),
-    (12, N'Lê Văn Tâm', 1, 50, '0903456567', N'56 Cách Mạng Tháng Tám, Quận 10'),
-    (13, N'Trần Anh Dũng', 1, 28, '0908765432', N'101 Lý Chính Thắng, Quận 3'),
-    (14, N'Lê Thị Bích', 0, 34, '0901234876', N'567 Nguyễn Tri Phương, Quận 10'),
-    (15, N'Vũ Thị Minh Châu', 0, 40, '0906785432', N'200 Lê Hồng Phong, Quận 5'),
-    (16, N'Nguyễn Hoàng Khôi', 1, 26, '0909087654', N'90 Nguyễn Trãi, Quận 1'),
-    (17, N'Ngô Thị Hà', 0, 29, '0912345678', N'333 Hai Bà Trưng, Quận 1'),
-    (18, N'Phạm Thị Thanh', 0, 35, '0903456789', N'222 Phan Xích Long, Quận Phú Nhuận'),
-    (19, N'Lê Hữu Phước', 1, 32, '0909998877', N'345 Cộng Hòa, Quận Tân Bình'),
-    (20, N'Nguyễn Thị Mai', 0, 27, '0901234567', N'567 Lý Thường Kiệt, Quận 10');
+    (N'Phạm Văn Cường', 1, 29, '0903456789', N'789 Lê Lợi, Quận 5'),
+    (N'Trần Văn Tùng', 1, 37, '0906789012', N'56 Võ Thị Sáu, Quận 2'),
+    (N'Lê Thị Hoa', 0, 30, '0907890123', N'78 Nam Kỳ Khởi Nghĩa, Quận 3'),
+    (N'Phạm Văn Bảo', 1, 33, '0900123456', N'23 Trường Chinh, Quận Tân Bình'),
+    (N'Trần Văn Đức', 1, 32, '0903334455', N'67 Trường Sa, Phú Nhuận'),
+    (N'Lê Thị Lan', 0, 31, '0904445566', N'78 Lê Văn Sỹ, Quận 3'),
+    (N'Nguyễn Hoàng Long', 1, 33, '0905556677', N'89 Nguyễn Văn Trỗi, Quận Tân Phú'),
+    (N'Phạm Thanh Bình', 1, 37, '0906667788', N'23 Lê Lợi, Quận 1'),
+    (N'Võ Thị Quỳnh', 0, 31, '0907778899', N'34 Hai Bà Trưng, Quận 3'),
+    (N'Nguyễn Văn Minh', 1, 32, '0905678901', N'34 Hai Bà Trưng, Quận 3'),
+    (N'Trần Thị Hoa', 0, 39, '0902345678', N'456 Điện Biên Phủ, Quận 3'),
+    (N'Lê Văn Tâm', 1, 50, '0903456567', N'56 Cách Mạng Tháng Tám, Quận 10'),
+    (N'Trần Anh Dũng', 1, 28, '0908765432', N'101 Lý Chính Thắng, Quận 3'),
+    (N'Lê Thị Bích', 0, 34, '0901234876', N'567 Nguyễn Tri Phương, Quận 10'),
+    (N'Vũ Thị Minh Châu', 0, 40, '0906785432', N'200 Lê Hồng Phong, Quận 5'),
+    (N'Nguyễn Hoàng Khôi', 1, 26, '0909087654', N'90 Nguyễn Trãi, Quận 1'),
+    (N'Ngô Thị Hà', 0, 29, '0912345678', N'333 Hai Bà Trưng, Quận 1'),
+    (N'Phạm Thị Thanh', 0, 35, '0903456789', N'222 Phan Xích Long, Quận Phú Nhuận'),
+    (N'Lê Hữu Phước', 1, 32, '0909998877', N'345 Cộng Hòa, Quận Tân Bình'),
+    (N'Nguyễn Thị Mai', 0, 27, '0901234567', N'567 Lý Thường Kiệt, Quận 10');
 /*DELETE FROM patients;
 DBCC CHECKIDENT ('patients', RESEED, 0);*/
 
@@ -429,26 +430,26 @@ DBCC CHECKIDENT ('patients', RESEED, 0);*/
 INSERT INTO luong
     (ma_luong, ma_nguoi_dung, luong_co_ban, thuong, phat, phu_cap, ngay)
 VALUES
-    (1, 1, 5000000, 0, 500000, 0, '2024-09-01'),
-    (2, 2, 4000000, 200000, 500000, 0, '2024-09-01'),
-    (3, 3, 6000000, 0, 800000, 0, '2024-09-01'),
-    (4, 4, 5500000, 300000, 800000, 0, '2024-09-01'),
-    (5, 5, 7000000, 0, 1000000, 0, '2024-09-01'),
-    (6, 6, 6500000, 200000, 1000000, 0, '2024-09-01'),
-    (7, 7, 9000000, 0, 1500000, 0, '2024-09-01'),
-    (8, 8, 8500000, 500000, 1500000, 0, '2024-09-01'),
-    (9, 9, 12000000, 0, 2000000, 0, '2024-09-01'),
-    (10, 10, 11500000, 200000, 2000000, 0, '2024-09-01'),
-    (11, 11, 8000000, 0, 1200000, 0, '2024-09-01'),
-    (12, 12, 7500000, 300000, 1200000, 0, '2024-09-01'),
-    (13, 13, 10000000, 0, 1800000, 0, '2024-09-01'),
-    (14, 14, 9500000, 400000, 1800000, 0, '2024-09-01'),
-    (15, 15, 13000000, 0, 2500000, 0, '2024-09-01'),
-    (16, 16, 12500000, 300000, 2500000, 0, '2024-09-01'),
-    (17, 17, 15000000, 0, 3000000, 0, '2024-09-01'),
-    (18, 18, 14500000, 500000, 3000000, 0, '2024-09-01'),
-    (19, 19, 17000000, 0, 3500000, 0, '2024-09-01'),
-    (20, 20, 16500000, 400000, 3500000, 0, '2024-09-01');
+    (1, 1, 500000, 0, 50000, 0, '2024-10-31'),
+    (2, 2, 400000, 200000, 50000, 0, '2024-10-31'),
+    (3, 3, 600000, 0, 80000, 0, '2024-10-31'),
+    (4, 4, 550000, 300000, 80000, 0, '2024-10-31'),
+    (5, 5, 700000, 0, 100000, 0, '2024-10-31'),
+    (6, 6, 650000, 200000, 100000, 0, '2024-10-31'),
+    (7, 7, 900000, 0, 150000, 0, '2024-10-31'),
+    (8, 8, 850000, 500000, 150000, 0, '2024-10-31'),
+    (9, 9, 120000, 0, 200000, 0, '2024-10-31'),
+    (10, 10, 115000, 200000, 200000, 0, '2024-10-31'),
+    (11, 11, 800000, 0, 120000, 0, '2024-10-31'),
+    (12, 12, 750000, 300000, 120000, 0, '2024-10-31'),
+    (13, 13, 100000, 0, 180000, 0, '2024-10-31'),
+    (14, 14, 950000, 400000, 180000, 0, '2024-10-31'),
+    (15, 15, 130000, 0, 250000, 0, '2024-10-31'),
+    (16, 16, 125000, 300000, 250000, 0, '2024-10-31'),
+    (17, 17, 150000, 0, 300000, 0, '2024-10-31'),
+    (18, 18, 145000, 500000, 300000, 0, '2024-10-31'),
+    (19, 19, 170000, 0, 350000, 0, '2024-10-31'),
+    (20, 20, 165000, 400000, 350000, 0, '2024-10-31');
 /*DELETE FROM [salaries];
 DBCC CHECKIDENT ('salaries', RESEED, 0);*/
 
@@ -2634,7 +2635,7 @@ CREATE PROCEDURE LayThongTinBacSiTrongNgay
     @ngay DATE
 AS
 BEGIN
-    SELECT 
+    SELECT
         llv.ma_nguoi_dung AS ma_bac_si,
         nd.ho_ten AS ten_bac_si,
         bscm.ten_chuyen_mon,
@@ -2644,9 +2645,9 @@ BEGIN
             WHEN COUNT(lh.ma_benh_nhan) > 3 THEN N'Vượt quá giới hạn'
             ELSE N'Đủ điều kiện'
         END AS trang_thai_lam_viec
-    FROM 
+    FROM
         lich_lam_viec AS llv
-        LEFT JOIN lich_hen AS lh ON llv.ma_nguoi_dung = lh.ma_nguoi_dung 
+        LEFT JOIN lich_hen AS lh ON llv.ma_nguoi_dung = lh.ma_nguoi_dung
             AND llv.ngay = lh.ngay_hen
         JOIN nguoi_dung AS nd ON llv.ma_nguoi_dung = nd.ma_nguoi_dung
         JOIN bac_si AS bs ON llv.ma_nguoi_dung = bs.ma_nguoi_dung
@@ -2663,7 +2664,7 @@ CREATE PROCEDURE DanhSachBenhNhanTheoNgay
     @ngay DATE
 AS
 BEGIN
-    SELECT 
+    SELECT
         lh.ma_lich_hen,
         bn.ma_benh_nhan,
         bn.ho_ten AS ten_benh_nhan,
@@ -2677,11 +2678,11 @@ BEGIN
             WHEN lh.trang_thai = 0 THEN N'Chưa khám'
             WHEN lh.trang_thai = 1 THEN N'Đã khám'
         END AS trang_thai
-    FROM 
+    FROM
         lich_hen AS lh
         JOIN benh_nhan AS bn ON lh.ma_benh_nhan = bn.ma_benh_nhan
         JOIN nguoi_dung AS nd ON lh.ma_nguoi_dung = nd.ma_nguoi_dung
-        JOIN lich_lam_viec AS llv ON lh.ma_nguoi_dung = llv.ma_nguoi_dung 
+        JOIN lich_lam_viec AS llv ON lh.ma_nguoi_dung = llv.ma_nguoi_dung
             AND lh.ngay_hen = llv.ngay
             AND llv.ngay = @ngay
     WHERE 
@@ -2697,21 +2698,28 @@ CREATE PROCEDURE TaoLichHenBenhNhan
     @so_dien_thoai NVARCHAR(10),
     @dia_chi NVARCHAR(50),
     @ma_bac_si INT,
-    @ngay_hen DATE,               -- Ngày hẹn
-    @ca INT,                      -- Ca làm việc
+    @ngay_hen DATE,
+    -- Ngày hẹn
+    @ca INT,
+    -- Ca làm việc
     @ghi_chu NVARCHAR(255)
 AS
 BEGIN
     DECLARE @ma_benh_nhan INT;
     -- 1. Tạo mã bệnh nhân mới bằng cách lấy giá trị lớn nhất của ma_benh_nhan và tăng lên 1
     SELECT @ma_benh_nhan = ISNULL(MAX(ma_benh_nhan), 0) + 1
-    FROM benh_nhan;   
+    FROM benh_nhan;
     -- 2. Thêm bệnh nhân mới vào bảng benh_nhan với mã bệnh nhân mới
-    INSERT INTO benh_nhan (ma_benh_nhan, ho_ten, gioi_tinh, tuoi, so_dien_thoai, dia_chi)
-    VALUES (@ma_benh_nhan, @ho_ten, @gioi_tinh, @tuoi, @so_dien_thoai, @dia_chi);
+    INSERT INTO benh_nhan
+        (ma_benh_nhan, ho_ten, gioi_tinh, tuoi, so_dien_thoai, dia_chi)
+    VALUES
+        (@ma_benh_nhan, @ho_ten, @gioi_tinh, @tuoi, @so_dien_thoai, @dia_chi);
     -- 3. Thêm lịch hẹn vào bảng lich_hen với mã bệnh nhân, mã bác sĩ, ngày hẹn, ca và ghi chú
-    INSERT INTO lich_hen (ma_benh_nhan, ma_nguoi_dung, ngay_hen, ca, ghi_chu, trang_thai)
-    VALUES (@ma_benh_nhan, @ma_bac_si, @ngay_hen, @ca, @ghi_chu, 0); -- 0: Chưa khám
+    INSERT INTO lich_hen
+        (ma_benh_nhan, ma_nguoi_dung, ngay_hen, ca, ghi_chu, trang_thai)
+    VALUES
+        (@ma_benh_nhan, @ma_bac_si, @ngay_hen, @ca, @ghi_chu, 0);
+    -- 0: Chưa khám
     PRINT N'Lịch hẹn đã được thêm thành công!';
 END;
 GO
@@ -2719,7 +2727,7 @@ CREATE PROCEDURE LayThongTinBenhNhanVaBenhAn
     @ma_benh_nhan INT
 AS
 BEGIN
-    SELECT 
+    SELECT
         bn.ma_benh_nhan,
         bn.ho_ten,
         bn.gioi_tinh,
@@ -2730,9 +2738,9 @@ BEGIN
         hsba.chan_doan,
         hsba.phuong_phap_dieu_tri,
         hsba.trieu_chung
-    FROM 
+    FROM
         benh_nhan AS bn
-    LEFT JOIN 
+        LEFT JOIN
         ho_so_benh_an AS hsba ON bn.ma_benh_nhan = hsba.ma_benh_nhan
     WHERE 
         bn.ma_benh_nhan = @ma_benh_nhan;
@@ -2768,15 +2776,15 @@ BEGIN
         -- 2. Cập nhật thông tin trong bảng ho_so_benh_an nếu ma_ho_so được cung cấp
         IF @ma_ho_so IS NOT NULL
         BEGIN
-            UPDATE ho_so_benh_an
+        UPDATE ho_so_benh_an
             SET 
                 chan_doan = COALESCE(@chan_doan, chan_doan),
                 phuong_phap_dieu_tri = COALESCE(@phuong_phap_dieu_tri, phuong_phap_dieu_tri),
                 trieu_chung = COALESCE(@trieu_chung, trieu_chung)
             WHERE 
                 ma_ho_so = @ma_ho_so
-                AND ma_benh_nhan = @ma_benh_nhan;
-        END
+            AND ma_benh_nhan = @ma_benh_nhan;
+    END
         -- Xác nhận giao dịch nếu không có lỗi xảy ra
         COMMIT TRANSACTION;
         
@@ -2796,7 +2804,7 @@ CREATE PROCEDURE LayDanhSachBenhNhanChuaThanhToan
     @ngay DATE
 AS
 BEGIN
-    SELECT 
+    SELECT
         bn.ma_benh_nhan,
         bn.ho_ten,
         bn.so_dien_thoai,
@@ -2810,19 +2818,20 @@ BEGIN
             WHEN hd.trang_thai_thanh_toan = 1 THEN N'Đã thanh toán' 
             ELSE N'Chưa thanh toán' 
         END AS trang_thai_thanh_toan
-    FROM 
+    FROM
         benh_nhan bn
-    INNER JOIN 
+        INNER JOIN
         lich_hen lh ON bn.ma_benh_nhan = lh.ma_benh_nhan
-    INNER JOIN 
+        INNER JOIN
         bac_si bs ON lh.ma_nguoi_dung = bs.ma_nguoi_dung
-    INNER JOIN 
-        nguoi_dung nd ON bs.ma_nguoi_dung = nd.ma_nguoi_dung  -- Lấy tên bác sĩ từ bảng người dùng
-    INNER JOIN 
+        INNER JOIN
+        nguoi_dung nd ON bs.ma_nguoi_dung = nd.ma_nguoi_dung -- Lấy tên bác sĩ từ bảng người dùng
+        INNER JOIN
         hoa_don hd ON bn.ma_benh_nhan = hd.ma_benh_nhan
     WHERE 
-        hd.trang_thai_thanh_toan = 0  -- Lọc bệnh nhân chưa thanh toán
-        AND hd.ngay = @ngay     -- Lọc theo ngày cung cấp
+        hd.trang_thai_thanh_toan = 0 -- Lọc bệnh nhân chưa thanh toán
+        AND hd.ngay = @ngay
+-- Lọc theo ngày cung cấp
 END
 GO
 
@@ -2835,7 +2844,7 @@ CREATE PROCEDURE LayThongTinBenhNhan
     @ma_benh_nhan INT
 AS
 BEGIN
-    SELECT 
+    SELECT
         bn.ma_benh_nhan,
         bn.ho_ten,
         bn.gioi_tinh,
@@ -2848,11 +2857,11 @@ BEGIN
             WHEN lh.trang_thai = 1 THEN N'Đã khám'
             ELSE N'Chưa khám'
         END AS trang_thai_kham
-    FROM 
+    FROM
         benh_nhan bn
-    LEFT JOIN 
+        LEFT JOIN
         lich_hen lh ON bn.ma_benh_nhan = lh.ma_benh_nhan
-    LEFT JOIN 
+        LEFT JOIN
         nguoi_dung bs ON lh.ma_nguoi_dung = bs.ma_nguoi_dung
     WHERE 
         bn.ma_benh_nhan = @ma_benh_nhan;
@@ -2873,55 +2882,61 @@ BEGIN
     );
 
     -- Lấy chi tiết các dịch vụ trong hóa đơn
-    INSERT INTO @ChiTietHoaDon (loai_muc, ten_muc, so_luong, don_gia, thanh_tien)
-    SELECT 
+    INSERT INTO @ChiTietHoaDon
+        (loai_muc, ten_muc, so_luong, don_gia, thanh_tien)
+    SELECT
         N'Dịch vụ' AS loai_muc,
         dv.ten AS ten_muc,
         cthd.so_luong,
         cthd.gia_don_vi AS don_gia,
         (cthd.so_luong * cthd.gia_don_vi) AS thanh_tien
-    FROM 
+    FROM
         chi_tiet_hoa_don cthd
-    INNER JOIN 
+        INNER JOIN
         dich_vu dv ON cthd.ma_dich_vu = dv.ma_dich_vu
-    INNER JOIN 
+        INNER JOIN
         hoa_don hd ON cthd.ma_hoa_don = hd.ma_hoa_don
     WHERE 
         hd.ma_benh_nhan = @ma_benh_nhan;
 
     -- Lấy chi tiết các thuốc trong đơn thuốc của hóa đơn
-    INSERT INTO @ChiTietHoaDon (loai_muc, ten_muc, so_luong, don_gia, thanh_tien)
-    SELECT 
+    INSERT INTO @ChiTietHoaDon
+        (loai_muc, ten_muc, so_luong, don_gia, thanh_tien)
+    SELECT
         N'Thuốc' AS loai_muc,
         htk.ten AS ten_muc,
         ctdt.so_luong,
         htk.gia AS don_gia,
         (ctdt.so_luong * htk.gia) AS thanh_tien
-    FROM 
+    FROM
         chi_tiet_don_thuoc ctdt
-    INNER JOIN 
+        INNER JOIN
         don_thuoc dt ON ctdt.ma_don_thuoc = dt.ma_don_thuoc
-    INNER JOIN 
+        INNER JOIN
         hoa_don hd ON dt.ma_don_thuoc = hd.ma_don_thuoc
-    INNER JOIN 
+        INNER JOIN
         hang_ton_kho htk ON ctdt.ma_kho = htk.ma_kho
     WHERE 
         hd.ma_benh_nhan = @ma_benh_nhan;
 
     -- Trả về chi tiết hóa đơn theo từng mục (dịch vụ, thuốc)
     SELECT *
-    FROM 
+    FROM
         @ChiTietHoaDon;
 END
 GO
 CREATE PROCEDURE CapNhatTrangThaiVaPhuongThucThanhToan
     @ma_hoa_don INT,
-    @phuong_thuc_thanh_toan BIT,   -- 1: Thanh toán qua thẻ, 0: Thanh toán bằng tiền mặt
-    @tong_tien FLOAT       -- Tổng tiền hóa đơn
+    @phuong_thuc_thanh_toan BIT,
+    -- 1: Thanh toán qua thẻ, 0: Thanh toán bằng tiền mặt
+    @tong_tien FLOAT
+-- Tổng tiền hóa đơn
 AS
 BEGIN
     -- Kiểm tra xem hóa đơn có tồn tại hay không
-    IF EXISTS (SELECT 1 FROM hoa_don WHERE ma_hoa_don = @ma_hoa_don)
+    IF EXISTS (SELECT 1
+    FROM hoa_don
+    WHERE ma_hoa_don = @ma_hoa_don)
     BEGIN
         -- Cập nhật trạng thái thanh toán, phương thức thanh toán, và tổng tiền
         UPDATE hoa_don
@@ -2929,12 +2944,214 @@ BEGIN
             phuong_thuc_thanh_toan = @phuong_thuc_thanh_toan,  -- Cập nhật phương thức thanh toán
             tong_gia = @tong_tien                        -- Cập nhật tổng tiền
         WHERE ma_hoa_don = @ma_hoa_don;
-        
+
         PRINT N'Hóa đơn đã được cập nhật thành công.';
     END
     ELSE
     BEGIN
-        PRINT N'Hóa đơn không tồn tại.';	
+        PRINT N'Hóa đơn không tồn tại.';
     END
 END
+GO
+
+CREATE PROCEDURE DanhSachLichLamViecBacSiDeTinhLuong
+    @StartOfMonth DATE,
+    @EndOfMonth DATE
+AS
+BEGIN
+    SELECT nguoi_dung.ma_nguoi_dung, nguoi_dung.ho_ten, nguoi_dung.gioi_tinh, nguoi_dung.email, bac_si_chuyen_mon.ten_chuyen_mon, nguoi_dung.he_so_luong,
+        luong.luong_co_ban, luong.thuong, luong.phat, luong.phu_cap, count(*) as so_ca
+    from nguoi_dung
+        join lich_lam_viec on lich_lam_viec.ma_nguoi_dung = nguoi_dung.ma_nguoi_dung
+        join bac_si on nguoi_dung.ma_nguoi_dung = bac_si.ma_nguoi_dung
+        join bac_si_chuyen_mon on bac_si.ma_chuyen_mon = bac_si_chuyen_mon.ma_chuyen_mon
+        join cham_cong on cham_cong.ma_nguoi_dung = bac_si.ma_nguoi_dung
+        join luong on nguoi_dung.ma_nguoi_dung = luong.ma_nguoi_dung
+    WHERE (lich_lam_viec.ngay BETWEEN @StartOfMonth AND @EndOfMonth) AND cham_cong.ghi_chu = N'Làm việc đúng giờ' AND lich_lam_viec.ngay = cham_cong.ngay
+        AND (luong.ngay BETWEEN @StartOfMonth AND @EndOfMonth) AND nguoi_dung.trang_thai = 1
+    GROUP BY nguoi_dung.ho_ten, nguoi_dung.gioi_tinh, nguoi_dung.email, bac_si_chuyen_mon.ten_chuyen_mon, nguoi_dung.ma_nguoi_dung,
+	luong.luong_co_ban, luong.thuong, luong.phat, luong.phu_cap, nguoi_dung.he_so_luong
+    order by nguoi_dung.ma_nguoi_dung
+END;
+GO
+
+CREATE PROCEDURE DanhSachLichLamViecLeTanDeTinhLuong
+    @StartOfMonth DATE,
+    @EndOfMonth DATE
+AS
+BEGIN
+    SELECT nguoi_dung.ma_nguoi_dung, nguoi_dung.ho_ten, nguoi_dung.gioi_tinh, nguoi_dung.email, nguoi_dung.he_so_luong,
+        luong.luong_co_ban, luong.thuong, luong.phat, luong.phu_cap, count(*) as so_ca
+    from nguoi_dung
+        join lich_lam_viec on lich_lam_viec.ma_nguoi_dung = nguoi_dung.ma_nguoi_dung
+        join le_tan on nguoi_dung.ma_nguoi_dung = le_tan.ma_nguoi_dung
+        join cham_cong on cham_cong.ma_nguoi_dung = nguoi_dung.ma_nguoi_dung
+        join luong on nguoi_dung.ma_nguoi_dung = luong.ma_nguoi_dung
+    WHERE (lich_lam_viec.ngay BETWEEN @StartOfMonth AND @EndOfMonth) AND cham_cong.ghi_chu = N'Làm việc đúng giờ' AND lich_lam_viec.ngay = cham_cong.ngay
+        AND (luong.ngay BETWEEN @StartOfMonth AND @EndOfMonth) AND nguoi_dung.trang_thai = 1
+    GROUP BY nguoi_dung.ho_ten, nguoi_dung.gioi_tinh, nguoi_dung.email, nguoi_dung.ma_nguoi_dung,
+	luong.luong_co_ban, luong.thuong, luong.phat, luong.phu_cap, nguoi_dung.he_so_luong
+    order by nguoi_dung.ma_nguoi_dung
+END;
+GO
+
+CREATE PROCEDURE LichLamViecChiTietBacSi
+    @Id int,
+    @StartOfMonth DATE,
+    @EndOfMonth DATE
+AS
+BEGIN
+    SELECT nguoi_dung.ma_nguoi_dung, nguoi_dung.ho_ten, nguoi_dung.gioi_tinh, nguoi_dung.email, bac_si_chuyen_mon.ten_chuyen_mon, nguoi_dung.he_so_luong,
+        luong.luong_co_ban, luong.thuong, luong.phat, luong.phu_cap, count(*) as so_ca
+    from nguoi_dung
+        join lich_lam_viec on lich_lam_viec.ma_nguoi_dung = nguoi_dung.ma_nguoi_dung
+        join bac_si on nguoi_dung.ma_nguoi_dung = bac_si.ma_nguoi_dung
+        join bac_si_chuyen_mon on bac_si.ma_chuyen_mon = bac_si_chuyen_mon.ma_chuyen_mon
+        join cham_cong on cham_cong.ma_nguoi_dung = bac_si.ma_nguoi_dung
+        join luong on nguoi_dung.ma_nguoi_dung = luong.ma_nguoi_dung
+    WHERE (lich_lam_viec.ngay BETWEEN @StartOfMonth AND @EndOfMonth) AND cham_cong.ghi_chu = N'Làm việc đúng giờ' AND lich_lam_viec.ngay = cham_cong.ngay
+        AND (luong.ngay BETWEEN @StartOfMonth AND @EndOfMonth) AND nguoi_dung.trang_thai = 1
+        AND nguoi_dung.ma = @id
+    GROUP BY nguoi_dung.ho_ten, nguoi_dung.gioi_tinh, nguoi_dung.email, bac_si_chuyen_mon.ten_chuyen_mon, nguoi_dung.ma_nguoi_dung,
+	luong.luong_co_ban, luong.thuong, luong.phat, luong.phu_cap, nguoi_dung.he_so_luong
+    order by nguoi_dung.ma_nguoi_dung
+END;
+GO
+
+CREATE PROCEDURE CapNhatLuong
+    @Id INT,
+    @heSoLuong float,
+    @luongCoBan float,
+    @thuong float,
+    @phat float,
+    @phuCap float
+AS
+BEGIN
+    UPDATE nguoi_dung
+	SET he_so_luong = @heSoLuong
+	where ma = @id
+
+    UPDATE luong
+	SET luong_co_ban = @luongCoBan, thuong = @thuong, phat = @phat, phu_cap = @phuCap
+	where ma_nguoi_dung = @id
+END;
+GO
+
+CREATE PROCEDURE LichLamViecChiTietLeTan
+    @Id int,
+    @StartOfMonth DATE,
+    @EndOfMonth DATE
+AS
+BEGIN
+    SELECT nguoi_dung.ma_nguoi_dung, nguoi_dung.ho_ten, nguoi_dung.gioi_tinh, nguoi_dung.email, nguoi_dung.he_so_luong,
+        luong.luong_co_ban, luong.thuong, luong.phat, luong.phu_cap, count(*) as so_ca
+    from nguoi_dung
+        join lich_lam_viec on lich_lam_viec.ma_nguoi_dung = nguoi_dung.ma_nguoi_dung
+        join le_tan on nguoi_dung.ma_nguoi_dung = le_tan.ma_nguoi_dung
+        join cham_cong on cham_cong.ma_nguoi_dung = nguoi_dung.ma_nguoi_dung
+        join luong on nguoi_dung.ma_nguoi_dung = luong.ma_nguoi_dung
+    WHERE (lich_lam_viec.ngay BETWEEN @StartOfMonth AND @EndOfMonth) AND cham_cong.ghi_chu = N'Làm việc đúng giờ' AND lich_lam_viec.ngay = cham_cong.ngay
+        AND (luong.ngay BETWEEN @StartOfMonth AND @EndOfMonth) AND nguoi_dung.trang_thai = 1
+        AND nguoi_dung.ma = @id
+    GROUP BY nguoi_dung.ho_ten, nguoi_dung.gioi_tinh, nguoi_dung.email, nguoi_dung.ma_nguoi_dung,
+	luong.luong_co_ban, luong.thuong, luong.phat, luong.phu_cap, nguoi_dung.he_so_luong
+    order by nguoi_dung.ma_nguoi_dung
+END;
+GO
+
+
+CREATE FUNCTION dbo.LayTongTienThuocDaBanTrongThang
+(
+	@ngay DATETIME
+)
+RETURNS DECIMAL(18, 2)
+AS
+BEGIN
+    DECLARE @TongTien DECIMAL(18, 2);
+
+    SELECT @TongTien = SUM(ctdt.so_luong * htk.gia)
+    FROM chi_tiet_don_thuoc ctdt
+        INNER JOIN don_thuoc dt ON ctdt.ma_don_thuoc = dt.ma_don_thuoc
+        INNER JOIN hoa_don hd ON dt.ma_don_thuoc = hd.ma_don_thuoc
+        INNER JOIN hang_ton_kho htk ON ctdt.ma_kho = htk.ma_kho
+    WHERE MONTH(hd.ngay) = MONTH(@ngay) -- Lọc theo tháng của tham số @ngay
+        AND YEAR(hd.ngay) = YEAR(@ngay);
+    -- Lọc theo năm được truyền vào
+
+    -- Nếu không có thuốc nào bán trong tháng thì trả về 0
+    IF @TongTien IS NULL 
+        SET @TongTien = 0;
+
+    RETURN @TongTien;
+END
+GO
+
+
+CREATE PROCEDURE LayTongThuocDaBanTrongThang
+    @ngay DATETIME
+AS
+BEGIN
+    DECLARE @TongThuoc INT;
+
+    SELECT @TongThuoc = SUM(ctdt.so_luong)
+    FROM chi_tiet_don_thuoc ctdt
+        INNER JOIN don_thuoc dt ON ctdt.ma_don_thuoc = dt.ma_don_thuoc
+        INNER JOIN hoa_don hd ON dt.ma_don_thuoc = hd.ma_don_thuoc
+    WHERE MONTH(hd.ngay) = MONTH(@ngay) -- Lọc theo tháng của tham số @ngay
+        AND YEAR(hd.ngay) = YEAR(@ngay);
+
+    SELECT @TongThuoc AS TongThuocDaBan;
+END
+GO
+
+CREATE FUNCTION dbo.LayTongTienVatTuDaSuDungTrongThang
+(
+    @ngay DATETIME
+)
+RETURNS DECIMAL(18, 2)
+AS
+BEGIN
+    DECLARE @TongTien DECIMAL(18, 2);
+
+    SELECT @TongTien = SUM(ctvt.so_luong * vt.gia)
+    FROM chi_tiet_vat_tu ctvt
+        INNER JOIN vat_tu vt ON ctvt.ma_vat_tu = vt.ma_vat_tu
+        INNER JOIN hoa_don hd ON ctvt.ma_hoa_don = hd.ma_hoa_don
+    WHERE MONTH(hd.ngay) = MONTH(@ngay) -- Lọc theo tháng của tham số @ngay
+        AND YEAR(hd.ngay) = YEAR(@ngay);
+    -- Lọc theo năm được truyền vào
+
+    -- Nếu không có vật tư nào sử dụng trong tháng thì trả về 0
+    IF @TongTien IS NULL 
+        SET @TongTien = 0;
+
+    RETURN @TongTien;
+END
+GO
+
+CREATE PROCEDURE LayTongVatTuDaSuDungTrongThang
+    @thang INT,
+    @nam INT
+AS
+BEGIN
+    DECLARE @TongVatTu INT;
+
+    SELECT @TongVatTu = SUM(ctvt.so_luong)
+    FROM chi_tiet_vat_tu ctvt
+        INNER JOIN vat_tu vt ON ctvt.ma_vat_tu = vt.ma_vat_tu
+        INNER JOIN hoa_don hd ON ctvt.ma_hoa_don = hd.ma_hoa_don
+    WHERE MONTH(hd.ngay) = @thang
+        AND YEAR(hd.ngay) = @nam;
+
+    -- Nếu không có vật tư nào bán trong tháng thì trả về 0
+    IF @TongVatTu IS NULL 
+        SET @TongVatTu = 0;
+
+    SELECT @TongVatTu AS TongVatTuDaSuDung;
+END
+GO
+
+DECLARE @ngay DATETIME = '2024-10-01';
+-- Ví dụ chọn ngày đầu tháng 10 năm 2024
+SELECT dbo.LayTongTienVatTuDaSuDungTrongThang(@ngay) AS TongTienThuocDaBan;
 GO

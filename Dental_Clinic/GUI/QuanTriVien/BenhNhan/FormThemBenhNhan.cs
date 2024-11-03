@@ -132,5 +132,10 @@ namespace Dental_Clinic.GUI.Administrator.Patient
             }
             return isValid;
         }
+
+        private void pbQuayVe_Click(object sender, EventArgs e)
+        {
+            mainForm.ShowPatientInPanel();
+        }
     }
 }

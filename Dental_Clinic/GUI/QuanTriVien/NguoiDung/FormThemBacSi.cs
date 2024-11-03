@@ -62,6 +62,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             cbGioiTinh.Items.Add("Nam");
             cbGioiTinh.Items.Add("Nữ");
 
+            dtpNgaySinh.Format = DateTimePickerFormat.Custom;
             dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
 
             cbChuyenNganh.Items.Add("Nha chu");
@@ -175,6 +176,11 @@ namespace Dental_Clinic.GUI.Administrator.User
                 vbChuyenNganh.BorderColor = Color.Black; // Đặt màu nền mặc định
             }
             return isValid;
+        }
+
+        private void pbQuayVe_Click(object sender, EventArgs e)
+        {
+            mainForm.ShowUserInPanel();
         }
     }
 }

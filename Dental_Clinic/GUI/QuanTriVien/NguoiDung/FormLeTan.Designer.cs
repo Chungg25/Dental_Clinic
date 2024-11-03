@@ -133,6 +133,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             vbLeTan.TextAlign = ContentAlignment.MiddleLeft;
             vbLeTan.TextColor = Color.White;
             vbLeTan.UseVisualStyleBackColor = false;
+            vbLeTan.Click += vbLeTan_Click;
             // 
             // vbThemLeTan
             // 
@@ -206,7 +207,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             vbBacSi.UseVisualStyleBackColor = false;
             vbBacSi.Click += vbBacSi_Click;
             // 
-            // ReceptionistForm
+            // FormLeTan
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -223,7 +224,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             Controls.Add(vbLeTan);
             Controls.Add(vbThemLeTan);
             Controls.Add(panel1);
-            Name = "ReceptionistForm";
+            Name = "FormLeTan";
             Text = "PatientForm";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
