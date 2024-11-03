@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -118,6 +119,8 @@ namespace Dental_Clinic.GUI.Login
             {
                 TenDangNhap = tbTenDangNhap.Text,
                 Matkhau = tbMatKhau.Text
+                //TenDangNhap = "recep1",
+                //Matkhau = "pass123",
             };
 
             DataRow thongTinNguoiDung = dangNhapBUS.KiemTraDangNhap(dangNhapDTO);
@@ -156,7 +159,7 @@ namespace Dental_Clinic.GUI.Login
                 }
                 else
                 {
-                    form = new GUI.Receptionist.MainForm(user);
+                    form = new GUI.Receptionist.FormLeTan(user);
                 }
 
                 this.Hide();

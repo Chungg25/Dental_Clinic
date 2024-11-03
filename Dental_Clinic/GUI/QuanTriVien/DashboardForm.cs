@@ -24,5 +24,10 @@ namespace Dental_Clinic.GUI.Administrator
             lbBenhNhan.Text = quanTriVienBUS.SoLuongBenhNhan().ToString();
             lbDoanhThu.Text = quanTriVienBUS.TongLuong().ToString();
         }
+
+        private void DashboardForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace Dental_Clinic.GUI.Administrator.User
+﻿using Dental_Clinic.Properties;
+
+namespace Dental_Clinic.GUI.Administrator.User
 {
     partial class FormThemBacSi
     {
@@ -59,8 +61,10 @@
             label4 = new Label();
             vbEmail = new CustomButton.VBButton();
             vbGioiTinh = new CustomButton.VBButton();
+            pbQuayVe = new PictureBox();
             panel1.SuspendLayout();
             panelDuLieu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbQuayVe).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -444,20 +448,33 @@
             vbGioiTinh.TextColor = Color.White;
             vbGioiTinh.UseVisualStyleBackColor = false;
             // 
-            // AddUserForm
+            // pbQuayVe
+            // 
+            pbQuayVe.Image = Resources.icons8_back_50;
+            pbQuayVe.Location = new Point(12, 70);
+            pbQuayVe.Name = "pbQuayVe";
+            pbQuayVe.Size = new Size(70, 39);
+            pbQuayVe.SizeMode = PictureBoxSizeMode.Zoom;
+            pbQuayVe.TabIndex = 84;
+            pbQuayVe.TabStop = false;
+            pbQuayVe.Click += pbQuayVe_Click;
+            // 
+            // FormThemBacSi
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             ClientSize = new Size(1016, 644);
+            Controls.Add(pbQuayVe);
             Controls.Add(panelDuLieu);
             Controls.Add(panel1);
-            Name = "AddUserForm";
+            Name = "FormThemBacSi";
             Text = "AddUserForm";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panelDuLieu.ResumeLayout(false);
             panelDuLieu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pbQuayVe).EndInit();
             ResumeLayout(false);
         }
 
@@ -494,5 +511,6 @@
         private ComboBox cbChuyenNganh;
         private Label label11;
         private CustomButton.VBButton vbChuyenNganh;
+        private PictureBox pbQuayVe;
     }
 }

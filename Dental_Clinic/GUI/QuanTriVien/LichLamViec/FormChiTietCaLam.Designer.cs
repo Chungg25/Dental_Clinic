@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panelChiTiet = new Panel();
+            vbLuuThayDoi = new CustomButton.VBButton();
             cbThayDoi = new ComboBox();
             label9 = new Label();
             vbThayDoi = new CustomButton.VBButton();
@@ -53,6 +54,7 @@
             // 
             // panelChiTiet
             // 
+            panelChiTiet.Controls.Add(vbLuuThayDoi);
             panelChiTiet.Controls.Add(cbThayDoi);
             panelChiTiet.Controls.Add(label9);
             panelChiTiet.Controls.Add(vbThayDoi);
@@ -74,8 +76,29 @@
             panelChiTiet.Controls.Add(vbGioiTinh);
             panelChiTiet.Location = new Point(5, 12);
             panelChiTiet.Name = "panelChiTiet";
-            panelChiTiet.Size = new Size(977, 445);
+            panelChiTiet.Size = new Size(977, 469);
             panelChiTiet.TabIndex = 81;
+            // 
+            // vbLuuThayDoi
+            // 
+            vbLuuThayDoi.BackColor = Color.FromArgb(220, 53, 69);
+            vbLuuThayDoi.BackgroundColor = Color.FromArgb(220, 53, 69);
+            vbLuuThayDoi.BorderColor = Color.PaleVioletRed;
+            vbLuuThayDoi.BorderRadius = 10;
+            vbLuuThayDoi.BorderSize = 0;
+            vbLuuThayDoi.Cursor = Cursors.Hand;
+            vbLuuThayDoi.FlatAppearance.BorderSize = 0;
+            vbLuuThayDoi.FlatStyle = FlatStyle.Flat;
+            vbLuuThayDoi.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            vbLuuThayDoi.ForeColor = Color.White;
+            vbLuuThayDoi.Location = new Point(420, 405);
+            vbLuuThayDoi.Name = "vbLuuThayDoi";
+            vbLuuThayDoi.Size = new Size(144, 50);
+            vbLuuThayDoi.TabIndex = 108;
+            vbLuuThayDoi.Text = "Lưu Thay Đổi";
+            vbLuuThayDoi.TextColor = Color.White;
+            vbLuuThayDoi.UseVisualStyleBackColor = false;
+            vbLuuThayDoi.Click += vbLuuThayDoi_Click;
             // 
             // cbThayDoi
             // 
@@ -244,6 +267,7 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.Location = new Point(152, 32);
             label2.Name = "label2";
             label2.Size = new Size(73, 20);
@@ -354,5 +378,6 @@
         private CustomButton.VBButton vbThayDoi;
         private Label label9;
         private ComboBox cbThayDoi;
+        private CustomButton.VBButton vbLuuThayDoi;
     }
 }

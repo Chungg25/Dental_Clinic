@@ -35,7 +35,7 @@ namespace Dental_Clinic.GUI.BacSi.BenhNhan
         // Hàm khởi tạo nội dung
         private void FormBenhNhan_BacSi_Load()
         {
-            benhNhan = _benhNhanBUS.LayDanhSachBenhNhan();
+            benhNhan = _benhNhanBUS.LayDanhSachBenhNhanCuaBacSi(_formBacSi.MaBacSi());
             TaoTableLayoutPanel(benhNhan);
 
             vbBenhNhan.FlatStyle = FlatStyle.Flat;
@@ -116,7 +116,6 @@ namespace Dental_Clinic.GUI.BacSi.BenhNhan
 
             // Đặt icon cho nút chỉnh sửa và xóa từ Resources
             Image editIcon = ResizeImage(Properties.Resources.icons8_edit_64__2_, 30, 30);
-            //Image deleteIcon = ResizeImage(Properties.Resources.trash_bin, 25, 25);
 
             // Tạo các nút
             Color editEditColor = ColorTranslator.FromHtml("#0d6efd");
@@ -124,7 +123,6 @@ namespace Dental_Clinic.GUI.BacSi.BenhNhan
 
             // Thêm sự kiện Click
             btnEdit.Click += (s, e) => { HienThiChinhSuaThongTinBenhNhan(id); };
-            //btnDelete.Click += (s, e) => { MessageBox.Show("Xóa"); };
 
             // Tạo một Panel để chứa 2 nút
             FlowLayoutPanel panelActions = new FlowLayoutPanel
@@ -139,7 +137,6 @@ namespace Dental_Clinic.GUI.BacSi.BenhNhan
 
             // Thêm các nút vào panel
             panelActions.Controls.Add(btnEdit);
-            //panelActions.Controls.Add(btnDelete);
 
             // Thêm Panel vào cột thao tác của hàng hiện tại
             tlpUser.Controls.Add(panelActions, 6, rowIndex);
@@ -214,7 +211,6 @@ namespace Dental_Clinic.GUI.BacSi.BenhNhan
                 sequenceNumber++;
             }
         }
-
         private string ToTitleCase(string text)
         {
             return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(text.ToLower());
@@ -242,14 +238,12 @@ namespace Dental_Clinic.GUI.BacSi.BenhNhan
                 TaoTableLayoutPanel(filteredList);
             }
         }
-
-
-        //Phần này để chuyển trang
+        // Chuyển đến form thêm bệnh nhân
         private void vbThemBenhNhan_Click(object sender, EventArgs e)
         {
             HienThiThemThongTinBenhNhan();
         }
-
+        // Hiển thị form thêm bệnh nhân
         public void HienThiThemThongTinBenhNhan()
         {
             FormThemBenhNhan_BacSi formThemBenhNhan = new FormThemBenhNhan_BacSi(_formBacSi);
@@ -260,7 +254,7 @@ namespace Dental_Clinic.GUI.BacSi.BenhNhan
             formThemBenhNhan.BringToFront();
             formThemBenhNhan.Show();
         }
-
+        // Hiển thị form chỉnh sửa thông tin bệnh nhân
         public void HienThiChinhSuaThongTinBenhNhan(int id)
         {
             FormChinhSuaBenhNhan_BacSi formChinhSuaBenhNhan = new FormChinhSuaBenhNhan_BacSi(_formBacSi, _benhNhanBUS.LayThongTinBenhNhan(id));
@@ -271,11 +265,10 @@ namespace Dental_Clinic.GUI.BacSi.BenhNhan
             formChinhSuaBenhNhan.BringToFront();
             formChinhSuaBenhNhan.Show();
         }
-
+        // Hiển thị lại danh sách bệnh nhân
         private void vbBenhNhan_Click(object sender, EventArgs e)
         {
-            benhNhan = _benhNhanBUS.LayDanhSachBenhNhan();
-            TaoTableLayoutPanel(benhNhan);
+            _formBacSi.ShowFormOnPanel(new FormBenhNhan_BacSi(_formBacSi));
         }
         //Kết thúc
     }

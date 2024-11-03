@@ -14,6 +14,7 @@
     "C:\\Users\\TriLuu\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
     "C:\\Users\\TriLuu\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512"
   ],
+<<<<<<< HEAD
   "logs": [
     {
       "code": "NU1900",
@@ -22,4 +23,7 @@
       "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json."
     }
   ]
+=======
+  "logs": []
+>>>>>>> 797ca5cf3a2140b0ae34c9982c3d89c51f99d4a9
 }

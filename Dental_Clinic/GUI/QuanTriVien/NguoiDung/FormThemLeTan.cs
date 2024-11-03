@@ -59,6 +59,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             cbGioiTinh.Items.Add("Nam");
             cbGioiTinh.Items.Add("Nữ");
 
+            dtpNgaySinh.Format = DateTimePickerFormat.Custom;
             dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
         }
 
@@ -156,6 +157,20 @@ namespace Dental_Clinic.GUI.Administrator.User
             }
 
             return isValid;
+        }
+
+        private void pbQuayVe_Click(object sender, EventArgs e)
+        {
+            mainForm.panelTrangChu.Controls.RemoveAt(0);
+            Control control = mainForm.panelTrangChu.Controls[0];
+            control.Visible = true;
+            if (control is Form form)
+            {
+                if (form is FormLeTan formLeTan)
+                {
+                    formLeTan.HienLeTan();
+                }
+            }
         }
     }
 }
