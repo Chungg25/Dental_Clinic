@@ -58,11 +58,13 @@ C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Den
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.BenhNhan.FormChinhSuaBenhNhan_BacSi.resources
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.BenhNhan.FormThemBenhNhan_BacSi.resources
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.FormBacSi.resources
+C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.FormQuanLyLuong_BacSi.resources
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.FormTrangChuBacSi.resources
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Login.FormDangNhap.resources
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Login.FormQuenMatKhau.resources
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Dental_Clinic.resources
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.Receptionist.FormLeTan.resources
+C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.LeTan.FormQuanLyLuong_LeTan.resources
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.LeTan.ThanhToan.FormChiTietHoaDon.resources
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.LeTan.ThanhToan.FormThanhToan.resources
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.LeTan.ThanhToan.FormThanhToan_ChuyenKhoan.resources
@@ -107,5 +109,3 @@ C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\ref
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.pdb
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.genruntimeconfig.cache
 C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\ref\Dental_Clinic.dll
-C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.BacSi.FormQuanLyLuong_BacSi.resources
-C:\Users\Nguyen\Desktop\Dental_Clinic\Dental_Clinic\obj\Debug\net8.0-windows\Dental_Clinic.GUI.LeTan.FormQuanLyLuong_LeTan.resources

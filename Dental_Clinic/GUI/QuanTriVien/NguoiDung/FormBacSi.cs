@@ -82,7 +82,7 @@ namespace Dental_Clinic.GUI.Administrator
                 Text = text,
                 Font = font,
                 AutoSize = true,
-                Padding = new Padding(10, 5, 10, 5), // Tăng khoảng cách bên trái và bên phải
+                Padding = new Padding(5, 5, 5, 5), // Tăng khoảng cách bên trái và bên phải
                 Anchor = AnchorStyles.Left | AnchorStyles.Top
             };
         }

@@ -207,7 +207,7 @@ namespace Dental_Clinic.GUI.QuanTriVien.LichLamViec
                 {
                     smtp.Send(message);
                 }
-                MessageBox.Show(tinNhan);
+                //MessageBox.Show(tinNhan);
                 return true;
             }
             catch (Exception ex)

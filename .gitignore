@@ -200,17 +200,6 @@ StyleCopReport.xml
 *.sln.ide.vssscc
 *.sln.ide.vspscc
 *.sln.ide.vssscc
-*.sln.ide.vspscc
-*.sln.ide.vssscc
-*.sln.ide.vspscc
-*.sln.ide.vssscc
-*.sln.ide.vspscc
-*.sln.ide.vssscc
-*.sln.ide.vspscc
-*.sln.ide.vssscc
-*.sln.ide.vspscc
-*.sln.ide.vssscc
-*.sln.ide.vspscc
-*.sln.ide.vssscc
-*.sln.ide.vspscc
-*.sln.ide.vssscc
+
+# Ignore build artifacts
+obj/

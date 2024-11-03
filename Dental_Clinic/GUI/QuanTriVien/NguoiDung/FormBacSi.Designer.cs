@@ -94,7 +94,7 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             panelBacSi.Location = new Point(7, 202);
             panelBacSi.Name = "panelBacSi";
-            panelBacSi.Size = new Size(1012, 474);
+            panelBacSi.Size = new Size(1151, 474);
             panelBacSi.TabIndex = 4;
             // 
             // vbTimKiem
@@ -208,7 +208,7 @@ namespace Dental_Clinic.GUI.Administrator
             vbBacSi.TextColor = Color.White;
             vbBacSi.UseVisualStyleBackColor = false;
             // 
-            // UserForm
+            // FormBacSi
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -225,7 +225,7 @@ namespace Dental_Clinic.GUI.Administrator
             Controls.Add(panelBacSi);
             Controls.Add(panel1);
             Controls.Add(vbThemBacSi);
-            Name = "UserForm";
+            Name = "FormBacSi";
             Text = "UserForm";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

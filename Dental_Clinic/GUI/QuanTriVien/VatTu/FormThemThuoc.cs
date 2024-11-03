@@ -174,7 +174,6 @@ namespace Dental_Clinic.GUI.Administrator.Supplies
             thuocDTO.NgayHetHan = dtpNgayHetHan.Value.ToString();
 
             thuocBUS.ThemThuoc(thuocDTO);
-            //MessageBox.Show(thuocDTO.TenLoai)
         }
 
         private void pbQuayVe_Click(object sender, EventArgs e)

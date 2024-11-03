@@ -160,7 +160,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             // 
             panelLeTan.Location = new Point(7, 202);
             panelLeTan.Name = "panelLeTan";
-            panelLeTan.Size = new Size(1012, 454);
+            panelLeTan.Size = new Size(1236, 454);
             panelLeTan.TabIndex = 32;
             // 
             // pictureBox8

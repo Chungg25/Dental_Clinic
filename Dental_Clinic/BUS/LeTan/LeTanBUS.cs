@@ -163,7 +163,7 @@ namespace Dental_Clinic.BUS.LeTan
                 }
 
                 // Thông báo hoàn tất xuất file PDF
-                MessageBox.Show($"Hóa đơn đã được xuất thành công tại {filePath}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show($"Hóa đơn đã được xuất thành công tại {filePath}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         // Lấy thông tin lương

@@ -172,7 +172,7 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             panelDuLieu.Location = new Point(7, 202);
             panelDuLieu.Name = "panelDuLieu";
-            panelDuLieu.Size = new Size(1012, 454);
+            panelDuLieu.Size = new Size(1224, 454);
             panelDuLieu.TabIndex = 44;
             // 
             // dtpNgay

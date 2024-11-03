@@ -332,7 +332,7 @@ VALUES
     (3, N'Lê Văn Cường', '123456789003', '0901234563', N'789 Lê Duẩn, Q1, TP.HCM', 1, '1992-03-25', 'Reception', 'recep1', 'pass123', 'recep1@gmail.com', 1.2, 1),
     (4, N'Phạm Thị Dung', '123456789004', '0901234564', N'147 Nam Kỳ, Q3, TP.HCM', 0, '1993-04-30', 'Reception', 'recep2', 'pass123', 'recep2@gmail.com', 1.2, 1),
     (5, N'Hoàng Văn Em', '123456789005', '0901234565', N'258 Hai Bà Trưng, Q1, TP.HCM', 1, '1994-05-05', 'Reception', 'recep3', 'pass123', 'recep3@gmail.com', 1.2, 1),
-    (6, N'Đỗ Thị Phương', '123456789006', '0901234566', N'369 Lê Văn Sỹ, Q3, TP.HCM', 0, '1985-06-10', 'Doctor', 'doctor1', 'pass123', 'hatrongnguyen04@gmail.com', 2.0, 1),
+    (6, N'Đỗ Thị Phương', '123456789006', '0901234566', N'369 Lê Văn Sỹ, Q3, TP.HCM', 0, '1985-06-10', 'Doctor', 'doctor1', 'pass123', 'chungkiet31@gmail.com', 2.0, 1),
     (7, N'Vũ Văn Giang', '123456789007', '0901234567', N'147 Nguyễn Đình Chiểu, Q3, TP.HCM', 1, '1986-07-15', 'Doctor', 'doctor2', 'pass123', 'doctor2@gmail.com', 2.0, 1),
     (8, N'Mai Thị Hoa', '123456789008', '0901234568', N'258 Võ Văn Tần, Q3, TP.HCM', 0, '1987-08-20', 'Doctor', 'doctor3', 'pass123', 'doctor3@gmail.com', 2.0, 1),
     (9, N'Trịnh Văn Inh', '123456789009', '0901234569', N'369 Cách Mạng T8, Q3, TP.HCM', 1, '1988-09-25', 'Doctor', 'doctor4', 'pass123', 'doctor4@gmail.com', 2.0, 1),
@@ -3149,9 +3149,12 @@ END
 GO
 
 CREATE PROCEDURE ThongTinLeTanTheoThang
-    @ma_nguoi_dung INT,       -- Mã người dùng của lễ tân
-    @thang INT,               -- Tháng cần truy xuất
-    @nam INT                  -- Năm cần truy xuất
+    @ma_nguoi_dung INT,
+    -- Mã người dùng của lễ tân
+    @thang INT,
+    -- Tháng cần truy xuất
+    @nam INT
+-- Năm cần truy xuất
 AS
 BEGIN
     -- Số ngày làm việc trong tháng
@@ -3159,44 +3162,47 @@ BEGIN
     SELECT @so_ngay_lam = COUNT(DISTINCT ngay)
     FROM cham_cong
     WHERE ma_nguoi_dung = @ma_nguoi_dung
-      AND MONTH(ngay) = @thang
-      AND YEAR(ngay) = @nam;
+        AND MONTH(ngay) = @thang
+        AND YEAR(ngay) = @nam;
 
     -- Lấy thông tin lương, thưởng, phạt, và phụ cấp cho tháng đã chọn
     DECLARE @luong_co_ban FLOAT, @thuong FLOAT, @phat FLOAT, @phu_cap FLOAT;
-    SELECT 
+    SELECT
         @luong_co_ban = luong_co_ban,
         @thuong = thuong,
         @phat = phat,
         @phu_cap = phu_cap
     FROM luong
     WHERE ma_nguoi_dung = @ma_nguoi_dung
-      AND MONTH(ngay) = @thang
-      AND YEAR(ngay) = @nam;
+        AND MONTH(ngay) = @thang
+        AND YEAR(ngay) = @nam;
 
     -- Tổng lương tính toán bao gồm thưởng
     DECLARE @tong_luong FLOAT;
-    SET @tong_luong = (@luong_co_ban + @thuong + @phu_cap - @phat) * @so_ngay_lam / 26.0; -- Giả định 26 ngày công chuẩn
+    SET @tong_luong = (@luong_co_ban + @thuong + @phu_cap - @phat) * @so_ngay_lam / 26.0;
+    -- Giả định 26 ngày công chuẩn
 
     -- Lấy tổng số lỗi trong tháng
     DECLARE @tong_loi INT;
-    SELECT 
+    SELECT
         @tong_loi = COUNT(*)
     FROM cham_cong
     WHERE ma_nguoi_dung = @ma_nguoi_dung
-      AND MONTH(ngay) = @thang
-      AND YEAR(ngay) = @nam
-      AND ghi_chu IS NOT NULL; -- Chỉ đếm các ngày có lỗi/phạt
+        AND MONTH(ngay) = @thang
+        AND YEAR(ngay) = @nam
+        AND ghi_chu IS NOT NULL;
+    -- Chỉ đếm các ngày có lỗi/phạt
 
-     -- Trả về kết quả
-    SELECT 
+    -- Trả về kết quả
+    SELECT
         nd.ma_nguoi_dung,
         nd.ho_ten,
         @so_ngay_lam AS so_ca,
         ROUND(@tong_luong, 2) AS tong_luong,
-        ROUND(@thuong, 2) AS tong_thuong,  -- Làm tròn thưởng đến 2 chữ số
+        ROUND(@thuong, 2) AS tong_thuong, -- Làm tròn thưởng đến 2 chữ số
         @tong_loi AS tong_so_loi,
-        ROUND(@phat, 2) AS tong_tien_phat   -- Làm tròn phạt đến 2 chữ số
+        ROUND(@phat, 2) AS tong_tien_phat
+    -- Làm tròn phạt đến 2 chữ số
     FROM nguoi_dung nd
     WHERE nd.ma_nguoi_dung = @ma_nguoi_dung;
 END;
@@ -3205,34 +3211,34 @@ GO
 DECLARE @ma_bac_si INT = 6
 DECLARE @ngay DATE = '2024-11-03'
 
-SELECT DISTINCT
-    bn.ma_benh_nhan,
-    bn.ho_ten,
-    bn.gioi_tinh,
-    bn.tuoi,
-    bn.so_dien_thoai,
-    bn.dia_chi
-FROM 
-    lich_hen lh
-    INNER JOIN benh_nhan bn ON lh.ma_benh_nhan = bn.ma_benh_nhan
-    INNER JOIN bac_si bs ON lh.ma_nguoi_dung = bs.ma_nguoi_dung
-WHERE 
+    SELECT DISTINCT
+        bn.ma_benh_nhan,
+        bn.ho_ten,
+        bn.gioi_tinh,
+        bn.tuoi,
+        bn.so_dien_thoai,
+        bn.dia_chi
+    FROM
+        lich_hen lh
+        INNER JOIN benh_nhan bn ON lh.ma_benh_nhan = bn.ma_benh_nhan
+        INNER JOIN bac_si bs ON lh.ma_nguoi_dung = bs.ma_nguoi_dung
+    WHERE 
     bs.ma_nguoi_dung = @ma_bac_si
-    AND lh.ngay_hen = @ngay
+        AND lh.ngay_hen = @ngay
 
 UNION
 
-SELECT DISTINCT
-    bn.ma_benh_nhan,
-    bn.ho_ten,
-    bn.gioi_tinh,
-    bn.tuoi,
-    bn.so_dien_thoai,
-    bn.dia_chi
-FROM 
-    dieu_tri dt
-    INNER JOIN benh_nhan bn ON dt.ma_benh_nhan = bn.ma_benh_nhan
-    INNER JOIN bac_si bs ON dt.ma_bac_si = bs.ma_nguoi_dung
-WHERE 
+    SELECT DISTINCT
+        bn.ma_benh_nhan,
+        bn.ho_ten,
+        bn.gioi_tinh,
+        bn.tuoi,
+        bn.so_dien_thoai,
+        bn.dia_chi
+    FROM
+        dieu_tri dt
+        INNER JOIN benh_nhan bn ON dt.ma_benh_nhan = bn.ma_benh_nhan
+        INNER JOIN bac_si bs ON dt.ma_bac_si = bs.ma_nguoi_dung
+    WHERE 
     bs.ma_nguoi_dung = @ma_bac_si
-    AND dt.ngay_dieu_tri = @ngay
+        AND dt.ngay_dieu_tri = @ngay
