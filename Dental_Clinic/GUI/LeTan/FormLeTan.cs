@@ -1,6 +1,7 @@
 ﻿using Dental_Clinic.DTO.Admin;
 using Dental_Clinic.GUI.BacSi;
 using Dental_Clinic.GUI.LeTan;
+using Dental_Clinic.GUI.LeTan.ThanhToan;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -74,11 +75,6 @@ namespace Dental_Clinic.GUI.Receptionist
                 panelNgonNgu.BringToFront(); // Đưa panel lên trên
             }
         }
-        // Quản lý bệnh nhân click
-        private void QuanLyBenhNhan_Click(object sender, EventArgs e)
-        {
-            //ShowFormOnPanel(new BacSi.BenhNhan.FormBenhNhan_BacSi(this));
-        }
         // Đăng xuất
         private void DangXuat_Click(object sender, EventArgs e)
         {
@@ -100,6 +96,11 @@ namespace Dental_Clinic.GUI.Receptionist
         private void lbTrangChu_Click(object sender, EventArgs e)
         {
             HienThiFormLenPanel(new FormTrangChuLeTan());
+        }
+
+        private void lbThanhToan_Click(object sender, EventArgs e)
+        {
+            HienThiFormLenPanel(new FormThanhToan());
         }
     }
 }

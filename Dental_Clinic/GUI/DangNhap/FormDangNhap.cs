@@ -110,17 +110,17 @@ namespace Dental_Clinic.GUI.Login
 
         private void DangNhap()
         {
-            if (!KiemTraDauVao())
-            {
-                return;
-            }
+            //if (!KiemTraDauVao())
+            //{
+            //    return;
+            //}
             // Tạo đối tượng LoginDTO từ dữ liệu người dùng nhập vào
             DangNhapDTO dangNhapDTO = new DangNhapDTO
             {
-                TenDangNhap = tbTenDangNhap.Text,
-                Matkhau = tbMatKhau.Text
-                //TenDangNhap = "recep1",
-                //Matkhau = "pass123",
+                //TenDangNhap = tbTenDangNhap.Text,
+                //Matkhau = tbMatKhau.Text
+                TenDangNhap = "recep1",
+                Matkhau = "pass123",
             };
 
             DataRow thongTinNguoiDung = dangNhapBUS.KiemTraDangNhap(dangNhapDTO);
@@ -201,7 +201,7 @@ namespace Dental_Clinic.GUI.Login
             }
         }
         // SỰ KIỆN ENTER ĐĂNG NHẬP
-        private void tbEnter_KeyDown(object sender, KeyEventArgs e)
+        private void tbEnter_KeyDown(object? sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {

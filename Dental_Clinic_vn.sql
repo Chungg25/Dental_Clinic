@@ -227,11 +227,12 @@ GO
 CREATE TABLE [hoa_don]
 (
     [ma_hoa_don] INT,
-    [phuong_thuc_thanh_toan] BIT NOT NULL,
+    [phuong_thuc_thanh_toan] INT NOT NULL DEFAULT -1,
     [tong_gia] FLOAT NOT NULL,
     [ma_don_thuoc] INT NOT NULL,
     [ma_benh_nhan] INT NOT NULL,
     [ngay] date,
+	[trang_thai_thanh_toan] BIT DEFAULT 0, -- 0: Chưa thanh toán, 1: Đã thanh toán
     PRIMARY KEY ([ma_hoa_don])
 )
 GO
@@ -1180,11 +1181,11 @@ DBCC CHECKIDENT ('receptions', RESEED, 0);*/
 INSERT INTO lich_hen
     (ghi_chu, trang_thai, ngay_hen, ca, ma_nguoi_dung, ma_benh_nhan)
 VALUES
-    (N'Khám răng lần đầu', 0, '2024-10-25', 1, 6, 1),
-    (N'Tái khám sau nhổ răng', 1, '2024-10-15', 2, 7, 2),
-    (N'Khám nha chu', 0, '2024-11-05', 1, 8, 3),
-    (N'Chỉnh hình răng mặt', 0, '2024-10-30', 2, 9, 4),
-    (N'Cấy ghép Implant', 1, '2024-09-20', 1, 10, 5),
+    (N'Khám răng lần đầu', 0, '2024-11-03', 1, 6, 1),
+    (N'Tái khám sau nhổ răng', 1, '2024-11-03', 2, 7, 2),
+    (N'Khám nha chu', 0, '2024-11-03', 1, 8, 3),
+    (N'Chỉnh hình răng mặt', 0, '2024-11-03', 2, 9, 4),
+    (N'Cấy ghép Implant', 1, '2024-11-03', 1, 10, 5),
     (N'Khám tổng quát', 0, '2024-10-27', 2, 6, 6),
     (N'Khám răng miệng', 1, '2024-11-02', 1, 7, 7),
     (N'Tái khám sau cấy ghép', 0, '2024-11-10', 2, 8, 8),
@@ -1604,44 +1605,48 @@ DBCC CHECKIDENT ('treatments', RESEED, 0);*/
 
 -- Thêm dữ liệu vào bảng hóa đơn
 INSERT INTO hoa_don
-    (ma_hoa_don, phuong_thuc_thanh_toan, tong_gia, ma_don_thuoc, ma_benh_nhan, ngay)
+    (ma_hoa_don, tong_gia, ma_don_thuoc, ma_benh_nhan, ngay)
 VALUES
-    (1, 0, 400000, 1, 1, '2024-09-01'),
+    (1, 400000, 1, 1, '2024-11-03'),
     -- Ngày tháng 9
-    (2, 0, 480000, 17, 17, '2024-09-02'),
+    (2, 480000, 2, 17, '2024-11-03'),
     -- Ngày tháng 9
-    (3, 0, 658000, 2, 2, '2024-09-05'),
+    (3, 658000, 8, 2, '2024-11-03'),
     -- Ngày tháng 9
-    (4, 1, 825000, 3, 3, '2024-09-10'),
+    (4, 825000, 9, 3, '2024-09-10'),
     -- Ngày tháng 9
-    (5, 0, 410000, 9, 9, '2024-09-15'),
+    (5, 410000, 9, 9, '2024-09-15'),
     -- Ngày tháng 9
-    (6, 1, 620000, 4, 4, '2024-09-20'),
+    (6, 620000, 4, 4, '2024-09-20'),
     -- Ngày tháng 9
-    (7, 1, 680000, 5, 5, '2024-09-25'),
+    (7, 680000, 5, 5, '2024-09-25'),
     -- Ngày tháng 9
-    (8, 1, 240000, 19, 19, '2024-09-30'),
+    (8, 240000, 19, 19, '2024-09-30'),
     -- Ngày tháng 9
-    (9, 1, 586000, 11, 11, '2024-10-01'),
+    (9, 586000, 11, 11, '2024-10-01'),
     -- Ngày tháng 10
-    (10, 0, 760000, 16, 16, '2024-10-02'),-- Ngày tháng 10
-    (11, 0, 948000, 8, 8, '2024-10-05'),
+    (10, 760000, 16, 16, '2024-10-02'),-- Ngày tháng 10
+    (11, 948000, 8, 8, '2024-10-05'),
     -- Ngày tháng 10
-    (12, 0, 690000, 12, 12, '2024-10-10'),-- Ngày tháng 10
-    (13, 1, 290000, 14, 14, '2024-10-15'),-- Ngày tháng 10
-    (14, 0, 380000, 15, 15, '2024-10-20'),-- Ngày tháng 10
-    (15, 1, 644000, 13, 13, '2024-10-21'),
+    (12, 690000, 12, 12, '2024-10-10'),-- Ngày tháng 10
+    (13, 290000, 14, 14, '2024-10-15'),-- Ngày tháng 10
+    (14, 380000, 15, 15, '2024-10-20'),-- Ngày tháng 10
+    (15, 644000, 13, 13, '2024-10-21'),
     -- Ngày tháng 10
-    (16, 1, 760000, 16, 16, '2024-10-22'),
+    (16, 760000, 16, 16, '2024-10-22'),
     -- Ngày tháng 10
-    (17, 0, 480000, 17, 17, '2024-10-23'),
+    (17, 480000, 17, 17, '2024-10-23'),
     -- Ngày tháng 10
-    (18, 0, 956000, 18, 18, '2024-10-24'),
+    (18, 956000, 18, 18, '2024-10-24'),
     -- Ngày tháng 10
-    (19, 1, 240000, 19, 19, '2024-10-24'),
+    (19, 240000, 19, 19, '2024-10-24'),
     -- Ngày tháng 10
-    (20, 1, 195000, 20, 20, '2024-10-25');
+    (20, 195000, 20, 20, '2024-10-25');
 -- Ngày tháng 10
+
+UPDATE hoa_don
+SET trang_thai_thanh_toan = 1
+WHERE ma_hoa_don IN (1, 3, 5, 8, 10, 12);
 
 /*DELETE FROM invoices;
 DBCC CHECKIDENT ('invoices', RESEED, 0);*/
@@ -2733,8 +2738,7 @@ BEGIN
         bn.ma_benh_nhan = @ma_benh_nhan;
 END;
 GO
-EXEC LayThongTinBenhNhanVaBenhAn @ma_benh_nhan = 1;
-GO
+
 CREATE PROCEDURE CapNhatThongTinBenhNhanVaBenhAn
     @ma_benh_nhan INT,
     @ho_ten NVARCHAR(50) = NULL,
@@ -2786,4 +2790,151 @@ BEGIN
         THROW; -- Ném lỗi để xem chi tiết
     END CATCH
 END;
+GO
+
+CREATE PROCEDURE LayDanhSachBenhNhanChuaThanhToan
+    @ngay DATE
+AS
+BEGIN
+    SELECT 
+        bn.ma_benh_nhan,
+        bn.ho_ten,
+        bn.so_dien_thoai,
+        nd.ho_ten AS ten_bac_si,
+        hd.ma_hoa_don,
+        CASE 
+            WHEN lh.trang_thai = 1 THEN N'Đã khám' 
+            ELSE N'Chưa khám' 
+        END AS trang_thai_kham,
+        CASE 
+            WHEN hd.trang_thai_thanh_toan = 1 THEN N'Đã thanh toán' 
+            ELSE N'Chưa thanh toán' 
+        END AS trang_thai_thanh_toan
+    FROM 
+        benh_nhan bn
+    INNER JOIN 
+        lich_hen lh ON bn.ma_benh_nhan = lh.ma_benh_nhan
+    INNER JOIN 
+        bac_si bs ON lh.ma_nguoi_dung = bs.ma_nguoi_dung
+    INNER JOIN 
+        nguoi_dung nd ON bs.ma_nguoi_dung = nd.ma_nguoi_dung  -- Lấy tên bác sĩ từ bảng người dùng
+    INNER JOIN 
+        hoa_don hd ON bn.ma_benh_nhan = hd.ma_benh_nhan
+    WHERE 
+        hd.trang_thai_thanh_toan = 0  -- Lọc bệnh nhân chưa thanh toán
+        AND hd.ngay = @ngay     -- Lọc theo ngày cung cấp
+END
+GO
+
+EXEC LayDanhSachBenhNhanChuaThanhToan '2024-10-24';
+
+
+GO
+
+CREATE PROCEDURE LayThongTinBenhNhan
+    @ma_benh_nhan INT
+AS
+BEGIN
+    SELECT 
+        bn.ma_benh_nhan,
+        bn.ho_ten,
+        bn.gioi_tinh,
+        bn.tuoi,
+        bn.so_dien_thoai,
+        bn.dia_chi,
+        lh.ca,
+        bs.ho_ten AS ten_bac_si,
+        CASE 
+            WHEN lh.trang_thai = 1 THEN N'Đã khám'
+            ELSE N'Chưa khám'
+        END AS trang_thai_kham
+    FROM 
+        benh_nhan bn
+    LEFT JOIN 
+        lich_hen lh ON bn.ma_benh_nhan = lh.ma_benh_nhan
+    LEFT JOIN 
+        nguoi_dung bs ON lh.ma_nguoi_dung = bs.ma_nguoi_dung
+    WHERE 
+        bn.ma_benh_nhan = @ma_benh_nhan;
+END;
+GO
+
+CREATE PROCEDURE LayChiTietHoaDonBenhNhan
+    @ma_benh_nhan INT
+AS
+BEGIN
+    -- Bảng tạm để lưu chi tiết hóa đơn
+    DECLARE @ChiTietHoaDon TABLE (
+        loai_muc NVARCHAR(50),
+        ten_muc NVARCHAR(255),
+        so_luong INT,
+        don_gia DECIMAL(18,2),
+        thanh_tien DECIMAL(18,2)
+    );
+
+    -- Lấy chi tiết các dịch vụ trong hóa đơn
+    INSERT INTO @ChiTietHoaDon (loai_muc, ten_muc, so_luong, don_gia, thanh_tien)
+    SELECT 
+        N'Dịch vụ' AS loai_muc,
+        dv.ten AS ten_muc,
+        cthd.so_luong,
+        cthd.gia_don_vi AS don_gia,
+        (cthd.so_luong * cthd.gia_don_vi) AS thanh_tien
+    FROM 
+        chi_tiet_hoa_don cthd
+    INNER JOIN 
+        dich_vu dv ON cthd.ma_dich_vu = dv.ma_dich_vu
+    INNER JOIN 
+        hoa_don hd ON cthd.ma_hoa_don = hd.ma_hoa_don
+    WHERE 
+        hd.ma_benh_nhan = @ma_benh_nhan;
+
+    -- Lấy chi tiết các thuốc trong đơn thuốc của hóa đơn
+    INSERT INTO @ChiTietHoaDon (loai_muc, ten_muc, so_luong, don_gia, thanh_tien)
+    SELECT 
+        N'Thuốc' AS loai_muc,
+        htk.ten AS ten_muc,
+        ctdt.so_luong,
+        htk.gia AS don_gia,
+        (ctdt.so_luong * htk.gia) AS thanh_tien
+    FROM 
+        chi_tiet_don_thuoc ctdt
+    INNER JOIN 
+        don_thuoc dt ON ctdt.ma_don_thuoc = dt.ma_don_thuoc
+    INNER JOIN 
+        hoa_don hd ON dt.ma_don_thuoc = hd.ma_don_thuoc
+    INNER JOIN 
+        hang_ton_kho htk ON ctdt.ma_kho = htk.ma_kho
+    WHERE 
+        hd.ma_benh_nhan = @ma_benh_nhan;
+
+    -- Trả về chi tiết hóa đơn theo từng mục (dịch vụ, thuốc)
+    SELECT *
+    FROM 
+        @ChiTietHoaDon;
+END
+GO
+CREATE PROCEDURE CapNhatTrangThaiVaPhuongThucThanhToan
+    @ma_hoa_don INT,
+    @phuong_thuc_thanh_toan BIT,   -- 1: Thanh toán qua thẻ, 0: Thanh toán bằng tiền mặt
+    @tong_tien FLOAT       -- Tổng tiền hóa đơn
+AS
+BEGIN
+    -- Kiểm tra xem hóa đơn có tồn tại hay không
+    IF EXISTS (SELECT 1 FROM hoa_don WHERE ma_hoa_don = @ma_hoa_don)
+    BEGIN
+        -- Cập nhật trạng thái thanh toán, phương thức thanh toán, và tổng tiền
+        UPDATE hoa_don
+        SET trang_thai_thanh_toan = 1,                  -- Đặt thành 'Đã thanh toán'
+            phuong_thuc_thanh_toan = @phuong_thuc_thanh_toan,  -- Cập nhật phương thức thanh toán
+            tong_gia = @tong_tien                        -- Cập nhật tổng tiền
+        WHERE ma_hoa_don = @ma_hoa_don;
+        
+        PRINT N'Hóa đơn đã được cập nhật thành công.';
+    END
+    ELSE
+    BEGIN
+        PRINT N'Hóa đơn không tồn tại.';	
+    END
+END
 GO

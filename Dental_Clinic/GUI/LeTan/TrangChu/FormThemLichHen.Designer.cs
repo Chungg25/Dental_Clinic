@@ -39,9 +39,6 @@
             tbSĐT = new TextBox();
             label6 = new Label();
             vbSĐT = new CustomButton.VBButton();
-            tbHoTen = new TextBox();
-            label2 = new Label();
-            vbHoTen = new CustomButton.VBButton();
             label5 = new Label();
             vbGioiTinh = new CustomButton.VBButton();
             vbThemLichHen = new CustomButton.VBButton();
@@ -54,6 +51,9 @@
             tbCaLam = new TextBox();
             vbCaLam = new CustomButton.VBButton();
             label3 = new Label();
+            vbHoTen = new CustomButton.VBButton();
+            label2 = new Label();
+            tbHoTen = new TextBox();
             SuspendLayout();
             // 
             // vbHuy
@@ -208,46 +208,6 @@
             vbSĐT.Text = "vbButton3";
             vbSĐT.TextColor = Color.White;
             vbSĐT.UseVisualStyleBackColor = false;
-            // 
-            // tbHoTen
-            // 
-            tbHoTen.BorderStyle = BorderStyle.None;
-            tbHoTen.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            tbHoTen.Location = new Point(24, 60);
-            tbHoTen.Margin = new Padding(4);
-            tbHoTen.Name = "tbHoTen";
-            tbHoTen.Size = new Size(433, 38);
-            tbHoTen.TabIndex = 1;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 10F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label2.Location = new Point(24, 20);
-            label2.Margin = new Padding(4, 0, 4, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(104, 28);
-            label2.TabIndex = 112;
-            label2.Text = "Họ và tên";
-            // 
-            // vbHoTen
-            // 
-            vbHoTen.BackColor = Color.White;
-            vbHoTen.BackgroundColor = Color.White;
-            vbHoTen.BorderColor = Color.Black;
-            vbHoTen.BorderRadius = 14;
-            vbHoTen.BorderSize = 1;
-            vbHoTen.FlatAppearance.BorderSize = 0;
-            vbHoTen.FlatStyle = FlatStyle.Flat;
-            vbHoTen.ForeColor = Color.White;
-            vbHoTen.Location = new Point(13, 52);
-            vbHoTen.Margin = new Padding(4);
-            vbHoTen.Name = "vbHoTen";
-            vbHoTen.Size = new Size(462, 60);
-            vbHoTen.TabIndex = 111;
-            vbHoTen.Text = "vbButton1";
-            vbHoTen.TextColor = Color.White;
-            vbHoTen.UseVisualStyleBackColor = false;
             // 
             // label5
             // 
@@ -423,6 +383,46 @@
             label3.TabIndex = 136;
             label3.Text = "Ca";
             // 
+            // vbHoTen
+            // 
+            vbHoTen.BackColor = Color.White;
+            vbHoTen.BackgroundColor = Color.White;
+            vbHoTen.BorderColor = Color.Black;
+            vbHoTen.BorderRadius = 14;
+            vbHoTen.BorderSize = 1;
+            vbHoTen.FlatAppearance.BorderSize = 0;
+            vbHoTen.FlatStyle = FlatStyle.Flat;
+            vbHoTen.ForeColor = Color.White;
+            vbHoTen.Location = new Point(13, 52);
+            vbHoTen.Margin = new Padding(4);
+            vbHoTen.Name = "vbHoTen";
+            vbHoTen.Size = new Size(462, 60);
+            vbHoTen.TabIndex = 111;
+            vbHoTen.Text = "vbButton1";
+            vbHoTen.TextColor = Color.White;
+            vbHoTen.UseVisualStyleBackColor = false;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 10F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label2.Location = new Point(24, 20);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(104, 28);
+            label2.TabIndex = 112;
+            label2.Text = "Họ và tên";
+            // 
+            // tbHoTen
+            // 
+            tbHoTen.BorderStyle = BorderStyle.None;
+            tbHoTen.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            tbHoTen.Location = new Point(24, 60);
+            tbHoTen.Margin = new Padding(4);
+            tbHoTen.Name = "tbHoTen";
+            tbHoTen.Size = new Size(433, 38);
+            tbHoTen.TabIndex = 1;
+            // 
             // FormThemLichHen
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -476,9 +476,6 @@
         private TextBox tbSĐT;
         private Label label6;
         private CustomButton.VBButton vbSĐT;
-        private TextBox tbHoTen;
-        private Label label2;
-        private CustomButton.VBButton vbHoTen;
         private Label label5;
         private CustomButton.VBButton vbGioiTinh;
         private CustomButton.VBButton vbThemLichHen;
@@ -491,5 +488,8 @@
         private TextBox tbCaLam;
         private CustomButton.VBButton vbCaLam;
         private Label label3;
+        private CustomButton.VBButton vbHoTen;
+        private Label label2;
+        private TextBox tbHoTen;
     }
 }

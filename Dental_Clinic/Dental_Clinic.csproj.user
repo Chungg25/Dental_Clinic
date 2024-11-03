@@ -16,13 +16,22 @@
     <Compile Update="GUI\BacSi\FormTrangChuBacSi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\LeTan\FormChinhSuaThongTinBenhNhan.cs">
+    <Compile Update="GUI\LeTan\ThanhToan\FormChiTietHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\LeTan\FormThemLichHen.cs">
+    <Compile Update="GUI\LeTan\ThanhToan\FormThanhToan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="GUI\LeTan\FormTrangChuLeTan.cs">
+    <Compile Update="GUI\LeTan\ThanhToan\FormThanhToan_ChuyenKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\LeTan\TrangChu\FormChinhSuaThongTinBenhNhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\LeTan\TrangChu\FormThemLichHen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUI\LeTan\TrangChu\FormTrangChuLeTan.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="GUI\QuanTriVien\LichLamViec\FormChiTietCaLam.cs">
