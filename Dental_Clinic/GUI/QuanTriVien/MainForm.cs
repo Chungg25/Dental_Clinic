@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dental_Clinic.GUI.Login;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Dental_Clinic.GUI.Administrator
 {

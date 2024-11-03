@@ -356,7 +356,6 @@ namespace Dental_Clinic.DAO.VatTu
                 cmd.Parameters.AddWithValue("@ngayNhap", thuoc.NgayNhap);
                 cmd.Parameters.AddWithValue("@gia", thuoc.Gia);
                 cmd.Parameters.AddWithValue("@maLoai", 1);
-                MessageBox.Show("!");
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.ExecuteNonQuery();
 

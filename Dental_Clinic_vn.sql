@@ -107,12 +107,12 @@ GO
 -- 8. Bảng bệnh nhân
 CREATE TABLE [benh_nhan]
 (
-    [ma_benh_nhan] INT NOT NULL IDENTITY(1, 1),
+    [ma_benh_nhan] INT NOT NULL,
     [ho_ten] NVARCHAR(50) NOT NULL,
-    [gioi_tinh] BIT NULL,
-    [tuoi] INT NULL,
+    [gioi_tinh] BIT NOT NULL,
+    [tuoi] INT NOT NULL,
     [so_dien_thoai] NVARCHAR(10) NOT NULL,
-    [dia_chi] NVARCHAR(50) NULL,
+    [dia_chi] NVARCHAR(50) NOT NULL,
     PRIMARY KEY ([ma_benh_nhan])
 )
 GO
@@ -332,7 +332,7 @@ VALUES
     (3, N'Lê Văn Cường', '123456789003', '0901234563', N'789 Lê Duẩn, Q1, TP.HCM', 1, '1992-03-25', 'Reception', 'recep1', 'pass123', 'recep1@gmail.com', 1.2, 1),
     (4, N'Phạm Thị Dung', '123456789004', '0901234564', N'147 Nam Kỳ, Q3, TP.HCM', 0, '1993-04-30', 'Reception', 'recep2', 'pass123', 'recep2@gmail.com', 1.2, 1),
     (5, N'Hoàng Văn Em', '123456789005', '0901234565', N'258 Hai Bà Trưng, Q1, TP.HCM', 1, '1994-05-05', 'Reception', 'recep3', 'pass123', 'recep3@gmail.com', 1.2, 1),
-    (6, N'Đỗ Thị Phương', '123456789006', '0901234566', N'369 Lê Văn Sỹ, Q3, TP.HCM', 0, '1985-06-10', 'Doctor', 'doctor1', 'pass123', 'hatrongnguyen04@gmail.com', 2.0, 1),
+    (6, N'Đỗ Thị Phương', '123456789006', '0901234566', N'369 Lê Văn Sỹ, Q3, TP.HCM', 0, '1985-06-10', 'Doctor', 'doctor1', 'pass123', 'chungkiet31@gmail.com', 2.0, 1),
     (7, N'Vũ Văn Giang', '123456789007', '0901234567', N'147 Nguyễn Đình Chiểu, Q3, TP.HCM', 1, '1986-07-15', 'Doctor', 'doctor2', 'pass123', 'doctor2@gmail.com', 2.0, 1),
     (8, N'Mai Thị Hoa', '123456789008', '0901234568', N'258 Võ Văn Tần, Q3, TP.HCM', 0, '1987-08-20', 'Doctor', 'doctor3', 'pass123', 'doctor3@gmail.com', 2.0, 1),
     (9, N'Trịnh Văn Inh', '123456789009', '0901234569', N'369 Cách Mạng T8, Q3, TP.HCM', 1, '1988-09-25', 'Doctor', 'doctor4', 'pass123', 'doctor4@gmail.com', 2.0, 1),
@@ -401,28 +401,28 @@ DBCC CHECKIDENT ('doctors', RESEED, 0);*/
 
 -- Thêm dữ liệu vào bảng bệnh nhân
 INSERT INTO benh_nhan
-    (ho_ten, gioi_tinh, tuoi, so_dien_thoai, dia_chi)
+    (ma_benh_nhan, ho_ten, gioi_tinh, tuoi, so_dien_thoai, dia_chi)
 VALUES
-    (N'Phạm Văn Cường', 1, 29, '0903456789', N'789 Lê Lợi, Quận 5'),
-    (N'Trần Văn Tùng', 1, 37, '0906789012', N'56 Võ Thị Sáu, Quận 2'),
-    (N'Lê Thị Hoa', 0, 30, '0907890123', N'78 Nam Kỳ Khởi Nghĩa, Quận 3'),
-    (N'Phạm Văn Bảo', 1, 33, '0900123456', N'23 Trường Chinh, Quận Tân Bình'),
-    (N'Trần Văn Đức', 1, 32, '0903334455', N'67 Trường Sa, Phú Nhuận'),
-    (N'Lê Thị Lan', 0, 31, '0904445566', N'78 Lê Văn Sỹ, Quận 3'),
-    (N'Nguyễn Hoàng Long', 1, 33, '0905556677', N'89 Nguyễn Văn Trỗi, Quận Tân Phú'),
-    (N'Phạm Thanh Bình', 1, 37, '0906667788', N'23 Lê Lợi, Quận 1'),
-    (N'Võ Thị Quỳnh', 0, 31, '0907778899', N'34 Hai Bà Trưng, Quận 3'),
-    (N'Nguyễn Văn Minh', 1, 32, '0905678901', N'34 Hai Bà Trưng, Quận 3'),
-    (N'Trần Thị Hoa', 0, 39, '0902345678', N'456 Điện Biên Phủ, Quận 3'),
-    (N'Lê Văn Tâm', 1, 50, '0903456567', N'56 Cách Mạng Tháng Tám, Quận 10'),
-    (N'Trần Anh Dũng', 1, 28, '0908765432', N'101 Lý Chính Thắng, Quận 3'),
-    (N'Lê Thị Bích', 0, 34, '0901234876', N'567 Nguyễn Tri Phương, Quận 10'),
-    (N'Vũ Thị Minh Châu', 0, 40, '0906785432', N'200 Lê Hồng Phong, Quận 5'),
-    (N'Nguyễn Hoàng Khôi', 1, 26, '0909087654', N'90 Nguyễn Trãi, Quận 1'),
-    (N'Ngô Thị Hà', 0, 29, '0912345678', N'333 Hai Bà Trưng, Quận 1'),
-    (N'Phạm Thị Thanh', 0, 35, '0903456789', N'222 Phan Xích Long, Quận Phú Nhuận'),
-    (N'Lê Hữu Phước', 1, 32, '0909998877', N'345 Cộng Hòa, Quận Tân Bình'),
-    (N'Nguyễn Thị Mai', 0, 27, '0901234567', N'567 Lý Thường Kiệt, Quận 10');
+    (1, N'Phạm Văn Cường', 1, 29, '0903456789', N'789 Lê Lợi, Quận 5'),
+    (2, N'Trần Văn Tùng', 1, 37, '0906789012', N'56 Võ Thị Sáu, Quận 2'),
+    (3, N'Lê Thị Hoa', 0, 30, '0907890123', N'78 Nam Kỳ Khởi Nghĩa, Quận 3'),
+    (4, N'Phạm Văn Bảo', 1, 33, '0900123456', N'23 Trường Chinh, Quận Tân Bình'),
+    (5, N'Trần Văn Đức', 1, 32, '0903334455', N'67 Trường Sa, Phú Nhuận'),
+    (6, N'Lê Thị Lan', 0, 31, '0904445566', N'78 Lê Văn Sỹ, Quận 3'),
+    (7, N'Nguyễn Hoàng Long', 1, 33, '0905556677', N'89 Nguyễn Văn Trỗi, Quận Tân Phú'),
+    (8, N'Phạm Thanh Bình', 1, 37, '0906667788', N'23 Lê Lợi, Quận 1'),
+    (9, N'Võ Thị Quỳnh', 0, 31, '0907778899', N'34 Hai Bà Trưng, Quận 3'),
+    (10, N'Nguyễn Văn Minh', 1, 32, '0905678901', N'34 Hai Bà Trưng, Quận 3'),
+    (11, N'Trần Thị Hoa', 0, 39, '0902345678', N'456 Điện Biên Phủ, Quận 3'),
+    (12, N'Lê Văn Tâm', 1, 50, '0903456567', N'56 Cách Mạng Tháng Tám, Quận 10'),
+    (13, N'Trần Anh Dũng', 1, 28, '0908765432', N'101 Lý Chính Thắng, Quận 3'),
+    (14, N'Lê Thị Bích', 0, 34, '0901234876', N'567 Nguyễn Tri Phương, Quận 10'),
+    (15, N'Vũ Thị Minh Châu', 0, 40, '0906785432', N'200 Lê Hồng Phong, Quận 5'),
+    (16, N'Nguyễn Hoàng Khôi', 1, 26, '0909087654', N'90 Nguyễn Trãi, Quận 1'),
+    (17, N'Ngô Thị Hà', 0, 29, '0912345678', N'333 Hai Bà Trưng, Quận 1'),
+    (18, N'Phạm Thị Thanh', 0, 35, '0903456789', N'222 Phan Xích Long, Quận Phú Nhuận'),
+    (19, N'Lê Hữu Phước', 1, 32, '0909998877', N'345 Cộng Hòa, Quận Tân Bình'),
+    (20, N'Nguyễn Thị Mai', 0, 27, '0901234567', N'567 Lý Thường Kiệt, Quận 10');
 /*DELETE FROM patients;
 DBCC CHECKIDENT ('patients', RESEED, 0);*/
 
@@ -3149,9 +3149,4 @@ BEGIN
 
     SELECT @TongVatTu AS TongVatTuDaSuDung;
 END
-GO
-
-DECLARE @ngay DATETIME = '2024-10-01';
--- Ví dụ chọn ngày đầu tháng 10 năm 2024
-SELECT dbo.LayTongTienVatTuDaSuDungTrongThang(@ngay) AS TongTienThuocDaBan;
 GO

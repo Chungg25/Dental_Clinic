@@ -36,7 +36,7 @@ namespace Dental_Clinic.GUI.Administrator
             vbThongKeDoanhThu = new CustomButton.VBButton();
             pictureBox5 = new PictureBox();
             pictureBox1 = new PictureBox();
-            vbButton1 = new CustomButton.VBButton();
+            vbThongKeBenh = new CustomButton.VBButton();
             panelThongKe = new Panel();
             dtpNgay = new DateTimePicker();
             panel1.SuspendLayout();
@@ -83,6 +83,7 @@ namespace Dental_Clinic.GUI.Administrator
             vbThongKeDoanhThu.TextAlign = ContentAlignment.MiddleLeft;
             vbThongKeDoanhThu.TextColor = Color.White;
             vbThongKeDoanhThu.UseVisualStyleBackColor = false;
+            vbThongKeDoanhThu.Click += vbThongKeDoanhThu_Click;
             // 
             // pictureBox5
             // 
@@ -106,26 +107,27 @@ namespace Dental_Clinic.GUI.Administrator
             pictureBox1.TabIndex = 12;
             pictureBox1.TabStop = false;
             // 
-            // vbButton1
+            // vbThongKeBenh
             // 
-            vbButton1.BackColor = Color.FromArgb(163, 211, 229);
-            vbButton1.BackgroundColor = Color.FromArgb(163, 211, 229);
-            vbButton1.BorderColor = Color.PaleVioletRed;
-            vbButton1.BorderRadius = 10;
-            vbButton1.BorderSize = 0;
-            vbButton1.Cursor = Cursors.Hand;
-            vbButton1.FlatAppearance.BorderSize = 0;
-            vbButton1.FlatStyle = FlatStyle.Flat;
-            vbButton1.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            vbButton1.ForeColor = Color.White;
-            vbButton1.Location = new Point(322, 103);
-            vbButton1.Name = "vbButton1";
-            vbButton1.Size = new Size(261, 57);
-            vbButton1.TabIndex = 13;
-            vbButton1.Text = "Thống kê mặt bệnh";
-            vbButton1.TextAlign = ContentAlignment.MiddleLeft;
-            vbButton1.TextColor = Color.White;
-            vbButton1.UseVisualStyleBackColor = false;
+            vbThongKeBenh.BackColor = Color.FromArgb(163, 211, 229);
+            vbThongKeBenh.BackgroundColor = Color.FromArgb(163, 211, 229);
+            vbThongKeBenh.BorderColor = Color.PaleVioletRed;
+            vbThongKeBenh.BorderRadius = 10;
+            vbThongKeBenh.BorderSize = 0;
+            vbThongKeBenh.Cursor = Cursors.Hand;
+            vbThongKeBenh.FlatAppearance.BorderSize = 0;
+            vbThongKeBenh.FlatStyle = FlatStyle.Flat;
+            vbThongKeBenh.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            vbThongKeBenh.ForeColor = Color.White;
+            vbThongKeBenh.Location = new Point(322, 103);
+            vbThongKeBenh.Name = "vbThongKeBenh";
+            vbThongKeBenh.Size = new Size(261, 57);
+            vbThongKeBenh.TabIndex = 13;
+            vbThongKeBenh.Text = "Thống kê mặt bệnh";
+            vbThongKeBenh.TextAlign = ContentAlignment.MiddleLeft;
+            vbThongKeBenh.TextColor = Color.White;
+            vbThongKeBenh.UseVisualStyleBackColor = false;
+            vbThongKeBenh.Click += vbThongKeBenh_Click;
             // 
             // panelThongKe
             // 
@@ -150,7 +152,7 @@ namespace Dental_Clinic.GUI.Administrator
             Controls.Add(dtpNgay);
             Controls.Add(panelThongKe);
             Controls.Add(pictureBox1);
-            Controls.Add(vbButton1);
+            Controls.Add(vbThongKeBenh);
             Controls.Add(pictureBox5);
             Controls.Add(vbThongKeDoanhThu);
             Controls.Add(panel1);
@@ -170,7 +172,7 @@ namespace Dental_Clinic.GUI.Administrator
         private CustomButton.VBButton vbThongKeDoanhThu;
         private PictureBox pictureBox5;
         private PictureBox pictureBox1;
-        private CustomButton.VBButton vbButton1;
+        private CustomButton.VBButton vbThongKeBenh;
         private Panel panelThongKe;
         private DateTimePicker dtpNgay;
     }

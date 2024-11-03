@@ -47,8 +47,8 @@ namespace Dental_Clinic.GUI.Administrator
             panel7 = new Panel();
             lbBacSi = new Label();
             label7 = new Label();
-            panel8 = new Panel();
-            label9 = new Label();
+            panela = new Panel();
+            panelDoanhThu = new Panel();
             label8 = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -60,27 +60,25 @@ namespace Dental_Clinic.GUI.Administrator
             panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             panel7.SuspendLayout();
-            panel8.SuspendLayout();
+            panelDoanhThu.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(-11, -9);
-            panel1.Margin = new Padding(4, 4, 4, 4);
+            panel1.Location = new Point(-9, -7);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1317, 88);
+            panel1.Size = new Size(1054, 71);
             panel1.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
-            label1.Location = new Point(68, 16);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(54, 13);
             label1.Name = "label1";
-            label1.Size = new Size(365, 54);
+            label1.Size = new Size(309, 46);
             label1.TabIndex = 0;
             label1.Text = "Admin Dashboard";
             // 
@@ -89,20 +87,18 @@ namespace Dental_Clinic.GUI.Administrator
             panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(lbDoanhThu);
             panel2.Controls.Add(label2);
-            panel2.Location = new Point(58, 112);
-            panel2.Margin = new Padding(4, 4, 4, 4);
+            panel2.Location = new Point(46, 90);
             panel2.Name = "panel2";
-            panel2.Size = new Size(312, 156);
+            panel2.Size = new Size(250, 125);
             panel2.TabIndex = 1;
             // 
             // lbDoanhThu
             // 
             lbDoanhThu.AutoSize = true;
             lbDoanhThu.Font = new Font("Segoe UI", 15F);
-            lbDoanhThu.Location = new Point(145, 85);
-            lbDoanhThu.Margin = new Padding(4, 0, 4, 0);
+            lbDoanhThu.Location = new Point(116, 68);
             lbDoanhThu.Name = "lbDoanhThu";
-            lbDoanhThu.Size = new Size(50, 41);
+            lbDoanhThu.Size = new Size(41, 35);
             lbDoanhThu.TabIndex = 3;
             lbDoanhThu.Text = "10";
             // 
@@ -110,10 +106,9 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(130, 26);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(104, 21);
             label2.Name = "label2";
-            label2.Size = new Size(163, 41);
+            label2.Size = new Size(137, 35);
             label2.TabIndex = 3;
             label2.Text = "Doanh thu";
             // 
@@ -121,10 +116,9 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             pictureBox1.BackColor = Color.FromArgb(25, 135, 84);
             pictureBox1.Image = Resources.icons8_revenue_78;
-            pictureBox1.Location = new Point(4, 31);
-            pictureBox1.Margin = new Padding(4, 4, 4, 4);
+            pictureBox1.Location = new Point(3, 25);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(109, 95);
+            pictureBox1.Size = new Size(87, 76);
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
             // 
@@ -132,30 +126,27 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             panel3.BackColor = Color.FromArgb(25, 135, 84);
             panel3.Controls.Add(pictureBox1);
-            panel3.Location = new Point(58, 112);
-            panel3.Margin = new Padding(4, 4, 4, 4);
+            panel3.Location = new Point(46, 90);
             panel3.Name = "panel3";
-            panel3.Size = new Size(112, 156);
+            panel3.Size = new Size(90, 125);
             panel3.TabIndex = 2;
             // 
             // panel4
             // 
             panel4.BackColor = Color.FromArgb(220, 53, 69);
             panel4.Controls.Add(pictureBox2);
-            panel4.Location = new Point(471, 112);
-            panel4.Margin = new Padding(4, 4, 4, 4);
+            panel4.Location = new Point(377, 90);
             panel4.Name = "panel4";
-            panel4.Size = new Size(112, 156);
+            panel4.Size = new Size(90, 125);
             panel4.TabIndex = 5;
             // 
             // pictureBox2
             // 
             pictureBox2.BackColor = Color.FromArgb(220, 53, 69);
             pictureBox2.Image = Resources.icons8_tooth_50;
-            pictureBox2.Location = new Point(24, 48);
-            pictureBox2.Margin = new Padding(4, 4, 4, 4);
+            pictureBox2.Location = new Point(19, 38);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(71, 65);
+            pictureBox2.Size = new Size(57, 52);
             pictureBox2.TabIndex = 3;
             pictureBox2.TabStop = false;
             // 
@@ -164,20 +155,18 @@ namespace Dental_Clinic.GUI.Administrator
             panel5.BorderStyle = BorderStyle.FixedSingle;
             panel5.Controls.Add(lbBenhNhan);
             panel5.Controls.Add(label5);
-            panel5.Location = new Point(471, 112);
-            panel5.Margin = new Padding(4, 4, 4, 4);
+            panel5.Location = new Point(377, 90);
             panel5.Name = "panel5";
-            panel5.Size = new Size(312, 156);
+            panel5.Size = new Size(250, 125);
             panel5.TabIndex = 4;
             // 
             // lbBenhNhan
             // 
             lbBenhNhan.AutoSize = true;
             lbBenhNhan.Font = new Font("Segoe UI", 15F);
-            lbBenhNhan.Location = new Point(181, 85);
-            lbBenhNhan.Margin = new Padding(4, 0, 4, 0);
+            lbBenhNhan.Location = new Point(145, 68);
             lbBenhNhan.Name = "lbBenhNhan";
-            lbBenhNhan.Size = new Size(50, 41);
+            lbBenhNhan.Size = new Size(41, 35);
             lbBenhNhan.TabIndex = 3;
             lbBenhNhan.Text = "10";
             // 
@@ -185,10 +174,9 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(130, 31);
-            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Location = new Point(104, 25);
             label5.Name = "label5";
-            label5.Size = new Size(164, 41);
+            label5.Size = new Size(138, 35);
             label5.TabIndex = 3;
             label5.Text = "Bệnh nhân";
             // 
@@ -196,20 +184,18 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             panel6.BackColor = Color.FromArgb(13, 110, 253);
             panel6.Controls.Add(pictureBox3);
-            panel6.Location = new Point(865, 112);
-            panel6.Margin = new Padding(4, 4, 4, 4);
+            panel6.Location = new Point(692, 90);
             panel6.Name = "panel6";
-            panel6.Size = new Size(112, 156);
+            panel6.Size = new Size(90, 125);
             panel6.TabIndex = 7;
             // 
             // pictureBox3
             // 
             pictureBox3.BackColor = Color.FromArgb(13, 110, 253);
             pictureBox3.Image = Resources.icons8_doctor_64;
-            pictureBox3.Location = new Point(20, 35);
-            pictureBox3.Margin = new Padding(4, 4, 4, 4);
+            pictureBox3.Location = new Point(16, 28);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(82, 80);
+            pictureBox3.Size = new Size(66, 64);
             pictureBox3.TabIndex = 3;
             pictureBox3.TabStop = false;
             // 
@@ -218,20 +204,18 @@ namespace Dental_Clinic.GUI.Administrator
             panel7.BorderStyle = BorderStyle.FixedSingle;
             panel7.Controls.Add(lbBacSi);
             panel7.Controls.Add(label7);
-            panel7.Location = new Point(865, 112);
-            panel7.Margin = new Padding(4, 4, 4, 4);
+            panel7.Location = new Point(692, 90);
             panel7.Name = "panel7";
-            panel7.Size = new Size(312, 156);
+            panel7.Size = new Size(250, 125);
             panel7.TabIndex = 6;
             // 
             // lbBacSi
             // 
             lbBacSi.AutoSize = true;
             lbBacSi.Font = new Font("Segoe UI", 15F);
-            lbBacSi.Location = new Point(181, 85);
-            lbBacSi.Margin = new Padding(4, 0, 4, 0);
+            lbBacSi.Location = new Point(145, 68);
             lbBacSi.Name = "lbBacSi";
-            lbBacSi.Size = new Size(50, 41);
+            lbBacSi.Size = new Size(41, 35);
             lbBacSi.TabIndex = 3;
             lbBacSi.Text = "10";
             // 
@@ -239,51 +223,45 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(161, 30);
-            label7.Margin = new Padding(4, 0, 4, 0);
+            label7.Location = new Point(129, 24);
             label7.Name = "label7";
-            label7.Size = new Size(95, 41);
+            label7.Size = new Size(80, 35);
             label7.TabIndex = 3;
             label7.Text = "Bác sĩ";
             // 
-            // panel8
+            // panela
             // 
-            panel8.Controls.Add(label9);
-            panel8.Controls.Add(label8);
-            panel8.Location = new Point(61, 370);
-            panel8.Margin = new Padding(4, 4, 4, 4);
-            panel8.Name = "panel8";
-            panel8.Size = new Size(1116, 286);
-            panel8.TabIndex = 8;
+            panela.Location = new Point(68, 285);
+            panela.Name = "panela";
+            panela.Size = new Size(893, 347);
+            panela.TabIndex = 8;
             // 
-            // label9
+            // panelDoanhThu
             // 
-            label9.AutoSize = true;
-            label9.Location = new Point(294, 149);
-            label9.Margin = new Padding(4, 0, 4, 0);
-            label9.Name = "label9";
-            label9.Size = new Size(393, 25);
-            label9.TabIndex = 1;
-            label9.Text = "Làm được thì mừng không thì copy hình dán vô";
+            panelDoanhThu.Controls.Add(label8);
+            panelDoanhThu.Location = new Point(78, 221);
+            panelDoanhThu.Name = "panelDoanhThu";
+            panelDoanhThu.Size = new Size(834, 58);
+            panelDoanhThu.TabIndex = 2;
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI Semibold", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(26, 24);
-            label8.Margin = new Padding(4, 0, 4, 0);
+            label8.Location = new Point(19, 13);
             label8.Name = "label8";
-            label8.Size = new Size(294, 41);
-            label8.TabIndex = 0;
+            label8.Size = new Size(248, 35);
+            label8.TabIndex = 1;
             label8.Text = "Thống kê doanh thu";
             // 
             // DashboardForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
-            ClientSize = new Size(1270, 805);
-            Controls.Add(panel8);
+            ClientSize = new Size(1016, 644);
+            Controls.Add(panela);
+            Controls.Add(panelDoanhThu);
             Controls.Add(panel6);
             Controls.Add(panel7);
             Controls.Add(panel4);
@@ -291,7 +269,6 @@ namespace Dental_Clinic.GUI.Administrator
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Margin = new Padding(4, 4, 4, 4);
             Name = "DashboardForm";
             Text = "DashboardForm";
             Load += DashboardForm_Load;
@@ -309,8 +286,8 @@ namespace Dental_Clinic.GUI.Administrator
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             panel7.ResumeLayout(false);
             panel7.PerformLayout();
-            panel8.ResumeLayout(false);
-            panel8.PerformLayout();
+            panelDoanhThu.ResumeLayout(false);
+            panelDoanhThu.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -333,8 +310,8 @@ namespace Dental_Clinic.GUI.Administrator
         private Panel panel7;
         private Label lbBacSi;
         private Label label7;
-        private Panel panel8;
-        private Label label9;
+        private Panel panela;
+        private Panel panelDoanhThu;
         private Label label8;
     }
 }

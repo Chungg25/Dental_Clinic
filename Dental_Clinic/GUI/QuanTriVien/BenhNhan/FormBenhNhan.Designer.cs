@@ -138,7 +138,7 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             panelBenhNhan.Location = new Point(7, 202);
             panelBenhNhan.Name = "panelBenhNhan";
-            panelBenhNhan.Size = new Size(1012, 454);
+            panelBenhNhan.Size = new Size(1137, 454);
             panelBenhNhan.TabIndex = 17;
             // 
             // vbBenhNhan

@@ -40,7 +40,7 @@ namespace Dental_Clinic.GUI.LeTan
             vbTimKiem.FlatAppearance.MouseOverBackColor = vbTimKiem.BackColor;
             vbTimKiem.FlatAppearance.MouseDownBackColor = vbTimKiem.BackColor;
 
-            tbTimKiem.Font = new Font("Segoe UI", 12F);
+            tbTimKiem.Font = new Font("Segoe UI", 10);
             tbTimKiem.Text = "Tìm kiếm";
             tbTimKiem.ForeColor = Color.Gray;
             tbTimKiem.Enter += tbTimKiem_Enter;
@@ -133,7 +133,7 @@ namespace Dental_Clinic.GUI.LeTan
             Label header = new Label
             {
                 Text = text,
-                Font = new Font("Segoe UI", 13, FontStyle.Bold),
+                Font = new Font("Segoe UI", 10, FontStyle.Bold),
                 ForeColor = Color.White,
                 BackColor = Color.FromArgb(0, 122, 204), // Màu xanh dương làm nền cho tiêu đề
                 Dock = DockStyle.Fill,
@@ -148,7 +148,7 @@ namespace Dental_Clinic.GUI.LeTan
             Label dataLabel = new Label
             {
                 Text = text,
-                Font = new Font("Segoe UI", 12),
+                Font = new Font("Segoe UI", 10),
                 BackColor = (rowIndex % 2 == 0) ? Color.LightGray : Color.White, // Làm nổi bật hàng chẵn
                 Dock = DockStyle.Fill,
                 TextAlign = ContentAlignment.MiddleCenter,
