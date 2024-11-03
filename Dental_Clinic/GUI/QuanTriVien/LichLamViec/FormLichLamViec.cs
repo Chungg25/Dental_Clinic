@@ -18,13 +18,13 @@ namespace Dental_Clinic.GUI.Administrator
 {
     public partial class FormLichLamViec : Form
     {
-        private MainForm _mainForm;
+        private MainForm mainForm;
         private LichLamViecBUS lichLamViecBUS;
         public FormLichLamViec(MainForm mainForm)
         {
             InitializeComponent();
             lichLamViecBUS = new LichLamViecBUS();
-            _mainForm = mainForm;
+            this.mainForm = mainForm;
             ChinhSua();
             HienThiBacSi();
         }
@@ -373,11 +373,11 @@ namespace Dental_Clinic.GUI.Administrator
         //Phần điều hướng
         public void HienThiChinhSuaLichLamViec(int id)
         {
-            FormChinhSuaLichLamViec editWorkSchedulForm = new FormChinhSuaLichLamViec(_mainForm, id, dtpNgay.Value);
+            FormChinhSuaLichLamViec editWorkSchedulForm = new FormChinhSuaLichLamViec(mainForm, id, dtpNgay.Value);
             editWorkSchedulForm.TopLevel = false; // Đặt editUserForm không phải là form cấp cao nhất (TopLevel)
             editWorkSchedulForm.FormBorderStyle = FormBorderStyle.None; // Xóa viền của editUserForm
             editWorkSchedulForm.Dock = DockStyle.Fill; // Đặt editUserForm khớp với kích thước panel
-            _mainForm.panelTrangChu.Controls.Add(editWorkSchedulForm); // Thêm editUserForm vào panel
+            mainForm.panelTrangChu.Controls.Add(editWorkSchedulForm); // Thêm editUserForm vào panel
             editWorkSchedulForm.BringToFront();
             editWorkSchedulForm.Show(); // Hiển thị editUserForm
         }

@@ -428,26 +428,26 @@ DBCC CHECKIDENT ('patients', RESEED, 0);*/
 INSERT INTO luong
     (ma_luong, ma_nguoi_dung, luong_co_ban, thuong, phat, phu_cap, ngay)
 VALUES
-    (1, 1, 5000000, 0, 500000, 0, '2024-09-01'),
-    (2, 2, 4000000, 200000, 500000, 0, '2024-09-01'),
-    (3, 3, 6000000, 0, 800000, 0, '2024-09-01'),
-    (4, 4, 5500000, 300000, 800000, 0, '2024-09-01'),
-    (5, 5, 7000000, 0, 1000000, 0, '2024-09-01'),
-    (6, 6, 6500000, 200000, 1000000, 0, '2024-09-01'),
-    (7, 7, 9000000, 0, 1500000, 0, '2024-09-01'),
-    (8, 8, 8500000, 500000, 1500000, 0, '2024-09-01'),
-    (9, 9, 12000000, 0, 2000000, 0, '2024-09-01'),
-    (10, 10, 11500000, 200000, 2000000, 0, '2024-09-01'),
-    (11, 11, 8000000, 0, 1200000, 0, '2024-09-01'),
-    (12, 12, 7500000, 300000, 1200000, 0, '2024-09-01'),
-    (13, 13, 10000000, 0, 1800000, 0, '2024-09-01'),
-    (14, 14, 9500000, 400000, 1800000, 0, '2024-09-01'),
-    (15, 15, 13000000, 0, 2500000, 0, '2024-09-01'),
-    (16, 16, 12500000, 300000, 2500000, 0, '2024-09-01'),
-    (17, 17, 15000000, 0, 3000000, 0, '2024-09-01'),
-    (18, 18, 14500000, 500000, 3000000, 0, '2024-09-01'),
-    (19, 19, 17000000, 0, 3500000, 0, '2024-09-01'),
-    (20, 20, 16500000, 400000, 3500000, 0, '2024-09-01');
+    (1, 1, 500000, 0, 50000, 0, '2024-10-31'),
+    (2, 2, 400000, 200000, 50000, 0, '2024-10-31'),
+    (3, 3, 600000, 0, 80000, 0, '2024-10-31'),
+    (4, 4, 550000, 300000, 80000, 0, '2024-10-31'),
+    (5, 5, 700000, 0, 100000, 0, '2024-10-31'),
+    (6, 6, 650000, 200000, 100000, 0, '2024-10-31'),
+    (7, 7, 900000, 0, 150000, 0, '2024-10-31'),
+    (8, 8, 850000, 500000, 150000, 0, '2024-10-31'),
+    (9, 9, 120000, 0, 200000, 0, '2024-10-31'),
+    (10, 10, 115000, 200000, 200000, 0, '2024-10-31'),
+    (11, 11, 800000, 0, 120000, 0, '2024-10-31'),
+    (12, 12, 750000, 300000, 120000, 0, '2024-10-31'),
+    (13, 13, 100000, 0, 180000, 0, '2024-10-31'),
+    (14, 14, 950000, 400000, 180000, 0, '2024-10-31'),
+    (15, 15, 130000, 0, 250000, 0, '2024-10-31'),
+    (16, 16, 125000, 300000, 250000, 0, '2024-10-31'),
+    (17, 17, 150000, 0, 300000, 0, '2024-10-31'),
+    (18, 18, 145000, 500000, 300000, 0, '2024-10-31'),
+    (19, 19, 170000, 0, 350000, 0, '2024-10-31'),
+    (20, 20, 165000, 400000, 350000, 0, '2024-10-31');
 /*DELETE FROM [salaries];
 DBCC CHECKIDENT ('salaries', RESEED, 0);*/
 
@@ -2787,3 +2787,112 @@ BEGIN
     END CATCH
 END;
 GO
+
+
+CREATE PROCEDURE DanhSachLichLamViecBacSiDeTinhLuong
+    @StartOfMonth DATE,
+    @EndOfMonth DATE
+AS
+BEGIN
+    SELECT nguoi_dung.ma_nguoi_dung, nguoi_dung.ho_ten, nguoi_dung.gioi_tinh, nguoi_dung.email, bac_si_chuyen_mon.ten_chuyen_mon, nguoi_dung.he_so_luong,
+	luong.luong_co_ban, luong.thuong, luong.phat, luong.phu_cap, count(*) as so_ca
+    from nguoi_dung
+        join lich_lam_viec on lich_lam_viec.ma_nguoi_dung = nguoi_dung.ma_nguoi_dung
+        join bac_si on nguoi_dung.ma_nguoi_dung = bac_si.ma_nguoi_dung
+        join bac_si_chuyen_mon on bac_si.ma_chuyen_mon = bac_si_chuyen_mon.ma_chuyen_mon
+		join cham_cong on cham_cong.ma_nguoi_dung = bac_si.ma_nguoi_dung
+		join luong on nguoi_dung.ma_nguoi_dung = luong.ma_nguoi_dung
+    WHERE (lich_lam_viec.ngay BETWEEN @StartOfMonth AND @EndOfMonth) AND cham_cong.ghi_chu = N'Làm việc đúng giờ' AND lich_lam_viec.ngay = cham_cong.ngay
+	AND (luong.ngay BETWEEN @StartOfMonth AND @EndOfMonth) AND nguoi_dung.trang_thai = 1
+    GROUP BY nguoi_dung.ho_ten, nguoi_dung.gioi_tinh, nguoi_dung.email, bac_si_chuyen_mon.ten_chuyen_mon, nguoi_dung.ma_nguoi_dung,
+	luong.luong_co_ban, luong.thuong, luong.phat, luong.phu_cap, nguoi_dung.he_so_luong
+    order by nguoi_dung.ma_nguoi_dung
+END;
+GO
+
+CREATE PROCEDURE DanhSachLichLamViecLeTanDeTinhLuong
+    @StartOfMonth DATE,
+    @EndOfMonth DATE
+AS
+BEGIN
+    SELECT nguoi_dung.ma_nguoi_dung, nguoi_dung.ho_ten, nguoi_dung.gioi_tinh, nguoi_dung.email, nguoi_dung.he_so_luong,
+	luong.luong_co_ban, luong.thuong, luong.phat, luong.phu_cap, count(*) as so_ca
+    from nguoi_dung
+        join lich_lam_viec on lich_lam_viec.ma_nguoi_dung = nguoi_dung.ma_nguoi_dung
+        join le_tan on nguoi_dung.ma_nguoi_dung = le_tan.ma_nguoi_dung
+		join cham_cong on cham_cong.ma_nguoi_dung = nguoi_dung.ma_nguoi_dung
+		join luong on nguoi_dung.ma_nguoi_dung = luong.ma_nguoi_dung
+    WHERE (lich_lam_viec.ngay BETWEEN @StartOfMonth AND @EndOfMonth) AND cham_cong.ghi_chu = N'Làm việc đúng giờ' AND lich_lam_viec.ngay = cham_cong.ngay
+	AND (luong.ngay BETWEEN @StartOfMonth AND @EndOfMonth) AND nguoi_dung.trang_thai = 1
+    GROUP BY nguoi_dung.ho_ten, nguoi_dung.gioi_tinh, nguoi_dung.email, nguoi_dung.ma_nguoi_dung,
+	luong.luong_co_ban, luong.thuong, luong.phat, luong.phu_cap, nguoi_dung.he_so_luong
+    order by nguoi_dung.ma_nguoi_dung
+END;
+GO
+
+CREATE PROCEDURE LichLamViecChiTietBacSi
+	@Id int,
+    @StartOfMonth DATE,
+    @EndOfMonth DATE
+AS
+BEGIN
+    SELECT nguoi_dung.ma_nguoi_dung, nguoi_dung.ho_ten, nguoi_dung.gioi_tinh, nguoi_dung.email, bac_si_chuyen_mon.ten_chuyen_mon, nguoi_dung.he_so_luong,
+	luong.luong_co_ban, luong.thuong, luong.phat, luong.phu_cap, count(*) as so_ca
+    from nguoi_dung
+        join lich_lam_viec on lich_lam_viec.ma_nguoi_dung = nguoi_dung.ma_nguoi_dung
+        join bac_si on nguoi_dung.ma_nguoi_dung = bac_si.ma_nguoi_dung
+        join bac_si_chuyen_mon on bac_si.ma_chuyen_mon = bac_si_chuyen_mon.ma_chuyen_mon
+		join cham_cong on cham_cong.ma_nguoi_dung = bac_si.ma_nguoi_dung
+		join luong on nguoi_dung.ma_nguoi_dung = luong.ma_nguoi_dung
+    WHERE (lich_lam_viec.ngay BETWEEN @StartOfMonth AND @EndOfMonth) AND cham_cong.ghi_chu = N'Làm việc đúng giờ' AND lich_lam_viec.ngay = cham_cong.ngay
+	AND (luong.ngay BETWEEN @StartOfMonth AND @EndOfMonth) AND nguoi_dung.trang_thai = 1
+	AND nguoi_dung.ma = @id
+    GROUP BY nguoi_dung.ho_ten, nguoi_dung.gioi_tinh, nguoi_dung.email, bac_si_chuyen_mon.ten_chuyen_mon, nguoi_dung.ma_nguoi_dung,
+	luong.luong_co_ban, luong.thuong, luong.phat, luong.phu_cap, nguoi_dung.he_so_luong
+    order by nguoi_dung.ma_nguoi_dung
+END;
+GO
+
+CREATE PROCEDURE CapNhatLuong
+	@Id INT,
+	@heSoLuong float,
+	@luongCoBan float,
+	@thuong float,
+	@phat float,
+	@phuCap float
+AS 
+BEGIN 
+	UPDATE nguoi_dung
+	SET he_so_luong = @heSoLuong
+	where ma = @id
+
+	UPDATE luong
+	SET luong_co_ban = @luongCoBan, thuong = @thuong, phat = @phat, phu_cap = @phuCap
+	where ma_nguoi_dung = @id
+END;
+GO
+
+CREATE PROCEDURE LichLamViecChiTietLeTan
+	@Id int,
+    @StartOfMonth DATE,
+    @EndOfMonth DATE
+AS
+BEGIN
+    SELECT nguoi_dung.ma_nguoi_dung, nguoi_dung.ho_ten, nguoi_dung.gioi_tinh, nguoi_dung.email, nguoi_dung.he_so_luong,
+	luong.luong_co_ban, luong.thuong, luong.phat, luong.phu_cap, count(*) as so_ca
+    from nguoi_dung
+        join lich_lam_viec on lich_lam_viec.ma_nguoi_dung = nguoi_dung.ma_nguoi_dung
+        join le_tan on nguoi_dung.ma_nguoi_dung = le_tan.ma_nguoi_dung
+		join cham_cong on cham_cong.ma_nguoi_dung = nguoi_dung.ma_nguoi_dung
+		join luong on nguoi_dung.ma_nguoi_dung = luong.ma_nguoi_dung
+    WHERE (lich_lam_viec.ngay BETWEEN @StartOfMonth AND @EndOfMonth) AND cham_cong.ghi_chu = N'Làm việc đúng giờ' AND lich_lam_viec.ngay = cham_cong.ngay
+	AND (luong.ngay BETWEEN @StartOfMonth AND @EndOfMonth) AND nguoi_dung.trang_thai = 1
+	AND nguoi_dung.ma = @id
+    GROUP BY nguoi_dung.ho_ten, nguoi_dung.gioi_tinh, nguoi_dung.email, nguoi_dung.ma_nguoi_dung,
+	luong.luong_co_ban, luong.thuong, luong.phat, luong.phu_cap, nguoi_dung.he_so_luong
+    order by nguoi_dung.ma_nguoi_dung
+END;
+GO
+
+
+exec DanhSachLichLamViecLeTanDeTinhLuong '2024-10-1', '2024-10-29'

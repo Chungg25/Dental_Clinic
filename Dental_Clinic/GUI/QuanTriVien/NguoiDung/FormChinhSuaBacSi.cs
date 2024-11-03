@@ -37,6 +37,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             cbGioiTinh.Items.Add("Nữ");
             cbGioiTinh.SelectedItem = bacSiDTO.GioiTinh ? "Nam" : "Nữ";
             tbHeSoLuong.Text = bacSiDTO.HeSoLuong.ToString();
+            dtpNgaySinh.Format = DateTimePickerFormat.Custom;
             dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
             dtpNgaySinh.Value = bacSiDTO.NgaySinh;
             tbQueQuan.Text = bacSiDTO.DiaChi;
@@ -102,6 +103,11 @@ namespace Dental_Clinic.GUI.Administrator.User
             quanTriVienBUS.CapNhatBacSi(bacSiDTO);
             quanTriVienBUS.LayThongTinBacSi(bacSiDTO.Id);
             TaiForm();
+        }
+
+        private void pbQuayVe_Click(object sender, EventArgs e)
+        {
+            mainForm.ShowUserInPanel();
         }
     }
 }

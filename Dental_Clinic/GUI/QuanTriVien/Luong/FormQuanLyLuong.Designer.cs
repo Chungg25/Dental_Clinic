@@ -40,7 +40,7 @@ namespace Dental_Clinic.GUI.Administrator
             pictureBox8 = new PictureBox();
             vbTimKiem = new CustomButton.VBButton();
             panelDuLieu = new Panel();
-            dateTimePicker1 = new DateTimePicker();
+            dtpNgay = new DateTimePicker();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -172,23 +172,23 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             panelDuLieu.Location = new Point(7, 202);
             panelDuLieu.Name = "panelDuLieu";
-            panelDuLieu.Size = new Size(1012, 454);
+            panelDuLieu.Size = new Size(1073, 457);
             panelDuLieu.TabIndex = 41;
             // 
-            // dateTimePicker1
+            // dtpNgay
             // 
-            dateTimePicker1.Location = new Point(527, 111);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(250, 27);
-            dateTimePicker1.TabIndex = 42;
+            dtpNgay.Location = new Point(527, 111);
+            dtpNgay.Name = "dtpNgay";
+            dtpNgay.Size = new Size(250, 27);
+            dtpNgay.TabIndex = 42;
             // 
-            // SalaryManagementForm
+            // FormQuanLyLuong
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             ClientSize = new Size(1016, 644);
-            Controls.Add(dateTimePicker1);
+            Controls.Add(dtpNgay);
             Controls.Add(panelDuLieu);
             Controls.Add(tbTimKiem);
             Controls.Add(pictureBox8);
@@ -198,7 +198,7 @@ namespace Dental_Clinic.GUI.Administrator
             Controls.Add(vbLeTan);
             Controls.Add(vbBacSi);
             Controls.Add(panel1);
-            Name = "SalaryManagementForm";
+            Name = "FormQuanLyLuong";
             Text = "SalaryManagementForm";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -221,6 +221,6 @@ namespace Dental_Clinic.GUI.Administrator
         private PictureBox pictureBox8;
         private CustomButton.VBButton vbTimKiem;
         private Panel panelDuLieu;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dtpNgay;
     }
 }

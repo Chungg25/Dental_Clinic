@@ -1,4 +1,6 @@
-﻿namespace Dental_Clinic.GUI.Administrator.Patient
+﻿using Dental_Clinic.Properties;
+
+namespace Dental_Clinic.GUI.Administrator.Patient
 {
     partial class FormChinhSuaBenhNhan
     {
@@ -48,8 +50,10 @@
             vbButton1 = new CustomButton.VBButton();
             label5 = new Label();
             vbButton5 = new CustomButton.VBButton();
+            pbQuayVe = new PictureBox();
             panel1.SuspendLayout();
             panelDuLieu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbQuayVe).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -107,7 +111,7 @@
             vbHuy.FlatStyle = FlatStyle.Flat;
             vbHuy.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             vbHuy.ForeColor = Color.White;
-            vbHuy.Location = new Point(215, 422);
+            vbHuy.Location = new Point(215, 391);
             vbHuy.Name = "vbHuy";
             vbHuy.Size = new Size(87, 50);
             vbHuy.TabIndex = 79;
@@ -128,7 +132,7 @@
             vbLuuThayDoi.FlatStyle = FlatStyle.Flat;
             vbLuuThayDoi.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             vbLuuThayDoi.ForeColor = Color.White;
-            vbLuuThayDoi.Location = new Point(50, 422);
+            vbLuuThayDoi.Location = new Point(50, 391);
             vbLuuThayDoi.Name = "vbLuuThayDoi";
             vbLuuThayDoi.Size = new Size(144, 50);
             vbLuuThayDoi.TabIndex = 78;
@@ -139,7 +143,7 @@
             // 
             // tbQueQuan
             // 
-            tbQueQuan.Location = new Point(59, 336);
+            tbQueQuan.Location = new Point(59, 305);
             tbQueQuan.Name = "tbQueQuan";
             tbQueQuan.Size = new Size(725, 27);
             tbQueQuan.TabIndex = 77;
@@ -154,7 +158,7 @@
             vbButton8.FlatAppearance.BorderSize = 0;
             vbButton8.FlatStyle = FlatStyle.Flat;
             vbButton8.ForeColor = Color.White;
-            vbButton8.Location = new Point(48, 328);
+            vbButton8.Location = new Point(48, 297);
             vbButton8.Name = "vbButton8";
             vbButton8.Size = new Size(745, 38);
             vbButton8.TabIndex = 76;
@@ -164,7 +168,7 @@
             // 
             // tbTuoi
             // 
-            tbTuoi.Location = new Point(59, 215);
+            tbTuoi.Location = new Point(59, 184);
             tbTuoi.Name = "tbTuoi";
             tbTuoi.Size = new Size(135, 27);
             tbTuoi.TabIndex = 75;
@@ -179,7 +183,7 @@
             vbButton7.FlatAppearance.BorderSize = 0;
             vbButton7.FlatStyle = FlatStyle.Flat;
             vbButton7.ForeColor = Color.White;
-            vbButton7.Location = new Point(48, 207);
+            vbButton7.Location = new Point(48, 176);
             vbButton7.Name = "vbButton7";
             vbButton7.Size = new Size(155, 38);
             vbButton7.TabIndex = 74;
@@ -190,7 +194,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(59, 290);
+            label8.Location = new Point(59, 259);
             label8.Name = "label8";
             label8.Size = new Size(55, 20);
             label8.TabIndex = 67;
@@ -199,7 +203,7 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(59, 179);
+            label9.Location = new Point(59, 148);
             label9.Name = "label9";
             label9.Size = new Size(38, 20);
             label9.TabIndex = 68;
@@ -208,14 +212,14 @@
             // cbGioiTinh
             // 
             cbGioiTinh.FormattingEnabled = true;
-            cbGioiTinh.Location = new Point(465, 214);
+            cbGioiTinh.Location = new Point(465, 183);
             cbGioiTinh.Name = "cbGioiTinh";
             cbGioiTinh.Size = new Size(137, 28);
             cbGioiTinh.TabIndex = 70;
             // 
             // tbSĐT
             // 
-            tbSĐT.Location = new Point(465, 127);
+            tbSĐT.Location = new Point(465, 96);
             tbSĐT.Name = "tbSĐT";
             tbSĐT.Size = new Size(135, 27);
             tbSĐT.TabIndex = 65;
@@ -223,7 +227,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(456, 179);
+            label6.Location = new Point(456, 148);
             label6.Name = "label6";
             label6.Size = new Size(65, 20);
             label6.TabIndex = 63;
@@ -239,7 +243,7 @@
             vbButton3.FlatAppearance.BorderSize = 0;
             vbButton3.FlatStyle = FlatStyle.Flat;
             vbButton3.ForeColor = Color.White;
-            vbButton3.Location = new Point(455, 119);
+            vbButton3.Location = new Point(455, 88);
             vbButton3.Name = "vbButton3";
             vbButton3.Size = new Size(154, 38);
             vbButton3.TabIndex = 62;
@@ -249,7 +253,7 @@
             // 
             // tbHoTen
             // 
-            tbHoTen.Location = new Point(59, 129);
+            tbHoTen.Location = new Point(59, 98);
             tbHoTen.Name = "tbHoTen";
             tbHoTen.Size = new Size(135, 27);
             tbHoTen.TabIndex = 57;
@@ -257,7 +261,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(49, 88);
+            label2.Location = new Point(49, 57);
             label2.Name = "label2";
             label2.Size = new Size(73, 20);
             label2.TabIndex = 55;
@@ -273,7 +277,7 @@
             vbButton1.FlatAppearance.BorderSize = 0;
             vbButton1.FlatStyle = FlatStyle.Flat;
             vbButton1.ForeColor = Color.White;
-            vbButton1.Location = new Point(49, 121);
+            vbButton1.Location = new Point(49, 90);
             vbButton1.Name = "vbButton1";
             vbButton1.Size = new Size(154, 38);
             vbButton1.TabIndex = 54;
@@ -284,7 +288,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(456, 88);
+            label5.Location = new Point(456, 57);
             label5.Name = "label5";
             label5.Size = new Size(102, 20);
             label5.TabIndex = 60;
@@ -300,7 +304,7 @@
             vbButton5.FlatAppearance.BorderSize = 0;
             vbButton5.FlatStyle = FlatStyle.Flat;
             vbButton5.ForeColor = Color.White;
-            vbButton5.Location = new Point(456, 209);
+            vbButton5.Location = new Point(456, 178);
             vbButton5.Name = "vbButton5";
             vbButton5.Size = new Size(154, 38);
             vbButton5.TabIndex = 71;
@@ -308,20 +312,33 @@
             vbButton5.TextColor = Color.White;
             vbButton5.UseVisualStyleBackColor = false;
             // 
-            // EditPatientForm
+            // pbQuayVe
+            // 
+            pbQuayVe.Image = Resources.icons8_back_50;
+            pbQuayVe.Location = new Point(12, 70);
+            pbQuayVe.Name = "pbQuayVe";
+            pbQuayVe.Size = new Size(70, 39);
+            pbQuayVe.SizeMode = PictureBoxSizeMode.Zoom;
+            pbQuayVe.TabIndex = 86;
+            pbQuayVe.TabStop = false;
+            pbQuayVe.Click += pbQuayVe_Click;
+            // 
+            // FormChinhSuaBenhNhan
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             ClientSize = new Size(1016, 644);
+            Controls.Add(pbQuayVe);
             Controls.Add(panelDuLieu);
             Controls.Add(panel1);
-            Name = "EditPatientForm";
+            Name = "FormChinhSuaBenhNhan";
             Text = "EditPatientForm";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panelDuLieu.ResumeLayout(false);
             panelDuLieu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pbQuayVe).EndInit();
             ResumeLayout(false);
         }
 
@@ -347,5 +364,6 @@
         private CustomButton.VBButton vbButton1;
         private Label label5;
         private CustomButton.VBButton vbButton5;
+        private PictureBox pbQuayVe;
     }
 }

@@ -38,6 +38,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             cbGioiTinh.Items.Add("Nữ");
             cbGioiTinh.SelectedItem = leTanDTO.GioiTinh ? "Nam" : "Nữ";
             tbHeSoLuong.Text = leTanDTO.HeSoLuong.ToString();
+            dtpNgaySinh.Format = DateTimePickerFormat.Custom;
             dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
             dtpNgaySinh.Value = leTanDTO.NgaySinh;
             tbQueQuan.Text = leTanDTO.DiaChi;
@@ -93,6 +94,20 @@ namespace Dental_Clinic.GUI.Administrator.User
             quanTriVienBUS.CapNhatLeTan(leTanDTO);
             quanTriVienBUS.LayThongTinLeTan(leTanDTO.Id);
             TaiForm();
+        }
+
+        private void pbQuayVe_Click(object sender, EventArgs e)
+        {
+            mainForm.panelTrangChu.Controls.RemoveAt(0);
+            Control control = mainForm.panelTrangChu.Controls[0];
+            control.Visible = true;
+            if (control is Form form)
+            {
+                if (form is FormLeTan formLeTan)
+                {
+                    formLeTan.HienLeTan();
+                }
+            }
         }
     }
 }
