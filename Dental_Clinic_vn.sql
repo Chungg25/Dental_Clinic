@@ -2895,4 +2895,94 @@ END;
 GO
 
 
-exec DanhSachLichLamViecLeTanDeTinhLuong '2024-10-1', '2024-10-29'
+CREATE FUNCTION dbo.LayTongTienThuocDaBanTrongThang
+(
+	@ngay DATETIME
+)
+RETURNS DECIMAL(18, 2)
+AS
+BEGIN
+    DECLARE @TongTien DECIMAL(18, 2);
+
+    SELECT @TongTien = SUM(ctdt.so_luong * htk.gia)
+    FROM chi_tiet_don_thuoc ctdt
+    INNER JOIN don_thuoc dt ON ctdt.ma_don_thuoc = dt.ma_don_thuoc
+    INNER JOIN hoa_don hd ON dt.ma_don_thuoc = hd.ma_don_thuoc
+    INNER JOIN hang_ton_kho htk ON ctdt.ma_kho = htk.ma_kho
+    WHERE MONTH(hd.ngay) = MONTH(@ngay)  -- Lọc theo tháng của tham số @ngay
+      AND YEAR(hd.ngay) = YEAR(@ngay);  -- Lọc theo năm được truyền vào
+
+    -- Nếu không có thuốc nào bán trong tháng thì trả về 0
+    IF @TongTien IS NULL 
+        SET @TongTien = 0;
+
+    RETURN @TongTien;
+END
+GO
+
+
+CREATE PROCEDURE LayTongThuocDaBanTrongThang
+    @ngay DATETIME
+AS
+BEGIN
+    DECLARE @TongThuoc INT;
+
+    SELECT @TongThuoc = SUM(ctdt.so_luong)
+    FROM chi_tiet_don_thuoc ctdt
+    INNER JOIN don_thuoc dt ON ctdt.ma_don_thuoc = dt.ma_don_thuoc
+    INNER JOIN hoa_don hd ON dt.ma_don_thuoc = hd.ma_don_thuoc
+    WHERE MONTH(hd.ngay) = MONTH(@ngay)  -- Lọc theo tháng của tham số @ngay
+      AND YEAR(hd.ngay) = YEAR(@ngay);
+
+    SELECT @TongThuoc AS TongThuocDaBan;
+END
+GO
+
+CREATE FUNCTION dbo.LayTongTienVatTuDaSuDungTrongThang
+(
+    @ngay DATETIME
+)
+RETURNS DECIMAL(18, 2)
+AS
+BEGIN
+    DECLARE @TongTien DECIMAL(18, 2);
+
+    SELECT @TongTien = SUM(ctvt.so_luong * vt.gia)
+    FROM chi_tiet_vat_tu ctvt
+    INNER JOIN vat_tu vt ON ctvt.ma_vat_tu = vt.ma_vat_tu
+    INNER JOIN hoa_don hd ON ctvt.ma_hoa_don = hd.ma_hoa_don
+    WHERE MONTH(hd.ngay) = MONTH(@ngay)  -- Lọc theo tháng của tham số @ngay
+      AND YEAR(hd.ngay) = YEAR(@ngay);  -- Lọc theo năm được truyền vào
+
+    -- Nếu không có vật tư nào sử dụng trong tháng thì trả về 0
+    IF @TongTien IS NULL 
+        SET @TongTien = 0;
+
+    RETURN @TongTien;
+END
+GO
+
+CREATE PROCEDURE LayTongVatTuDaSuDungTrongThang
+    @thang INT,
+    @nam INT
+AS
+BEGIN
+    DECLARE @TongVatTu INT;
+
+    SELECT @TongVatTu = SUM(ctvt.so_luong)
+    FROM chi_tiet_vat_tu ctvt
+    INNER JOIN vat_tu vt ON ctvt.ma_vat_tu = vt.ma_vat_tu
+    INNER JOIN hoa_don hd ON ctvt.ma_hoa_don = hd.ma_hoa_don
+    WHERE MONTH(hd.ngay) = @thang  
+      AND YEAR(hd.ngay) = @nam;   
+
+    -- Nếu không có vật tư nào bán trong tháng thì trả về 0
+    IF @TongVatTu IS NULL 
+        SET @TongVatTu = 0;
+
+    SELECT @TongVatTu AS TongVatTuDaSuDung;
+END
+GO
+
+DECLARE @ngay DATETIME = '2024-10-01'; -- Ví dụ chọn ngày đầu tháng 10 năm 2024
+SELECT dbo.LayTongTienVatTuDaSuDungTrongThang(@ngay) AS TongTienThuocDaBan;
