@@ -128,7 +128,7 @@ GO
 CREATE TABLE [lich_hen]
 (
     [ma_lich_hen] INT NOT NULL IDENTITY(1, 1),
-    [ghi_chu] NVARCHAR(50) NULL,
+    [ghi_chu] NVARCHAR(MAX) NULL,
     [trang_thai] BIT NOT NULL,
     [ngay_hen] DATE NULL,
     [ca] INT NULL,
