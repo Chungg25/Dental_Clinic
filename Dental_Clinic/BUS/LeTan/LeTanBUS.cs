@@ -17,6 +17,7 @@ using iText.Layout.Properties;
 using iText.Kernel.Colors;
 using iText.IO.Font;
 using iText.Kernel.Font;
+using Dental_Clinic.DTO.Luong;
 
 namespace Dental_Clinic.BUS.LeTan
 {
@@ -164,6 +165,11 @@ namespace Dental_Clinic.BUS.LeTan
                 // Thông báo hoàn tất xuất file PDF
                 MessageBox.Show($"Hóa đơn đã được xuất thành công tại {filePath}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+        // Lấy thông tin lương
+        public LuongDTO LayThongTinLuong(int maLeTan, int thang, int nam)
+        {
+            return _leTanDAO.LayThongTinLuong(maLeTan, thang, nam);
         }
     }
 }

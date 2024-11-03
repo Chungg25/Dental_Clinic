@@ -107,12 +107,12 @@ GO
 -- 8. Bảng bệnh nhân
 CREATE TABLE [benh_nhan]
 (
-    [ma_benh_nhan] INT NOT NULL IDENTITY(1, 1),
+    [ma_benh_nhan] INT NOT NULL,
     [ho_ten] NVARCHAR(50) NOT NULL,
-    [gioi_tinh] BIT NULL,
-    [tuoi] INT NULL,
+    [gioi_tinh] BIT NOT NULL,
+    [tuoi] INT NOT NULL,
     [so_dien_thoai] NVARCHAR(10) NOT NULL,
-    [dia_chi] NVARCHAR(50) NULL,
+    [dia_chi] NVARCHAR(50) NOT NULL,
     PRIMARY KEY ([ma_benh_nhan])
 )
 GO
@@ -401,28 +401,28 @@ DBCC CHECKIDENT ('doctors', RESEED, 0);*/
 
 -- Thêm dữ liệu vào bảng bệnh nhân
 INSERT INTO benh_nhan
-    (ho_ten, gioi_tinh, tuoi, so_dien_thoai, dia_chi)
+    (ma_benh_nhan, ho_ten, gioi_tinh, tuoi, so_dien_thoai, dia_chi)
 VALUES
-    (N'Phạm Văn Cường', 1, 29, '0903456789', N'789 Lê Lợi, Quận 5'),
-    (N'Trần Văn Tùng', 1, 37, '0906789012', N'56 Võ Thị Sáu, Quận 2'),
-    (N'Lê Thị Hoa', 0, 30, '0907890123', N'78 Nam Kỳ Khởi Nghĩa, Quận 3'),
-    (N'Phạm Văn Bảo', 1, 33, '0900123456', N'23 Trường Chinh, Quận Tân Bình'),
-    (N'Trần Văn Đức', 1, 32, '0903334455', N'67 Trường Sa, Phú Nhuận'),
-    (N'Lê Thị Lan', 0, 31, '0904445566', N'78 Lê Văn Sỹ, Quận 3'),
-    (N'Nguyễn Hoàng Long', 1, 33, '0905556677', N'89 Nguyễn Văn Trỗi, Quận Tân Phú'),
-    (N'Phạm Thanh Bình', 1, 37, '0906667788', N'23 Lê Lợi, Quận 1'),
-    (N'Võ Thị Quỳnh', 0, 31, '0907778899', N'34 Hai Bà Trưng, Quận 3'),
-    (N'Nguyễn Văn Minh', 1, 32, '0905678901', N'34 Hai Bà Trưng, Quận 3'),
-    (N'Trần Thị Hoa', 0, 39, '0902345678', N'456 Điện Biên Phủ, Quận 3'),
-    (N'Lê Văn Tâm', 1, 50, '0903456567', N'56 Cách Mạng Tháng Tám, Quận 10'),
-    (N'Trần Anh Dũng', 1, 28, '0908765432', N'101 Lý Chính Thắng, Quận 3'),
-    (N'Lê Thị Bích', 0, 34, '0901234876', N'567 Nguyễn Tri Phương, Quận 10'),
-    (N'Vũ Thị Minh Châu', 0, 40, '0906785432', N'200 Lê Hồng Phong, Quận 5'),
-    (N'Nguyễn Hoàng Khôi', 1, 26, '0909087654', N'90 Nguyễn Trãi, Quận 1'),
-    (N'Ngô Thị Hà', 0, 29, '0912345678', N'333 Hai Bà Trưng, Quận 1'),
-    (N'Phạm Thị Thanh', 0, 35, '0903456789', N'222 Phan Xích Long, Quận Phú Nhuận'),
-    (N'Lê Hữu Phước', 1, 32, '0909998877', N'345 Cộng Hòa, Quận Tân Bình'),
-    (N'Nguyễn Thị Mai', 0, 27, '0901234567', N'567 Lý Thường Kiệt, Quận 10');
+    (1, N'Phạm Văn Cường', 1, 29, '0903456789', N'789 Lê Lợi, Quận 5'),
+    (2, N'Trần Văn Tùng', 1, 37, '0906789012', N'56 Võ Thị Sáu, Quận 2'),
+    (3, N'Lê Thị Hoa', 0, 30, '0907890123', N'78 Nam Kỳ Khởi Nghĩa, Quận 3'),
+    (4, N'Phạm Văn Bảo', 1, 33, '0900123456', N'23 Trường Chinh, Quận Tân Bình'),
+    (5, N'Trần Văn Đức', 1, 32, '0903334455', N'67 Trường Sa, Phú Nhuận'),
+    (6, N'Lê Thị Lan', 0, 31, '0904445566', N'78 Lê Văn Sỹ, Quận 3'),
+    (7, N'Nguyễn Hoàng Long', 1, 33, '0905556677', N'89 Nguyễn Văn Trỗi, Quận Tân Phú'),
+    (8, N'Phạm Thanh Bình', 1, 37, '0906667788', N'23 Lê Lợi, Quận 1'),
+    (9, N'Võ Thị Quỳnh', 0, 31, '0907778899', N'34 Hai Bà Trưng, Quận 3'),
+    (10, N'Nguyễn Văn Minh', 1, 32, '0905678901', N'34 Hai Bà Trưng, Quận 3'),
+    (11, N'Trần Thị Hoa', 0, 39, '0902345678', N'456 Điện Biên Phủ, Quận 3'),
+    (12, N'Lê Văn Tâm', 1, 50, '0903456567', N'56 Cách Mạng Tháng Tám, Quận 10'),
+    (13, N'Trần Anh Dũng', 1, 28, '0908765432', N'101 Lý Chính Thắng, Quận 3'),
+    (14, N'Lê Thị Bích', 0, 34, '0901234876', N'567 Nguyễn Tri Phương, Quận 10'),
+    (15, N'Vũ Thị Minh Châu', 0, 40, '0906785432', N'200 Lê Hồng Phong, Quận 5'),
+    (16, N'Nguyễn Hoàng Khôi', 1, 26, '0909087654', N'90 Nguyễn Trãi, Quận 1'),
+    (17, N'Ngô Thị Hà', 0, 29, '0912345678', N'333 Hai Bà Trưng, Quận 1'),
+    (18, N'Phạm Thị Thanh', 0, 35, '0903456789', N'222 Phan Xích Long, Quận Phú Nhuận'),
+    (19, N'Lê Hữu Phước', 1, 32, '0909998877', N'345 Cộng Hòa, Quận Tân Bình'),
+    (20, N'Nguyễn Thị Mai', 0, 27, '0901234567', N'567 Lý Thường Kiệt, Quận 10');
 /*DELETE FROM patients;
 DBCC CHECKIDENT ('patients', RESEED, 0);*/
 
@@ -2691,6 +2691,7 @@ BEGIN
         lh.ma_lich_hen
 END;
 GO
+
 CREATE PROCEDURE TaoLichHenBenhNhan
     @ho_ten NVARCHAR(50),
     @gioi_tinh BIT,
@@ -2723,6 +2724,7 @@ BEGIN
     PRINT N'Lịch hẹn đã được thêm thành công!';
 END;
 GO
+
 CREATE PROCEDURE LayThongTinBenhNhanVaBenhAn
     @ma_benh_nhan INT
 AS
@@ -2833,11 +2835,6 @@ BEGIN
         AND hd.ngay = @ngay
 -- Lọc theo ngày cung cấp
 END
-GO
-
-EXEC LayDanhSachBenhNhanChuaThanhToan '2024-10-24';
-
-
 GO
 
 CREATE PROCEDURE LayThongTinBenhNhan
@@ -3151,7 +3148,91 @@ BEGIN
 END
 GO
 
-DECLARE @ngay DATETIME = '2024-10-01';
--- Ví dụ chọn ngày đầu tháng 10 năm 2024
-SELECT dbo.LayTongTienVatTuDaSuDungTrongThang(@ngay) AS TongTienThuocDaBan;
+CREATE PROCEDURE ThongTinLeTanTheoThang
+    @ma_nguoi_dung INT,       -- Mã người dùng của lễ tân
+    @thang INT,               -- Tháng cần truy xuất
+    @nam INT                  -- Năm cần truy xuất
+AS
+BEGIN
+    -- Số ngày làm việc trong tháng
+    DECLARE @so_ngay_lam INT;
+    SELECT @so_ngay_lam = COUNT(DISTINCT ngay)
+    FROM cham_cong
+    WHERE ma_nguoi_dung = @ma_nguoi_dung
+      AND MONTH(ngay) = @thang
+      AND YEAR(ngay) = @nam;
+
+    -- Lấy thông tin lương, thưởng, phạt, và phụ cấp cho tháng đã chọn
+    DECLARE @luong_co_ban FLOAT, @thuong FLOAT, @phat FLOAT, @phu_cap FLOAT;
+    SELECT 
+        @luong_co_ban = luong_co_ban,
+        @thuong = thuong,
+        @phat = phat,
+        @phu_cap = phu_cap
+    FROM luong
+    WHERE ma_nguoi_dung = @ma_nguoi_dung
+      AND MONTH(ngay) = @thang
+      AND YEAR(ngay) = @nam;
+
+    -- Tổng lương tính toán bao gồm thưởng
+    DECLARE @tong_luong FLOAT;
+    SET @tong_luong = (@luong_co_ban + @thuong + @phu_cap - @phat) * @so_ngay_lam / 26.0; -- Giả định 26 ngày công chuẩn
+
+    -- Lấy tổng số lỗi trong tháng
+    DECLARE @tong_loi INT;
+    SELECT 
+        @tong_loi = COUNT(*)
+    FROM cham_cong
+    WHERE ma_nguoi_dung = @ma_nguoi_dung
+      AND MONTH(ngay) = @thang
+      AND YEAR(ngay) = @nam
+      AND ghi_chu IS NOT NULL; -- Chỉ đếm các ngày có lỗi/phạt
+
+     -- Trả về kết quả
+    SELECT 
+        nd.ma_nguoi_dung,
+        nd.ho_ten,
+        @so_ngay_lam AS so_ca,
+        ROUND(@tong_luong, 2) AS tong_luong,
+        ROUND(@thuong, 2) AS tong_thuong,  -- Làm tròn thưởng đến 2 chữ số
+        @tong_loi AS tong_so_loi,
+        ROUND(@phat, 2) AS tong_tien_phat   -- Làm tròn phạt đến 2 chữ số
+    FROM nguoi_dung nd
+    WHERE nd.ma_nguoi_dung = @ma_nguoi_dung;
+END;
 GO
+
+DECLARE @ma_bac_si INT = 6
+DECLARE @ngay DATE = '2024-11-03'
+
+SELECT DISTINCT
+    bn.ma_benh_nhan,
+    bn.ho_ten,
+    bn.gioi_tinh,
+    bn.tuoi,
+    bn.so_dien_thoai,
+    bn.dia_chi
+FROM 
+    lich_hen lh
+    INNER JOIN benh_nhan bn ON lh.ma_benh_nhan = bn.ma_benh_nhan
+    INNER JOIN bac_si bs ON lh.ma_nguoi_dung = bs.ma_nguoi_dung
+WHERE 
+    bs.ma_nguoi_dung = @ma_bac_si
+    AND lh.ngay_hen = @ngay
+
+UNION
+
+SELECT DISTINCT
+    bn.ma_benh_nhan,
+    bn.ho_ten,
+    bn.gioi_tinh,
+    bn.tuoi,
+    bn.so_dien_thoai,
+    bn.dia_chi
+FROM 
+    dieu_tri dt
+    INNER JOIN benh_nhan bn ON dt.ma_benh_nhan = bn.ma_benh_nhan
+    INNER JOIN bac_si bs ON dt.ma_bac_si = bs.ma_nguoi_dung
+WHERE 
+    bs.ma_nguoi_dung = @ma_bac_si
+    AND dt.ngay_dieu_tri = @ngay

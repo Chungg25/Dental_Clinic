@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dental_Clinic.GUI;
+using Dental_Clinic.GUI.BacSi;
 
 namespace Dental_Clinic.GUI.BacSi
 {
@@ -44,7 +45,7 @@ namespace Dental_Clinic.GUI.BacSi
             form.Show(); // Hiển thị dashForm
         }
         // Trả về mã bác sĩ 
-        public int MaBacSi ()
+        public int MaBacSi()
         {
             return _user.Id;
         }
@@ -88,6 +89,12 @@ namespace Dental_Clinic.GUI.BacSi
             {
                 this.Close();
             }
+        }
+
+        private void lbLuong_Click(object sender, EventArgs e)
+        {
+
+            ShowFormOnPanel(new FormQuanLyLuong_BacSi(_user.Id));
         }
     }
 }

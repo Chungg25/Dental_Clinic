@@ -107,7 +107,7 @@ namespace Dental_Clinic.GUI.Login
         {
             DangNhap();
         }
-
+         
         private void DangNhap()
         {
             if (!KiemTraDauVao())

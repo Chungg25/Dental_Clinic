@@ -36,7 +36,7 @@ namespace Dental_Clinic.GUI.Receptionist
             pictureBox20 = new PictureBox();
             label18 = new Label();
             pnQuanLyLuong = new Panel();
-            pictureBox6 = new PictureBox();
+            pbLuong = new PictureBox();
             lbLuong = new Label();
             pnThanhToan = new Panel();
             pbThanhToan = new PictureBox();
@@ -74,7 +74,7 @@ namespace Dental_Clinic.GUI.Receptionist
             ((System.ComponentModel.ISupportInitialize)picUser).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox20).BeginInit();
             pnQuanLyLuong.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbLuong).BeginInit();
             pnThanhToan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbThanhToan).BeginInit();
             panel1.SuspendLayout();
@@ -153,24 +153,24 @@ namespace Dental_Clinic.GUI.Receptionist
             // pnQuanLyLuong
             // 
             pnQuanLyLuong.AutoSize = true;
-            pnQuanLyLuong.Controls.Add(pictureBox6);
+            pnQuanLyLuong.Controls.Add(pbLuong);
             pnQuanLyLuong.Controls.Add(lbLuong);
             pnQuanLyLuong.Location = new Point(22, 417);
             pnQuanLyLuong.Name = "pnQuanLyLuong";
             pnQuanLyLuong.Size = new Size(264, 68);
             pnQuanLyLuong.TabIndex = 17;
             // 
-            // pictureBox6
+            // pbLuong
             // 
-            pictureBox6.Cursor = Cursors.Hand;
-            pictureBox6.Image = Resources.icons8_sales_performance_50;
-            pictureBox6.Location = new Point(4, 4);
-            pictureBox6.Margin = new Padding(4);
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(60, 60);
-            pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox6.TabIndex = 14;
-            pictureBox6.TabStop = false;
+            pbLuong.Cursor = Cursors.Hand;
+            pbLuong.Image = Resources.icons8_sales_performance_50;
+            pbLuong.Location = new Point(4, 4);
+            pbLuong.Margin = new Padding(4);
+            pbLuong.Name = "pbLuong";
+            pbLuong.Size = new Size(60, 60);
+            pbLuong.SizeMode = PictureBoxSizeMode.Zoom;
+            pbLuong.TabIndex = 14;
+            pbLuong.TabStop = false;
             // 
             // lbLuong
             // 
@@ -183,6 +183,7 @@ namespace Dental_Clinic.GUI.Receptionist
             lbLuong.Size = new Size(184, 32);
             lbLuong.TabIndex = 10;
             lbLuong.Text = "Quản lý lương ";
+            lbLuong.Click += lbLuong_Click;
             // 
             // pnThanhToan
             // 
@@ -616,7 +617,7 @@ namespace Dental_Clinic.GUI.Receptionist
             ((System.ComponentModel.ISupportInitialize)pictureBox20).EndInit();
             pnQuanLyLuong.ResumeLayout(false);
             pnQuanLyLuong.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbLuong).EndInit();
             pnThanhToan.ResumeLayout(false);
             pnThanhToan.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbThanhToan).EndInit();
@@ -659,7 +660,7 @@ namespace Dental_Clinic.GUI.Receptionist
         private PictureBox pictureBox20;
         private Label label18;
         private Panel pnQuanLyLuong;
-        private PictureBox pictureBox6;
+        private PictureBox pbLuong;
         private Label lbLuong;
         private Panel pnThanhToan;
         private PictureBox pbThanhToan;

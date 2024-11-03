@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Dental_Clinic.DTO.BacSi;
 using Dental_Clinic.DTO.HoaDon;
+using Dental_Clinic.DTO.Luong;
 
 namespace Dental_Clinic.DAO.LeTan
 {
@@ -253,5 +254,35 @@ namespace Dental_Clinic.DAO.LeTan
                 return cmd.ExecuteNonQuery() > 0;
             }
         }
+        // Lấy thông tin lương 
+        public LuongDTO LayThongTinLuong(int maLeTan, int thang, int nam)
+        {
+            LuongDTO luong = new LuongDTO();
+
+            using (SqlCommand cmd = new SqlCommand("ThongTinLeTanTheoThang", dbConnection.Conn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ma_nguoi_dung", maLeTan);
+                cmd.Parameters.AddWithValue("@thang", thang);
+                cmd.Parameters.AddWithValue("@nam", nam);
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        luong.Id = reader["ma_nguoi_dung"] != DBNull.Value ? Convert.ToInt32(reader["ma_nguoi_dung"]) : 0;
+                        luong.Ten = reader["ho_ten"] != DBNull.Value ? reader["ho_ten"].ToString() : "";
+                        luong.SoCa = reader["so_ca"] != DBNull.Value ? Convert.ToInt32(reader["so_ca"]) : 0;
+                        luong.TongLuong = reader["tong_luong"] != DBNull.Value ? Convert.ToSingle(reader["tong_luong"]) : 0;
+                        luong.TongThuong = reader["tong_thuong"] != DBNull.Value ? Convert.ToSingle(reader["tong_thuong"]) : 0;
+                        luong.TongPhat = reader["tong_tien_phat"] != DBNull.Value ? Convert.ToSingle(reader["tong_tien_phat"]) : 0;
+                        luong.TongSoLoi = reader["tong_so_loi"] != DBNull.Value ? Convert.ToInt32(reader["tong_so_loi"]) : 0;
+                    }
+
+                }
+            }
+            return luong;
+        }
+
     }
 }

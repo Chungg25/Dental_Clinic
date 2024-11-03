@@ -102,5 +102,10 @@ namespace Dental_Clinic.GUI.Receptionist
         {
             HienThiFormLenPanel(new FormThanhToan());
         }
+
+        private void lbLuong_Click(object sender, EventArgs e)
+        {
+            HienThiFormLenPanel(new FormQuanLyLuong_BacSi(_user.Id));
+        }
     }
 }
