@@ -87,9 +87,9 @@ namespace Dental_Clinic.GUI.Login
             string result = process.StandardOutput.ReadLine();
             if (!string.IsNullOrEmpty(result))
             {
-                MessageBox.Show(result);
+                //MessageBox.Show(result);
                 result = result.Replace("[", "").Replace("]", "").Replace("'", "").Trim();
-                MessageBox.Show(result);
+                //MessageBox.Show(result);
                 ProcessRecognitionResult(result); 
             }
             else
