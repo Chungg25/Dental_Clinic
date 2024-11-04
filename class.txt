@@ -1,0 +1,211 @@
+classDiagram
+    direction LR
+
+    BacSi <|-- LichHen
+    BenhNhan <|-- LichHen
+    BenhNhan <|-- HoaDon
+
+    class BacSi {
+        -id: int
+        -hoVaTen: string
+        -cCCD: string
+        -sDT: string
+        -diaChi: string
+        -gioiTinh: bool
+        -ngaySinh: DateTime
+        -tenDangNhap: string
+        -matKhau: string
+        -email: string
+        -heSoLuong: float
+        -chuyenNganh: string
+        -ca: int
+        -soLuongBenhNhan: int
+        -trangThaiLamViec: string
+        -trangThai: int
+    }
+
+    class BenhNhan {
+        - id: int
+        - hoVaTen: string
+        - gioiTinh: bool
+        - tuoi: int
+        - sDT: string
+        - diaChi: string
+        - maHoSo: int
+        - chanDoan: string
+        - phuongPhapDieuTri: string
+        - trieuChung: string
+        - maBacSi: int
+        - tenBacSi: string
+        - ngayHen: DateTime
+        - ca: int
+        - trangThaiKham: string
+        - trangThaiThanhToan: string
+        - maHoaDon: int
+        + LayDanhSachBenhNhan() List<BenhNhanDTO>
+        + LayThongTinBenhNhan(id) BenhNhanDTO
+        + CapNhatBenhNhan(patientDTO) void
+        + ThemBenhNhan(patientDTO) void
+        + LayDanhSachBenhNhanCuaBacSi(id) List<BenhNhanDTO>
+        + ThemBenhNhan_BacSi(patientDTO, id) void
+    }
+
+    class ChamCong{
+        -maNguoiDung: int
+        -ngay: string
+        -ca: int
+        -hoTen: string
+        -gioiTinh: bool
+        -email: string
+        -trangThai: int
+        -ghiChu: string
+        -gioVao: string
+        -gioRa: string
+        -sDT: string
+        -diaChi: string
+    }
+
+    class HoaDon {
+        -loaiMuc: string
+        -tenMuc: string
+        -soLuong: int
+        -donGia: float
+        -thanhTien: float
+    }
+
+    class LeTan{
+        -id: int
+        -hoVaTen: string
+        -cCCD: string
+        -sDT: string
+        -diaChi: string
+        -gioiTinh: bool
+        -ngaySinh: DateTime
+        -tenDangNhap: string
+        -matKhau: string
+        -email: string
+        -heSoLuong: float
+        +LayThongTinBacSiTrongNgay(ngayHienTai) List<BacSiDTO>
+        +LayDanhSachLichHenTheoNgay(ngayHienTai) List<LichHenDTO>
+        +ThemLichHen(lichHenDTO) bool
+        +LayThongTinBenhNhanVaBenhAnTheoMa(maBenhNhan) BenhNhanDTO
+        +CapNhatThongTinBenhNhanVaBenhAn(benhNhan) bool
+    }
+
+    class LichHen{
+        -maLichHen: int
+        -maBenhNhan: int
+        -tenBenhNhan: string
+        -gioiTinh: int
+        -tuoi: int
+        -soDienThoai: string
+        -diaChi: string
+        -maBacSi: int
+        -tenBacSi: string
+        -ngayHen: string
+        -ca: int
+        -ghiChu: string
+        -trangThai: string
+    }
+
+    class LichLamViec{
+        -maNguoiDung: int
+        -hoTen: string
+        -gioiTinh: bool
+        -email: string
+        -soCa: int
+        +DanhSachLichLamViecBacSi(firstDayOfMonth, lastDayOfMonth) List<LichLamViecDTO>
+        +LichLamViec(id, day) List<ChamCongDTO>
+        +ChiTietLamViec(id, day) ChamCongDTO
+        +ThemLichLamViec(id, ca, ngay) void
+        +XoaLichLamViec(id, ngay) void
+        +DanhSachLichLamViecLeTan(firstDayOfMonth, lastDayOfMonth) List<LichLamViecDTO>
+        +LichLamViecLeTan(id, day) List<ChamCongDTO>
+    }
+
+    class Luong{
+        -id: int
+        -ten: string
+        -gioiTinh: bool
+        -email: string
+        -tenChuyenNganh: string
+        -luongCoBan: float
+        -thuong: float
+        -phat: float
+        -phuCap: float
+        -soCa: int
+        -heSoLuong: float
+        +DanhSachLuongBacSi(firstDayOfMonth, lastDayOfMonth) List<LuongDTO>
+        +DanhSachLuongLeTan(firstDayOfMonth, lastDayOfMonth) List<LuongDTO>
+        +LuongBacSi(id, firstDayOfMonth, lastDayOfMonth) LuongDTO
+        +CapNhatLuong(luong) void
+        +LuongLeTan(id, firstDayOfMonth, lastDayOfMonth) LuongDTO
+    }
+
+    class QuanTriVien{
+        -id: int
+        -hoVaTen: string
+        -cCCD: string
+        -sDT: string
+        -diaChi: string
+        -gioiTinh: bool
+        -ngaySinh: DateTime
+        -chucVu: string
+        -tenDangNhap: string
+        -matKhau: string
+        -email: string
+        -heSoLuong: float
+        +SoLuongBacSi() int
+        +SoLuongBenhNhan() int
+        +TongLuong() int
+        +LayDanhSachBacSi() List<BacSiDTO>
+        +CapNhatTrangThai(userID) void
+        +LayThongTinBacSi(userID) BacSiDTO
+        +CapNhatBacSi(doctorDTO) void
+        +ThemBacSi(doctorDTO) void
+        +LayDanhSachLeTan() List<LeTanDTO>
+        +LayThongTinLeTan(id) LeTanDTO
+        +CapNhatLeTan(leTanDTO) void
+        +ThemLeTan(leTanDTO) void
+    }
+
+    class VatTu{
+        -id: int
+        -ten: string
+        -loai: string
+        -soLuong: string
+        -donVi: string
+        -lieuLuong: string
+        -ngaySanXuat: string
+        -ngayHetHan: string
+        -ngayNhap: string
+        -gia: float
+        -tenLoai: string
+        +DanhSachThuoc(id) List<VatTuDTO>
+        +DanhSachVatTu(id) List<VatTuDTO>
+        +DanhSachDichVu() List<VatTuDTO>
+        +ThongTinThuoc(id) VatTuDTO
+        +CapNhatThuoc(thuoc) void
+        +ThongTinVatTu(id) VatTuDTO
+        +CapNhatVatTu(vatTu) void
+        +ThongTinDichVu(id) VatTuDTO
+        +CapNhatDichVu(dichVu) void
+        +ThemDichVu(dichVu) void
+        +ThemVatTu(vatTu) void
+        +ThemThuoc(thuoc) void
+        +XoaHang(id) void
+        +XoaDichVu(id) void
+    }
+
+    BenhNhan "1" -- "0..*" LichHen : có
+    BacSi "1" -- "0..*" LichHen : chỉ định
+    BenhNhan "1" -- "0..*" HoaDon : thanh toán
+    ChamCong "0..*" -- "1" BacSi : chấm công
+    ChamCong "0..*" -- "1" LeTan : chấm công
+    ChamCong "0..*" -- "1" QuanTriVien : quản lý
+    LeTan "1" -- "0..*" LichHen : quản lý
+    BacSi "1" -- "0..*" Luong : nhận lương
+    LeTan "1" -- "0..*" Luong : nhận lương
+    QuanTriVien "1" -- "0..*" BacSi : quản lý
+    QuanTriVien "1" -- "0..*" LeTan : quản lý
+    VatTu "1" -- "0..*" HoaDon : bao gồm

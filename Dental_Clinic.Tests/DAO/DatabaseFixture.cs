@@ -12,7 +12,7 @@ namespace Dental_Clinic.Tests.DAO
         // Initialize the test database connection
         // Sample MSSQL connection string
         // Replace with your actual test database connection string
-        TestDatabaseConnection = new SqlConnection("Server=TRI-LUU\\PLEASE;Database=DentalClinicTests;User Id=sa;Password=1234;");
+        TestDatabaseConnection = new SqlConnection("Server=TRI-LUU\\PLEASE;Database=DentalClinic;User Id=sa;Password=1234;");
         TestDatabaseConnection.Open();
     }
 
