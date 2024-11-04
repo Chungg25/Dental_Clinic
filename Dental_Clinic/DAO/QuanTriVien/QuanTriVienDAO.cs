@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Dental_Clinic.DTO.BacSi;
 using Dental_Clinic.DTO.LeTan;
+using Dental_Clinic.DTO.Admin;
 
 namespace Dental_Clinic.DAO.Admin
 {
@@ -180,8 +181,9 @@ namespace Dental_Clinic.DAO.Admin
                 cmd.Parameters.AddWithValue("@dob", doctor.NgaySinh);
                 cmd.Parameters.AddWithValue("@email", doctor.Email);
                 cmd.Parameters.AddWithValue("@salaryCoefficient", doctor.HeSoLuong);
+                cmd.Parameters.AddWithValue("@userName", doctor.TenDangNhap);
+                cmd.Parameters.AddWithValue("@pass", doctor.MatKhau);
                 cmd.Parameters.AddWithValue("@specializationID", ConvertSpecializationToId(doctor.ChuyenNganh));
-
                 cmd.ExecuteNonQuery();
                 dbConnection.Conn.Close();
             }
@@ -362,6 +364,9 @@ namespace Dental_Clinic.DAO.Admin
                 cmd.Parameters.AddWithValue("@ngaySinh", receptionist.NgaySinh);
                 cmd.Parameters.AddWithValue("@email", receptionist.Email);
                 cmd.Parameters.AddWithValue("@heSoLuong", receptionist.HeSoLuong);
+                cmd.Parameters.AddWithValue("@userName", receptionist.TenDangNhap);
+                cmd.Parameters.AddWithValue("@pass", receptionist.MatKhau);
+
 
                 cmd.ExecuteNonQuery();
                 dbConnection.Conn.Close();
@@ -384,6 +389,72 @@ namespace Dental_Clinic.DAO.Admin
                 cmd.Parameters.AddWithValue("@ngaySinh", receptionist.NgaySinh);
                 cmd.Parameters.AddWithValue("@email", receptionist.Email);
                 cmd.Parameters.AddWithValue("@heSoLuong", receptionist.HeSoLuong);
+
+                cmd.ExecuteNonQuery();
+                dbConnection.Conn.Close();
+            }
+        }
+
+        public QuanTriVienDTO LayThongTinQuanTriVien(int id)
+        {
+            QuanTriVienDTO quanTriVien = new QuanTriVienDTO();
+            DatabaseConnection dbConnection = new DatabaseConnection();
+
+            using (SqlCommand cmd = new SqlCommand("ThongTinQuanTriVien", dbConnection.Conn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@userId", id);
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        quanTriVien = new QuanTriVienDTO
+                        {
+                            Id = Convert.ToInt32(reader["ma_nguoi_dung"]),
+                            HoVaTen = reader["ho_ten"].ToString() ?? "",
+                            CCCD = reader["cccd"]?.ToString() ?? "",
+                            SDT = reader["so_dien_thoai"]?.ToString() ?? "",
+                            DiaChi = reader["dia_chi"]?.ToString() ?? "",
+                            GioiTinh = Convert.ToBoolean(reader["gioi_tinh"]),
+                            NgaySinh = Convert.ToDateTime(reader["ngay_sinh"]),
+                            TenDangNhap = reader["ten_dang_nhap"]?.ToString() ?? "",
+                            MatKhau = reader["mat_khau"]?.ToString() ?? "",
+                            Email = reader["email"]?.ToString() ?? "",
+                            HeSoLuong = Convert.ToSingle(reader["he_so_luong"]),
+                        };
+                    }
+                    else
+                    {
+                        throw new Exception($"Receptionist with ID {id} not found."); // Ném ngoại lệ
+                    }
+                }
+                dbConnection.CloseConnection();
+            }
+            return quanTriVien;
+        }
+        // Cập nhật thông tin lễ tân
+        public void CapNhatQuanTriVien(QuanTriVienDTO quanTriVien)
+        {
+            DatabaseConnection dbConnection = new DatabaseConnection();
+            using (SqlCommand cmd = new SqlCommand("CapNhatThongQuanTriVien", dbConnection.Conn))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                // Thêm các tham số cho thủ tục lưu trữ
+                cmd.Parameters.AddWithValue("@maNguoiDung", quanTriVien.Id);
+                cmd.Parameters.AddWithValue("@hoTen", quanTriVien.HoVaTen);
+                cmd.Parameters.AddWithValue("@cccd", quanTriVien.CCCD);
+                cmd.Parameters.AddWithValue("@soDienThoai", quanTriVien.SDT);
+                cmd.Parameters.AddWithValue("@diaChi", quanTriVien.DiaChi);
+                cmd.Parameters.AddWithValue("@gioiTinh", quanTriVien.GioiTinh);
+                cmd.Parameters.AddWithValue("@ngaySinh", quanTriVien.NgaySinh);
+                cmd.Parameters.AddWithValue("@email", quanTriVien.Email);
+                cmd.Parameters.AddWithValue("@heSoLuong", quanTriVien.HeSoLuong);
+                cmd.Parameters.AddWithValue("@userName", quanTriVien.TenDangNhap);
+                cmd.Parameters.AddWithValue("@pass", quanTriVien.MatKhau);
+
 
                 cmd.ExecuteNonQuery();
                 dbConnection.Conn.Close();

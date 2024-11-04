@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dental_Clinic.DAO.Login;
+using Dental_Clinic.DTO.Admin;
 using Dental_Clinic.DTO.Login;
 
 namespace Dental_Clinic.BUS.Login
@@ -21,6 +22,11 @@ namespace Dental_Clinic.BUS.Login
         public DataRow KiemTraDangNhap(DangNhapDTO dangNhapDTO)
         {
             return dangNhapDAO.KiemTraDangNhap(dangNhapDTO);
+        }
+
+        public QuanTriVienDTO ThongTinTheoId(int id)
+        {
+            return dangNhapDAO.LayThongTinTheoID(id);
         }
     }
 }

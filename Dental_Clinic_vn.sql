@@ -1714,6 +1714,17 @@ END;
 GO
 
 --Procedure lấy thông tin user
+CREATE PROCEDURE LayThongTinTheoID
+    @userId INT
+AS
+BEGIN
+    SELECT *
+    FROM nguoi_dung
+    WHERE nguoi_dung.ma_nguoi_dung = @userId;
+END;
+GO
+
+--Procedure lấy thông tin user
 CREATE PROCEDURE LayThongTinBacSi
     @userId INT
 -- Tham số đầu vào là ID của người dùng
@@ -1904,6 +1915,8 @@ CREATE PROCEDURE CapNhatThongTinBacSi
     @dob DATE,
     @email NVARCHAR(50),
     @salaryCoefficient FLOAT,
+	@userName nvarchar(255),
+	@pass nvarchar(255),
     @specializationID INT
 AS
 BEGIN
@@ -1915,6 +1928,8 @@ BEGIN
         gioi_tinh = @gender,
         ngay_sinh = @dob,
         email = @email,
+		ten_dang_nhap = @userName,
+		mat_khau = @pass,
         he_so_luong = @salaryCoefficient
     WHERE ma_nguoi_dung = @userId;
 
@@ -2005,6 +2020,8 @@ CREATE PROCEDURE CapNhatThongTinLeTan
     @gioiTinh BIT,
     @ngaySinh DATE,
     @email NVARCHAR(50),
+	@userName nvarchar(255),
+	@pass nvarchar(255),
     @heSoLuong FLOAT
 AS
 BEGIN
@@ -2017,6 +2034,60 @@ BEGIN
         gioi_tinh = @gioiTinh,
         ngay_sinh = @ngaySinh,
         email = @email,	
+		ten_dang_nhap = @userName,
+		mat_khau = @pass,
+        he_so_luong = @heSoLuong
+    WHERE ma_nguoi_dung = @maNguoiDung;
+END;
+GO
+
+
+--Procedure lấy thông tin lễ tân
+CREATE PROCEDURE ThongTinQuanTriVien
+    @userId INT
+-- Tham số đầu vào là ID của người dùng
+AS
+BEGIN
+    -- Kiểm tra xem ID có hợp lệ không
+    IF @userId IS NULL
+    BEGIN
+        RAISERROR(N'Mã người dùng không được để trống', 16, 1);
+        RETURN;
+    END
+
+    -- Lấy thông tin người dùng từ bảng users
+    SELECT *
+    FROM nguoi_dung 
+    WHERE nguoi_dung.ma_nguoi_dung = @userId;
+END;
+GO
+
+--Procedure cập nhật thông tin lễ tân
+CREATE PROCEDURE CapNhatThongQuanTriVien
+    @maNguoiDung INT,
+    @hoTen NVARCHAR(255),
+    @cccd NVARCHAR(12),
+    @soDienThoai NVARCHAR(10),
+    @diaChi NVARCHAR(50),
+    @gioiTinh BIT,
+    @ngaySinh DATE,
+    @email NVARCHAR(50),
+	@userName nvarchar(255),
+	@pass nvarchar(255),
+    @heSoLuong FLOAT
+AS
+BEGIN
+    UPDATE nguoi_dung 
+    SET 
+        ho_ten = @hoTen,
+        cccd = @cccd,
+        so_dien_thoai = @soDienThoai,
+        dia_chi = @diaChi,
+        gioi_tinh = @gioiTinh,
+        ngay_sinh = @ngaySinh,
+        email = @email,	
+		ten_dang_nhap = @userName,
+		mat_khau = @pass,
         he_so_luong = @heSoLuong
     WHERE ma_nguoi_dung = @maNguoiDung;
 END;

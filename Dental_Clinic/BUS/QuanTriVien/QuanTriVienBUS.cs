@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dental_Clinic.DAO.Admin;
+using Dental_Clinic.DTO.Admin;
 using Dental_Clinic.DTO.BacSi;
 using Dental_Clinic.DTO.LeTan;
 
@@ -67,6 +68,15 @@ namespace Dental_Clinic.BUS.Admin
         public void ThemLeTan(LeTanDTO leTanDTO)
         {
             quanTriVienDAO.ThemLeTan(leTanDTO);
+        }
+
+        public QuanTriVienDTO LayThongTinQuanTriVien(int id)
+        {
+            return quanTriVienDAO.LayThongTinQuanTriVien(id);
+        }
+        public void CapNhatQuanTriVien(QuanTriVienDTO quanTriVien)
+        {
+            quanTriVienDAO.CapNhatQuanTriVien(quanTriVien);
         }
     }
 }

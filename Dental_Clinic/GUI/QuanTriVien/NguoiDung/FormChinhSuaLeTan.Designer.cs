@@ -60,6 +60,12 @@ namespace Dental_Clinic.GUI.Administrator.User
             vbButton2 = new CustomButton.VBButton();
             vbButton5 = new CustomButton.VBButton();
             pbQuayVe = new PictureBox();
+            tbMatKhau = new TextBox();
+            vbMatKhau = new CustomButton.VBButton();
+            label12 = new Label();
+            tbTenTaiKhoan = new TextBox();
+            vbTenTaiKhoan = new CustomButton.VBButton();
+            label10 = new Label();
             panel1.SuspendLayout();
             panelDuLieu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbQuayVe).BeginInit();
@@ -86,6 +92,12 @@ namespace Dental_Clinic.GUI.Administrator.User
             // 
             // panelDuLieu
             // 
+            panelDuLieu.Controls.Add(tbMatKhau);
+            panelDuLieu.Controls.Add(vbMatKhau);
+            panelDuLieu.Controls.Add(label12);
+            panelDuLieu.Controls.Add(tbTenTaiKhoan);
+            panelDuLieu.Controls.Add(vbTenTaiKhoan);
+            panelDuLieu.Controls.Add(label10);
             panelDuLieu.Controls.Add(vbHuy);
             panelDuLieu.Controls.Add(vbLuuThayDoi);
             panelDuLieu.Controls.Add(tbQueQuan);
@@ -129,7 +141,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             vbHuy.FlatStyle = FlatStyle.Flat;
             vbHuy.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             vbHuy.ForeColor = Color.White;
-            vbHuy.Location = new Point(215, 452);
+            vbHuy.Location = new Point(212, 495);
             vbHuy.Name = "vbHuy";
             vbHuy.Size = new Size(87, 50);
             vbHuy.TabIndex = 53;
@@ -150,7 +162,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             vbLuuThayDoi.FlatStyle = FlatStyle.Flat;
             vbLuuThayDoi.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             vbLuuThayDoi.ForeColor = Color.White;
-            vbLuuThayDoi.Location = new Point(50, 452);
+            vbLuuThayDoi.Location = new Point(47, 495);
             vbLuuThayDoi.Name = "vbLuuThayDoi";
             vbLuuThayDoi.Size = new Size(144, 50);
             vbLuuThayDoi.TabIndex = 52;
@@ -161,7 +173,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             // 
             // tbQueQuan
             // 
-            tbQueQuan.Location = new Point(59, 366);
+            tbQueQuan.Location = new Point(59, 349);
             tbQueQuan.Name = "tbQueQuan";
             tbQueQuan.Size = new Size(725, 27);
             tbQueQuan.TabIndex = 48;
@@ -176,7 +188,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             vbButton8.FlatAppearance.BorderSize = 0;
             vbButton8.FlatStyle = FlatStyle.Flat;
             vbButton8.ForeColor = Color.White;
-            vbButton8.Location = new Point(48, 358);
+            vbButton8.Location = new Point(48, 341);
             vbButton8.Name = "vbButton8";
             vbButton8.Size = new Size(745, 38);
             vbButton8.TabIndex = 47;
@@ -186,7 +198,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             // 
             // tbHeSoLuong
             // 
-            tbHeSoLuong.Location = new Point(59, 276);
+            tbHeSoLuong.Location = new Point(59, 262);
             tbHeSoLuong.Name = "tbHeSoLuong";
             tbHeSoLuong.Size = new Size(135, 27);
             tbHeSoLuong.TabIndex = 46;
@@ -201,7 +213,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             vbButton7.FlatAppearance.BorderSize = 0;
             vbButton7.FlatStyle = FlatStyle.Flat;
             vbButton7.ForeColor = Color.White;
-            vbButton7.Location = new Point(48, 268);
+            vbButton7.Location = new Point(48, 254);
             vbButton7.Name = "vbButton7";
             vbButton7.Size = new Size(155, 38);
             vbButton7.TabIndex = 45;
@@ -211,7 +223,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             // 
             // dtpNgaySinh
             // 
-            dtpNgaySinh.Location = new Point(376, 280);
+            dtpNgaySinh.Location = new Point(376, 266);
             dtpNgaySinh.Name = "dtpNgaySinh";
             dtpNgaySinh.Size = new Size(239, 27);
             dtpNgaySinh.TabIndex = 44;
@@ -226,7 +238,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             vbButton6.FlatAppearance.BorderSize = 0;
             vbButton6.FlatStyle = FlatStyle.Flat;
             vbButton6.ForeColor = Color.White;
-            vbButton6.Location = new Point(366, 274);
+            vbButton6.Location = new Point(366, 260);
             vbButton6.Name = "vbButton6";
             vbButton6.Size = new Size(261, 38);
             vbButton6.TabIndex = 43;
@@ -237,7 +249,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(49, 326);
+            label8.Location = new Point(49, 309);
             label8.Name = "label8";
             label8.Size = new Size(73, 20);
             label8.TabIndex = 38;
@@ -246,7 +258,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(49, 232);
+            label9.Location = new Point(49, 218);
             label9.Name = "label9";
             label9.Size = new Size(90, 20);
             label9.TabIndex = 39;
@@ -255,14 +267,14 @@ namespace Dental_Clinic.GUI.Administrator.User
             // cbGioiTinh
             // 
             cbGioiTinh.FormattingEnabled = true;
-            cbGioiTinh.Location = new Point(639, 178);
+            cbGioiTinh.Location = new Point(639, 164);
             cbGioiTinh.Name = "cbGioiTinh";
             cbGioiTinh.Size = new Size(137, 28);
             cbGioiTinh.TabIndex = 41;
             // 
             // tbCCCD
             // 
-            tbCCCD.Location = new Point(376, 181);
+            tbCCCD.Location = new Point(376, 167);
             tbCCCD.Name = "tbCCCD";
             tbCCCD.Size = new Size(135, 27);
             tbCCCD.TabIndex = 40;
@@ -270,7 +282,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(365, 232);
+            label7.Location = new Point(365, 218);
             label7.Name = "label7";
             label7.Size = new Size(74, 20);
             label7.TabIndex = 35;
@@ -286,7 +298,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             vbButton4.FlatAppearance.BorderSize = 0;
             vbButton4.FlatStyle = FlatStyle.Flat;
             vbButton4.ForeColor = Color.White;
-            vbButton4.Location = new Point(365, 173);
+            vbButton4.Location = new Point(365, 159);
             vbButton4.Name = "vbButton4";
             vbButton4.Size = new Size(155, 38);
             vbButton4.TabIndex = 37;
@@ -296,7 +308,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             // 
             // tbSĐT
             // 
-            tbSĐT.Location = new Point(59, 181);
+            tbSĐT.Location = new Point(59, 167);
             tbSĐT.Name = "tbSĐT";
             tbSĐT.Size = new Size(135, 27);
             tbSĐT.TabIndex = 36;
@@ -304,7 +316,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(630, 136);
+            label6.Location = new Point(630, 122);
             label6.Name = "label6";
             label6.Size = new Size(65, 20);
             label6.TabIndex = 34;
@@ -320,7 +332,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             vbButton3.FlatAppearance.BorderSize = 0;
             vbButton3.FlatStyle = FlatStyle.Flat;
             vbButton3.ForeColor = Color.White;
-            vbButton3.Location = new Point(49, 173);
+            vbButton3.Location = new Point(49, 159);
             vbButton3.Name = "vbButton3";
             vbButton3.Size = new Size(154, 38);
             vbButton3.TabIndex = 33;
@@ -330,14 +342,14 @@ namespace Dental_Clinic.GUI.Administrator.User
             // 
             // tbEmail
             // 
-            tbEmail.Location = new Point(376, 86);
+            tbEmail.Location = new Point(376, 72);
             tbEmail.Name = "tbEmail";
             tbEmail.Size = new Size(279, 27);
             tbEmail.TabIndex = 30;
             // 
             // tbHoTen
             // 
-            tbHoTen.Location = new Point(59, 86);
+            tbHoTen.Location = new Point(59, 72);
             tbHoTen.Name = "tbHoTen";
             tbHoTen.Size = new Size(135, 27);
             tbHoTen.TabIndex = 28;
@@ -345,7 +357,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(49, 45);
+            label2.Location = new Point(49, 31);
             label2.Name = "label2";
             label2.Size = new Size(73, 20);
             label2.TabIndex = 26;
@@ -361,7 +373,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             vbButton1.FlatAppearance.BorderSize = 0;
             vbButton1.FlatStyle = FlatStyle.Flat;
             vbButton1.ForeColor = Color.White;
-            vbButton1.Location = new Point(49, 78);
+            vbButton1.Location = new Point(49, 64);
             vbButton1.Name = "vbButton1";
             vbButton1.Size = new Size(154, 38);
             vbButton1.TabIndex = 25;
@@ -372,7 +384,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(49, 136);
+            label5.Location = new Point(49, 122);
             label5.Name = "label5";
             label5.Size = new Size(102, 20);
             label5.TabIndex = 31;
@@ -381,7 +393,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(365, 45);
+            label3.Location = new Point(365, 31);
             label3.Name = "label3";
             label3.Size = new Size(46, 20);
             label3.TabIndex = 27;
@@ -390,7 +402,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(365, 136);
+            label4.Location = new Point(365, 122);
             label4.Name = "label4";
             label4.Size = new Size(136, 20);
             label4.TabIndex = 29;
@@ -406,7 +418,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             vbButton2.FlatAppearance.BorderSize = 0;
             vbButton2.FlatStyle = FlatStyle.Flat;
             vbButton2.ForeColor = Color.White;
-            vbButton2.Location = new Point(365, 78);
+            vbButton2.Location = new Point(365, 64);
             vbButton2.Name = "vbButton2";
             vbButton2.Size = new Size(300, 38);
             vbButton2.TabIndex = 32;
@@ -424,7 +436,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             vbButton5.FlatAppearance.BorderSize = 0;
             vbButton5.FlatStyle = FlatStyle.Flat;
             vbButton5.ForeColor = Color.White;
-            vbButton5.Location = new Point(630, 173);
+            vbButton5.Location = new Point(630, 159);
             vbButton5.Name = "vbButton5";
             vbButton5.Size = new Size(154, 38);
             vbButton5.TabIndex = 42;
@@ -442,6 +454,74 @@ namespace Dental_Clinic.GUI.Administrator.User
             pbQuayVe.TabIndex = 84;
             pbQuayVe.TabStop = false;
             pbQuayVe.Click += pbQuayVe_Click;
+            // 
+            // tbMatKhau
+            // 
+            tbMatKhau.Location = new Point(481, 443);
+            tbMatKhau.Name = "tbMatKhau";
+            tbMatKhau.Size = new Size(135, 27);
+            tbMatKhau.TabIndex = 59;
+            // 
+            // vbMatKhau
+            // 
+            vbMatKhau.BackColor = Color.White;
+            vbMatKhau.BackgroundColor = Color.White;
+            vbMatKhau.BorderColor = Color.Black;
+            vbMatKhau.BorderRadius = 8;
+            vbMatKhau.BorderSize = 1;
+            vbMatKhau.FlatAppearance.BorderSize = 0;
+            vbMatKhau.FlatStyle = FlatStyle.Flat;
+            vbMatKhau.ForeColor = Color.White;
+            vbMatKhau.Location = new Point(470, 435);
+            vbMatKhau.Name = "vbMatKhau";
+            vbMatKhau.Size = new Size(155, 38);
+            vbMatKhau.TabIndex = 58;
+            vbMatKhau.Text = "vbButton11";
+            vbMatKhau.TextColor = Color.White;
+            vbMatKhau.UseVisualStyleBackColor = false;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(471, 399);
+            label12.Name = "label12";
+            label12.Size = new Size(70, 20);
+            label12.TabIndex = 57;
+            label12.Text = "Mật khẩu";
+            // 
+            // tbTenTaiKhoan
+            // 
+            tbTenTaiKhoan.Location = new Point(58, 443);
+            tbTenTaiKhoan.Name = "tbTenTaiKhoan";
+            tbTenTaiKhoan.Size = new Size(135, 27);
+            tbTenTaiKhoan.TabIndex = 56;
+            // 
+            // vbTenTaiKhoan
+            // 
+            vbTenTaiKhoan.BackColor = Color.White;
+            vbTenTaiKhoan.BackgroundColor = Color.White;
+            vbTenTaiKhoan.BorderColor = Color.Black;
+            vbTenTaiKhoan.BorderRadius = 8;
+            vbTenTaiKhoan.BorderSize = 1;
+            vbTenTaiKhoan.FlatAppearance.BorderSize = 0;
+            vbTenTaiKhoan.FlatStyle = FlatStyle.Flat;
+            vbTenTaiKhoan.ForeColor = Color.White;
+            vbTenTaiKhoan.Location = new Point(47, 435);
+            vbTenTaiKhoan.Name = "vbTenTaiKhoan";
+            vbTenTaiKhoan.Size = new Size(155, 38);
+            vbTenTaiKhoan.TabIndex = 55;
+            vbTenTaiKhoan.Text = "vbButton9";
+            vbTenTaiKhoan.TextColor = Color.White;
+            vbTenTaiKhoan.UseVisualStyleBackColor = false;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(48, 399);
+            label10.Name = "label10";
+            label10.Size = new Size(97, 20);
+            label10.TabIndex = 54;
+            label10.Text = "Tên tài khoản";
             // 
             // FormChinhSuaLeTan
             // 
@@ -494,5 +574,11 @@ namespace Dental_Clinic.GUI.Administrator.User
         private CustomButton.VBButton vbButton2;
         private CustomButton.VBButton vbButton5;
         private PictureBox pbQuayVe;
+        private TextBox tbMatKhau;
+        private CustomButton.VBButton vbMatKhau;
+        private Label label12;
+        private TextBox tbTenTaiKhoan;
+        private CustomButton.VBButton vbTenTaiKhoan;
+        private Label label10;
     }
 }

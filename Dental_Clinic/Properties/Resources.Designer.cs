@@ -123,6 +123,26 @@ namespace Dental_Clinic.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_detail_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-detail-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_detail_32__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-detail-32 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_disease_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-disease-32", resourceCulture);

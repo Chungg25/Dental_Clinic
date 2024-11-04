@@ -33,6 +33,8 @@ namespace Dental_Clinic.GUI.Administrator.User
             tbEmail.Text = bacSiDTO.Email;
             tbSĐT.Text = bacSiDTO.SDT;
             tbCCCD.Text = bacSiDTO.CCCD;
+            tbTenTaiKhoan.Text = bacSiDTO.TenDangNhap;
+            tbMatKhau.Text = bacSiDTO.MatKhau;
             cbGioiTinh.Items.Add("Nam");
             cbGioiTinh.Items.Add("Nữ");
             cbGioiTinh.SelectedItem = bacSiDTO.GioiTinh ? "Nam" : "Nữ";
@@ -99,6 +101,8 @@ namespace Dental_Clinic.GUI.Administrator.User
             bacSiDTO.NgaySinh = dtpNgaySinh.Value; // Ngày sinh
             bacSiDTO.DiaChi = tbQueQuan.Text;
             bacSiDTO.ChuyenNganh = cbChuyenNganh.SelectedItem.ToString();
+            bacSiDTO.TenDangNhap = tbTenTaiKhoan.Text;
+            bacSiDTO.MatKhau = tbMatKhau.Text;
 
             quanTriVienBUS.CapNhatBacSi(bacSiDTO);
             quanTriVienBUS.LayThongTinBacSi(bacSiDTO.Id);

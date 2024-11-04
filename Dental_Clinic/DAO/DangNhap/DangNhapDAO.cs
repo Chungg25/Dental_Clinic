@@ -1,4 +1,5 @@
-﻿using Dental_Clinic.DTO.Login;
+﻿using Dental_Clinic.DTO.Admin;
+using Dental_Clinic.DTO.Login;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -86,6 +87,41 @@ namespace Dental_Clinic.DAO.Login
                 // Đóng kết nối
                 dbConnection.CloseConnection();
             }
+        }
+
+        public QuanTriVienDTO LayThongTinTheoID(int id)
+        {
+            DatabaseConnection dbConnection = new DatabaseConnection();
+            QuanTriVienDTO thongTin = new QuanTriVienDTO();
+
+            using (SqlCommand cmd = new SqlCommand("LayThongTinTheoID", dbConnection.Conn))
+            {
+                cmd.Parameters.AddWithValue("@userId", id);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        thongTin = new QuanTriVienDTO
+                        {
+                            Id = Convert.ToInt32(reader["ma"]),
+                            HoVaTen = reader["ho_ten"].ToString() ?? "",
+                            CCCD = reader["cccd"].ToString() ?? "",
+                            SDT = reader["so_dien_thoai"].ToString() ?? "",
+                            DiaChi = reader["dia_chi"].ToString() ?? "",
+                            GioiTinh = reader["gioi_tinh"] != DBNull.Value && (bool)reader["gioi_tinh"],
+                            NgaySinh = reader["ngay_sinh"] != DBNull.Value ? (DateTime)reader["ngay_sinh"] : DateTime.MinValue,
+                            ChucVu = reader["vai_tro"].ToString() ?? "",
+                            TenDangNhap = reader["ten_dang_nhap"].ToString() ?? "",
+                            MatKhau = reader["mat_khau"].ToString() ?? "",
+                            Email = reader["email"].ToString() ?? "",
+                            HeSoLuong = Convert.ToSingle(reader["he_so_luong"])
+                        };
+                    }
+                }
+            }
+            return thongTin;
         }
     }
 }

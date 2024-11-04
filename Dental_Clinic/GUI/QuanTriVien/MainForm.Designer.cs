@@ -35,10 +35,12 @@ namespace Dental_Clinic.GUI.Administrator
             panel1 = new Panel();
             panel2 = new Panel();
             pictureBox7 = new PictureBox();
+            pictureBox6 = new PictureBox();
             pictureBox5 = new PictureBox();
             pictureBox4 = new PictureBox();
             pictureBox3 = new PictureBox();
             pictureBox1 = new PictureBox();
+            lbLuong = new Label();
             lbDoanhThu = new Label();
             lbVatTu = new Label();
             lbLichLamViec = new Label();
@@ -52,10 +54,10 @@ namespace Dental_Clinic.GUI.Administrator
             lbChuDe = new Label();
             pictureBox8 = new PictureBox();
             panelOption = new Panel();
-            label11 = new Label();
+            lbXemThongTin = new Label();
             pictureBox12 = new PictureBox();
             lbDangXuat = new Label();
-            label9 = new Label();
+            lbFaceID = new Label();
             pictureBox11 = new PictureBox();
             pictureBox10 = new PictureBox();
             panelTrangChu = new Panel();
@@ -69,11 +71,10 @@ namespace Dental_Clinic.GUI.Administrator
             pictureBox20 = new PictureBox();
             label18 = new Label();
             pictureBox21 = new PictureBox();
-            lbLuong = new Label();
-            pictureBox6 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)picDash).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -93,7 +94,6 @@ namespace Dental_Clinic.GUI.Administrator
             panelNgonNgu1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox20).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox21).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             SuspendLayout();
             // 
             // picDash
@@ -148,6 +148,17 @@ namespace Dental_Clinic.GUI.Administrator
             pictureBox7.TabIndex = 15;
             pictureBox7.TabStop = false;
             // 
+            // pictureBox6
+            // 
+            pictureBox6.Cursor = Cursors.Hand;
+            pictureBox6.Image = Resources.icons8_sales_performance_50;
+            pictureBox6.Location = new Point(22, 567);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(54, 52);
+            pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox6.TabIndex = 14;
+            pictureBox6.TabStop = false;
+            // 
             // pictureBox5
             // 
             pictureBox5.Cursor = Cursors.Hand;
@@ -191,6 +202,18 @@ namespace Dental_Clinic.GUI.Administrator
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
+            // 
+            // lbLuong
+            // 
+            lbLuong.AutoSize = true;
+            lbLuong.Cursor = Cursors.Hand;
+            lbLuong.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbLuong.Location = new Point(85, 582);
+            lbLuong.Name = "lbLuong";
+            lbLuong.Size = new Size(153, 28);
+            lbLuong.TabIndex = 10;
+            lbLuong.Text = "Quản lý lương ";
+            lbLuong.Click += lbLuong_Click;
             // 
             // lbDoanhThu
             // 
@@ -342,10 +365,10 @@ namespace Dental_Clinic.GUI.Administrator
             // 
             // panelOption
             // 
-            panelOption.Controls.Add(label11);
+            panelOption.Controls.Add(lbXemThongTin);
             panelOption.Controls.Add(pictureBox12);
             panelOption.Controls.Add(lbDangXuat);
-            panelOption.Controls.Add(label9);
+            panelOption.Controls.Add(lbFaceID);
             panelOption.Controls.Add(pictureBox11);
             panelOption.Controls.Add(pictureBox10);
             panelOption.Location = new Point(856, 3);
@@ -353,22 +376,23 @@ namespace Dental_Clinic.GUI.Administrator
             panelOption.Size = new Size(177, 140);
             panelOption.TabIndex = 0;
             // 
-            // label11
+            // lbXemThongTin
             // 
-            label11.AutoSize = true;
-            label11.Cursor = Cursors.Hand;
-            label11.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label11.ForeColor = Color.FromArgb(37, 150, 190);
-            label11.Location = new Point(59, 12);
-            label11.Name = "label11";
-            label11.Size = new Size(110, 20);
-            label11.TabIndex = 3;
-            label11.Text = "Xem thông tin";
+            lbXemThongTin.AutoSize = true;
+            lbXemThongTin.Cursor = Cursors.Hand;
+            lbXemThongTin.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbXemThongTin.ForeColor = Color.FromArgb(37, 150, 190);
+            lbXemThongTin.Location = new Point(59, 12);
+            lbXemThongTin.Name = "lbXemThongTin";
+            lbXemThongTin.Size = new Size(110, 20);
+            lbXemThongTin.TabIndex = 3;
+            lbXemThongTin.Text = "Xem thông tin";
+            lbXemThongTin.Click += lbXemThongTin_Click;
             // 
             // pictureBox12
             // 
             pictureBox12.Cursor = Cursors.Hand;
-            pictureBox12.Image = Resources.icons8_face_scan_50;
+            pictureBox12.Image = Resources.icons8_detail_32__1_;
             pictureBox12.Location = new Point(0, 3);
             pictureBox12.Name = "pictureBox12";
             pictureBox12.Size = new Size(50, 37);
@@ -389,18 +413,18 @@ namespace Dental_Clinic.GUI.Administrator
             lbDangXuat.Text = "Đăng xuất";
             lbDangXuat.Click += lbDangXuat_Click;
             // 
-            // label9
+            // lbFaceID
             // 
-            label9.AutoSize = true;
-            label9.Cursor = Cursors.Hand;
-            label9.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.ForeColor = Color.FromArgb(37, 150, 190);
-            label9.Location = new Point(59, 60);
-            label9.Name = "label9";
-            label9.Size = new Size(103, 20);
-            label9.TabIndex = 1;
-            label9.Text = "Đổi mật khẩu";
-            label9.Click += label9_Click;
+            lbFaceID.AutoSize = true;
+            lbFaceID.Cursor = Cursors.Hand;
+            lbFaceID.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbFaceID.ForeColor = Color.FromArgb(37, 150, 190);
+            lbFaceID.Location = new Point(59, 56);
+            lbFaceID.Name = "lbFaceID";
+            lbFaceID.Size = new Size(60, 20);
+            lbFaceID.TabIndex = 1;
+            lbFaceID.Text = "Face ID";
+            lbFaceID.Click += lbFaceID_Click;
             // 
             // pictureBox11
             // 
@@ -416,7 +440,7 @@ namespace Dental_Clinic.GUI.Administrator
             // pictureBox10
             // 
             pictureBox10.Cursor = Cursors.Hand;
-            pictureBox10.Image = Resources.icons8_change_50;
+            pictureBox10.Image = Resources.icons8_face_scan_50;
             pictureBox10.Location = new Point(0, 46);
             pictureBox10.Name = "pictureBox10";
             pictureBox10.Size = new Size(50, 37);
@@ -550,29 +574,6 @@ namespace Dental_Clinic.GUI.Administrator
             pictureBox21.TabIndex = 1;
             pictureBox21.TabStop = false;
             // 
-            // lbLuong
-            // 
-            lbLuong.AutoSize = true;
-            lbLuong.Cursor = Cursors.Hand;
-            lbLuong.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbLuong.Location = new Point(85, 582);
-            lbLuong.Name = "lbLuong";
-            lbLuong.Size = new Size(153, 28);
-            lbLuong.TabIndex = 10;
-            lbLuong.Text = "Quản lý lương ";
-            lbLuong.Click += lbLuong_Click;
-            // 
-            // pictureBox6
-            // 
-            pictureBox6.Cursor = Cursors.Hand;
-            pictureBox6.Image = Resources.icons8_sales_performance_50;
-            pictureBox6.Location = new Point(22, 567);
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(54, 52);
-            pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox6.TabIndex = 14;
-            pictureBox6.TabStop = false;
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -590,6 +591,7 @@ namespace Dental_Clinic.GUI.Administrator
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
@@ -613,7 +615,6 @@ namespace Dental_Clinic.GUI.Administrator
             panelNgonNgu1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox20).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox21).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ResumeLayout(false);
         }
 
@@ -640,7 +641,7 @@ namespace Dental_Clinic.GUI.Administrator
         private PictureBox picUser;
         private Panel panelOption;
         private PictureBox pictureBox10;
-        private Label label9;
+        private Label lbFaceID;
         private PictureBox pictureBox11;
         private Label lbDangXuat;
         private Label lbNgonNgu;
@@ -655,7 +656,7 @@ namespace Dental_Clinic.GUI.Administrator
         private Label label7;
         private PictureBox pictureBox17;
         private PictureBox pictureBox9;
-        private Label label11;
+        private Label lbXemThongTin;
         private PictureBox pictureBox12;
         private PictureBox pictureBox6;
         private Label lbLuong;

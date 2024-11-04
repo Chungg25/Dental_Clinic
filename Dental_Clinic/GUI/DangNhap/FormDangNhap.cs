@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
@@ -14,6 +15,7 @@ using Dental_Clinic.BUS.Login;
 using Dental_Clinic.DTO.Admin;
 using Dental_Clinic.DTO.Login;
 using Dental_Clinic.GUI.Administrator;
+using Microsoft.VisualBasic.ApplicationServices;
 
 
 namespace Dental_Clinic.GUI.Login
@@ -22,12 +24,14 @@ namespace Dental_Clinic.GUI.Login
     {
         private Dental_Clinic mainForm;
         private DangNhapBUS dangNhapBUS;
+        private Process process;
+        private StreamWriter pythonInput;
         public FormDangNhap(Dental_Clinic mainForm)
         {
             InitializeComponent();
             this.mainForm = mainForm;
             this.dangNhapBUS = new DangNhapBUS();
-
+            
             lbSai.Visible = false;
 
             // Thiết lập tbUser với placeholder "User Name"
@@ -48,6 +52,134 @@ namespace Dental_Clinic.GUI.Login
             // ENTER ĐĂNG NHẬP
             tbTenDangNhap.KeyDown += tbEnter_KeyDown;
             tbMatKhau.KeyDown += tbEnter_KeyDown;
+
+            StartPythonProcess();
+        }
+
+        private void StartPythonProcess()
+        {
+            if (process == null || process.HasExited)  // Kiểm tra nếu process chưa được khởi tạo hoặc đã dừng
+            {
+                string filePath = Path.Combine(Application.StartupPath, "real-time-face-recognition", "face_recognizer.py");
+                string basePath = Path.Combine(Application.StartupPath, "real-time-face-recognition");
+                ProcessStartInfo psi = new ProcessStartInfo();
+                psi.FileName = "python";  // Đảm bảo đường dẫn "python" đúng hoặc thay bằng đường dẫn đầy đủ đến python.exe
+                psi.Arguments = $"{filePath} {basePath}";
+                //psi.Arguments = "D:\\real-time-face-recognition\\face_recognizer.py";
+                psi.RedirectStandardInput = true;
+                psi.RedirectStandardOutput = true;
+                psi.RedirectStandardError = true;
+                psi.UseShellExecute = false;
+                psi.CreateNoWindow = true;
+
+                process = Process.Start(psi);
+                pythonInput = process.StandardInput;  // Giữ stream input để gửi dữ liệu đến Python
+            }
+        }
+
+        private void pbFaceID_Click(object sender, EventArgs e)
+        {
+            if (process == null || process.HasExited)
+            {
+                StartPythonProcess();  // Khởi động lại nếu process đã bị tắt
+            }
+            pythonInput.WriteLine("detect");  // Gửi tín hiệu nhận diện
+            string result = process.StandardOutput.ReadLine();
+            if (!string.IsNullOrEmpty(result))
+            {
+                MessageBox.Show(result);
+                result = result.Replace("[", "").Replace("]", "").Replace("'", "").Trim();
+                MessageBox.Show(result);
+                ProcessRecognitionResult(result); 
+            }
+            else
+            {
+                HienThiLoi("Không nhận diện được");
+            }
+        }
+
+        private void ProcessRecognitionResult(string result)
+        {
+            // Phân tích để lấy ID
+            string idLine = result.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries)
+                                   .FirstOrDefault(line => line.StartsWith("ID:"));
+            if (idLine != null)
+            {
+                
+                string idString = idLine.Split(':')[1].Trim();  // Lấy giá trị ID
+                if (idString == "0")
+                {
+                    HienThiLoi("Không nhận diện được");
+                    return;
+                }
+                QuanTriVienDTO user = dangNhapBUS.ThongTinTheoId(Convert.ToInt32(idString));
+                Form form;
+                StopPythonProcess();
+                if (user.ChucVu == "Admin")
+                {
+                    form = new GUI.Administrator.MainForm(user);
+                }
+                else if (user.ChucVu == "Doctor")
+                {
+                    form = new GUI.BacSi.FormBacSi(user);
+                }
+                else
+                {
+                    form = new GUI.Receptionist.FormLeTan(user);
+                }
+
+                this.Hide();
+                mainForm.Hide();
+                form.FormClosed += (s, args) => Application.Exit();
+                form.Show();
+            }
+        }
+        private void StopPythonProcess()
+        {
+            if (process != null && !process.HasExited)
+            {
+                process.Kill();
+                process.Dispose();
+                process = null;
+            }
+        }
+
+        private void HienThiFaceID()
+        {
+            string filePath = Path.Combine(Application.StartupPath, "real-time-face-recognition", "face_recognizer.py");
+            string basePath = Path.Combine(Application.StartupPath, "real-time-face-recognition");
+            ProcessStartInfo psi = new ProcessStartInfo();
+            psi.FileName = "python";  // Đảm bảo đường dẫn "python" đúng hoặc thay bằng đường dẫn đầy đủ đến python.exe
+            psi.Arguments = $"{filePath} {basePath}";
+            psi.RedirectStandardOutput = true;
+            psi.UseShellExecute = false;
+            psi.CreateNoWindow = true;
+            psi.RedirectStandardError = true; // Thêm dòng này
+
+            // Chạy script và đọc output
+            using (Process process = Process.Start(psi))
+            {
+                string errorResult = process.StandardError.ReadToEnd();
+                if (!string.IsNullOrEmpty(errorResult))
+                {
+                    MessageBox.Show("Lỗi từ Python: " + errorResult);
+                }
+                using (System.IO.StreamReader reader = process.StandardOutput)
+                {
+                    string result = reader.ReadToEnd();
+
+                    // Phân tích để lấy ID
+                    string idLine = result.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries)
+                                           .FirstOrDefault(line => line.StartsWith("ID:"));
+                    MessageBox.Show(idLine);
+                    if (idLine != null)
+                    {
+                        string idString = idLine.Split(':')[1].Trim();  // Lấy giá trị ID
+                        MessageBox.Show("ID nhận diện được: " + idString);
+                        //Console.WriteLine("Python output: " + idString);
+                    }
+                }
+            }
         }
         private void TbUser_Enter(object? sender, EventArgs e)
         {
@@ -107,7 +239,7 @@ namespace Dental_Clinic.GUI.Login
         {
             DangNhap();
         }
-         
+
         private void DangNhap()
         {
             if (!KiemTraDauVao())
@@ -208,5 +340,7 @@ namespace Dental_Clinic.GUI.Login
                 DangNhap();
             }
         }
+
+      
     }
 }

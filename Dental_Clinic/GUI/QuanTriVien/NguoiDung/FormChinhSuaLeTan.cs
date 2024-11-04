@@ -1,5 +1,6 @@
 ﻿using Dental_Clinic.BUS.Admin;
 using Dental_Clinic.DAO.Admin;
+using Dental_Clinic.DTO.BacSi;
 using Dental_Clinic.DTO.LeTan;
 using System;
 using System.Collections.Generic;
@@ -42,6 +43,8 @@ namespace Dental_Clinic.GUI.Administrator.User
             dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
             dtpNgaySinh.Value = leTanDTO.NgaySinh;
             tbQueQuan.Text = leTanDTO.DiaChi;
+            tbTenTaiKhoan.Text = leTanDTO.TenDangNhap;
+            tbMatKhau.Text = leTanDTO.MatKhau;
         }
 
         public void ChinhSua()
@@ -90,6 +93,8 @@ namespace Dental_Clinic.GUI.Administrator.User
             leTanDTO.HeSoLuong = float.Parse(tbHeSoLuong.Text);
             leTanDTO.NgaySinh = dtpNgaySinh.Value; // Ngày sinh
             leTanDTO.DiaChi = tbQueQuan.Text;
+            leTanDTO.TenDangNhap = tbTenTaiKhoan.Text;
+            leTanDTO.MatKhau = tbMatKhau.Text;
 
             quanTriVienBUS.CapNhatLeTan(leTanDTO);
             quanTriVienBUS.LayThongTinLeTan(leTanDTO.Id);

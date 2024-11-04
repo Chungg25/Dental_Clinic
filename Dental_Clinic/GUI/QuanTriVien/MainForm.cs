@@ -11,16 +11,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dental_Clinic.GUI.Login;
 using System.Windows.Forms.DataVisualization.Charting;
+using Dental_Clinic.GUI.QuanTriVien.NguoiDung;
+using System.Diagnostics;
 
 namespace Dental_Clinic.GUI.Administrator
 {
     public partial class MainForm : Form
     {
-        private QuanTriVienDTO _userDTO;
+        private QuanTriVienDTO userDTO;
         public MainForm(QuanTriVienDTO userDTO)
         {
             InitializeComponent();
-            _userDTO = userDTO;
+            this.userDTO = userDTO;
             Initialize();
             this.Load += MainForm_Load;
         }
@@ -30,7 +32,7 @@ namespace Dental_Clinic.GUI.Administrator
             panelOption.Visible = false;
             panelNgonNgu1.Visible = false;
             panelChuDe.Visible = false;
-            string lastName = _userDTO.HoVaTen.Substring(_userDTO.HoVaTen.LastIndexOf(' ') + 1);
+            string lastName = userDTO.HoVaTen.Substring(userDTO.HoVaTen.LastIndexOf(' ') + 1);
             lbTen.Text = lastName;
         }
 
@@ -194,9 +196,38 @@ namespace Dental_Clinic.GUI.Administrator
             }
         }
 
-        private void label9_Click(object sender, EventArgs e)
-        {
+       
 
+        private void lbXemThongTin_Click(object sender, EventArgs e)
+        {
+            HienThongTinQuanTriVien();
+        }
+
+        public void HienThongTinQuanTriVien()
+        {
+            FormChinhSuaQuanTriVien formChinhSuaQuanTriVien = new FormChinhSuaQuanTriVien(this, userDTO);
+            formChinhSuaQuanTriVien.TopLevel = false; // Đặt salaryManagementForm không phải là form cấp cao nhất (TopLevel)
+            formChinhSuaQuanTriVien.FormBorderStyle = FormBorderStyle.None; // Xóa viền của salaryManagementForm
+            formChinhSuaQuanTriVien.Dock = DockStyle.Fill; // Đặt salaryManagementForm khớp với kích thước panel
+            panelTrangChu.Controls.Add(formChinhSuaQuanTriVien); // Thêm salaryManagementForm vào panel
+            formChinhSuaQuanTriVien.BringToFront();
+            formChinhSuaQuanTriVien.Show(); // Hiển thị salaryManagementForm
+        }
+
+        private void lbFaceID_Click(object sender, EventArgs e)
+        {
+            HienFaceID();
+        }
+
+        public void HienFaceID()
+        {
+            FormFaceID formFaceID = new FormFaceID(this, userDTO);
+            formFaceID.TopLevel = false; // Đặt salaryManagementForm không phải là form cấp cao nhất (TopLevel)
+            formFaceID.FormBorderStyle = FormBorderStyle.None; // Xóa viền của salaryManagementForm
+            formFaceID.Dock = DockStyle.Fill; // Đặt salaryManagementForm khớp với kích thước panel
+            panelTrangChu.Controls.Add(formFaceID); // Thêm salaryManagementForm vào panel
+            formFaceID.BringToFront();
+            formFaceID.Show(); // Hiển thị salaryManagementForm
         }
     }
 }

@@ -615,6 +615,9 @@
           }
         }
       },
+      "Python.Runtime/2.7.9": {
+        "type": "package"
+      },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
         "type": "package",
         "runtimeTargets": {
@@ -2814,6 +2817,18 @@
         "newtonsoft.json.13.0.1.nupkg.sha512",
         "newtonsoft.json.nuspec",
         "packageIcon.png"
+      ]
+    },
+    "Python.Runtime/2.7.9": {
+      "sha512": "NBS5t9KJvBVDoAFsVOQ79Ri133Hir8O6sqcEZJufXLVvlReXvzyZKhkcO5fpWcqjj6798qrWd/tO/TXCx2Ga7g==",
+      "type": "package",
+      "path": "python.runtime/2.7.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "python.exe",
+        "python.runtime.2.7.9.nupkg.sha512",
+        "python.runtime.nuspec"
       ]
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -6413,6 +6428,7 @@
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
       "HIC.System.Windows.Forms.DataVisualization >= 1.0.1",
+      "Python.Runtime >= 2.7.9",
       "System.Data.SqlClient >= 4.8.6",
       "itext7 >= 8.0.5",
       "itext7.bouncy-castle-adapter >= 8.0.5"
@@ -6425,11 +6441,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Đại học\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\Dental_Clinic.csproj",
+      "projectUniqueName": "D:\\DaiHoc\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\Dental_Clinic.csproj",
       "projectName": "Dental_Clinic",
-      "projectPath": "D:\\Đại học\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\Dental_Clinic.csproj",
+      "projectPath": "D:\\DaiHoc\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\Dental_Clinic.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "D:\\Đại học\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\obj\\",
+      "outputPath": "D:\\DaiHoc\\HK5\\CNPM\\Dental_Clinic\\Dental_Clinic\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -6471,6 +6487,10 @@
           "HIC.System.Windows.Forms.DataVisualization": {
             "target": "Package",
             "version": "[1.0.1, )"
+          },
+          "Python.Runtime": {
+            "target": "Package",
+            "version": "[2.7.9, )"
           },
           "System.Data.SqlClient": {
             "target": "Package",

@@ -44,9 +44,6 @@ namespace Dental_Clinic.GUI.Administrator.User
             panelDuLieu = new Panel();
             vbHuy = new CustomButton.VBButton();
             vbLuuThayDoi = new CustomButton.VBButton();
-            label10 = new Label();
-            cbChuyenNganh = new ComboBox();
-            vbButton9 = new CustomButton.VBButton();
             tbQueQuan = new TextBox();
             vbButton8 = new CustomButton.VBButton();
             tbHeSoLuong = new TextBox();
@@ -63,6 +60,15 @@ namespace Dental_Clinic.GUI.Administrator.User
             vbButton2 = new CustomButton.VBButton();
             vbButton5 = new CustomButton.VBButton();
             pbQuayVe = new PictureBox();
+            label11 = new Label();
+            cbChuyenNganh = new ComboBox();
+            vbButton10 = new CustomButton.VBButton();
+            tbTenTaiKhoan = new TextBox();
+            vbTenTaiKhoan = new CustomButton.VBButton();
+            label10 = new Label();
+            tbMatKhau = new TextBox();
+            vbMatKhau = new CustomButton.VBButton();
+            label12 = new Label();
             panel1.SuspendLayout();
             panelDuLieu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbQuayVe).BeginInit();
@@ -180,11 +186,17 @@ namespace Dental_Clinic.GUI.Administrator.User
             // panelDuLieu
             // 
             panelDuLieu.AccessibleRole = AccessibleRole.SplitButton;
+            panelDuLieu.Controls.Add(tbMatKhau);
+            panelDuLieu.Controls.Add(vbMatKhau);
+            panelDuLieu.Controls.Add(label12);
+            panelDuLieu.Controls.Add(tbTenTaiKhoan);
+            panelDuLieu.Controls.Add(vbTenTaiKhoan);
+            panelDuLieu.Controls.Add(label10);
+            panelDuLieu.Controls.Add(label11);
+            panelDuLieu.Controls.Add(cbChuyenNganh);
+            panelDuLieu.Controls.Add(vbButton10);
             panelDuLieu.Controls.Add(vbHuy);
             panelDuLieu.Controls.Add(vbLuuThayDoi);
-            panelDuLieu.Controls.Add(label10);
-            panelDuLieu.Controls.Add(cbChuyenNganh);
-            panelDuLieu.Controls.Add(vbButton9);
             panelDuLieu.Controls.Add(tbQueQuan);
             panelDuLieu.Controls.Add(vbButton8);
             panelDuLieu.Controls.Add(tbHeSoLuong);
@@ -256,46 +268,11 @@ namespace Dental_Clinic.GUI.Administrator.User
             vbLuuThayDoi.UseVisualStyleBackColor = false;
             vbLuuThayDoi.Click += vbLuuThayDoi_Click;
             // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Location = new Point(46, 391);
-            label10.Name = "label10";
-            label10.Size = new Size(102, 20);
-            label10.TabIndex = 22;
-            label10.Text = "Chuyên ngành";
-            // 
-            // cbChuyenNganh
-            // 
-            cbChuyenNganh.FormattingEnabled = true;
-            cbChuyenNganh.Location = new Point(56, 426);
-            cbChuyenNganh.Name = "cbChuyenNganh";
-            cbChuyenNganh.Size = new Size(725, 28);
-            cbChuyenNganh.TabIndex = 20;
-            // 
-            // vbButton9
-            // 
-            vbButton9.BackColor = Color.White;
-            vbButton9.BackgroundColor = Color.White;
-            vbButton9.BorderColor = Color.Black;
-            vbButton9.BorderRadius = 10;
-            vbButton9.BorderSize = 1;
-            vbButton9.FlatAppearance.BorderSize = 0;
-            vbButton9.FlatStyle = FlatStyle.Flat;
-            vbButton9.ForeColor = Color.White;
-            vbButton9.Location = new Point(47, 421);
-            vbButton9.Name = "vbButton9";
-            vbButton9.Size = new Size(743, 38);
-            vbButton9.TabIndex = 21;
-            vbButton9.Text = "vbButton9";
-            vbButton9.TextColor = Color.White;
-            vbButton9.UseVisualStyleBackColor = false;
-            // 
             // tbQueQuan
             // 
             tbQueQuan.Location = new Point(56, 339);
             tbQueQuan.Name = "tbQueQuan";
-            tbQueQuan.Size = new Size(725, 27);
+            tbQueQuan.Size = new Size(289, 27);
             tbQueQuan.TabIndex = 19;
             // 
             // vbButton8
@@ -310,7 +287,7 @@ namespace Dental_Clinic.GUI.Administrator.User
             vbButton8.ForeColor = Color.White;
             vbButton8.Location = new Point(45, 331);
             vbButton8.Name = "vbButton8";
-            vbButton8.Size = new Size(745, 38);
+            vbButton8.Size = new Size(309, 38);
             vbButton8.TabIndex = 18;
             vbButton8.Text = "vbButton8";
             vbButton8.TextColor = Color.White;
@@ -485,6 +462,109 @@ namespace Dental_Clinic.GUI.Administrator.User
             pbQuayVe.TabStop = false;
             pbQuayVe.Click += pbQuayVe_Click;
             // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(469, 299);
+            label11.Name = "label11";
+            label11.Size = new Size(102, 20);
+            label11.TabIndex = 27;
+            label11.Text = "Chuyên ngành";
+            // 
+            // cbChuyenNganh
+            // 
+            cbChuyenNganh.FormattingEnabled = true;
+            cbChuyenNganh.Location = new Point(479, 334);
+            cbChuyenNganh.Name = "cbChuyenNganh";
+            cbChuyenNganh.Size = new Size(289, 28);
+            cbChuyenNganh.TabIndex = 25;
+            // 
+            // vbButton10
+            // 
+            vbButton10.BackColor = Color.White;
+            vbButton10.BackgroundColor = Color.White;
+            vbButton10.BorderColor = Color.Black;
+            vbButton10.BorderRadius = 10;
+            vbButton10.BorderSize = 1;
+            vbButton10.FlatAppearance.BorderSize = 0;
+            vbButton10.FlatStyle = FlatStyle.Flat;
+            vbButton10.ForeColor = Color.White;
+            vbButton10.Location = new Point(470, 329);
+            vbButton10.Name = "vbButton10";
+            vbButton10.Size = new Size(307, 38);
+            vbButton10.TabIndex = 26;
+            vbButton10.Text = "vbButton10";
+            vbButton10.TextColor = Color.White;
+            vbButton10.UseVisualStyleBackColor = false;
+            // 
+            // tbTenTaiKhoan
+            // 
+            tbTenTaiKhoan.Location = new Point(57, 427);
+            tbTenTaiKhoan.Name = "tbTenTaiKhoan";
+            tbTenTaiKhoan.Size = new Size(135, 27);
+            tbTenTaiKhoan.TabIndex = 30;
+            // 
+            // vbTenTaiKhoan
+            // 
+            vbTenTaiKhoan.BackColor = Color.White;
+            vbTenTaiKhoan.BackgroundColor = Color.White;
+            vbTenTaiKhoan.BorderColor = Color.Black;
+            vbTenTaiKhoan.BorderRadius = 8;
+            vbTenTaiKhoan.BorderSize = 1;
+            vbTenTaiKhoan.FlatAppearance.BorderSize = 0;
+            vbTenTaiKhoan.FlatStyle = FlatStyle.Flat;
+            vbTenTaiKhoan.ForeColor = Color.White;
+            vbTenTaiKhoan.Location = new Point(46, 419);
+            vbTenTaiKhoan.Name = "vbTenTaiKhoan";
+            vbTenTaiKhoan.Size = new Size(155, 38);
+            vbTenTaiKhoan.TabIndex = 29;
+            vbTenTaiKhoan.Text = "vbButton9";
+            vbTenTaiKhoan.TextColor = Color.White;
+            vbTenTaiKhoan.UseVisualStyleBackColor = false;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(47, 383);
+            label10.Name = "label10";
+            label10.Size = new Size(97, 20);
+            label10.TabIndex = 28;
+            label10.Text = "Tên tài khoản";
+            // 
+            // tbMatKhau
+            // 
+            tbMatKhau.Location = new Point(480, 427);
+            tbMatKhau.Name = "tbMatKhau";
+            tbMatKhau.Size = new Size(135, 27);
+            tbMatKhau.TabIndex = 33;
+            // 
+            // vbMatKhau
+            // 
+            vbMatKhau.BackColor = Color.White;
+            vbMatKhau.BackgroundColor = Color.White;
+            vbMatKhau.BorderColor = Color.Black;
+            vbMatKhau.BorderRadius = 8;
+            vbMatKhau.BorderSize = 1;
+            vbMatKhau.FlatAppearance.BorderSize = 0;
+            vbMatKhau.FlatStyle = FlatStyle.Flat;
+            vbMatKhau.ForeColor = Color.White;
+            vbMatKhau.Location = new Point(469, 419);
+            vbMatKhau.Name = "vbMatKhau";
+            vbMatKhau.Size = new Size(155, 38);
+            vbMatKhau.TabIndex = 32;
+            vbMatKhau.Text = "vbButton11";
+            vbMatKhau.TextColor = Color.White;
+            vbMatKhau.UseVisualStyleBackColor = false;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(470, 383);
+            label12.Name = "label12";
+            label12.Size = new Size(70, 20);
+            label12.TabIndex = 31;
+            label12.Text = "Mật khẩu";
+            // 
             // FormChinhSuaBacSi
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -535,9 +615,15 @@ namespace Dental_Clinic.GUI.Administrator.User
         private CustomButton.VBButton vbButton5;
         private CustomButton.VBButton vbHuy;
         private CustomButton.VBButton vbLuuThayDoi;
-        private Label label10;
-        private ComboBox cbChuyenNganh;
-        private CustomButton.VBButton vbButton9;
         private PictureBox pbQuayVe;
+        private TextBox tbMatKhau;
+        private CustomButton.VBButton vbMatKhau;
+        private Label label12;
+        private TextBox tbTenTaiKhoan;
+        private CustomButton.VBButton vbTenTaiKhoan;
+        private Label label10;
+        private Label label11;
+        private ComboBox cbChuyenNganh;
+        private CustomButton.VBButton vbButton10;
     }
 }
