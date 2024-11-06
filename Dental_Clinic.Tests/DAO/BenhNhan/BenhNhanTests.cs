@@ -6,15 +6,13 @@ using Dental_Clinic.DTO.Patient;
 
 namespace Dental_Clinic.Tests.DAO.BenhNhan
 {
-    public class BenhNhanDAOIntegrationTests : IClassFixture<DatabaseFixture>
+    public class BenhNhanTests
     {
         private readonly BenhNhanDAO _benhNhanDAO;
-        private readonly SqlConnection _testConnection;
 
-        public BenhNhanDAOIntegrationTests(DatabaseFixture fixture)
+        public BenhNhanTests()
         {
             // Use the test database connection from the fixture
-            _testConnection = fixture.TestDatabaseConnection;
             _benhNhanDAO = new BenhNhanDAO();
         }
 
@@ -66,30 +64,5 @@ namespace Dental_Clinic.Tests.DAO.BenhNhan
             // Assert
             Assert.NotEqual(benhNhanThongTinCu, benhNhanThongTinMoi);
         }
-
-        /*
-        TODO: Thang nao viet cai procedure ThemBenhNhan thi coi lai ban than !!!!!
-         */   
-        // [Fact]
-        // public void BenhNhanDAO_ThemBenhNhan_ThemBenhNhanMoi()
-        // {
-        //     // Arrange
-        //     BenhNhanDTO benhNhanMoi = new BenhNhanDTO
-        //     {
-        //         HoVaTen = "Nguyen Van A",
-        //         SDT = "0123456789",
-        //         DiaChi = "123 Pho Hue",
-        //         GioiTinh = true,
-        //         Tuoi = 25
-        //     };
-
-        //     // Act
-        //     _benhNhanDAO.ThemBenhNhan(benhNhanMoi);
-
-        //     // Assert
-        //     BenhNhanDTO benhNhanVuaThem = _benhNhanDAO.LayThongTinBenhNhan(benhNhanMoi.Id);
-        //     Assert.NotNull(benhNhanVuaThem);
-        //     Assert.Equal(benhNhanMoi, benhNhanVuaThem);
-        // }
     }
 }

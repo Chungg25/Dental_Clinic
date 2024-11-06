@@ -7,14 +7,12 @@ using System.Data.SqlClient;
 
 namespace Dental_Clinic.Tests.DAO.Luong
 {
-    public class LuongDAOTests : IClassFixture<DatabaseFixture>
+    public class LuongTests 
     {
         private readonly LuongDAO _luongDAO;
-        private readonly SqlConnection _testConnection;
 
-        public LuongDAOTests(DatabaseFixture fixture)
+        public LuongTests( )
         {
-            _testConnection = fixture.TestDatabaseConnection;
             _luongDAO = new LuongDAO();
         }
 
@@ -96,9 +94,6 @@ namespace Dental_Clinic.Tests.DAO.Luong
 
             // Assert
             Assert.NotNull(ketQua);
-
-            // Chup thoi, chay thi comment lai :)
-            // Assert.Equal(id, ketQua.Id);
         }
     }
 }

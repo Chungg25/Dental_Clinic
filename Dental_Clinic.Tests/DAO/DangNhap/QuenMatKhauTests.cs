@@ -4,14 +4,12 @@ using System.Data.SqlClient;
 
 namespace Dental_Clinic.Tests.DAO.DangNhap
 {
-    public class QuenMatKhauDAOTests : IClassFixture<DatabaseFixture>
+    public class QuenMatKhauTests
     {
         private readonly QuenMatKhauDAO _quenMatKhauDAO;
-        private readonly SqlConnection _ketNoiKiemThu;
 
-        public QuenMatKhauDAOTests(DatabaseFixture fixture)
+        public QuenMatKhauTests()
         {
-            _ketNoiKiemThu = fixture.TestDatabaseConnection;
             _quenMatKhauDAO = new QuenMatKhauDAO();
         }
 
@@ -35,8 +33,8 @@ namespace Dental_Clinic.Tests.DAO.DangNhap
         public void QuenMatKhauDAO_KiemTraEmailTonTai_TrueNeuTonTaiNguocLaiFalse()
         {
             // Arrange
-            string emailDung = "admin1@gmail.com"; // Email tồn tại trong DB thử nghiệm
-            string emailSai = "emailSaiDuDanLuon@example.com"; // Email không tồn tại
+            string emailDung = "admin1@gmail.com";
+            string emailSai = "emailSaiDuDanLuon@example.com"; 
 
             // Act
             bool ketQuaDung = _quenMatKhauDAO.KiemTraMail(emailDung);
@@ -51,15 +49,15 @@ namespace Dental_Clinic.Tests.DAO.DangNhap
         public void QuenMatKhauDAO_MatKhau_TraVeMatKhau()
         {
             // Arrange
-            string email = "admin1@gmail.com"; // Email hợp lệ trong DB thử nghiệm
-            string tenDangNhap = "admin1"; // Tên đăng nhập hợp lệ
+            string email = "admin1@gmail.com"; 
+            string tenDangNhap = "admin1";
 
             // Act
             string matKhau = _quenMatKhauDAO.MatKhau(email, tenDangNhap);
 
             // Assert
             Assert.NotNull(matKhau);
-            Assert.Equal("pass123", matKhau); // Thay thế bằng mật khẩu mong đợi từ DB
+            Assert.Equal("pass123", matKhau); 
         }
     }
 }

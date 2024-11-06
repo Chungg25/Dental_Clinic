@@ -9,14 +9,12 @@ using System.Data.SqlClient;
 
 namespace Dental_Clinic.Tests.DAO.Admin
 {
-    public class QuanTriVienDAOTests : IClassFixture<DatabaseFixture>
+    public class QuanTriVienTests
     {
         private readonly QuanTriVienDAO _quanTriVienDAO;
-        private readonly SqlConnection _testConnection;
 
-        public QuanTriVienDAOTests(DatabaseFixture fixture)
+        public QuanTriVienTests( )
         {
-            _testConnection = fixture.TestDatabaseConnection;
             _quanTriVienDAO = new QuanTriVienDAO();
         }
 

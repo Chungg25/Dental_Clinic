@@ -7,15 +7,13 @@ using System.Data.SqlClient;
 
 namespace Dental_Clinic.Tests.DAO.VatTu
 {
-    public class VatTuDAOTests : IClassFixture<DatabaseFixture>
+    public class VatTuTests 
     {
         private readonly VatTuDAO _vatTuDAO;
-        private readonly SqlConnection _testConnection;
 
-        public VatTuDAOTests(DatabaseFixture fixture)
+        public VatTuTests( )
         {
             // Sử dụng kết nối cơ sở dữ liệu từ fixture
-            _testConnection = fixture.TestDatabaseConnection;
             _vatTuDAO = new VatTuDAO();
         }
 
@@ -97,12 +95,6 @@ namespace Dental_Clinic.Tests.DAO.VatTu
 
             // Kiểm tra
             Assert.NotNull(ketQua);
-
-            // Chup thi chup dong nay
-            // Assert.Equal(id, ketQua.Id);
-
-            // Luc chay thi chay dong nay
-            // Assert.Equal(id, 4); 
         }
 
         [Fact]

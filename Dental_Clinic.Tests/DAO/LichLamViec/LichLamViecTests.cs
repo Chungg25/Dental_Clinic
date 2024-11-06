@@ -8,14 +8,12 @@ using System.Data.SqlClient;
 
 namespace Dental_Clinic.Tests.DAO.LichLamViec
 {
-    public class LichLamViecDAOTests : IClassFixture<DatabaseFixture>
+    public class LichLamViecTests 
     {
         private readonly LichLamViecDAO _lichLamViecDAO;
-        private readonly SqlConnection _testConnection;
 
-        public LichLamViecDAOTests(DatabaseFixture fixture)
+        public LichLamViecTests()
         {
-            _testConnection = fixture.TestDatabaseConnection;
             _lichLamViecDAO = new LichLamViecDAO();
         }
 

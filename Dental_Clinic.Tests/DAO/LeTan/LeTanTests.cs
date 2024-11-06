@@ -10,14 +10,12 @@ using System.Data.SqlClient;
 
 namespace Dental_Clinic.Tests.DAO.LeTan
 {
-    public class LeTanDAOTests : IClassFixture<DatabaseFixture>
+    public class LeTanTests
     {
-        private readonly SqlConnection _testConnection;
         private readonly LeTanDAO _leTanDAO;
 
-        public LeTanDAOTests(DatabaseFixture fixture)
+        public LeTanTests()
         {
-            _testConnection = fixture.TestDatabaseConnection;
             _leTanDAO = new LeTanDAO();
         }
 

@@ -5,14 +5,12 @@ using System.Data.SqlClient;
 
 namespace Dental_Clinic.Tests.DAO.ThongKe
 {
-    public class ThongKeDAOTests : IClassFixture<DatabaseFixture>
+    public class ThongKeTests
     {
         private readonly ThongKeDAO _thongKeDAO;
-        private readonly SqlConnection _testConnection;
 
-        public ThongKeDAOTests(DatabaseFixture fixture)
+        public ThongKeTests( )
         {
-            _testConnection = fixture.TestDatabaseConnection;
             _thongKeDAO = new ThongKeDAO();
         }
 
