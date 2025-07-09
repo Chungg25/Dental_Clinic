@@ -1,7 +1,0 @@
-Xanh nh?t: #A3D3E5
-Tr?ng: #FFFFFF
-Xanh d??ng ??m: #0072BB
-Xám nh?t: #F5F5F5
-Xám ??m: #4A4A4A
-Xanh lá cây nh?t: #85C88A
-Cam nh?t: #F5A623
